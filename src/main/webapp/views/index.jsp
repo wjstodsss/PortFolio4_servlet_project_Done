@@ -45,7 +45,7 @@
 				<ul>
 					<li><input type="button" value="로그인" id="loginButton" onclick="goTOLoginForm()" class="header-nav"></li>
 					<li>|</li>
-					<li><input type="button" class="header-nav" onclick="location.href='/signup'" value='회원가입'></li>
+					<li><input type="button" class="header-nav" onclick="goTORegisterForm()" value='회원가입'></li>
 					<li>|</li>
 					<li><a href="#" class="header-nav">고객센터</a></li>
 					<li>|</li>

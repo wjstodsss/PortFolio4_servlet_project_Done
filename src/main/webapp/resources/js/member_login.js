@@ -18,6 +18,14 @@ function goTOLoginForm() {
 }
 
 
+
+function goTORegisterForm() {
+	console.log("dsdfsdfasdfsadfs")
+    window.location.href = "banchan?command=register_form";
+}
+
+
+
 function login() {
     
     var userId = document.getElementById("userId").value;
