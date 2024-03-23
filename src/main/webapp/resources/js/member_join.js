@@ -1,5 +1,4 @@
-function goTOIndex() {
-	console.log("ffffffffffffffffffffffffffff")
+function goToIndex() {
 	window.location.href = "banchan?command=index";
 }
 
@@ -82,6 +81,3 @@ function joinCheck() {
 	}
 	return true;
 }
-
-
-

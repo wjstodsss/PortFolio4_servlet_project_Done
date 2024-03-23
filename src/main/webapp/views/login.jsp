@@ -6,11 +6,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login Test</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<link href="resources/css/member_login.css" rel="stylesheet">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!--  
+<link href="resources/css/member_login.css" rel="stylesheet">
+ -->
 <script src="../resources/js/member_login.js"></script>
+
+<style>
+.container {
+    max-width: 30%;
+}
+
+.btn-signup {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-signup:hover {
+    color: #fff;
+    background-color: #495057;
+    border-color: #495057;
+}
+
+</style>
 </head>
 <body>
 

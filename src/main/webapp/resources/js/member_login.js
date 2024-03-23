@@ -9,18 +9,15 @@ function checkLoginState() {
     } else {
         console.log("false")
         document.getElementById("loginButton").value = "로그인";
-        document.getElementById("loginButton").setAttribute("onclick", "goTOLoginForm()");
+        document.getElementById("loginButton").setAttribute("onclick", "goToLoginForm()");
     }
 }
 
-function goTOLoginForm() {
+function goToLoginForm() {
     window.location.href = "banchan?command=login_form";
 }
 
-
-
-function goTORegisterForm() {
-	console.log("dsdfsdfasdfsadfs")
+function goToRegisterForm() {
     window.location.href = "banchan?command=register_form";
 }
 
@@ -47,6 +44,9 @@ function login() {
     xhr.send("userId=" + userId + "&userPassword=" + userPassword);
     
 }
+
+
+
 function logout() {
     // sessionStorage에서 토큰을 삭제합니다.
     sessionStorage.removeItem("token");

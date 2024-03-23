@@ -12,7 +12,7 @@
 
 <title>꼴뚜기의 첫번째 프로젝트</title>
 <link href="/resources/css/reset.css" rel="stylesheet">
-<link href="/resources/css/main3.css" rel="stylesheet">
+
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -23,7 +23,785 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="../resources/js/member_login.js"></script>
+<!-- 
+		<script src="../resources/js/member_login.js"></script>	
+		<link href="/resources/css/main.css" rel="stylesheet">
+	 -->
+<style>
+@charset "utf-8";
+
+/* top banner */
+#topBanner {
+    display: flex;
+    height: 73px;
+    background-color: rgb(245, 245, 245);
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+}
+
+#topBanner>a>img {
+    width: 980px;
+    height: 73px;
+    background-color: rgb(255, 255, 255);
+   
+    margin-left: -20px;
+}
+
+#topBanner>#topClose {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background-image: url("../img/top_banner/top_close.png");
+    margin-left: -50px;
+}
+
+/* header */
+header {
+    width: 980px;
+    height: 168px;
+    margin: 0 auto;
+}
+
+header>#topHeader {
+    width: 980px;
+    height: 38px;
+    margin: 0 auto;
+}
+
+header>#topHeader>#appDown {
+    float: left;
+    width: 107px;
+    height: 18px;
+    background-color: rgb(154, 205, 255);
+    margin-top: 10px;
+}
+
+header>#topHeader>#appDown>button {
+    float: left;
+    width: 107px;
+    height: 18px;
+    background-color: rgb(255, 255, 255);
+    margin: 0 auto;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+header>#topHeader>nav> {
+    float: right;
+    width: 278px;
+    height: 38px;
+    font-size: 10px;
+}
+
+header>#topHeader>nav>ul {
+    float: right;
+}
+
+header>#topHeader>nav>ul>li {
+    float: left;
+    line-height: 38px;
+    
+    color: rgb(225, 225, 255);
+}
+
+.header-nav {
+    font-size: 12px;
+    font-family: "Noto Sans KR", dotum, 돋움, gulim, 굴림, sans-serif;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    margin: 0 5px;
+}
+
+header>#topHeader>nav>ul>li>#cartBold {
+    font-weight: bold;
+}
+
+header>#middleHeader {
+    width: 980px;
+    height: 82px;
+    text-align: center;
+}
+
+header>#middleHeader>nav {
+    width: 224px;
+    height: 20px;
+
+}
+
+header>#middleHeader>nav>ul {
+    float: left;
+    margin-right: 5px;
+}
+
+
+header>#middleHeader>nav>ul>li {
+    float: left;
+    margin-right: 5px;
+    margin-top: 30px;
+}
+
+header>#middleHeader>nav>ul>li>a {
+    width: 280px;
+    height: 15px;
+    font-size: 15px;
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+}
+
+header>#middleHeader>#logo {
+    float: left;
+    width: 174px;
+    height: 39px;
+    margin-left: 183px;
+}
+
+header>#middleHeader>#logo>a>img {
+    width: 100%;
+    height: 100%;
+}
+
+header>#middleHeader>#searchInput {
+    float: right;
+    width: 180px;
+    height: 22px;
+    border-bottom: 1px solid rgb(255, 0, 0);
+    margin-top: 15px;
+    margin-right: 15px;
+}
+
+header>#middleHeader>#searchInput>#inputWord {
+    float: left;
+    width: 150px;
+    height: 21px;
+    outline: none;
+    background: none;
+    caret-color: rgb(255, 0, 0);
+    margin-left: 5px;
+}
+
+header>#middleHeader>#searchInput>#searchButton {
+    background-image: url(../img/header_middle/search_button.png);
+    background-size: cover;
+    width: 21px;
+    height: 21px;
+    background-color: transparent;
+}
+
+header>#bottomHeader {
+    float: left;
+    width: 100%;
+    height: 48px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    font-size: 15px;
+}
+
+header>#bottomHeader>button {
+    display: block;
+    width: 120px;
+    height: 46px;
+    background-color: rgb(255, 0, 0);
+    color: #ffffff;
+    outline: none;
+    float: left;
+    font-weight: 1000;
+    cursor: pointer;
+}
+
+header>#bottomHeader>nav {
+    float: left;
+    width: 740px;
+    height: 48px;
+
+}
+
+header>#bottomHeader>nav>ul>li {
+    display: inline-block;
+    margin-left: 17px;
+    line-height: 48px;
+}
+
+header>#bottomHeader>nav>ul>li>a {
+    color: inherit;
+    font-weight: 600;
+    padding: 12px 0;
+    font-family: inherit;
+}
+
+header>#bottomHeader>p {
+    display: block;
+    float: right;
+    width: 118px;
+    height: 48px;
+    line-height: 48px;
+    color: #ccc;
+    font-weight: bold;
+}
+
+header>#bottomHeader>p>span>a {
+    display: inline-block;
+    font-weight: bold;
+    color: red;
+    margin-left: 10px;
+}
+
+/* slider */
+#slider {
+    display: flex;
+    width: 100%;
+    height: 414px;
+    background-color: #FAF7F5;
+    align-items: center;
+    justify-content: center;
+}
+
+#slider>img {
+    position: absolute;
+}
+
+#mobileAward {
+    opacity: 1;
+}
+
+#delivery {
+    opacity: 1;
+}
+
+#slider>ul>li {
+    float: left;
+}
+
+#slider>ul>li> {
+    color: #ffffff;
+    position: absolute;
+
+}
+
+/* sub pages */
+
+.subPages {
+    margin: 0 auto;
+    width: 980px;
+    display: flex;
+    /* flex-direction: column; */
+    /* border: 1px solid #ccc; */
+    flex-wrap: wrap;
+}
+
+.subPages>.subPagesTitle {
+    float: left;
+    width: 980px;
+    height: 80px;
+    text-align: center;
+    line-height: 100px;
+}
+
+
+.subPages>.subPagesTitle>span {
+    margin-left: 60px;
+    font-weight: 150;
+}
+
+.subPages>.productInfo {
+    float: left;
+    width: 298px;
+    height: 430px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    box-sizing: content-box;
+}
+
+.subPages>.productInfo:hover {
+    border: 1px solid #000000;
+}
+
+.subPages>.productInfo>.productImage {
+    float: left;
+    width: 298px;
+    height: 298px;
+    position: absolute;
+}
+
+.subPages>.productInfo>.item {
+    width: 298px;
+    height: 128px;
+    margin-top: 298px;
+    padding: 20px;
+
+}
+
+.subPages>.productInfo>.item>.productName {
+    width: 100%;
+    height: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.subPages>.productInfo>.item>.productIntro {
+    width: 100%;
+    height: 20px;
+    margin-top: 3px;
+    font-size: 12px;
+}
+
+.subPages>.productInfo>.item>.productPrice {
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: rgb(255, 0, 0);
+}
+
+/* sub end */
+
+/* section signature*/
+
+.middleSection {
+    width: 980px;
+    height: 560px;
+
+}
+
+.middleSection>h2 {
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.middleSection>h2>span {
+    font-weight: 150;
+}
+
+.middleSection>.leftButton {
+    float: left;
+    width: 38px;
+    height: 39px;
+    background-image: url(../img/etc/icon_arrow_left.png);
+    background-size: covor;
+    margin-left: 904px;
+}
+
+.middleSection>.rightButton {
+    float: left;
+    width: 38px;
+    height: 39px;
+    background-image: url(../img/etc/icon_arrow_right.png);
+    background-size: covor;
+    margin-top: -39px;
+    margin-left: 942px;
+}
+
+.middleSection>.productInfo {
+    float: left;
+    width: 298px;
+    height: 430px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    box-sizing: content-box;
+}
+
+.middleSection>.productInfo:hover {
+    border: 1px solid #000000;
+}
+
+.middleSection>.productInfo>.productImage {
+    float: left;
+    width: 298px;
+    height: 298px;
+    position: absolute;
+}
+
+.middleSection>.productInfo>.item {
+    width: 298px;
+    height: 128px;
+    margin-top: 298px;
+    padding: 20px;
+}
+
+
+
+.middleSection>.productInfo>.item>.productName {
+    width: 100%;
+    height: 24px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.middleSection>.productInfo>.item>.productIntro {
+    width: 100%;
+    height: 20px;
+    margin-top: 3px;
+    font-size: 12px;
+}
+
+.middleSection>.productInfo>.item>.productPrice {
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: rgb(255, 0, 0);
+}
+
+/* rows section 01 */
+.rowsSection {
+    width: 980px;
+    height: 500px;
+}
+
+.rowsSection>h2 {
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.rowsSection>h2>span {
+    font-weight: 150;
+}
+
+.rowsSection>.leftButton {
+    float: left;
+    width: 38px;
+    height: 39px;
+    background-image: url(../img/etc/icon_arrow_left.png);
+    margin-left: 904px;
+}
+
+.rowsSection>.rightButton {
+    float: left;
+    width: 38px;
+    height: 39px;
+    background-image: url(../img/etc/icon_arrow_right.png);
+
+    margin-top: -39px;
+    margin-left: 942px;
+}
+
+.rowsSection>.rowsInformation {
+    float: left;
+    width: 224px;
+    height: 360px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    margin-left: 9px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    box-sizing: content-box;
+}
+
+.rowsSection>.rowsInformation:nth-of-type(1) {
+    margin-left: 21px;
+}
+
+.rowsSection>.rowsInformation:hover {
+    border: 1px solid #000000;
+}
+
+.rowsSection>.rowsInformation>.rowsProductImage {
+    float: left;
+    width: 224px;
+    height: 224px;
+    position: absolute;
+}
+
+.rowsSection>.rowsInformation>.rowsItem {
+    width: 224px;
+    height: 128px;
+    margin-top: 230px;
+    padding: 20px;
+}
+
+.rowsSection>.rowsInformation>.rowsItem>.rowsProductName {
+    width: 100%;
+    height: 24px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.rowsSection>.rowsInformation>.rowsItem>.rowsProductIntro {
+    width: 100%;
+    height: 20px;
+    margin-top: 3px;
+    font-size: 12px; /* Changed font-size to 12px */
+}
+
+.rowsSection>.rowsInformation>.rowsItem>.rowsProductPrice {
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: rgb(255, 0, 0);
+}
+
+.bottomSection {
+    float: left;
+    width: 980px;
+    height: 55px;
+    text-align: center;
+    line-height: 55px;
+    font-size: bold;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    cursor: pointer;
+}
+
+/* rows section 02 - rows section 07 (similar styles, only class names differ) */
+.rowsSection>.rowsInformation2,
+.rowsSection>.rowsInformation3,
+.rowsSection>.rowsInformation4,
+.rowsSection>.rowsInformation5,
+.rowsSection>.rowsInformation6,
+.rowsSection>.rowsInformation7 {
+    float: left;
+    width: 224px;
+    height: 360px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    margin-left: 9px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    box-sizing: content-box;
+}
+
+.rowsSection>.rowsInformation2:nth-of-type(1),
+.rowsSection>.rowsInformation3:nth-of-type(1),
+.rowsSection>.rowsInformation4:nth-of-type(1),
+.rowsSection>.rowsInformation5:nth-of-type(1),
+.rowsSection>.rowsInformation6:nth-of-type(1),
+.rowsSection>.rowsInformation7:nth-of-type(1) {
+    margin-left: 21px;
+}
+
+.rowsSection>.rowsInformation2:hover,
+.rowsSection>.rowsInformation3:hover,
+.rowsSection>.rowsInformation4:hover,
+.rowsSection>.rowsInformation5:hover,
+.rowsSection>.rowsInformation6:hover,
+.rowsSection>.rowsInformation7:hover {
+    border: 1px solid #000000;
+}
+
+.rowsSection>.rowsInformation2>.rowsProductImage2,
+.rowsSection>.rowsInformation3>.rowsProductImage3,
+.rowsSection>.rowsInformation4>.rowsProductImage4,
+.rowsSection>.rowsInformation5>.rowsProductImage5,
+.rowsSection>.rowsInformation6>.rowsProductImage6,
+.rowsSection>.rowsInformation7>.rowsProductImage7 {
+    float: left;
+    width: 224px;
+    height: 224px;
+    position: absolute;
+}
+
+.rowsSection>.rowsInformation2>.rowsItem2,
+.rowsSection>.rowsInformation3>.rowsItem3,
+.rowsSection>.rowsInformation4>.rowsItem4,
+.rowsSection>.rowsInformation5>.rowsItem5,
+.rowsSection>.rowsInformation6>.rowsItem6,
+.rowsSection>.rowsInformation7>.rowsItem7 {
+    width: 224px;
+    height: 128px;
+    margin-top: 230px;
+    padding: 20px;
+}
+
+.rowsSection>.rowsInformation2>.rowsItem2>.rowsProductName2,
+.rowsSection>.rowsInformation3>.rowsItem3>.rowsProductName3,
+.rowsSection>.rowsInformation4>.rowsItem4>.rowsProductName4,
+.rowsSection>.rowsInformation5>.rowsItem5>.rowsProductName5,
+.rowsSection>.rowsInformation6>.rowsItem6>.rowsProductName6,
+.rowsSection>.rowsInformation7>.rowsItem7>.rowsProductName7 {
+    width: 100%;
+    height: 24px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.rowsSection>.rowsInformation2>.rowsItem2>.rowsProductIntro2,
+.rowsSection>.rowsInformation3>.rowsItem3>.rowsProductIntro3,
+.rowsSection>.rowsInformation4>.rowsItem4>.rowsProductIntro4,
+.rowsSection>.rowsInformation5>.rowsItem5>.rowsProductIntro5,
+.rowsSection>.rowsInformation6>.rowsItem6>.rowsProductIntro6,
+.rowsSection>.rowsInformation7>.rowsItem7>.rowsProductIntro7 {
+    width: 100%;
+    height: 40px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-size: 12px; /* Changed font-size to 12px */
+}
+
+.rowsSection>.rowsInformation2>.rowsItem2>.rowsProductPrice2,
+.rowsSection>.rowsInformation3>.rowsItem3>.rowsProductPrice3,
+.rowsSection>.rowsInformation4>.rowsItem4>.rowsProductPrice4,
+.rowsSection>.rowsInformation5>.rowsItem5>.rowsProductPrice5,
+.rowsSection>.rowsInformation6>.rowsItem6>.rowsProductPrice6,
+.rowsSection>.rowsInformation7>.rowsItem7>.rowsProductPrice7 {
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: rgb(255, 0, 0);
+}
+
+
+
+
+/*footer*/
+footer {
+    width: 980px;
+    height: 240px;
+    padding-top: 30px;
+    margin: 0 auto;
+    border-top: 1px solid #ccc;
+}
+
+footer>#info01 {
+    float: left;
+    width: 530px;
+    height: 210px;
+    border: 1px solid #ccc;
+    line-height: 50px;
+}
+
+footer>#info01>img {
+    width: 460px;
+    height: 180px;
+    margin-top: 15px;
+    margin-left: 40px;
+}
+
+footer>#info02 {
+    float: right;
+    width: 432px;
+    height: 60px;
+    border: 1px solid #ccc;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+}
+
+footer>#info02>p {
+    float: left;
+    width: 78px;
+    height: 17px;
+    line-height: 58px;
+    margin-left: 10px;
+}
+
+footer>#info02>#footerSlider {
+    float: left;
+    width: 270px;
+    height: 30px;
+    padding-left: 7px;
+    line-height: 60px;
+    font-size: 14px;
+    color: #666;
+}
+
+footer>#info03 {
+    float: right;
+    width: 430px;
+    height: 140px;
+    border: 1px solid #ccc;
+    margin: 10px 0 0 10px;
+}
+
+footer>#info03>div {
+    float: left;
+    width: 70px;
+    height: 100px;
+    text-align: center;
+}
+
+footer>#info03>div>.icon {
+    float: right;
+    width: 66px;
+    height: 66px;
+    margin-top: 23px;
+    margin-left: 100px;
+}
+
+footer>#info03>p {
+    float: left;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    margin: 20px 0 0 20px;
+}
+
+footer>#info03>div>p {
+    float: left;
+    width: 70px;
+    height: 30px;
+    line-height: 45px;
+    color: #666;
+    font-size: 12px;
+}
+
+
+footer>#footerBottom {
+    float: left;
+    width: 980px;
+    height: 240px;
+    border-top: 3px solid #ccc;
+    margin: 20px 0;
+}
+
+footer>#footerBottom>#top {
+    float: left;
+    width: 260px;
+    height: 50px;
+    line-height: 55px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+footer>#footerBottom>#top>a {
+    margin: 0 8px 0 0
+}
+
+footer>#footerBottom>#middle1 {
+    float: left;
+    width: 785px;
+    height: 80px;
+    color: #666;
+    font-size: 13px;
+    margin: 50px -260px
+}
+
+footer>#footerBottom>img {
+    float: left;
+    width: 433px;
+    height: 53px;
+    margin: 120px -535px
+}
+
+footer>#footerBottom>#right {
+    float: right;
+    width: 154px;
+    height: 90px;
+    color: #000;
+    margin-top: 50px;
+    font-size: 14px;
+    font-style: inherit;
+}
+
+footer>#footerBottom>#right>span {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+footer>#footerBottom>#right>#tel {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+</style>
 
 </head>
 
@@ -43,9 +821,11 @@
 			</div>
 			<nav>
 				<ul>
-					<li><input type="button" value="로그인" id="loginButton" onclick="goTOLoginForm()" class="header-nav"></li>
+					<li><input type="button" value="로그인" id="loginButton"
+						onclick="goToLoginForm()" class="header-nav"></li>
 					<li>|</li>
-					<li><input type="button" class="header-nav" onclick="goTORegisterForm()" value='회원가입'></li>
+					<li><input type="button" class="header-nav"
+						onclick="goToRegisterForm()" value='회원가입'></li>
 					<li>|</li>
 					<li><a href="#" class="header-nav">고객센터</a></li>
 					<li>|</li>
@@ -486,7 +1266,6 @@
         */
 
         const SIGNBANCHAN = ['순한진미채볶음 75g', '새우볶음 75g', '진가네 겉절이김치 500g', '소고기장조림 400g', '오이소박이 500g', '동그랑땡 8개/300g', '청양고추멸치볶음 100g', '생깻잎김치 100g', '새우볶음 300g', '지리멸치볶음 300g', '[도매전용] 지리멸치볶음 *g', '청양고추멸치볶음 300g', '[도매전용] 새우볶음 *g', '고들빼기김치 1kg', '지리멸치볶음 75g']
-
         const HARU_SET_INFORMATION = "하루반찬 Set1 미역줄기볶음,순한진미채볶음,수제카레 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 미역줄기볶음,순한진미채볶음,수제카레 장바구니 담기 하루반찬 Set2 깨순조림,지리멸치볶음,수제짜장 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 깨순조림,지리멸치볶음,수제짜장 장바구니 담기 하루반찬 Set3 건취나물볶음,쥐포간장볶음,무말랭이김치 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 건취나물볶음,쥐포간장볶음,무말랭이김치 장바구니 담기 품절 하루반찬 Set4 계란말이,순한진미채볶음,부지깽이나물볶음 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 계란말이,순한진미채볶음,부지깽이나물볶음 하루반찬 Set5 닭가슴살장조림,새우볶음,오이나물양념무침 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 닭가슴살장조림,새우볶음,오이나물양념무침 장바구니 담기 하루반찬 Set6 우삼겹강된장소스,건취나물볶음,우엉채조림 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 우삼겹강된장소스,건취나물볶음,우엉채조림 장바구니 담기 하루반찬 Set7 오징어채간장볶음,밥비벼먹는볶음김치,메추리알감자샐러드 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 오징어채간장볶음,밥비벼먹는볶음김치,메추리알감자샐러드 장바구니 담기 하루반찬 Set8 닭가슴살겨자소스냉채,대왕오징어간장조림,청양고추멸치볶음 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 닭가슴살겨자소스냉채,대왕오징어간장조림,청양고추멸치볶음 장바구니 담기 하루반찬 Set9 메추리알장조림,다시마채액젓무침,가지양념볶음 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 메추리알장조림,다시마채액젓무침,가지양념볶음 "
         const HARU_SET = ['하루반찬 Set1', '하루반찬 Set2', '하루반찬 Set3', '하루반찬 Set4', '하루반찬 Set5', '하루반찬 Set6', '하루반찬 Set7', '하루반찬 Set8', '하루반찬 Set9'];
         const HARU_SET_IMAGE = ['/resources/img/product/haru/haru001.jpg', '/resources/img/product/haru/haru002.jpg', '/resources/img/product/haru/haru003.jpg', '/resources/img/product/haru/haru004.jpg', '/resources/img/product/haru/haru005.jpg', '/resources/img/product/haru/haru006.jpg', '/resources/img/product/haru/haru007.jpg', '/resources/img/product/haru/haru008.jpg', '/resources/img/product/haru/haru009.jpg']
@@ -1100,22 +1879,7 @@
             return console.log("[ERROR] 꼴뚜기님 createCategoryManager 코드를 확인하세요")
         }
         
-     /* 로그인 아웃 */   
-     
-     	<%
-    // 세션에서 userId 가져오기
-    		String userId = (String) session.getAttribute("userId");
-     		System.out.println(session.getAttribute("userId"));
-		%>
-		// 서버에서 받아온 세션 정보를 클라이언트 측 변수에 할당
-	    var userId = "<%= userId %>";
 
-	    // 로그인 상태 확인 함수
-	    function isUserLoggedIn() {
-	    	console.log(userId !== null );
-	        return userId !== null;
-	    }
-	    
         // 메인페이지 실행문
         sliderStart()
         startBoardInterval();
@@ -1128,6 +1892,77 @@
         buttonEvent7();
         buttonEvent8();
         
+        
+        function checkLoginState() {
+            var token = sessionStorage.getItem("token");
+            console.log(token+"ffffffffff")
+            if (token) {
+                console.log("ok")
+                document.getElementById("loginButton").value = "로그아웃";
+                document.getElementById("loginButton").setAttribute("onclick", "logout()");
+                
+            } else {
+                console.log("false")
+                document.getElementById("loginButton").value = "로그인";
+                document.getElementById("loginButton").setAttribute("onclick", "goToLoginForm()");
+            }
+        }
+
+        function goToLoginForm() {
+            window.location.href = "banchan?command=login_form";
+        }
+
+        function goToRegisterForm() {
+            window.location.href = "banchan?command=register_form";
+        }
+
+
+
+        function login() {
+            
+            var userId = document.getElementById("userId").value;
+            var userPassword = document.getElementById("userPassword").value;
+          
+            // AJAX를 사용하여 서버에 로그인 요청을 보냄
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "banchan?command=member_login", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var token = xhr.responseText;
+                    sessionStorage.setItem("token", token);
+                    window.location.href = "banchan?command=index";
+                } else if (xhr.readyState === 4 && xhr.status === 401) {
+                    alert("Invalid username or password.");
+                }
+            };
+            xhr.send("userId=" + userId + "&userPassword=" + userPassword);
+            
+        }
+
+
+
+        function logout() {
+            // sessionStorage에서 토큰을 삭제합니다.
+            sessionStorage.removeItem("token");
+            
+            // 서버에 로그아웃 요청을 보내도록 구현할 수 있습니다.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/logout", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // 로그아웃이 성공했을 때 추가적인 작업을 수행할 수 있습니다.
+                    console.log("Logout successful");
+                } else if (xhr.readyState === 4 && xhr.status !== 200) {
+                    // 로그아웃에 실패한 경우에 대한 처리를 수행할 수 있습니다.
+                    console.error("Logout failed");
+                }
+            };
+            xhr.send();
+            
+            // 로그인 상태를 확인하고 화면을 업데이트할 수 있도록 호출합니다.
+            checkLoginState();
+        }
         
     </script>
 </body>
