@@ -58,7 +58,7 @@
 					<li><a href="#" id="cartBold" class="header-nav">장바구니</a></li>
 					<li>|</li>
 					<li><input type="button"  id="loginButton"  onclick="goToAdminPage()" class="header-nav" value='관리자'></li>
-					
+					<li><input type="button"  id="testButton"  onclick="goToTestForm()" class="header-nav" value='테스트'></li>
 				</ul>
 			</nav>
 			

@@ -6,6 +6,7 @@ public class ProductVO {
 	private Integer price;
 	private String description;
 	private String pictureUrl;
+	private int category;
 	public Integer getCode() {
 		return code;
 	}
@@ -40,6 +41,13 @@ public class ProductVO {
 	public String toString() {
 		return "ProductVO [code=" + code + ", productName=" + productName + ", price=" + price + ", description="
 				+ description + ", pictureUrl=" + pictureUrl + "]";
+	}
+	public int getCategory() {
+		return category;
+	}
+	
+	public void setCategory(int category) {
+		this.category = category;
 	}
 	
 	
