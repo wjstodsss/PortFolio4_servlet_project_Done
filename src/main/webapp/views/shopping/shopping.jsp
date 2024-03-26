@@ -133,22 +133,6 @@
 			</p>
 		</div>
 	</header>
-
-	<!-- /* slider */ -->
-	<div id="slider">
-		<img src="/resources/img/slide_image/membership_img.jpg" alt="회원가입혜택"
-			id="memberShip"> <img
-			src="/resources/img/slide_image/mobile_img.jpg" alt="모바일앱쿠폰이벤트"
-			id="mobileAward"> <img
-			src="/resources/img/slide_image/delivery_img.jpg" alt="배송당일출발"
-			id="delivery">
-		<ul>
-			<li><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-		</ul>
-	</div>
-
 	<!-- 상품 목록 -->
 	<div class="container mt-3">
 		<div class="row">
@@ -236,100 +220,6 @@
         // 여기에 해당 상품을 구매하는 로직을 구현
         alert("상품을 구매합니다. 상품 ID: " + productId);
     }
-        /* slider */
-        /* 메인 슬라이더 페이드 인 페이드 아웃 기능 
-        v0.01 : 240107 setTime()메서드에 시간을 입력하며 하드 코딩함
-        v0.02 : 240110 로직을 조금 만들어 함수를 활용하지만 개체수 증가시 코드도 함께 증가
-        v0.03 : 240115 개체수 증가시 코드 증가 문제 해결 -> 이미지 추가 시 아이디만 배열에 추가
-        v0.04 : 240119 웹페이지 포커스 대기간 쌓이는 인터벌로 인한 페이드 인, 아웃 이상 현상 개선/visiblechange이벤트 활용
-        */
-        
-        function fadeInManager() {
-
-            let opacityValueFadeIn = 0;
-            function FadeInUnit(image) {
-                this.image = image;
-                this.fadeIn = function () {
-                    document.getElementById(image).style.opacity = opacityValueFadeIn;
-                    opacityValueFadeIn += 0.1;
-                    if (opacityValueFadeIn >= 1.5) {
-                        clearInterval(myFadeIn);
-                        opacityValueFadeIn = 0;
-                    }
-                }
-                let myFadeIn = setInterval(this.fadeIn, 100);
-            }
-
-            let imageIdIndexFadeIn = 0;
-            function repeatFadeIn() {
-                const imageId = ["mobileAward", "delivery"];
-                if (imageIdIndexFadeIn == imageId.length) {
-                    stopFadeInInterval();
-                    return
-                }
-                let createFadeIn = new FadeInUnit(imageId[imageIdIndexFadeIn]);
-                imageIdIndexFadeIn++;
-            }
-
-            let fadeInInterval = setInterval(repeatFadeIn, 2500);
-
-            function stopFadeInInterval() {
-                clearInterval(fadeInInterval);
-            }
-        }
-
-        function fadeOutManager() {
-
-            let opacityValueFadeOut = 1;
-            function FadeOutUnit(image) {
-                this.image = image;
-                this.fadeOut = function () {
-                    document.getElementById(image).style.opacity = opacityValueFadeOut;
-                    opacityValueFadeOut -= 0.1;
-                    if (opacityValueFadeOut <= -0.7) {
-                        clearInterval(myFadeOut);
-                        opacityValueFadeOut = 1;
-                    }
-                }
-                let myFadeOut = setInterval(this.fadeOut, 100);
-            }
-
-            let imageIdIndexFadeOut = 1;
-            function repeatFadeOut() {
-                const imageId = ["mobileAward", "delivery"];
-                if (imageIdIndexFadeOut < 0) {
-                    stopFadeOutInterval();
-                    return
-                }
-                let createFadeOut = new FadeOutUnit(imageId[imageIdIndexFadeOut]);
-                imageIdIndexFadeOut--;
-            }
-
-            let fadeOutInterval = setInterval(repeatFadeOut, 2500);
-
-            function stopFadeOutInterval() {
-                clearInterval(fadeOutInterval);
-            }
-        }
-
-        let sliderTimer;
-
-        function repeat() {
-            setTimeout(fadeOutManager, 0);
-            setTimeout(fadeInManager, 6000);
-        }
-
-        function sliderStart() {
-            setTimeout(repeat, 0);
-            sliderTimer = setInterval(repeat, 12000);
-        }
-
-        function sliderStop() {
-            clearInterval(sliderTimer);
-        }
-
-        sliderStart();
-
         /* 공지사항 
         v0.01: 240110 setInterval함수를 활용하여 추가한 기능, 정해진 공지사항이 시간 마다 변경 
         */
@@ -351,7 +241,6 @@
             clearInterval(boardSetInterval, 2000);
         }
          
-       
     </script>
 </body>
 

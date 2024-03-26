@@ -1,8 +1,6 @@
 function checkLoginState() {
     var token = sessionStorage.getItem("token");
-    console.log(token+"ffffffffff")
     if (token) {
-        console.log("ok")
         document.getElementById("loginButton").value = "로그아웃";
         document.getElementById("loginButton").setAttribute("onclick", "logout()");
         

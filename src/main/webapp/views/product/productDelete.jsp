@@ -45,7 +45,7 @@
             <br> 
             <input type="hidden" name="code" value="${product.code}">
             <input type="submit" value="삭제"> 
-            <input type="button" value="목록" onclick="location.href='productList.do'">
+            <input type="button" value="목록" onclick="location.href='banchan?command=product_list'">
           </form>
         </div>
       </body>

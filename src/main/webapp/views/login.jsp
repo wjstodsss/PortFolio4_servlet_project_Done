@@ -11,6 +11,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../resources/js/member_login.js"></script>
+<script src="../resources/js/member_join2.js"></script>
 </head>
 <body>
 
@@ -18,7 +19,7 @@
     <h1>Login</h1>
     <form>
         <div class="form-group">
-            <label for="userID">Username:</label>
+            <label for="userID">UserId:</label>
             <input type="text" class="form-control" id="userId" name="userId" required>
         </div>
         <div class="form-group">
@@ -26,6 +27,7 @@
             <input type="password" class="form-control" id="userPassword" name="userPassword" required autocomplete="current-userPassword">
         </div>
         <input type="button" class="btn btn-danger mb-2" value="Login" id="loginButton" onclick="login()">
+        <input type="button" onclick="goToIndex()" class="btn btn-primary mb-2" value="메인으로 가기">
     </form>
 </div>
 

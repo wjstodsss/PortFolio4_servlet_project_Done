@@ -14,11 +14,30 @@ function productCheck() {
 		frm.price.focus();
 		return false;
 	}
-	
+
 	if (isNaN(document.frm.category.value)) {
 		alert("숫자를 입력해야 합니다");
 		frm.price.focus();
 		return false;
 	}
 	return true;
+}
+
+function handleClick(element) {
+	let valueToSend = element.id;
+	let formDTO = document.createElement("form");
+	formDTO.setAttribute("method", "post");
+	formDTO.setAttribute("action", "banchan?command=product_set");
+	var input = document.createElement("input");
+	input.setAttribute("type", "hidden");
+	input.setAttribute("name", "category");
+	input.setAttribute("value", valueToSend);
+	formDTO.appendChild(input);
+	document.body.appendChild(formDTO);
+	formDTO.submit();
+}
+
+function sliderHiddenAndStop() {
+	document.getElementById("slider").style.display = "none";
+	sliderStop();
 }
