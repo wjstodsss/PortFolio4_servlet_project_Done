@@ -62,12 +62,8 @@
                 <td>등급</td>
                 <td>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="admin" value="0" id="normal" checked>
+                        <input type="radio" name="admin" value="0" id="normal" checked>
                         <label class="form-check-label" for="normal">일반회원</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="admin" value="1" id="admin">
-                        <label class="form-check-label" for="admin">관리자</label>
                     </div>
                 </td>
             </tr>
