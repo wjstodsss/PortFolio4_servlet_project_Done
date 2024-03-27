@@ -19,7 +19,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../resources/js/member_login.js"></script>
-<script src="../resources/js/board_util2.js"></script>
+<script src="../resources/js/board_util3.js"></script>
 <script src="../resources/js/product.js"></script>
 <script src="../resources/js/member_join2.js"></script>
 <style>
@@ -41,28 +41,29 @@
 	width: 980px;
 	margin: 0 auto;
 }
+
 .nav-side {
 	height: 100%;
 	background-color: #eee;
 }
 
 .side-nav {
-    font-size: 1rem;
-    font-family: "Noto Sans KR", dotum, 돋움, gulim, 굴림, sans-serif;
-    color: rgb(0, 0, 0);
-    background-color: #eeeeee;
-    margin: 10px 5px;
-    font-weight: 600;
-    board-bottom: 1px solid white;
+	font-size: 1rem;
+	font-family: "Noto Sans KR", dotum, 돋움, gulim, 굴림, sans-serif;
+	color: rgb(0, 0, 0);
+	background-color: #eeeeee;
+	margin: 10px 5px;
+	font-weight: 600;
+	board-bottom: 1px solid white;
 }
 
 .nav-item {
 	text-align: center;
 }
-
 </style>
 </head>
-<body onload="checkLoginState();">
+<body
+	onload="checkLoginState(); fetchBoardList(getByType()); displayCreateBtn()">
 
 	<!-- /* header */ -->
 	<header>
@@ -117,9 +118,7 @@
 			<button onclick="handleClick(this)" id="0">하루반찬세트</button>
 			<nav>
 				<ul>
-					<li><a href="#" class="jingaTitle"
-						>진가네
-							시그니처</a></li>
+					<li><a href="#" class="jingaTitle">진가네 시그니처</a></li>
 					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
 						id="1">진가네 명품김치</a></li>
 					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
@@ -162,12 +161,14 @@
 						</ul>
 					</div>
 
-
+					<input type="hidden" id="navTitle" value="notice">
 
 					<!-- 게시판 컨텐츠 -->
 					<div class="col-9">
 						<div class="col text-right">
-							<a href="#" class="btn btn-primary" id="newPostBtn">게시물 등록</a>
+
+							<button onclick="goToModalForm()" class="btn btn-primary"
+								id="newPostBtn">게시물 등록</button>
 						</div>
 						<h2 class="my-4" id="boardTitle"></h2>
 
@@ -194,6 +195,128 @@
 
 		</div>
 	</div>
+
+	<!-- 게시물 등록 모달창 -->
+	<div class="modal fade" id="formModal" tabindex="-1" role="dialog"
+		aria-labelledby="cartModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="cartModalLabel">자주하는 질문</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form name="frm" enctype="multipart/form-data" method="post">
+
+
+						<div class="form-group">
+							<label for="title">제목 *</label> <input type="text"
+								class="form-control" id="title" name="title" required>
+						</div>
+
+						<div class="form-group">
+							<label for="username">작성자 *</label> <input type="text"
+								class="form-control" id="username" name="author" required>
+						</div>
+
+						<div class="form-group">
+							<label for="pass">비밀번호 *</label> <input type="password"
+								class="form-control" id="pass" name="password" required>
+							<small class="form-text text-muted">게시물 수정 삭제시 필요합니다.</small>
+						</div>
+
+						<div class="form-group" id="upload">
+							<label for="imageUrl" id="picture">사진</label> <input type="file"
+								class="form-control" id="imageUrl" name="imageUrl"
+								onchange="previewImage(event)" accept="image/*"> <img
+								id="imagePreview" class="img-fluid" style="display: none;">
+						</div>
+
+
+						<div class="form-group">
+							<label for="content">내용</label>
+							<textarea class="form-control" id="content" name="content"
+								rows="5"></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary"
+							onclick="goToWriteAction()">등록</button>
+						<button type="reset" class="btn btn-secondary">다시 작성</button>
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">닫기</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 게시물 수정 X 삭제 모달창 -->
+	<div class="modal fade" id="detailFormModal" tabindex="-1" role="dialog"
+		aria-labelledby="cartModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="cartModalLabel">자주하는 질문</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form name="updateFrm" enctype="multipart/form-data" method="post" onsubmit="doAction()">
+					<input type="hidden" id="detailId" value="" name="detailId">
+					<input type="hidden" id="detailPassword" value="" name="detailPassword">
+					<input type="hidden" name="nonmakeImg" id="nonmakeImg">
+
+						<div class="form-group">
+							<label for="title">제목 *</label> <input type="text"
+								class="form-control" id="detailTitle" name="detailTitle" required>
+						</div>
+
+						<div class="form-group">
+							<label for="username">작성자 *</label> <input type="text"
+								class="form-control" id="detailAuthor" name="detailAuthor" required>
+						</div>
+
+						<div class="form-group">
+							<label for="updateImage" id="updateImageLabel">사진</label> <input type="file"
+								class="form-control"   id="updateImage" name="detailImageUrl"
+								onchange="previewImage(event)" accept="image/*" src=""> <img
+								id="detailImageUrl">
+						</div>
+
+
+						<div class="form-group">
+							<label for="content">내용</label>
+							<textarea class="form-control" id="detailContent" name="detailContent"
+								rows="5"></textarea>
+						</div>
+						
+						<div class="form-group">
+							<label for="pass">비밀번호</label> <input type="password"
+								class="form-control" id="checkPasswordRef" name="checkPasswordRef">
+							<small class="form-text text-muted">수정이나 삭제를 원하시면 비밀번호를 입력해 주세요</small>
+						</div>
+						
+						<button type="submit" class="btn btn-primary"
+							onclick="return checkPassword('update')">수정하기</button>
+							<button type="submit" class="btn btn-primary"
+							onclick="return checkPassword('delete')">삭제하기</button>
+						<button type="reset" class="btn btn-secondary">다시 작성</button>
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">닫기</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
 	<footer id="footer">
 		<div id="info01">
 			<img src="/resources/img/footer/footer001.png" alt="배송안내">
@@ -240,25 +363,27 @@
 	</footer>
 </body>
 <script>
-/* 공지사항 
-v0.01: 240110 setInterval함수를 활용하여 추가한 기능, 정해진 공지사항이 시간 마다 변경 
-*/
-let news = ["아이스팩 변경 공지드립니다.     2022-03-21", "진가네반찬 등급별안내     2019-07-02", "진가네반찬 배송안내     2018-12-19"]
-let index = 0;
-function newsBoard() {
+	/* 공지사항 
+	 v0.01: 240110 setInterval함수를 활용하여 추가한 기능, 정해진 공지사항이 시간 마다 변경 
+	 */
+	let news = [ "아이스팩 변경 공지드립니다.     2022-03-21",
+			"진가네반찬 등급별안내     2019-07-02", "진가네반찬 배송안내     2018-12-19" ]
+	let index = 0;
+	function newsBoard() {
 
-    document.getElementById("footerSlider").innerHTML = news[index];
-    index++;
-    if (index >= news.length) index = 0;
-}
+		document.getElementById("footerSlider").innerHTML = news[index];
+		index++;
+		if (index >= news.length)
+			index = 0;
+	}
 
-let boardSetInterval;
-function startBoardInterval() {
-    let boardSetInterval = setInterval(newsBoard, 2000);
-}
+	let boardSetInterval;
+	function startBoardInterval() {
+		let boardSetInterval = setInterval(newsBoard, 2000);
+	}
 
-function stopBoardInterval() {
-    clearInterval(boardSetInterval, 2000);
-}
+	function stopBoardInterval() {
+		clearInterval(boardSetInterval, 2000);
+	}
 </script>
 </html>

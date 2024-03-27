@@ -9,11 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.blacksmith.banchan.util.Action;
 
-public class BoardPageAction implements Action {
+public class FaqWriteFormAction implements Action {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "/views/board/board.jsp";
+	public void execute(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String url = "/views/board/write-form/faqBoard.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}

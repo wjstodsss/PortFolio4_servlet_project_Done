@@ -21,7 +21,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../resources/js/member_login.js"></script>
-<script src="../resources/js/board_util2.js"></script>
+<script src="../resources/js/board_util3.js"></script>
 <script src="../resources/js/product.js"></script>
 <script src="../resources/js/member_join2.js"></script>
 <!-- 부트스트랩 CSS 링크 -->

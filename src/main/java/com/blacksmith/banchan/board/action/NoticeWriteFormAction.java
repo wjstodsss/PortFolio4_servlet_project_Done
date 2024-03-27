@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.blacksmith.banchan.util.Action;
 
-public class BoardPageAction implements Action {
+public class NoticeWriteFormAction implements Action {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "/views/board/board.jsp";
+	public void execute(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String url = "/views/board/write-form/noticeBoard.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}
-
 }

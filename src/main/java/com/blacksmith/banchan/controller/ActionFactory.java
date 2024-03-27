@@ -6,7 +6,12 @@ import com.blacksmith.banchan.board.action.BoardPageAction;
 import com.blacksmith.banchan.board.action.FaqBoardAction;
 import com.blacksmith.banchan.board.action.NoticeBoardAction;
 import com.blacksmith.banchan.board.action.QnaBoardAction;
+import com.blacksmith.banchan.board.action.QnaWriteAction;
 import com.blacksmith.banchan.board.action.ReviewBoardAction;
+import com.blacksmith.banchan.board.action.ReviewDeleteAction;
+import com.blacksmith.banchan.board.action.ReviewDetailAction;
+import com.blacksmith.banchan.board.action.ReviewUpdateAction;
+import com.blacksmith.banchan.board.action.ReviewWriteAction;
 import com.blacksmith.banchan.login.action.IdCheck;
 import com.blacksmith.banchan.login.action.LoginAction;
 import com.blacksmith.banchan.login.action.LoginFormAction;
@@ -84,8 +89,17 @@ public class ActionFactory {
 			action = new ProductDeleteAction();
 		} else if (command.equals("product_set")){
 			action = new ProductSetAction();
+		} else if (command.equals("write_qna")){
+			action = new QnaWriteAction();
+		} else if (command.equals("write_review")){
+			action = new ReviewWriteAction();
+		} else if (command.equals("detail_review")){
+			action = new ReviewDetailAction();
+		} else if (command.equals("update_review")){
+			action = new ReviewUpdateAction();
+		} else if (command.equals("delete_review")){
+			action = new ReviewDeleteAction();
 		}
-		
 		return action;
 	}
 }
