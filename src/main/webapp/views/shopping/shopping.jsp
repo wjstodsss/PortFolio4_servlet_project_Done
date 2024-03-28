@@ -22,29 +22,33 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../resources/js/member_login.js"></script>
 <script src="../resources/js/board_util3.js"></script>
-<script src="../resources/js/product.js"></script>
+<script src="../resources/js/product1.js"></script>
 <script src="../resources/js/member_join2.js"></script>
 <!-- 부트스트랩 CSS 링크 -->
 <link
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 	rel="stylesheet">
-<!-- jQuery 스크립트 링크 -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <style>
-    /* 컨테이너의 최대 크기 설정 */
-    .container {
-        max-width: 980px;
-    }
+/* 컨테이너의 최대 크기 설정 */
+.container {
+	max-width: 980px;
+}
 
-    /* 상품 카드 간격 설정 */
-    .mb-3 {
-        margin-bottom: 15px;
-    }
-    
-    .card-body {
-    	font-size: 0.8rem;
-    }
-    
+/* 상품 카드 간격 설정 */
+.mb-3 {
+	margin-bottom: 15px;
+}
+
+.card-body {
+	font-size: 0.8rem;
+}
+
+.text-muted {
+	overflow: hidden;
+	font-size: small;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
 </style>
 
 </head>
@@ -65,17 +69,22 @@
 			</div>
 			<nav>
 				<ul>
-					<li><input type="button"  id="loginButton"  onclick="goToLoginForm()" class="header-nav" value='로그인'></li>
+					<li><input type="button" id="loginButton"
+						onclick="goToLoginForm()" class="header-nav" value='로그인'></li>
 					<li>|</li>
-					<li><input type="button" class="header-nav" onclick="goToRegisterForm()" value='회원가입'></li>
+					<li><input type="button" class="header-nav"
+						onclick="goToRegisterForm()" value='회원가입'></li>
 					<li>|</li>
-					<li><input type="button" class="header-nav" onclick="goToBoard()" value='고객센터'></li>
+					<li><input type="button" class="header-nav"
+						onclick="goToBoard()" value='고객센터'></li>
 					<li>|</li>
 					<li><a href="#" class="header-nav">주문조회</a></li>
 					<li>|</li>
-					<li><a href="#" id="cartBold" class="header-nav">장바구니</a></li>
+					<li><a href="#" id="cart" class="header-nav"
+						onclick="showCart()">장바구니</a></li>
 					<li>|</li>
-					<li><input type="button"  id="loginButton"  onclick="goToAdminPage()" class="header-nav" value='관리자'></li>
+					<li><input type="button" id="loginButton"
+						onclick="goToAdminPage()" class="header-nav" value='관리자'></li>
 				</ul>
 			</nav>
 		</div>
@@ -85,7 +94,7 @@
 				<ul>
 					<li><a href="#">시그니처</a></li>
 					<li>|</li>
-					<li><a href="#">반찬후기</a></li>
+					<li><a href="#" onclick="goToReview()">반찬후기</a></li>
 					<li>|</li>
 					<li><a href="#">배송안내</a></li>
 				</ul>
@@ -146,23 +155,60 @@
 							<!-- 상품명 -->
 							<h6 class="card-title">${product.productName}</h6>
 							<!-- 상품 가격 -->
-							<p class="card-text">가격: ${product.price}원</p>
-							<!-- 장바구니 버튼 -->
-							<button class="btn btn-primary"
-								onclick="addToCart(${product.code})">장바구니</button>
-							<!-- 구매 버튼 -->
-							<button class="btn btn-success"
-								onclick="purchase(${product.code})">구매</button>
+							<p class="card-text" id="price">가격: ${product.price}원</p>
+							<input type="number" id="quantity${product.code}" min="0"
+								value="1">
+							<div>
+								<button class="btn btn-primary"
+									onclick="addToCart(${product.code})">장바구니</button>
+								<button class="btn btn-success"
+									onclick="purchase(${product.code})">구매</button>
+							</div>
 						</div>
 						<!-- 상품 요약 -->
 						<div class="card-footer">
-							<small class="text-muted">상품 요약: ${product.description}</small>
+							<p class="text-muted">상품 요약: ${product.description}</p>
 						</div>
 					</div>
 				</div>
 			</c:forEach>
 		</div>
 	</div>
+
+	<!-- 장바구니 모달 -->
+	<div class="modal fade" id="cartModal" tabindex="-1" role="dialog"
+		aria-labelledby="cartModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="cartModalLabel">장바구니</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-12" id="cartList"></div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">닫기</button>
+					<button type="button" class="btn btn-danger"
+						onclick="deleteSelectedItems()">선택된 상품 삭제</button>
+					<button type="button" class="btn btn-success"
+						onclick="buySelectedItems()">선택된 상품 구매</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
 	<footer id="footer">
 		<div id="info01">
 			<img src="/resources/img/footer/footer001.png" alt="배송안내">
@@ -209,17 +255,7 @@
 	</footer>
 
 	<script>
-    // 장바구니에 상품을 추가하는 함수
-    function addToCart(productId) {
-        // 여기에 해당 상품을 장바구니에 추가하는 로직을 구현
-        alert("상품을 장바구니에 추가합니다. 상품 ID: " + productId);
-    }
-
-    // 상품을 구매하는 함수
-    function purchase(productId) {
-        // 여기에 해당 상품을 구매하는 로직을 구현
-        alert("상품을 구매합니다. 상품 ID: " + productId);
-    }
+ 
         /* 공지사항 
         v0.01: 240110 setInterval함수를 활용하여 추가한 기능, 정해진 공지사항이 시간 마다 변경 
         */

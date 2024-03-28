@@ -3,10 +3,23 @@ use bbs;
 use db_banchan;
 select*from product;
 
+use db_estore;
+
 create database db_estore;
 use db_estore;
 select * from member;
 select * from tbl_member;
+
+
+SELECT *
+FROM tbl_product
+WHERE category = 1
+ORDER BY code
+LIMIT 8;
+
+
+
+
 
 drop table member;
 -- 테이블 생성

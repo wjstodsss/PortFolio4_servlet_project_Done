@@ -1,13 +1,20 @@
 function goToBoard() {
-	localStorage.setItem("pagekey", "notice");
+	localStorage.setItem("pagekey", "notice")
+	window.location.href = "banchan?command=board";
+}
+
+function goToReview() {
+	localStorage.setItem("pagekey", "review")
 	window.location.href = "banchan?command=board";
 }
 
 
+
+
 function fetchBoardList(boardType) {
+	
 	document.getElementById('boardTitle').innerText = boardType.toUpperCase();
 
-	console.log(document.getElementById('boardTitle').value + "dd")
 	var xhr = new XMLHttpRequest();
 
 	xhr.open("GET", "banchan?command=" + boardType, true);
@@ -18,7 +25,6 @@ function fetchBoardList(boardType) {
 				document.getElementById('navTitle').value = boardType;
 				displayCreateBtn(boardType)
 				var response = JSON.parse(xhr.responseText);
-				console.log(response);
 				fetchPosts(response);
 			} else {
 				// 오류가 발생했을 때 처리할 내용
@@ -36,14 +42,12 @@ function fetchPosts(posts) {
 	const postListBody = document.getElementById('postListBody');
 	postListBody.innerHTML = ''; // 기존 목록 삭제
 
-
-	postListBody.innerHTML = ''; // 기존 목록 삭제
 	posts.forEach(post => {
 		const row = `
                 <tr>
                     <td>${post.id}</td>
-                    <td><button onclick="goToDetailModalForm(this)" class="btn btn-primary"
-								id=${post.id}>${post.title}</button></td>
+                    <td><div onclick="goToDetailModalForm(this)" class="btn btn-primary max-width-col-overflow"
+								id=${post.id}>${post.title}</div></td>
                     <td>${post.author}</td>
                     <td>${post.datePosted}</td>
                 </tr>
@@ -52,17 +56,12 @@ function fetchPosts(posts) {
 	});
 }
 
-// 초기 페이지 로드 시 게시물 데이터를 받아와서 테이블에 추가합니다.
-window.onload = function() {
-	fetchBoardList('notice');
-};
 
 function goToDetailModalForm(element) {
-
 	let valueToSend = element.id;
 
 	$.ajax({
-		url: 'banchan?command=detail_review', // 서버의 URL
+		url: 'banchan?command=detail_' + navTitle.value, // 서버의 URL
 		type: 'post', // GET 또는 POST 요청
 		data: { id: valueToSend }, // post.id를 서버로 전달
 		success: function(response) {
@@ -73,6 +72,8 @@ function goToDetailModalForm(element) {
 			document.getElementById('detailContent').value = response.content;
 			document.getElementById('detailImageUrl').src = "upload/" + response.imageUrl;
 			document.getElementById('nonmakeImg').value = response.imageUrl;
+		
+			
 			$('#detailFormModal').modal('show');
 			console.log('서버 응답:', response);
 		},
@@ -99,31 +100,26 @@ function goToFaq() {
 	window.location.href = "banchan?command=faq";
 }
 
-let actionType = "";
-function checkPassword(actionType) {
-	if (detailPassword.value == checkPasswordRef.value) {
-		actionType = actionType;
-		return true;
-	}
-	alert("비밀번호를 입력하세요");
-	return false;
+
+function checkPassword() {
+	return detailPassword.value === checkPasswordRef.value;
 }
 
-function doUpdate() {
-	checkPassword();
-}
-
-function doAction() {
-	if (actionType == 'update') {
+function doAction(action) {
+	if (checkPassword()) {
 		localStorage.setItem("pagekey", navTitle.value);
-		document.forms["updateFrm"].action = "banchan?command=update_review";
+		document.forms["updateFrm"].action = "banchan?command=" + action + "_" + navTitle.value;
+		document.forms["updateFrm"].submit();
 	} else {
-		localStorage.setItem("pagekey", navTitle.value);
-		alert("fsadfsadfsfad")
-		document.forms["updateFrm"].action = "banchan?command=delete_review";
+		alert("비밀번호를 입력하세요");
 	}
-		
 }
+
+
+
+
+
+
 
 
 function goToModalForm() {
@@ -165,15 +161,12 @@ function displayCreateBtn(boardType) {
 }
 
 function goToWriteAction() {
-
 	localStorage.setItem("pagekey", navTitle.value);
-	console.log(imageUrl + "ffffffff")
 	document.forms["frm"].action = "banchan?command=write_" + navTitle.value;
 }
 
 function getByType() {
 	console.log(navTitle.value)
-
 	let type = localStorage.getItem("pagekey");
 
 	console.log(type)

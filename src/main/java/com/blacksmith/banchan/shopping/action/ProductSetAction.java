@@ -22,7 +22,6 @@ public class ProductSetAction implements Action {
 		List<ProductVO> productList = pDao.selectProductsByCategory(category);
 		request.setAttribute("productList", productList);
 		
-		System.out.println(request.getAttribute("productList"));
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}

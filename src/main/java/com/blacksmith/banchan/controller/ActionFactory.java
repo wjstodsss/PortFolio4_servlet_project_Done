@@ -6,6 +6,9 @@ import com.blacksmith.banchan.board.action.BoardPageAction;
 import com.blacksmith.banchan.board.action.FaqBoardAction;
 import com.blacksmith.banchan.board.action.NoticeBoardAction;
 import com.blacksmith.banchan.board.action.QnaBoardAction;
+import com.blacksmith.banchan.board.action.QnaDeleteAction;
+import com.blacksmith.banchan.board.action.QnaDetailAction;
+import com.blacksmith.banchan.board.action.QnaUpdateAction;
 import com.blacksmith.banchan.board.action.QnaWriteAction;
 import com.blacksmith.banchan.board.action.ReviewBoardAction;
 import com.blacksmith.banchan.board.action.ReviewDeleteAction;
@@ -91,6 +94,12 @@ public class ActionFactory {
 			action = new ProductSetAction();
 		} else if (command.equals("write_qna")){
 			action = new QnaWriteAction();
+		} else if (command.equals("detail_qna")){
+			action = new QnaDetailAction();
+		} else if (command.equals("update_qna")){
+			action = new QnaUpdateAction();
+		} else if (command.equals("delete_qna")){
+			action = new QnaDeleteAction();
 		} else if (command.equals("write_review")){
 			action = new ReviewWriteAction();
 		} else if (command.equals("detail_review")){

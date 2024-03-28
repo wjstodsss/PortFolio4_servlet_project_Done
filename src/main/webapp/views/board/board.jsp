@@ -13,14 +13,12 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link href="../resources/css/member_login.css" rel="stylesheet">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../resources/js/member_login.js"></script>
 <script src="../resources/js/board_util3.js"></script>
-<script src="../resources/js/product.js"></script>
+<script src="../resources/js/product1.js"></script>
 <script src="../resources/js/member_join2.js"></script>
 <style>
 /* 네비게이션 바 스타일 */
@@ -60,6 +58,11 @@
 .nav-item {
 	text-align: center;
 }
+
+.max-width-col-overflow {
+	max-width: 480px;
+	overflow: hidden;
+}
 </style>
 </head>
 <body
@@ -84,7 +87,8 @@
 					<li>|</li>
 					<li><a href="#" class="header-nav">주문조회</a></li>
 					<li>|</li>
-					<li><a href="#" id="cartBold" class="header-nav">장바구니</a></li>
+					<li><a href="#" id="cart" class="header-nav"
+						onclick="showCart()">장바구니</a></li>
 					<li>|</li>
 					<li><input type="button" id="loginButton"
 						onclick="goToAdminPage()" class="header-nav" value='관리자'></li>
@@ -97,7 +101,7 @@
 				<ul>
 					<li><a href="#">시그니처</a></li>
 					<li>|</li>
-					<li><a href="#">반찬후기</a></li>
+					<li><a href="#" onclick="goToReview()">반찬후기</a></li>
 					<li>|</li>
 					<li><a href="#">배송안내</a></li>
 				</ul>
@@ -251,10 +255,10 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- 게시물 수정 X 삭제 모달창 -->
-	<div class="modal fade" id="detailFormModal" tabindex="-1" role="dialog"
-		aria-labelledby="cartModalLabel" aria-hidden="true">
+	<div class="modal fade" id="detailFormModal" tabindex="-1"
+		role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -265,45 +269,50 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form name="updateFrm" enctype="multipart/form-data" method="post" onsubmit="doAction()">
-					<input type="hidden" id="detailId" value="" name="detailId">
-					<input type="hidden" id="detailPassword" value="" name="detailPassword">
-					<input type="hidden" name="nonmakeImg" id="nonmakeImg">
+					<form name="updateFrm" enctype="multipart/form-data" method="post"
+						onsubmit="doAction()">
+						<input type="hidden" id="detailId" value="" name="detailId">
+						<input type="hidden" id="detailPassword" value=""
+							name="detailPassword"> <input type="hidden"
+							name="nonmakeImg" id="nonmakeImg">
 
 						<div class="form-group">
 							<label for="title">제목 *</label> <input type="text"
-								class="form-control" id="detailTitle" name="detailTitle" required>
+								class="form-control" id="detailTitle" name="detailTitle"
+								required>
 						</div>
 
 						<div class="form-group">
 							<label for="username">작성자 *</label> <input type="text"
-								class="form-control" id="detailAuthor" name="detailAuthor" required>
+								class="form-control" id="detailAuthor" name="detailAuthor"
+								required>
 						</div>
 
 						<div class="form-group">
-							<label for="updateImage" id="updateImageLabel">사진</label> <input type="file"
-								class="form-control"   id="updateImage" name="detailImageUrl"
-								onchange="previewImage(event)" accept="image/*" src=""> <img
-								id="detailImageUrl">
+							<label for="updateImage" id="updateImageLabel">사진</label> <input
+								type="file" class="form-control" id="updateImage"
+								name="detailImageUrl" onchange="previewImage(event)"
+								accept="image/*" src=""> <img id="detailImageUrl">
 						</div>
 
 
 						<div class="form-group">
 							<label for="content">내용</label>
-							<textarea class="form-control" id="detailContent" name="detailContent"
-								rows="5"></textarea>
+							<textarea class="form-control" id="detailContent"
+								name="detailContent" rows="5"></textarea>
 						</div>
-						
+
 						<div class="form-group">
 							<label for="pass">비밀번호</label> <input type="password"
-								class="form-control" id="checkPasswordRef" name="checkPasswordRef">
-							<small class="form-text text-muted">수정이나 삭제를 원하시면 비밀번호를 입력해 주세요</small>
+								class="form-control" id="checkPasswordRef"
+								name="checkPasswordRef"> <small
+								class="form-text text-muted">수정이나 삭제를 원하시면 비밀번호를 입력해 주세요</small>
 						</div>
-						
-						<button type="submit" class="btn btn-primary"
-							onclick="return checkPassword('update')">수정하기</button>
-							<button type="submit" class="btn btn-primary"
-							onclick="return checkPassword('delete')">삭제하기</button>
+
+						<button type="button" class="btn btn-primary"
+							onclick="doAction('update')">수정하기</button>
+						<button type="button" class="btn btn-primary"
+							onclick="doAction('delete')">삭제하기</button>
 						<button type="reset" class="btn btn-secondary">다시 작성</button>
 						<button type="button" class="btn btn-secondary"
 							data-dismiss="modal">닫기</button>
@@ -313,6 +322,37 @@
 		</div>
 	</div>
 
+
+	<!-- 장바구니 모달 -->
+	<div class="modal fade" id="cartModal" tabindex="-1" role="dialog"
+		aria-labelledby="cartModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="cartModalLabel">장바구니</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-12" id="cartList"></div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">닫기</button>
+					<button type="button" class="btn btn-danger"
+						onclick="deleteSelectedItems()">선택된 상품 삭제</button>
+					<button type="button" class="btn btn-success"
+						onclick="buySelectedItems()">선택된 상품 구매</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 

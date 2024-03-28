@@ -8,12 +8,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.blacksmith.banchan.board.dao.ReviewBoardDAO;
+import com.blacksmith.banchan.board.dao.QnaBoardDAO;
 import com.blacksmith.banchan.util.Action;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class ReviewDeleteAction implements Action {
+public class QnaDeleteAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
@@ -27,7 +27,7 @@ public class ReviewDeleteAction implements Action {
 		
 		MultipartRequest multi = new MultipartRequest(request, path, sizeLimit, encType, new DefaultFileRenamePolicy());
 		int id=Integer.parseInt(multi.getParameter("detailId"));
-		ReviewBoardDAO bDao=ReviewBoardDAO.getInstance();
+		QnaBoardDAO bDao=QnaBoardDAO.getInstance();
 		bDao.deleteBoard(id);
 		
 		String url = "/views/board/board.jsp";

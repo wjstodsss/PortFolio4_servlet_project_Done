@@ -1,6 +1,7 @@
 package com.blacksmith.banchan.shopping.action;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -16,14 +17,27 @@ public class ProductPageAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "/views/index.jsp";
-		ProductDAO pDao = ProductDAO.getInstance();
-		List<ProductVO> productList = pDao.selectProductsByCategory(1);
-		request.setAttribute("productList", productList);
-		
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request, response);
+	    String url = "/views/index.jsp";
+	    ProductDAO pDao = ProductDAO.getInstance();
+	    
+	    int categoryCount = 8; // 카테고리 개수
+	    List<List<ProductVO>> allProductLists = new ArrayList<>();
+
+	    
+	    for (int i = 1; i <= categoryCount; i++) {
+	        List<ProductVO> productList = pDao.selectProductsByCategoryCountNineLess(i);
+	        allProductLists.add(productList);
+	    }
+	    
+	    for (int i = 1; i <= categoryCount; i++) {
+	        String attributeName = "productList" + i;
+	        request.setAttribute(attributeName, allProductLists.get(i - 1));
+	    }
+	    
+	    RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+	    dispatcher.forward(request, response);
 	}
+
+
 
 }
