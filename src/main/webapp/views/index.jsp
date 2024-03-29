@@ -12,10 +12,7 @@
 
 <title>꼴뚜기의 첫번째 프로젝트</title>
 <link href="/resources/css/reset.css" rel="stylesheet">
-
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	rel="stylesheet">
+<link href="/resources/css/main.css" rel="stylesheet">
 <link href="../resources/css/member_login.css" rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -23,784 +20,35 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- 
-		<script src="../resources/js/member_login.js"></script>	
-		<link href="/resources/css/main.css" rel="stylesheet">
-	 -->
+<script src="../resources/js/member_login2.js"></script>
+<script src="../resources/js/board_util4.js"></script>
+<script src="../resources/js/product1.js"></script>
+<script src="../resources/js/member_join2.js"></script>
+<!-- 부트스트랩 CSS 링크 -->
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	rel="stylesheet">
 <style>
-@charset "utf-8";
-
-/* top banner */
-#topBanner {
-    display: flex;
-    height: 73px;
-    background-color: rgb(245, 245, 245);
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-
-}
-
-#topBanner>a>img {
-    width: 980px;
-    height: 73px;
-    background-color: rgb(255, 255, 255);
-   
-    margin-left: -20px;
-}
-
-#topBanner>#topClose {
-    width: 28px;
-    height: 28px;
-    border: none;
-    background-image: url("../img/top_banner/top_close.png");
-    margin-left: -50px;
-}
-
-/* header */
-header {
-    width: 980px;
-    height: 168px;
-    margin: 0 auto;
-}
-
-header>#topHeader {
-    width: 980px;
-    height: 38px;
-    margin: 0 auto;
-}
-
-header>#topHeader>#appDown {
-    float: left;
-    width: 107px;
-    height: 18px;
-    background-color: rgb(154, 205, 255);
-    margin-top: 10px;
-}
-
-header>#topHeader>#appDown>button {
-    float: left;
-    width: 107px;
-    height: 18px;
-    background-color: rgb(255, 255, 255);
-    margin: 0 auto;
-    font-size: 10px;
-    font-weight: bold;
-}
-
-header>#topHeader>nav> {
-    float: right;
-    width: 278px;
-    height: 38px;
-    font-size: 10px;
-}
-
-header>#topHeader>nav>ul {
-    float: right;
-}
-
-header>#topHeader>nav>ul>li {
-    float: left;
-    line-height: 38px;
-    
-    color: rgb(225, 225, 255);
-}
-
-.header-nav {
-    font-size: 12px;
-    font-family: "Noto Sans KR", dotum, 돋움, gulim, 굴림, sans-serif;
-    color: rgb(0, 0, 0);
-    background-color: white;
-    margin: 0 5px;
-}
-
-header>#topHeader>nav>ul>li>#cartBold {
-    font-weight: bold;
-}
-
-header>#middleHeader {
-    width: 980px;
-    height: 82px;
-    text-align: center;
-}
-
-header>#middleHeader>nav {
-    width: 224px;
-    height: 20px;
-
-}
-
-header>#middleHeader>nav>ul {
-    float: left;
-    margin-right: 5px;
-}
-
-
-header>#middleHeader>nav>ul>li {
-    float: left;
-    margin-right: 5px;
-    margin-top: 30px;
-}
-
-header>#middleHeader>nav>ul>li>a {
-    width: 280px;
-    height: 15px;
-    font-size: 15px;
-    color: rgb(255, 0, 0);
-    font-weight: bold;
-}
-
-header>#middleHeader>#logo {
-    float: left;
-    width: 174px;
-    height: 39px;
-    margin-left: 183px;
-}
-
-header>#middleHeader>#logo>a>img {
-    width: 100%;
-    height: 100%;
-}
-
-header>#middleHeader>#searchInput {
-    float: right;
-    width: 180px;
-    height: 22px;
-    border-bottom: 1px solid rgb(255, 0, 0);
-    margin-top: 15px;
-    margin-right: 15px;
-}
-
-header>#middleHeader>#searchInput>#inputWord {
-    float: left;
-    width: 150px;
-    height: 21px;
-    outline: none;
-    background: none;
-    caret-color: rgb(255, 0, 0);
-    margin-left: 5px;
-}
-
-header>#middleHeader>#searchInput>#searchButton {
-    background-image: url(../img/header_middle/search_button.png);
-    background-size: cover;
-    width: 21px;
-    height: 21px;
-    background-color: transparent;
-}
-
-header>#bottomHeader {
-    float: left;
-    width: 100%;
-    height: 48px;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    font-size: 15px;
-}
-
-header>#bottomHeader>button {
-    display: block;
-    width: 120px;
-    height: 46px;
-    background-color: rgb(255, 0, 0);
-    color: #ffffff;
-    outline: none;
-    float: left;
-    font-weight: 1000;
-    cursor: pointer;
-}
-
-header>#bottomHeader>nav {
-    float: left;
-    width: 740px;
-    height: 48px;
-
-}
-
-header>#bottomHeader>nav>ul>li {
-    display: inline-block;
-    margin-left: 17px;
-    line-height: 48px;
-}
-
-header>#bottomHeader>nav>ul>li>a {
-    color: inherit;
-    font-weight: 600;
-    padding: 12px 0;
-    font-family: inherit;
-}
-
-header>#bottomHeader>p {
-    display: block;
-    float: right;
-    width: 118px;
-    height: 48px;
-    line-height: 48px;
-    color: #ccc;
-    font-weight: bold;
-}
-
-header>#bottomHeader>p>span>a {
-    display: inline-block;
-    font-weight: bold;
-    color: red;
-    margin-left: 10px;
-}
-
-/* slider */
-#slider {
-    display: flex;
-    width: 100%;
-    height: 414px;
-    background-color: #FAF7F5;
-    align-items: center;
-    justify-content: center;
-}
-
-#slider>img {
-    position: absolute;
-}
-
-#mobileAward {
-    opacity: 1;
-}
-
-#delivery {
-    opacity: 1;
-}
-
-#slider>ul>li {
-    float: left;
-}
-
-#slider>ul>li> {
-    color: #ffffff;
-    position: absolute;
-
-}
-
-/* sub pages */
-
-.subPages {
-    margin: 0 auto;
-    width: 980px;
-    display: flex;
-    /* flex-direction: column; */
-    /* border: 1px solid #ccc; */
-    flex-wrap: wrap;
-}
-
-.subPages>.subPagesTitle {
-    float: left;
-    width: 980px;
-    height: 80px;
-    text-align: center;
-    line-height: 100px;
-}
-
-
-.subPages>.subPagesTitle>span {
-    margin-left: 60px;
-    font-weight: 150;
-}
-
-.subPages>.productInfo {
-    float: left;
-    width: 298px;
-    height: 430px;
-    background-color: rgb(255, 255, 255);
-    position: relative;
-    margin-left: 20px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    box-sizing: content-box;
-}
-
-.subPages>.productInfo:hover {
-    border: 1px solid #000000;
-}
-
-.subPages>.productInfo>.productImage {
-    float: left;
-    width: 298px;
-    height: 298px;
-    position: absolute;
-}
-
-.subPages>.productInfo>.item {
-    width: 298px;
-    height: 128px;
-    margin-top: 298px;
-    padding: 20px;
-
-}
-
-.subPages>.productInfo>.item>.productName {
-    width: 100%;
-    height: 12px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.subPages>.productInfo>.item>.productIntro {
-    width: 100%;
-    height: 20px;
-    margin-top: 3px;
-    font-size: 12px;
-}
-
-.subPages>.productInfo>.item>.productPrice {
-    width: 100%;
-    height: 45px;
-    margin-top: 10px;
-    font-size: 12px;
-    color: rgb(255, 0, 0);
-}
-
-/* sub end */
-
-/* section signature*/
-
-.middleSection {
-    width: 980px;
-    height: 560px;
-
-}
-
-.middleSection>h2 {
-    margin-top: 20px;
-    margin-left: 400px;
+/* 컨테이너의 최대 크기 설정 */
+.container {
+	max-width: 980px;
 }
 
-.middleSection>h2>span {
-    font-weight: 150;
+/* 상품 카드 간격 설정 */
+.mb-3 {
+	margin-bottom: 15px;
 }
 
-.middleSection>.leftButton {
-    float: left;
-    width: 38px;
-    height: 39px;
-    background-image: url(../img/etc/icon_arrow_left.png);
-    background-size: covor;
-    margin-left: 904px;
+.card-body {
+	font-size: 0.8rem;
 }
 
-.middleSection>.rightButton {
-    float: left;
-    width: 38px;
-    height: 39px;
-    background-image: url(../img/etc/icon_arrow_right.png);
-    background-size: covor;
-    margin-top: -39px;
-    margin-left: 942px;
+.text-muted {
+	overflow: hidden;
+	font-size: small;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
-
-.middleSection>.productInfo {
-    float: left;
-    width: 298px;
-    height: 430px;
-    background-color: rgb(255, 255, 255);
-    position: relative;
-    margin-left: 20px;
-    border: 1px solid #ccc;
-    margin-top: 20px;
-    box-sizing: content-box;
-}
-
-.middleSection>.productInfo:hover {
-    border: 1px solid #000000;
-}
-
-.middleSection>.productInfo>.productImage {
-    float: left;
-    width: 298px;
-    height: 298px;
-    position: absolute;
-}
-
-.middleSection>.productInfo>.item {
-    width: 298px;
-    height: 128px;
-    margin-top: 298px;
-    padding: 20px;
-}
-
-
-
-.middleSection>.productInfo>.item>.productName {
-    width: 100%;
-    height: 24px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.middleSection>.productInfo>.item>.productIntro {
-    width: 100%;
-    height: 20px;
-    margin-top: 3px;
-    font-size: 12px;
-}
-
-.middleSection>.productInfo>.item>.productPrice {
-    width: 100%;
-    height: 45px;
-    margin-top: 10px;
-    font-size: 12px;
-    color: rgb(255, 0, 0);
-}
-
-/* rows section 01 */
-.rowsSection {
-    width: 980px;
-    height: 500px;
-}
-
-.rowsSection>h2 {
-    margin-top: 20px;
-    margin-left: 400px;
-}
-
-.rowsSection>h2>span {
-    font-weight: 150;
-}
-
-.rowsSection>.leftButton {
-    float: left;
-    width: 38px;
-    height: 39px;
-    background-image: url(../img/etc/icon_arrow_left.png);
-    margin-left: 904px;
-}
-
-.rowsSection>.rightButton {
-    float: left;
-    width: 38px;
-    height: 39px;
-    background-image: url(../img/etc/icon_arrow_right.png);
-
-    margin-top: -39px;
-    margin-left: 942px;
-}
-
-.rowsSection>.rowsInformation {
-    float: left;
-    width: 224px;
-    height: 360px;
-    background-color: rgb(255, 255, 255);
-    position: relative;
-    margin-left: 9px;
-    border: 1px solid #ccc;
-    margin-top: 20px;
-    box-sizing: content-box;
-}
-
-.rowsSection>.rowsInformation:nth-of-type(1) {
-    margin-left: 21px;
-}
-
-.rowsSection>.rowsInformation:hover {
-    border: 1px solid #000000;
-}
-
-.rowsSection>.rowsInformation>.rowsProductImage {
-    float: left;
-    width: 224px;
-    height: 224px;
-    position: absolute;
-}
-
-.rowsSection>.rowsInformation>.rowsItem {
-    width: 224px;
-    height: 128px;
-    margin-top: 230px;
-    padding: 20px;
-}
-
-.rowsSection>.rowsInformation>.rowsItem>.rowsProductName {
-    width: 100%;
-    height: 24px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.rowsSection>.rowsInformation>.rowsItem>.rowsProductIntro {
-    width: 100%;
-    height: 20px;
-    margin-top: 3px;
-    font-size: 12px; /* Changed font-size to 12px */
-}
-
-.rowsSection>.rowsInformation>.rowsItem>.rowsProductPrice {
-    width: 100%;
-    height: 45px;
-    margin-top: 10px;
-    font-size: 12px;
-    color: rgb(255, 0, 0);
-}
-
-.bottomSection {
-    float: left;
-    width: 980px;
-    height: 55px;
-    text-align: center;
-    line-height: 55px;
-    font-size: bold;
-    border-bottom: 1px solid #ccc;
-    border-top: 1px solid #ccc;
-    cursor: pointer;
-}
-
-/* rows section 02 - rows section 07 (similar styles, only class names differ) */
-.rowsSection>.rowsInformation2,
-.rowsSection>.rowsInformation3,
-.rowsSection>.rowsInformation4,
-.rowsSection>.rowsInformation5,
-.rowsSection>.rowsInformation6,
-.rowsSection>.rowsInformation7 {
-    float: left;
-    width: 224px;
-    height: 360px;
-    background-color: rgb(255, 255, 255);
-    position: relative;
-    margin-left: 9px;
-    border: 1px solid #ccc;
-    margin-top: 20px;
-    box-sizing: content-box;
-}
-
-.rowsSection>.rowsInformation2:nth-of-type(1),
-.rowsSection>.rowsInformation3:nth-of-type(1),
-.rowsSection>.rowsInformation4:nth-of-type(1),
-.rowsSection>.rowsInformation5:nth-of-type(1),
-.rowsSection>.rowsInformation6:nth-of-type(1),
-.rowsSection>.rowsInformation7:nth-of-type(1) {
-    margin-left: 21px;
-}
-
-.rowsSection>.rowsInformation2:hover,
-.rowsSection>.rowsInformation3:hover,
-.rowsSection>.rowsInformation4:hover,
-.rowsSection>.rowsInformation5:hover,
-.rowsSection>.rowsInformation6:hover,
-.rowsSection>.rowsInformation7:hover {
-    border: 1px solid #000000;
-}
-
-.rowsSection>.rowsInformation2>.rowsProductImage2,
-.rowsSection>.rowsInformation3>.rowsProductImage3,
-.rowsSection>.rowsInformation4>.rowsProductImage4,
-.rowsSection>.rowsInformation5>.rowsProductImage5,
-.rowsSection>.rowsInformation6>.rowsProductImage6,
-.rowsSection>.rowsInformation7>.rowsProductImage7 {
-    float: left;
-    width: 224px;
-    height: 224px;
-    position: absolute;
-}
-
-.rowsSection>.rowsInformation2>.rowsItem2,
-.rowsSection>.rowsInformation3>.rowsItem3,
-.rowsSection>.rowsInformation4>.rowsItem4,
-.rowsSection>.rowsInformation5>.rowsItem5,
-.rowsSection>.rowsInformation6>.rowsItem6,
-.rowsSection>.rowsInformation7>.rowsItem7 {
-    width: 224px;
-    height: 128px;
-    margin-top: 230px;
-    padding: 20px;
-}
-
-.rowsSection>.rowsInformation2>.rowsItem2>.rowsProductName2,
-.rowsSection>.rowsInformation3>.rowsItem3>.rowsProductName3,
-.rowsSection>.rowsInformation4>.rowsItem4>.rowsProductName4,
-.rowsSection>.rowsInformation5>.rowsItem5>.rowsProductName5,
-.rowsSection>.rowsInformation6>.rowsItem6>.rowsProductName6,
-.rowsSection>.rowsInformation7>.rowsItem7>.rowsProductName7 {
-    width: 100%;
-    height: 24px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.rowsSection>.rowsInformation2>.rowsItem2>.rowsProductIntro2,
-.rowsSection>.rowsInformation3>.rowsItem3>.rowsProductIntro3,
-.rowsSection>.rowsInformation4>.rowsItem4>.rowsProductIntro4,
-.rowsSection>.rowsInformation5>.rowsItem5>.rowsProductIntro5,
-.rowsSection>.rowsInformation6>.rowsItem6>.rowsProductIntro6,
-.rowsSection>.rowsInformation7>.rowsItem7>.rowsProductIntro7 {
-    width: 100%;
-    height: 40px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    font-size: 12px; /* Changed font-size to 12px */
-}
-
-.rowsSection>.rowsInformation2>.rowsItem2>.rowsProductPrice2,
-.rowsSection>.rowsInformation3>.rowsItem3>.rowsProductPrice3,
-.rowsSection>.rowsInformation4>.rowsItem4>.rowsProductPrice4,
-.rowsSection>.rowsInformation5>.rowsItem5>.rowsProductPrice5,
-.rowsSection>.rowsInformation6>.rowsItem6>.rowsProductPrice6,
-.rowsSection>.rowsInformation7>.rowsItem7>.rowsProductPrice7 {
-    width: 100%;
-    height: 45px;
-    margin-top: 10px;
-    font-size: 12px;
-    color: rgb(255, 0, 0);
-}
-
-
-
-
-/*footer*/
-footer {
-    width: 980px;
-    height: 240px;
-    padding-top: 30px;
-    margin: 0 auto;
-    border-top: 1px solid #ccc;
-}
-
-footer>#info01 {
-    float: left;
-    width: 530px;
-    height: 210px;
-    border: 1px solid #ccc;
-    line-height: 50px;
-}
-
-footer>#info01>img {
-    width: 460px;
-    height: 180px;
-    margin-top: 15px;
-    margin-left: 40px;
-}
-
-footer>#info02 {
-    float: right;
-    width: 432px;
-    height: 60px;
-    border: 1px solid #ccc;
-    font-size: 17px;
-    font-weight: bold;
-    text-align: center;
-}
-
-footer>#info02>p {
-    float: left;
-    width: 78px;
-    height: 17px;
-    line-height: 58px;
-    margin-left: 10px;
-}
-
-footer>#info02>#footerSlider {
-    float: left;
-    width: 270px;
-    height: 30px;
-    padding-left: 7px;
-    line-height: 60px;
-    font-size: 14px;
-    color: #666;
-}
-
-footer>#info03 {
-    float: right;
-    width: 430px;
-    height: 140px;
-    border: 1px solid #ccc;
-    margin: 10px 0 0 10px;
-}
-
-footer>#info03>div {
-    float: left;
-    width: 70px;
-    height: 100px;
-    text-align: center;
-}
-
-footer>#info03>div>.icon {
-    float: right;
-    width: 66px;
-    height: 66px;
-    margin-top: 23px;
-    margin-left: 100px;
-}
-
-footer>#info03>p {
-    float: left;
-    width: 100px;
-    height: 30px;
-    font-weight: bold;
-    margin: 20px 0 0 20px;
-}
-
-footer>#info03>div>p {
-    float: left;
-    width: 70px;
-    height: 30px;
-    line-height: 45px;
-    color: #666;
-    font-size: 12px;
-}
-
-
-footer>#footerBottom {
-    float: left;
-    width: 980px;
-    height: 240px;
-    border-top: 3px solid #ccc;
-    margin: 20px 0;
-}
-
-footer>#footerBottom>#top {
-    float: left;
-    width: 260px;
-    height: 50px;
-    line-height: 55px;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-footer>#footerBottom>#top>a {
-    margin: 0 8px 0 0
-}
-
-footer>#footerBottom>#middle1 {
-    float: left;
-    width: 785px;
-    height: 80px;
-    color: #666;
-    font-size: 13px;
-    margin: 50px -260px
-}
-
-footer>#footerBottom>img {
-    float: left;
-    width: 433px;
-    height: 53px;
-    margin: 120px -535px
-}
-
-footer>#footerBottom>#right {
-    float: right;
-    width: 154px;
-    height: 90px;
-    color: #000;
-    margin-top: 50px;
-    font-size: 14px;
-    font-style: inherit;
-}
-
-footer>#footerBottom>#right>span {
-    font-size: 13px;
-    font-weight: bold;
-}
-
-footer>#footerBottom>#right>#tel {
-    font-size: 26px;
-    font-weight: bold;
-}
-
 </style>
 
 </head>
@@ -821,17 +69,22 @@ footer>#footerBottom>#right>#tel {
 			</div>
 			<nav>
 				<ul>
-					<li><input type="button" value="로그인" id="loginButton"
-						onclick="goToLoginForm()" class="header-nav"></li>
+					<li><input type="button" id="loginButton"
+						onclick="goToLoginForm()" class="header-nav" value='로그인'></li>
 					<li>|</li>
 					<li><input type="button" class="header-nav"
 						onclick="goToRegisterForm()" value='회원가입'></li>
 					<li>|</li>
-					<li><a href="#" class="header-nav">고객센터</a></li>
+					<li><input type="button" class="header-nav"
+						onclick="goToBoard()" value='고객센터'></li>
 					<li>|</li>
 					<li><a href="#" class="header-nav">주문조회</a></li>
 					<li>|</li>
-					<li><a href="#" id="cartBold" class="header-nav">장바구니</a></li>
+					<li><a href="#" id="cart" class="header-nav"
+						onclick="showCart()">장바구니</a></li>
+					<li>|</li>
+					<li><input type="button" id="loginButton"
+						onclick="goToAdminLoginForm()" class="header-nav" value='관리자'></li>
 				</ul>
 			</nav>
 		</div>
@@ -841,13 +94,13 @@ footer>#footerBottom>#right>#tel {
 				<ul>
 					<li><a href="#">시그니처</a></li>
 					<li>|</li>
-					<li><a href="#">반찬후기</a></li>
+					<li><a href="#" onclick="goToReview()">반찬후기</a></li>
 					<li>|</li>
 					<li><a href="#">배송안내</a></li>
 				</ul>
 			</nav>
 
-			<div onclick="mainPageReload()" id="logo">
+			<div onclick="goToIndex()" id="logo">
 				<a href="#"> <img src="/resources/img/header_middle/logo.png"
 					alt="진가네로고">
 				</a>
@@ -859,28 +112,28 @@ footer>#footerBottom>#right>#tel {
 			</div>
 		</div>
 		<div id="bottomHeader">
-			<button onclick="createSubPage(this.id)" id="0">하루반찬세트</button>
+			<button onclick="handleClick(this)" id="0">하루반찬세트</button>
 			<nav>
 				<ul>
 					<li><a href="#" class="jingaTitle"
 						onclick="printCategoryManager (InformationExtractor.productList, SIGNBANCHAN, 'subPages')">진가네
 							시그니처</a></li>
-					<li><a href="#" class="jingaTitle"
-						onclick="createSubPage(this.id)" id="1">진가네 명품김치</a></li>
-					<li><a href="#" class="jingaTitle"
-						onclick="createSubPage(this.id)" id="2">밑반찬</a></li>
-					<li><a href="#" class="jingaTitle"
-						onclick="createSubPage(this.id)" id="3">국·찌개 </a></li>
-					<li><a href="#" class="jingaTitle"
-						onclick="createSubPage(this.id)" id="4">메인반찬</a></li>
-					<li><a href="#" class="jingaTitle"
-						onclick="createSubPage(this.id)" id="5">전</a></li>
-					<li><a href="#" class="jingaTitle"
-						onclick="createSubPage(this.id)" id="6">나물반찬</a></li>
-					<li><a href="#" class="jingaTitle"
-						onclick="createSubPage(this.id)" id="7">장아찌</a></li>
-					<li><a href="#" class="jingaTitle"
-						onclick="createSubPage(this.id)" id="8">대용량</a></li>
+					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
+						id="1">진가네 명품김치</a></li>
+					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
+						id="2">밑반찬</a></li>
+					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
+						id="3">국·찌개 </a></li>
+					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
+						id="4">메인반찬</a></li>
+					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
+						id="5">전</a></li>
+					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
+						id="6">나물반찬</a></li>
+					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
+						id="7">장아찌</a></li>
+					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
+						id="8">대용량</a></li>
 				</ul>
 			</nav>
 			<p>
@@ -889,7 +142,6 @@ footer>#footerBottom>#right>#tel {
 			</p>
 		</div>
 	</header>
-
 
 	<!-- /* slider */ -->
 	<div id="slider">
@@ -906,36 +158,87 @@ footer>#footerBottom>#right>#tel {
 		</ul>
 	</div>
 
-	<!-- /* signSection */ -->
-	<!-- /* sub pages & search results page */ -->
-	<section class="subPages">
-		<h2 class="categoryTitle"></h2>
+	<!-- 상품 목록 -->
+	<div class="container mt-3">
+		<div class="row">
+			<c:forEach var="i" begin="1" end="8">
+				<c:set var="productListName" value="productList${i}" />
+				<c:set var="productList" value="${requestScope[productListName]}" />
+				<c:if test="${not empty productList}">
+					<h5 class="card-title">카테고리 ${i}</h5>
+					<div class="overflow-auto" style="white-space: nowrap;">
+						<div class="col-md-3 mb-2">
+							<div class="d-flex flex-nowrap">
+								<c:forEach var="product" items="${productList}">
+									<div class="mr-2">
+										<div class="card" style="width: 14.7rem;">
+											<img src="upload/${product.pictureUrl}" class="card-img-top"
+												alt="Product Image" id="image${product.code}">												
+											<div class="card-body">
+												<h6 class="card-title" id="name${product.code}">${product.productName}</h6>
+												<p class="card-text" id="price${product.code}">가격: ${product.price}원</p>
+												<input type="number" id="quantity${product.code}" min="0"
+													value="1">
+												<div>
+													<button class="btn btn-primary"
+														onclick="addToCart(${product.code})">장바구니</button>
+													<button class="btn btn-success"
+														onclick="purchase(${product.code})">구매</button>
+												</div>
+											</div>
+											<div class="card-footer">
+												<p class="text-muted">상품 요약: ${product.description}</p>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+							</div>
+						</div>
+					</div>
+				</c:if>
+			</c:forEach>
+		</div>
+	</div>
 
-		<section class="middleSection"></section>
+	<!-- 장바구니 모달 -->
+<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartModalLabel">장바구니</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="cartList"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">닫기</button>
+                            <button type="button" class="btn btn-danger float-right mr-2" onclick="deleteSelectedItems()">선택된 상품 삭제</button>
+                            <button type="button" class="btn btn-success float-right mr-2" onclick="buySelectedItems()">선택된 상품 구매</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-		<section class="rowsSection" id="21"></section>
-		<div class="bottomSection" onclick="createSubPage(this.id)" id="101">진가네
-			명품김치 전체보기 ></div>
-		<section class="rowsSection" id="22"></section>
-		<div class="bottomSection" onclick="createSubPage(this.id)" id="102">진가네
-			밑반찬 전체보기 ></div>
-		<section class="rowsSection" id="23"></section>
-		<div class="bottomSection" onclick="createSubPage(this.id)" id="103">진가네
-			국·찌개 전체보기 ></div>
-		<section class="rowsSection" id="24"></section>
-		<div class="bottomSection" onclick="createSubPage(this.id)" id="104">진가네
-			메인반찬 전체보기 ></div>
-		<section class="rowsSection" id="25"></section>
-		<div class="bottomSection" onclick="createSubPage(this.id)" id="105">진가네
-			전 전체보기 ></div>
-		<section class="rowsSection" id="26"></section>
-		<div class="bottomSection" onclick="createSubPage(this.id)" id="106">진가네
-			나물반찬 전체보기 ></div>
-		<section class="rowsSection" id="27"></section>
-		<div class="bottomSection" onclick="createSubPage(this.id)" id="107">진가네
-			장아찌 전체보기 ></div>
 
-	</section>
+
+
+
+
 	<footer id="footer">
 		<div id="info01">
 			<img src="/resources/img/footer/footer001.png" alt="배송안내">
@@ -982,164 +285,8 @@ footer>#footerBottom>#right>#tel {
 	</footer>
 
 	<script>
-
-        /* 이벤트 */
-        document.getElementById("inputWord").addEventListener("keypress", function () {
-            if (event.key === "Enter") {
-                searchUnitManager(InformationExtractor.productList, document.getElementById("inputWord").value.trim());
-            }
-        });
-
-        document.getElementById("searchButton").addEventListener("click", function () { searchUnitManager(InformationExtractor.productList, document.getElementById("inputWord").value.trim()) });
-
-        /* 메인 페이지 리로드 (홈버튼)
-        v0.01: 240121 메인페이지 리로드
-        */
-        function mainPageReload() {
-            location.reload();
-        }
-
-        /* top banner *//* topBanner 상단 배너 
-        v0.01 : 240110 addEventListen활용 button을 click하면 topBanner영역 display: none  
-        */
-        document.getElementById("topClose").addEventListener("click", topBannerDisplayNone);
-
-        function topBannerDisplayNone() {
-            document.getElementById("topBanner").style.display = "none";
-        }
-
-        /* header */
-        /* 검색 기능 
-        v0.01: 시그니처 반찬 정보로만 구성하여 검색 기능 적용 하나의 배열에서 입력된 문자열을 찾아 인덱스를 반환하고 반환한 인덱스 값으로 브라우저에 출력 
-        v0.02: 240114 검색기능에 필요한 속성과 메서드를 담은 객체(SearchUnit)를 만들고 별도의 매니저 함수(searchUnitManager)로 제어
-        v0.03: 검색 대상이 반찬 별로 분류되어 다차원 배열에 담긴 상태에서 입력된 문자열을 찾아와 출력하도록 변경
-                !!입력 문자열 매칭시 카테고리 배열의 첫번째는 전체 요소의 개수를 담는 공간으로 활용하여 검색결과가 없는 경우를 첫번째 인덱스 값으로 확인하도록 함 
-                !!해당 기능은 검색타겟이 2차 배열 대상으로 1차배열은 적용 안됨, 특히 자바스크립트에서는 문자열을 배열로 취급하기 때문에 정상작동 되는 것으로 헷갈리지 않도록 주의 할 것
-        v0.04: 240120 sub pages와 출력 공간을 공유하면서 슬라이더 영역에 의한 동일 문제 발생으로 출력시 슬라이더를 클리어하고 display를 none으로 설정
-        v0.05: 
-        */
-
-        function SearchUnit(searchTarget, searchWord) {
-            this.searchTarget = searchTarget;
-            this.searchWord = searchWord;
-            this.MIN_INDEX_NUMBER = 0;
-
-
-            this.checkNull = function () {
-                return this.searchWord === null;
-            }
-
-            this.nullException = function () {
-                const MESSAGE = "검색어를 입력해주세요."
-                if (this.checkNull()) {
-                    alert(MESSAGE, "")
-                    return true;
-                }
-                return false;
-            }
-
-            this.checkEmptyString = function () {
-                return this.searchWord.trim() === "";
-            }
-
-            this.emptyStringException = function () {
-                const MESSAGE = "검색어를 입력해주세요."
-                let condition = this.checkEmptyString();
-                if (condition) {
-                    alert(MESSAGE, "")
-                    return true;
-                }
-                return false
-            }
-
-
-            this.searchMatchingWord = function () {
-                let searchCategory = [0];
-                let searchProduct = [];
-
-                for (let i = 1; i < searchTarget.length; i++) {
-                    for (let j = 0; j < searchTarget[i].length; j++) {
-                        if (searchTarget[i][j].indexOf(this.searchWord) >= this.MIN_INDEX_NUMBER) {
-                            searchProduct.push(j);
-                        }
-                    }
-                    searchCategory[0] += searchProduct.length;
-                    searchCategory.push(searchProduct);
-                    searchProduct = [];
-                }
-                return searchCategory;
-            }
-
-            this.isSearchResultNothing = function (searchResultCount) {
-                const MESSAGE = "검색 결과가 없습니다."
-                if (searchResultCount === 0) {
-                    alert(MESSAGE, "")
-                    document.getElementById("inputWord").value = "";
-                    return true;
-                }
-                return false;
-            }
-
-            this.printSearchResult = function () {
-
-                let searchResult = this.searchMatchingWord();
-
-                if (this.isSearchResultNothing(searchResult[0])) {
-                    return true;
-                }
-
-                document.getElementById("slider").style.display = "none";
-                sliderStop();
-
-                printSearchCloneBlock(searchResult, "subPages", 0, createTagWithClass("h2", "subPagesTitle") + cloneTags(createTagWithClass('div', 'productInfo'), searchResult[0]));
-            }
-        }
-
-
-        function printSearchCloneBlock(searchResult, className, index, string) {
-            printByClass(className, index, string);
-            printSearchProuctInformation(searchResult);
-
-        }
-
-        function printSearchProuctInformation(searchResult) {
-            let j = 0;
-            let count = 0;
-            for (let i = 1; i < searchResult.length; i++) {
-                if (searchResult[i].length != 0) {
-                    let productInformation = InformationExtractor.createProdutsSet(i);
-                    count += searchResult[i].length
-                    let k = 0
-                    while (j < count) {
-                        printByClass('productInfo', j, createImgWithId('img', productInformation[searchResult[i][k]][3], productInformation[searchResult[i][k]][0], 'productImage') + createTagWithClass('div', "item"));
-                        printByClass("item", j, createTagWithClass('p', "productName") + createTagWithClass('p', "productIntro") + createTagWithClass('p', "productPrice"));
-                        printByClass("productName", j, productInformation[searchResult[i][k]][0]);
-                        printByClass("productIntro", j, productInformation[searchResult[i][k]][1]);
-                        printByClass("productPrice", j, productInformation[searchResult[i][k]][2]);
-                        k++;
-                        j++;
-                    }
-                }
-
-            }
-        }
-
-        function searchUnitManager(searchTarget, searchWord) {
-            let searchResult = new SearchUnit(searchTarget, searchWord);
-
-            if (searchResult.nullException()) {
-                return;
-            }
-            if (searchResult.emptyStringException()) {
-                return;
-            }
-            if (searchResult.printSearchResult()) {
-                return
-            }
-
-            document.getElementsByClassName("subPagesTitle")[0].innerHTML = subTitle(10);
-        }
-
+	
+	
         /* slider */
         /* 메인 슬라이더 페이드 인 페이드 아웃 기능 
         v0.01 : 240107 setTime()메서드에 시간을 입력하며 하드 코딩함
@@ -1147,6 +294,7 @@ footer>#footerBottom>#right>#tel {
         v0.03 : 240115 개체수 증가시 코드 증가 문제 해결 -> 이미지 추가 시 아이디만 배열에 추가
         v0.04 : 240119 웹페이지 포커스 대기간 쌓이는 인터벌로 인한 페이드 인, 아웃 이상 현상 개선/visiblechange이벤트 활용
         */
+        
         function fadeInManager() {
 
             let opacityValueFadeIn = 0;
@@ -1231,12 +379,7 @@ footer>#footerBottom>#right>#tel {
             clearInterval(sliderTimer);
         }
 
-        document.addEventListener("visibilitychange", function () {
-            if (document.visibilityState === "hidden") {
-                return sliderStop();
-            }
-            return sliderStart();
-        });
+        sliderStart();
 
         /* 공지사항 
         v0.01: 240110 setInterval함수를 활용하여 추가한 기능, 정해진 공지사항이 시간 마다 변경 
@@ -1258,712 +401,8 @@ footer>#footerBottom>#right>#tel {
         function stopBoardInterval() {
             clearInterval(boardSetInterval, 2000);
         }
-
-        /* 상품 정보 문자열로 배열 만들기 
-        v0.01: 240107 웹페이지에서 긁어온 텍스트열에서 필요한 문자열을 찾아 배열 담는 기능
-        v0.02: 240110 함수에서 객체로 변경하여 호출시 createProdutsSet 매개변수를 받지 않음 
-        v0.03: 240116-240118 이미지 경로 작성, 별도로 생성한 이미지 경로와 가격, 제품명, 소개의 인덱스를 맞추기 위해 제품명 배열 추가 작성/ 서브페이지 구현
-        */
-
-        const SIGNBANCHAN = ['순한진미채볶음 75g', '새우볶음 75g', '진가네 겉절이김치 500g', '소고기장조림 400g', '오이소박이 500g', '동그랑땡 8개/300g', '청양고추멸치볶음 100g', '생깻잎김치 100g', '새우볶음 300g', '지리멸치볶음 300g', '[도매전용] 지리멸치볶음 *g', '청양고추멸치볶음 300g', '[도매전용] 새우볶음 *g', '고들빼기김치 1kg', '지리멸치볶음 75g']
-        const HARU_SET_INFORMATION = "하루반찬 Set1 미역줄기볶음,순한진미채볶음,수제카레 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 미역줄기볶음,순한진미채볶음,수제카레 장바구니 담기 하루반찬 Set2 깨순조림,지리멸치볶음,수제짜장 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 깨순조림,지리멸치볶음,수제짜장 장바구니 담기 하루반찬 Set3 건취나물볶음,쥐포간장볶음,무말랭이김치 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 건취나물볶음,쥐포간장볶음,무말랭이김치 장바구니 담기 품절 하루반찬 Set4 계란말이,순한진미채볶음,부지깽이나물볶음 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 계란말이,순한진미채볶음,부지깽이나물볶음 하루반찬 Set5 닭가슴살장조림,새우볶음,오이나물양념무침 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 닭가슴살장조림,새우볶음,오이나물양념무침 장바구니 담기 하루반찬 Set6 우삼겹강된장소스,건취나물볶음,우엉채조림 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 우삼겹강된장소스,건취나물볶음,우엉채조림 장바구니 담기 하루반찬 Set7 오징어채간장볶음,밥비벼먹는볶음김치,메추리알감자샐러드 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 오징어채간장볶음,밥비벼먹는볶음김치,메추리알감자샐러드 장바구니 담기 하루반찬 Set8 닭가슴살겨자소스냉채,대왕오징어간장조림,청양고추멸치볶음 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 닭가슴살겨자소스냉채,대왕오징어간장조림,청양고추멸치볶음 장바구니 담기 하루반찬 Set9 메추리알장조림,다시마채액젓무침,가지양념볶음 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 메추리알장조림,다시마채액젓무침,가지양념볶음 "
-        const HARU_SET = ['하루반찬 Set1', '하루반찬 Set2', '하루반찬 Set3', '하루반찬 Set4', '하루반찬 Set5', '하루반찬 Set6', '하루반찬 Set7', '하루반찬 Set8', '하루반찬 Set9'];
-        const HARU_SET_IMAGE = ['/resources/img/product/haru/haru001.jpg', '/resources/img/product/haru/haru002.jpg', '/resources/img/product/haru/haru003.jpg', '/resources/img/product/haru/haru004.jpg', '/resources/img/product/haru/haru005.jpg', '/resources/img/product/haru/haru006.jpg', '/resources/img/product/haru/haru007.jpg', '/resources/img/product/haru/haru008.jpg', '/resources/img/product/haru/haru009.jpg']
-        const KIMCHI_INFOMATION = "배추포기김치 2.3kg 한국인의 혼을 담다 소비자가 : 36,000원 판매가 : 36,000원 상품 간략설명 : 한국인의 혼을 담다 장바구니 담기 생깻잎김치 100g 산들바람처럼 향긋한~ 소비자가 : 4,500원 판매가 : 4,500원 상품 간략설명 : 산들바람처럼 향긋한~ 장바구니 담기 총각김치 500g 아삭아삭 입 속의 경쾌한 소리 소비자가 : 8,900원 판매가 : 8,900원 상품 간략설명 : 아삭아삭 입 속의 경쾌한 소리 장바구니 담기 섞박지 500g 개운하고 아삭한 별미김치 소비자가 : 8,000원 판매가 : 8,000원 상품 간략설명 : 개운하고 아삭한 별미김치 장바구니 담기 오이소박이 500g 아삭하고 상큼한 맛 소비자가 : 9,000원 판매가 : 9,000원 상품 간략설명 : 아삭하고 상큼한 맛 장바구니 담기 열무잘박이김치 400g 더위를 가셔주는 시원한 맛 소비자가 : 4,900원 판매가 : 4,900원 상품 간략설명 : 더위를 가셔주는 시원한 맛 장바구니 담기 부추김치 300g 자꾸만 손이가는 중독성 소비자가 : 7,200원 판매가 : 7,200원 상품 간략설명 : 자꾸만 손이가는 중독성 장바구니 담기 파김치 350g 깊은 그늘처럼 우묵한 맛 소비자가 : 8,900원 판매가 : 8,900원 상품 간략설명 : 깊은 그늘처럼 우묵한 맛 장바구니 담기 진가네 겉절이김치 500g 금방 무친 산뜻한 맛 소비자가 : 10,900원 판매가 : 10,900원 상품 간략설명 : 금방 무친 산뜻한 맛 장바구니 담기 고추김치 매운맛 100g 입 맛 살려주는 매콤한 맛 소비자가 : 2,900원 판매가 : 2,900원 상품 간략설명 : 입 맛 살려주는 매콤한 맛 장바구니 담기 고추김치 순한맛 100g 잘 발린 양념만큼이나 맛있는 고추김치 소비자가 : 2,900원 판매가 : 2,900원 상품 간략설명 : 잘 발린 양념만큼이나 맛있는 고추김치 장바구니 담기 열무물김치 400g 더위를 가셔주는 시원한 맛 소비자가 : 3,800원 판매가 : 3,800원 상품 간략설명 : 더위를 가셔주는 시원한 맛 장바구니 담기 깍두기 500g 입 맛 당기는 알싸하게 시원한 맛 소비자가 : 7,500원 판매가 : 7,500원 상품 간략설명 : 입 맛 당기는 알싸하게 시원한 맛 장바구니 담기 무말랭이김치 100g 무 손질부터 직접한 무말랭이 소비자가 : 4,000원 판매가 : 4,000원 상품 간략설명 : 무 손질부터 직접한 무말랭이 장바구니 담기 품절 고들빼기김치 150g 고들빼기로 만든 별미김치 소비자가 : 5,000원 판매가 : 5,000원 상품 간략설명 : 고들빼기로 만든 별미김치 품절 빨간 나박물김치 400g 사라락 눈송이처럼 녹는 시원한 맛 소비자가 : 4,500원 판매가 : 4,500원 상품 간략설명 : 사라락 눈송이처럼 녹는 시원한 맛 품절 하얀 나박물김치 400g 사라락 눈송이처럼 녹는 시원한 맛 소비자가 : 4,500원 판매가 : 4,500원 상품 간략설명 : 사라락 눈송이처럼 녹는 시원한 맛 오이볶음 150g 꼬독꼬독하고 산뜻한 소비자가 : 5,300원 판매가 : 5,300원 상품 간략설명 : 꼬독꼬독하고 산뜻한 장바구니 담기 순한진미채볶음 75g 진가네 최고의 베스트셀러 소비자가 : 4,200원 판매가 : 4,200원 상품 간략설명 : 진가네 최고의 베스트셀러 장바구니 담기 대왕오징어간장조림 100g 감칠맛과 식감을 즐길 수 있는 소비자가 : 5,200원 판매가 : 5,200원 상품 간략설명 : 감칠맛과 식감을 즐길 수 있는 장바구니 담기 지리멸치볶음 75g 아이반찬으로 적극추천 소비자가 : 4,500원 판매가 : 4,500원 상품 간략설명 : 아이반찬으로 적극추천 장바구니 담기 검정콩조림 100g 국내산 검정콩을 직접 삶아 만든 검정콩조림 소비자가 : 4,000원 판매가 : 4,000원 상품 간략설명 : 국내산 검정콩을 직접 삶아 만든 검정콩조림 장바구니 담기 어묵간장볶음 150g 남녀노소 누구나 좋아하는! 소비자가 : 3,000원 판매가 : 3,000원 상품 간략설명 : 남녀노소 누구나 좋아하는! 장바구니 담기 매콤한진미채볶음 75g 밑반찬계의 어머니 소비자가 : 4,500원 판매가 : 5,600원 상품 간략설명 : 밑반찬계의 어머니 장바구니 담기 오징어채간장볶음 75g 반찬걱정은 훌훌 털어요~ 소비자가 : 4,300원 판매가 : 4,300원 상품 간략설명 : 반찬걱정은 훌훌 털어요~ 장바구니 담기 새우볶음 75g 달콤고소 눅눅하지 않아요! 소비자가 : 4,400원 판매가 : 4,400원 상품 간략설명 : 달콤고소 눅눅하지 않아요! 장바구니 담기 어묵양념볶음 150g 남녀노소 누구나 좋아하는! 소비자가 : 3,000원 판매가 : 3,000원 상품 간략설명 : 남녀노소 누구나 좋아하는! 장바구니 담기 어묵잡채 150g 고소담백 맛이 일품인 소비자가 : 5,300원 판매가 : 5,300원 상품 간략설명 : 고소담백 맛이 일품인 장바구니 담기 국민반찬set3종  *g 순한진미채,건새우(순한맛),멸치간장볶음 소비자가 : 11,000원 판매가 : 10,500원 상품 간략설명 : 순한진미채,건새우(순한맛),멸치간장볶음 장바구니 담기 오징어채양념볶음 75g 매콤하고 쫄깃한 별미 밑반찬 소비자가 : 4,300원 판매가 : 5,300원 상품 간략설명 : 매콤하고 쫄깃한 별미 밑반찬 장바구니 담기 멸치양념조림 75g 바쁠 땐 이거 하나로도 한 끼 해결! 소비자가 : 3,500원 판매가 : 3,500원 상품 간략설명 : 바쁠 땐 이거 하나로도 한 끼 해결! 장바구니 담기 땅콩조림 100g 인기만점 아이반찬! 소비자가 : 3,500원 판매가 : 4,300원 상품 간략설명 : 인기만점 아이반찬! 장바구니 담기 호두아몬드땅콩조림 200g 최고의 건강반찬 소비자가 : 5,000원 판매가 : 6,200원 상품 간략설명 : 최고의 건강반찬 장바구니 담기 품절 노란콩조림 100g 영양덩어리 노란콩을 담백하게 소비자가 : 3,500원 판매가 : 4,300원 상품 간략설명 : 영양덩어리 노란콩을 담백하게 품절 특급비법소스 140g 비빔냉면, 고기소스로 좋아요 소비자가 : 3,900원 판매가 : 4,800원 상품 간략설명 : 비빔냉면, 고기소스로 좋아요 "
-        const KIMCHI = ['배추포기김치 2.3kg', '진가네 겉절이김치 500g', '열무물김치 400g', '총각김치 500g', '파김치 350g', '부추김치 300g', '고추김치 순한맛 100g', '깍두기 500g', '생깻잎김치 100g', '섞박지 500g', '오이소박이 500g', '열무잘박이김치 400g', '고추김치 매운맛 100g', '무말랭이김치 100g', '고들빼기김치 150g', '빨간 나박물김치 400g', '하얀 나박물김치 400g'];
-        const KIMCHI_IMAGE = ['/resources/img/product/kimchi/kimchi001.jpg', '/resources/img/product/kimchi/kimchi002.jpg', '/resources/img/product/kimchi/kimchi003.jpg', '/resources/img/product/kimchi/kimchi004.jpg', '/resources/img/product/kimchi/kimchi005.jpg', '/resources/img/product/kimchi/kimchi006.jpg', '/resources/img/product/kimchi/kimchi007.jpg', '/resources/img/product/kimchi/kimchi008.jpg', '/resources/img/product/kimchi/kimchi009.jpg', '/resources/img/product/kimchi/kimchi010.jpg', '/resources/img/product/kimchi/kimchi011.jpg', '/resources/img/product/kimchi/kimchi012.jpg', '/resources/img/product/kimchi/kimchi013.jpg', '/resources/img/product/kimchi/kimchi014.jpg', '/resources/img/product/kimchi/kimchi015.jpg', '/resources/img/product/kimchi/kimchi016.jpg', '/resources/img/product/kimchi/kimchi017.jpg']
-        const MITBANCHAN_INFORMATION = "오이볶음 150g 꼬독꼬독하고 산뜻한 소비자가 : 5,300원 판매가 : 5,300원 상품 간략설명 : 꼬독꼬독하고 산뜻한 장바구니 담기 순한진미채볶음 75g 진가네 최고의 베스트셀러 소비자가 : 4,200원 판매가 : 4,200원 상품 간략설명 : 진가네 최고의 베스트셀러 장바구니 담기 대왕오징어간장조림 100g 감칠맛과 식감을 즐길 수 있는 소비자가 : 5,200원 판매가 : 5,200원 상품 간략설명 : 감칠맛과 식감을 즐길 수 있는 장바구니 담기 지리멸치볶음 75g 아이반찬으로 적극추천 소비자가 : 4,500원 판매가 : 4,500원 상품 간략설명 : 아이반찬으로 적극추천 장바구니 담기 검정콩조림 100g 국내산 검정콩을 직접 삶아 만든 검정콩조림 소비자가 : 4,000원 판매가 : 4,000원 상품 간략설명 : 국내산 검정콩을 직접 삶아 만든 검정콩조림 장바구니 담기 어묵간장볶음 150g 남녀노소 누구나 좋아하는! 소비자가 : 3,000원 판매가 : 3,000원 상품 간략설명 : 남녀노소 누구나 좋아하는! 장바구니 담기 매콤한진미채볶음 75g 밑반찬계의 어머니 소비자가 : 4,500원 판매가 : 5,600원 상품 간략설명 : 밑반찬계의 어머니 장바구니 담기 오징어채간장볶음 75g 반찬걱정은 훌훌 털어요~ 소비자가 : 4,300원 판매가 : 4,300원 상품 간략설명 : 반찬걱정은 훌훌 털어요~ 장바구니 담기 새우볶음 75g 달콤고소 눅눅하지 않아요! 소비자가 : 4,400원 판매가 : 4,400원 상품 간략설명 : 달콤고소 눅눅하지 않아요! 장바구니 담기 어묵양념볶음 150g 남녀노소 누구나 좋아하는! 소비자가 : 3,000원 판매가 : 3,000원 상품 간략설명 : 남녀노소 누구나 좋아하는! 장바구니 담기 어묵잡채 150g 고소담백 맛이 일품인 소비자가 : 5,300원 판매가 : 5,300원 상품 간략설명 : 고소담백 맛이 일품인 장바구니 담기 국민반찬set3종 *g 순한진미채,건새우(순한맛),멸치간장볶음 소비자가 : 11,000원 판매가 : 10,500원 상품 간략설명 : 순한진미채,건새우(순한맛),멸치간장볶음 장바구니 담기 오징어채양념볶음 75g 매콤하고 쫄깃한 별미 밑반찬 소비자가 : 4,300원 판매가 : 5,300원 상품 간략설명 : 매콤하고 쫄깃한 별미 밑반찬 장바구니 담기 멸치양념조림 75g 바쁠 땐 이거 하나로도 한 끼 해결! 소비자가 : 3,500원 판매가 : 3,500원 상품 간략설명 : 바쁠 땐 이거 하나로도 한 끼 해결! 장바구니 담기 땅콩조림 100g 인기만점 아이반찬! 소비자가 : 3,500원 판매가 : 4,300원 상품 간략설명 : 인기만점 아이반찬! 장바구니 담기 호두아몬드땅콩조림 200g 최고의 건강반찬 소비자가 : 5,000원 판매가 : 6,200원 상품 간략설명 : 최고의 건강반찬 장바구니 담기 품절 노란콩조림 100g 영양덩어리 노란콩을 담백하게 소비자가 : 3,500원 판매가 : 4,300원 상품 간략설명 : 영양덩어리 노란콩을 담백하게 멸치양념볶음 300g 바쁠 땐 이거 하나로도 한 끼 해결! 소비자가 : 14,000원 판매가 : 13,300원 상품 간략설명 : 바쁠 땐 이거 하나로도 한 끼 해결!"
-        const MITBANCHAN = ['새우볶음 75g', '검정콩조림 100g', '멸치양념조림 75g', '대왕오징어간장조림 100g', '지리멸치볶음 75g', '매콤한진미채볶음 75g', '어묵간장볶음 150g', '오이볶음 150g', '어묵양념볶음 150g', '어묵잡채 150g', '국민반찬set3종 *g', '오징어채양념볶음 75g', '순한진미채볶음 75g', '땅콩조림 100g', '호두아몬드땅콩조림 200g', '노란콩조림 100g', '오징어채간장볶음 75g', '멸치양념볶음 300g'];
-        const MITBANCHAN_IMAGE = ['/resources/img/product/mitbachan/mbc001.jpg', '/resources/img/product/mitbachan/mbc002.jpg', '/resources/img/product/mitbachan/mbc003.jpg', '/resources/img/product/mitbachan/mbc004.jpg', '/resources/img/product/mitbachan/mbc005.jpg', '/resources/img/product/mitbachan/mbc006.jpg', '/resources/img/product/mitbachan/mbc008.jpg', '/resources/img/product/mitbachan/mbc009.jpg', '/resources/img/product/mitbachan/mbc010.jpg', '/resources/img/product/mitbachan/mbc011.jpg', '/resources/img/product/mitbachan/mbc012.jpg', '/resources/img/product/mitbachan/mbc013.jpg', '/resources/img/product/mitbachan/mbc014.jpg', '/resources/img/product/mitbachan/mbc015.jpg', '/resources/img/product/mitbachan/mbc016.jpg', '/resources/img/product/mitbachan/mbc017.jpg', '/resources/img/product/mitbachan/mbc018.jpg', '/resources/img/product/mitbachan/mbc007.jpg']
-        const SOUP_INFORMATION = "참치김치찌개 500g 참치를 듬뿍 넣어 끓여낸 소비자가 : 5,900원 판매가 : 5,900원 상품 간략설명 : 참치를 듬뿍 넣어 끓여낸 장바구니 담기 들깨북어미역국(냉동) 400g 들깨가루를 듬뿍 넣어 고소한 소비자가 : 5,500원 판매가 : 5,500원 상품 간략설명 : 들깨가루를 듬뿍 넣어 고소한 장바구니 담기 한우미역국(냉동) 400g 언제 먹어도 맛있는 소비자가 : 5,500원 판매가 : 5,500원 상품 간략설명 : 언제 먹어도 맛있는 장바구니 담기 북엇국(냉동) 400g 구수하고 담백하게 정성껏 끓여낸 소비자가 : 5,000원 판매가 : 5,000원 상품 간략설명 : 구수하고 담백하게 정성껏 끓여낸 장바구니 담기 배추시래기국(냉동) 400g 자극적이지 않아 아이반찬으로도 좋은 소비자가 : 5,000원 판매가 : 5,000원 상품 간략설명 : 자극적이지 않아 아이반찬으로도 좋은 장바구니 담기 한우육개장(냉동) 400g 제대로 된 국 한그릇 소비자가 : 6,500원 판매가 : 6,500원 상품 간략설명 : 제대로 된 국 한그릇 장바구니 담기 품절 소고기탕국 400g 구수한 국물 맛이 일품인 소비자가 : 5,500원 판매가 : 5,500원 상품 간략설명 : 구수한 국물 맛이 일품인 품절 우삼겹순두부국 400g 우삼겹과 순두부의 부드러운 조화 소비자가 : 6,500원 판매가 : 6,500원 상품 간략설명 : 우삼겹과 순두부의 부드러운 조화 품절 해물순두부국 400g 각 종 해물을 듬뿍 넣어 만든 소비자가 : 6,000원 판매가 : 6,000원 상품 간략설명 : 각 종 해물을 듬뿍 넣어 만든 품절 진가네 닭개장 400g 얼큰하게 끓여낸 소비자가 : 6,000원 판매가 : 6,000원 상품 간략설명 : 얼큰하게 끓여낸 품절 다슬기국(냉동) 400g 시원한 국물 맛이 일품인 소비자가 : 6,000원 판매가 : 6,000원 상품 간략설명 : 시원한 국물 맛이 일품인 "
-        const SOUP = ['한우육개장(냉동) 400g', '들깨북어미역국(냉동) 400g', '해물순두부국 400g', '배추시래기국(냉동) 400g', '북엇국(냉동) 400g', '한우미역국(냉동) 400g', '우삼겹순두부국 400g', '참치김치찌개 500g', '소고기탕국 400g', '진가네 닭개장 400g', '다슬기국(냉동) 400g'];
-        const SOUP_IMAGE = ['/resources/img/product/soup/soup001.jpg', '/resources/img/product/soup/soup002.jpg', '/resources/img/product/soup/soup003.jpg', '/resources/img/product/soup/soup004.jpg', '/resources/img/product/soup/soup005.jpg', '/resources/img/product/soup/soup006.jpg', '/resources/img/product/soup/soup007.jpg', '/resources/img/product/soup/soup008.jpg', '/resources/img/product/soup/soup009.jpg', '/resources/img/product/soup/soup010.jpg', '/resources/img/product/soup/soup011.jpg']
-        const MAINBANCHAN_INFORMATION = "고추된장무침 200g 오이같은 아삭함! 소비자가 : 5,500원 판매가 : 5,500원 상품 간략설명 : 오이같은 아삭함! 장바구니 담기  상품 간략설명 : 오이같은 아삭함! , 숙주햄볶음 150g 고소 짭짤한 맛과 식감이 좋은 소비자가 : 4,500원 판매가 : 4,500원 상품 간략설명 : 고소 짭짤한 맛과 식감이 좋은 장바구니 담기 가지간장볶음 200g 담백고소한 가지반찬 소비자가 : 6,500원 판매가 : 6,500원 상품 간략설명 : 담백고소한 가지반찬 장바구니 담기 소불고기 300g 아이반찬으로 좋아요! 소비자가 : 7,000원 판매가 : 7,000원 상품 간략설명 : 아이반찬으로 좋아요! 장바구니 담기 연근조림 200g 쫀득단짠 아이반찬추천 소비자가 : 4,700원 판매가 : 4,700원 상품 간략설명 : 쫀득단짠 아이반찬추천 장바구니 담기 우엉채조림 100g 간편해서 먹기 좋은 우엉채조림 소비자가 : 4,800원 판매가 : 4,800원 상품 간략설명 : 간편해서 먹기 좋은 우엉채조림 장바구니 담기 소고기 청양고추볶음 150g 특별한 만능반찬 소비자가 : 6,300원 판매가 : 6,300원 상품 간략설명 : 특별한 만능반찬 장바구니 담기 다시마간장조림 150g 밥도둑의 탄생! 소비자가 : 4,000원 판매가 : 4,000원 상품 간략설명 : 밥도둑의 탄생! 장바구니 담기 제육볶음 400g 언제 먹어도 맛있는 제육볶음 소비자가 : 7,500원 판매가 : 7,500원 상품 간략설명 : 언제 먹어도 맛있는 제육볶음 장바구니 담기 잡채 400g 평범한 식탁을 특별하게 만들어줘요 소비자가 : 8,400원 판매가 : 8,400원 상품 간략설명 : 평범한 식탁을 특별하게 만들어줘요 장바구니 담기 소고기장조림 400g 집에서 한 것처럼 먹기좋게 만들었어요! 소비자가 : 19,500원 판매가 : 19,500원 상품 간략설명 : 집에서 한 것처럼 먹기좋게 만들었어요! 장바구니 담기 계란말이 200g 두껍게 말아 더 맛있는 소비자가 : 4,900원 판매가 : 4,900원 상품 간략설명 : 두껍게 말아 더 맛있는 장바구니 담기 수제짜장 250g 한 끼 해결하기 좋은 소비자가 : 4,400원 판매가 : 4,400원 상품 간략설명 : 한 끼 해결하기 좋은 장바구니 담기 간장 돼지불고기 150g 자꾸만 손이가는 고기반찬 소비자가 : 5,300원 판매가 : 5,300원 상품 간략설명 : 자꾸만 손이가는 고기반찬 장바구니 담기 오징어양념비빔밥 300g 오징어가 들어간 손쉬운 비빔밥 키트 소비자가 : 8,200원 판매가 : 8,200원 상품 간략설명 : 오징어가 들어간 손쉬운 비빔밥 키트 장바구니 담기 계란장조림 300g 속이 든든해지는 간편반찬 소비자가 : 5,900원 판매가 : 5,900원 상품 간략설명 : 속이 든든해지는 간편반찬 장바구니 담기 가지양념볶음 200g 풍부한 식감이 좋은 가지반찬 소비자가 : 6,500원 판매가 : 6,500원 상품 간략설명 : 풍부한 식감이 좋은 가지반찬 장바구니 담기 오삼불고기 400g 바다와 육지가 만난 새로운 식감 소비자가 : 9,800원 판매가 : 9,800원 상품 간략설명 : 바다와 육지가 만난 새로운 식감 장바구니 담기 코다리양념조림 500g 매콤한 양념과 쫄깃한 코다리의 만남 소비자가 : 8,900원 판매가 : 8,900원 상품 간략설명 : 매콤한 양념과 쫄깃한 코다리의 만남 장바구니 담기 수제카레 250g 한 끼 해결하기 좋은 소비자가 : 4,400원 판매가 : 4,400원 상품 간략설명 : 한 끼 해결하기 좋은 장바구니 담기 감자채볶음 150g 아이 간단반찬으로 추천 소비자가 : 5,000원 판매가 : 5,000원 상품 간략설명 : 아이 간단반찬으로 추천 장바구니 담기 메추리알 장조림 400g 국물 맛도 맛있는 진가네 장조림 소비자가 : 7,000원 판매가 : 7,000원 상품 간략설명 : 국물 맛도 맛있는 진가네 장조림 장바구니 담기 두부양념조림 400g 자작하게 국물이 잘 스며든 두부반찬 소비자가 : 6,900원 판매가 : 6,900원 상품 간략설명 : 자작하게 국물이 잘 스며든 두부반찬 장바구니 담기 고등어조림(1마리) *g 자작한 국물이 정말 맛있는 소비자가 : 10,000원 판매가 : 10,000원 상품 간략설명 : 자작한 국물이 정말 맛있는 장바구니 담기 메추리알 곤약장조림 200g 달콤 짭조름한 별미반찬 소비자가 : 5,900원 판매가 : 5,900원 상품 간략설명 : 달콤 짭조름한 별미반찬 장바구니 담기 불고기비빔밥 300g 집에서 즐기는 손쉬운 비빔밥 키트 소비자가 : 8,900원 판매가 : 8,900원 상품 간략설명 : 집에서 즐기는 손쉬운 비빔밥 키트 장바구니 담기 닭가슴살장조림 200g 부드러운 닭가슴살이라 매력적인 소비자가 : 4,900원 판매가 : 4,900원 상품 간략설명 : 부드러운 닭가슴살이라 매력적인 장바구니 담기 양배추쌈 240g 손쉽게 쌈요리를 즐길 수 있는 소비자가 : 6,900원 판매가 : 6,900원 상품 간략설명 : 손쉽게 쌈요리를 즐길 수 있는 장바구니 담기 메추리알감자샐러드 300g 일품요리이자 활용성이 좋은 소비자가 : 7,500원 판매가 : 7,500원 상품 간략설명 : 일품요리이자 활용성이 좋은 장바구니 담기 닭가슴살겨자소스냉채 300g 입맛을 돋어줄 알싸한 별미 소비자가 : 7,200원 판매가 : 7,200원 상품 간략설명 : 입맛을 돋어줄 알싸한 별미 장바구니 담기 다시마쌈 240g 바다 내음이 가득한 소비자가 : 6,900원 판매가 : 6,900원 상품 간략설명 : 바다 내음이 가득한 장바구니 담기 순살닭볶음탕 600g 뼈가 없어 더 간편하고 맛있는 소비자가 : 11,900원 판매가 : 11,900원 상품 간략설명 : 뼈가 없어 더 간편하고 맛있는 장바구니 담기 코다리간장조림 500g 간장소스로 맵지 않은 쫄깃한 코다리반찬 소비자가 : 8,900원 판매가 : 8,900원 상품 간략설명 : 간장소스로 맵지 않은 쫄깃한 코다리반찬 장바구니 담기 청양고추멸치볶음 100g 입 맛 살려주는 매콤함 소비자가 : 5,900원 판매가 : 5,900원 상품 간략설명 : 입 맛 살려주는 매콤함 장바구니 담기 품절 더덕무침 300g 더덕의 향긋함을 느낄 수 있는 소비자가 : 8,500원 판매가 : 8,500원 상품 간략설명 : 더덕의 향긋함을 느낄 수 있는 품절 꽁치조림(2마리) *g 자작한 국물이 정말 맛있는 소비자가 : 10,000원 판매가 : 10,000원 상품 간략설명 : 자작한 국물이 정말 맛있는 "
-        const MAINBANCHAN = ['계란말이 200g', '두부양념조림 400g', '메추리알 장조림 400g', '소고기장조림 400g', '잡채 400g', '순살닭볶음탕 600g', '소불고기 300g', '닭가슴살겨자소스냉채 300g', '더덕무침 300g', '메추리알감자샐러드 300g', '닭가슴살장조림 200g', '가지간장볶음 200g', '불고기비빔밥 300g', '간장 돼지불고기 150g', '숙주햄볶음 150g', '고추된장무침 200g', '수제짜장 250g', '코다리간장조림 500g', '코다리양념조림 500g', '연근조림 200g', '우엉채조림 100g', '소고기 청양고추볶음 150g', '다시마간장조림 150g', '제육볶음 400g', '오징어양념비빔밥 300g', '계란장조림 300g', '가지양념볶음 200g', '오삼불고기 400g', '수제카레 250g', '감자채볶음 150g', '메추리알 곤약장조림 200g', '양배추쌈 240g', '다시마쌈 240g', '꽁치조림(2마리) *g', '고등어조림(1마리) *g', '청양고추멸치볶음 100g'];
-        const MAINBANCHAN_IMAGE = ['/resources/img/product/mainbanchan/jbc001.jpg', '/resources/img/product/mainbanchan/jbc002.jpg', '/resources/img/product/mainbanchan/jbc003.jpg', '/resources/img/product/mainbanchan/jbc004.jpg', '/resources/img/product/mainbanchan/jbc005.jpg', '/resources/img/product/mainbanchan/jbc006.jpg', '/resources/img/product/mainbanchan/jbc007.jpg', '/resources/img/product/mainbanchan/jbc008.jpg', '/resources/img/product/mainbanchan/jbc009.jpg', '/resources/img/product/mainbanchan/jbc010.jpg', '/resources/img/product/mainbanchan/jbc011.jpg', '/resources/img/product/mainbanchan/jbc012.jpg', '/resources/img/product/mainbanchan/jbc013.jpg', '/resources/img/product/mainbanchan/jbc014.jpg', '/resources/img/product/mainbanchan/jbc015.jpg', '/resources/img/product/mainbanchan/jbc016.jpg', '/resources/img/product/mainbanchan/jbc017.jpg', '/resources/img/product/mainbanchan/jbc018.jpg', '/resources/img/product/mainbanchan/jbc019.jpg', '/resources/img/product/mainbanchan/jbc020.jpg', '/resources/img/product/mainbanchan/jbc021.jpg', '/resources/img/product/mainbanchan/jbc022.jpg', '/resources/img/product/mainbanchan/jbc023.jpg', '/resources/img/product/mainbanchan/jbc024.jpg', '/resources/img/product/mainbanchan/jbc025.jpg', '/resources/img/product/mainbanchan/jbc026.jpg', '/resources/img/product/mainbanchan/jbc027.jpg', '/resources/img/product/mainbanchan/jbc028.jpg', '/resources/img/product/mainbanchan/jbc029.jpg', '/resources/img/product/mainbanchan/jbc030.jpg', '/resources/img/product/mainbanchan/jbc031.jpg', '/resources/img/product/mainbanchan/jbc032.jpg', '/resources/img/product/mainbanchan/jbc033.jpg', '/resources/img/product/mainbanchan/jbc034.jpg', '/resources/img/product/mainbanchan/jbc035.jpg', '/resources/img/product/mainbanchan/jbc036.jpg']
-        const JEON_INFORMATION = "동그랑땡 8개/300g 두툼하게 직접 빚어낸 소비자가 : 9,800원 판매가 : 9,800원 상품 간략설명 : 두툼하게 직접 빚어낸 장바구니 담기 김치전 200g 직접 담근 김치로 구워낸 소비자가 : 5,400원 판매가 : 5,400원 상품 간략설명 : 직접 담근 김치로 구워낸 장바구니 담기 부추겉절이와육전 *g 술 안주로 제격인 소비자가 : 16,900원 판매가 : 16,900원 상품 간략설명 : 술 안주로 제격인 장바구니 담기 품절 표고전 6개/220g 표고로 만든 고급전 소비자가 : 9,800원 판매가 : 9,800원 상품 간략설명 : 표고로 만든 고급전 품절 해물부추전 200g 노릇노릇 구워진 해물부추전 소비자가 : 5,400원 판매가 : 5,400원 상품 간략설명 : 노릇노릇 구워진 해물부추전 품절 소세지전 200g 추억의 반찬 소비자가 : 4,500원 판매가 : 4,500원 상품 간략설명 : 추억의 반찬 진가네 깻잎전 5개/150g 정성으로 직접 구워낸 소비자가 : 9,800원 판매가 : 9,800원 상품 간략설명 : 정성으로 직접 구워낸 품절 특급비법소스 140g 비빔냉면, 고기소스로 좋아요 소비자가 : 3,900원 판매가 : 4,800원 상품 간략설명 : 비빔냉면, 고기소스로 좋아요 고소 눅눅하지 않아요! "
-        const JEON = ['해물부추전 200g', '김치전 200g', '진가네 깻잎전 5개/150g', '동그랑땡 8개/300g', '부추겉절이와육전 *g', '표고전 6개/220g', '소세지전 200g', '특급비법소스 140g'];
-        const JEON_IMAGE = ['/resources/img/product/jeon/jeon001.jpg', '/resources/img/product/jeon/jeon002.jpg', '/resources/img/product/jeon/jeon003.jpg', '/resources/img/product/jeon/jeon004.jpg', '/resources/img/product/jeon/jeon005.jpg', '/resources/img/product/jeon/jeon006.jpg', '/resources/img/product/jeon/jeon007.jpg', '/resources/img/product/jeon/etc008.jpg']
-        const NAMUL_INFORMATION = " 모둠나물 300g 각각의 나물들이 선사하는 산뜻함 소비자가 : 9,800원 판매가 : 9,800원 상품 간략설명 : 각각의 나물들이 선사하는 산뜻함 장바구니 담기 들깨깨순조림 200g 향긋한 깻잎순과 고소한 들깨 소비자가 : 5,000원 판매가 : 5,000원 상품 간략설명 : 향긋한 깻잎순과 고소한 들깨 장바구니 담기 콩나물제사나물 200g 아삭한 집밥의 기본반찬 소비자가 : 3,500원 판매가 : 3,500원 상품 간략설명 : 아삭한 집밥의 기본반찬 장바구니 담기 고추된장무침 200g 오이같은 아삭함! 소비자가 : 5,500원 판매가 : 5,500원 상품 간략설명 : 오이같은 아삭함! 장바구니 담기 고사리나물볶음 200g 명절과 생일상에 빠지지않는 반찬 소비자가 : 4,500원 판매가 : 4,500원 상품 간략설명 : 명절과 생일상에 빠지지않는 반찬 장바구니 담기 무생채 300g 식욕을 돋아주는 새콤달콤한 무생채 소비자가 : 4,000원 판매가 : 4,000원 상품 간략설명 : 식욕을 돋아주는 새콤달콤한 무생채 장바구니 담기 무제사나물 200g 건강한 나물반찬 소비자가 : 3,500원 판매가 : 3,500원 상품 간략설명 : 건강한 나물반찬 장바구니 담기 숙주나물 200g 깔끔하고 정갈한 나물반찬 소비자가 : 4,000원 판매가 : 4,000원 상품 간략설명 : 깔끔하고 정갈한 나물반찬 장바구니 담기 미역줄기볶음 200g 식이섬유가 풍부한! 소비자가 : 4,800원 판매가 : 4,800원 상품 간략설명 : 식이섬유가 풍부한! 장바구니 담기 건취나물볶음 150g 힘이 나는 건강반찬! 소비자가 : 4,800원 판매가 : 4,800원 상품 간략설명 : 힘이 나는 건강반찬! 장바구니 담기 깨순조림 150g 잔멸치를 넣어 만든 향긋한 반찬 소비자가 : 4,700원 판매가 : 4,700원 상품 간략설명 : 잔멸치를 넣어 만든 향긋한 반찬 장바구니 담기 품절 곤드레나물볶음 150g 구수한 나물반찬 소비자가 : 4,700원 판매가 : 4,700원 상품 간략설명 : 구수한 나물반찬 품절 도라지나물볶음 120g 쌉쌀하고 담백하게 볶아낸 소비자가 : 4,500원 판매가 : 4,500원 상품 간략설명 : 쌉쌀하고 담백하게 볶아낸 품절 시금치나물 100g 영양이 풍부한 건강반찬 소비자가 : 7,000원 판매가 : 7,000원 상품 간략설명 : 영양이 풍부한 건강반찬 품절 부지깽이나물볶음 100g 향도 좋고, 맛도 좋은 부지갱이나물 소비자가 : 4,600원 판매가 : 4,600원 상품 간략설명 : 향도 좋고, 맛도 좋은 부지갱이나물 품절 도라지초무침 200g 새콤달콤한 나물반찬 소비자가 : 6,000원 판매가 : 7,500원 상품 간략설명 : 새콤달콤한 나물반찬 "
-        const NAMUL = ['모둠나물 300g', '건취나물볶음 150g', '부지깽이나물볶음 100g', '숙주나물 200g', '무제사나물 200g', '고사리나물볶음 200g', '콩나물제사나물 200g', '도라지나물볶음 120g', '고추된장무침 200g', '곤드레나물볶음 150g', '깨순조림 150g', '도라지초무침 200g', '들깨깨순조림 200g', '무생채 300g', '미역줄기볶음 200g', '시금치나물 100g',];
-        const NAMUL_IMAGE = ['/resources/img/product/namul/namul001.jpg', '/resources/img/product/namul/namul002.jpg', '/resources/img/product/namul/namul003.jpg', '/resources/img/product/namul/namul004.jpg', '/resources/img/product/namul/namul005.jpg', '/resources/img/product/namul/namul006.jpg', '/resources/img/product/namul/namul007.jpg', '/resources/img/product/namul/namul008.jpg', '/resources/img/product/namul/namul009.jpg', '/resources/img/product/namul/namul010.jpg', '/resources/img/product/namul/namul011.jpg', '/resources/img/product/namul/namul012.jpg', '/resources/img/product/namul/namul013.jpg', '/resources/img/product/namul/namul014.jpg', '/resources/img/product/namul/namul015.jpg', '/resources/img/product/namul/namul016.jpg']
-        const JANGACHI_INFORMATION = "두부강된장 150g 구수함이 일품인 소비자가 : 5,200원 판매가 : 5,200원 상품 간략설명 : 구수함이 일품인 장바구니 담기 젓갈쌈장소스 150g 감칠맛이 좋은 액젓베이스의 쌈장소스 소비자가 : 4,900원 판매가 : 4,900원 상품 간략설명 : 감칠맛이 좋은 액젓베이스의 쌈장소스 장바구니 담기 우삼겹강된장소스 400g 든든하게 한끼 식사 소비자가 : 8,900원 판매가 : 8,900원 상품 간략설명 : 든든하게 한끼 식사 장바구니 담기 오이나물초무침 150g 아삭하고 산뜻함이 느껴지는 소비자가 : 5,500원 판매가 : 5,500원 상품 간략설명 : 아삭하고 산뜻함이 느껴지는 장바구니 담기 깻잎장아찌 100g 새콤달콤한 양념과 향긋한 깻잎향의 조화 소비자가 : 4,300원 판매가 : 4,300원 상품 간략설명 : 새콤달콤한 양념과 향긋한 깻잎향의 조화 장바구니 담기 낙지젓갈 150g 젓갈계의 황태자! 소비자가 : 6,200원 판매가 : 6,200원 상품 간략설명 : 젓갈계의 황태자! 장바구니 담기 청양고추 장아찌 100g 맛있는 매콤함 소비자가 : 4,500원 판매가 : 4,500원 상품 간략설명 : 맛있는 매콤함 장바구니 담기 창란젓갈 150g 입맛을 사로잡는 밥도둑! 소비자가 : 5,000원 판매가 : 5,000원 상품 간략설명 : 입맛을 사로잡는 밥도둑! 장바구니 담기 영양비빔젓갈 200g 팔방미인 젓갈반찬 소비자가 : 5,500원 판매가 : 5,500원 상품 간략설명 : 팔방미인 젓갈반찬 장바구니 담기 아삭이고추 장아찌 100g 새콤달콤한 양념과 아삭한 고추의 기분좋은 조화 소비자가 : 4,300원 판매가 : 4,300원 상품 간략설명 : 새콤달콤한 양념과 아삭한 고추의 기분좋은 조화 장바구니 담기 마늘쫑장아찌 100g 국내산 마늘쫑으로 직접 담은 소비자가 : 4,000원 판매가 : 4,000원 상품 간략설명 : 국내산 마늘쫑으로 직접 담은 장바구니 담기 명란젓갈 200g 명란이라 더 고급스러운! 소비자가 : 13,000원 판매가 : 13,000원 상품 간략설명 : 명란이라 더 고급스러운! 장바구니 담기 품절 깐마늘장아찌 150g 두고두고 먹을 수 있는 건강반찬 소비자가 : 3,900원 판매가 : 3,900원 상품 간략설명 : 두고두고 먹을 수 있는 건강반찬 "
-        const JANGACHI = ['마늘쫑장아찌 100g', '아삭이고추 장아찌 100g', '영양비빔젓갈 200g', '깐마늘장아찌 150g', '창란젓갈 150g', '청양고추 장아찌 100g', '낙지젓갈 150g', '깻잎장아찌 100g', '오이나물초무침 150g', '명란젓갈 200g', '두부강된장 150g', '젓갈쌈장소스 150g', '우삼겹강된장소스 400g'];
-        const JANGACHI_IMAGE = ['/resources/img/product/jangachi/jang001.jpg', '/resources/img/product/jangachi/jang002.jpg', '/resources/img/product/jangachi/jang003.jpg', '/resources/img/product/jangachi/jang004.jpg', '/resources/img/product/jangachi/jang005.jpg', '/resources/img/product/jangachi/jang006.jpg', '/resources/img/product/jangachi/jang007.jpg', '/resources/img/product/jangachi/jang008.jpg', '/resources/img/product/jangachi/jang009.jpg', '/resources/img/product/jangachi/jang010.jpg', '/resources/img/product/jangachi/jang011.jpg', '/resources/img/product/jangachi/jang012.jpg', '/resources/img/product/jangachi/jang013.jpg']
-        const BULK_SALE_INFORMATION = "고들빼기김치 1kg 고들빼기로 만든 별미김치 소비자가 : 33,300원 판매가 : 31,630원 상품 간략설명 : 고들빼기로 만든 별미김치 매콤한진미채볶음 300g 밑반찬계의 어머니 소비자가 : 18,000원 판매가 : 17,100원 상품 간략설명 : 밑반찬계의 어머니 장바구니 담기 무말랭이김치 300g 무 손질부터 직접한 무말랭이 소비자가 : 12,000원 판매가 : 11,400원 상품 간략설명 : 무 손질부터 직접한 무말랭이 장바구니 담기 무생채 600g 식욕을 돋아주는 새콤달콤한 무생채 소비자가 : 8,000원 판매가 : 7,600원 상품 간략설명 : 식욕을 돋아주는 새콤달콤한 무생채 장바구니 담기 파김치 700g 깊은 그늘처럼 우묵한 맛 소비자가 : 17,800원 판매가 : 16,910원 상품 간략설명 : 깊은 그늘처럼 우묵한 맛 장바구니 담기 순한진미채볶음 300g 진가네 최고의 베스트셀러 소비자가 : 16,800원 판매가 : 15,960원 상품 간략설명 : 진가네 최고의 베스트셀러 장바구니 담기 청양고추멸치볶음 300g 입 맛 살려주는 매콤함 소비자가 : 17,700원 판매가 : 16,810원 상품 간략설명 : 입 맛 살려주는 매콤함 장바구니 담기 검정콩조림 400g 국내산 검정콩을 직접 삶아 만든 검정콩조림 소비자가 : 16,000원 판매가 : 15,200원 상품 간략설명 : 국내산 검정콩을 직접 삶아 만든 검정콩조림 장바구니 담기 멸치양념볶음 300g 바쁠 땐 이거 하나로도 한 끼 해결! 소비자가 : 14,000원 판매가 : 13,300원 상품 간략설명 : 바쁠 땐 이거 하나로도 한 끼 해결! 장바구니 담기 지리멸치볶음 300g 아이반찬으로 적극추천 소비자가 : 18,000원 판매가 : 17,100원 상품 간략설명 : 아이반찬으로 적극추천 장바구니 담기 새우볶음 300g 달콤고소 눅눅하지 않아요! 소비자가 : 17,600원 판매가 : 16,720원 상품 간략설명 : 달콤고소 눅눅하지 않아요! 장바구니 담기 땅콩조림 450g 인기만점 아이반찬! 소비자가 : 15,750원 판매가 : 14,960원 상품 간략설명 : 인기만점 아이반찬! 장바구니 담기 수제카레 500g 한 끼 해결하기 좋은 소비자가 : 8,800원 판매가 : 8,360원 상품 간략설명 : 한 끼 해결하기 좋은 "
-        const BULK_SALE = ['고들빼기김치 1kg', '매콤한진미채볶음 300g', '무말랭이김치 300g', '무생채 600g', '파김치 700g', '순한진미채볶음 300g', '청양고추멸치볶음 300g', '검정콩조림 400g', '멸치양념볶음 300g', '지리멸치볶음 300g', '새우볶음 300g', '땅콩조림 450g', '수제카레 500g']
-        const BULK_SALE_IMAGE = ['/resources/img/product/bulk/bulk001.jpg', '/resources/img/product/bulk/bulk002.jpg', '/resources/img/product/bulk/bulk003.jpg', '/resources/img/product/bulk/bulk004.jpg', '/resources/img/product/bulk/bulk005.jpg', '/resources/img/product/bulk/bulk006.jpg', '/resources/img/product/bulk/bulk007.jpg', '/resources/img/product/bulk/bulk008.jpg', '/resources/img/product/bulk/bulk009.jpg', '/resources/img/product/bulk/bulk010.jpg', '/resources/img/product/bulk/bulk011.jpg', '/resources/img/product/bulk/bulk012.jpg', '/resources/img/product/bulk/bulk013.jpg']
-        const WHOLE_SALE_INFORMATION = "[도매전용] 쥐포양념볶음 *g 매콤하고 쫄깃한 별미 밑반찬 소비자가 : 별도문의 판매가 : 별도문의 상품 간략설명 : 매콤하고 쫄깃한 별미 밑반찬 [도매전용] 쥐포간장볶음 *g 달콤하고 쫄깃한 별미 밑반찬 소비자가 : 별도문의 판매가 : 별도문의 상품 간략설명 : 달콤하고 쫄깃한 별미 밑반찬 [도매전용] 순한진미채볶음 *g 2kg / 5kg / 10kg 소비자가 : 별도문의 판매가 : 별도문의 장바구니 담기 [도매전용] 매콤한진미채볶음 *g 2kg / 5kg / 10kg 소비자가 : 별도문의 판매가 : 별도문의 장바구니 담기 [도매전용] 깐멸치볶음 *g 2kg / 5kg / 10kg 소비자가 : 별도문의 판매가 : 별도문의 장바구니 담기 [도매전용] 멸치간장볶음 *g 2kg / 5kg / 10kg 소비자가 : 별도문의 판매가 : 별도문의 장바구니 담기 [도매전용] 지리멸치볶음 *g 2kg / 5kg / 10kg 소비자가 : 별도문의 판매가 : 별도문의 장바구니 담기 [도매전용] 새우볶음 *g 2kg / 5kg / 10kg 소비자가 : 별도문의 판매가 : 별도문의 장바구니 담기 [도매전용] 오징어채양념볶음 *g 2kg / 5kg / 10kg 소비자가 : 별도문의 판매가 : 별도문의 장바구니 담기 [도매전용] 오징어채간장볶음 *g 2kg / 5kg / 10kg 소비자가 : 별도문의 판매가 : 별도문의 장바구니 담기 "
-        const WHOLE_SALE = ['[도매전용] 쥐포양념볶음 *g', '[도매전용] 쥐포간장볶음 *g', '[도매전용] 순한진미채볶음 *g', '[도매전용] 매콤한진미채볶음 *g', '[도매전용] 깐멸치볶음 *g', '[도매전용] 멸치간장볶음 *g', '[도매전용] 지리멸치볶음 *g', '[도매전용] 새우볶음 *g', '[도매전용] 오징어채양념볶음 *g', '[도매전용] 오징어채간장볶음 *g']
-        const WHOLE_SALE_IMAGE = ['/resources/img/product/whole/whole001.jpg', '/resources/img/product/whole/whole002.jpg', '/resources/img/product/whole/whole003.jpg', '/resources/img/product/whole/whole004.jpg', '/resources/img/product/whole/whole005.jpg', '/resources/img/product/whole/whole006.jpg', '/resources/img/product/whole/whole007.jpg', '/resources/img/product/whole/whole008.jpg', '/resources/img/product/whole/whole009.jpg', '/resources/img/product/whole/whole010.jpg'];
-
-        let InformationExtractor = {
-            index: 0,
-            productData: [HARU_SET_INFORMATION, KIMCHI_INFOMATION, MITBANCHAN_INFORMATION, SOUP_INFORMATION, MAINBANCHAN_INFORMATION, JEON_INFORMATION, NAMUL_INFORMATION, JANGACHI_INFORMATION, BULK_SALE_INFORMATION, WHOLE_SALE_INFORMATION],
-            productList: [HARU_SET, KIMCHI, MITBANCHAN, SOUP, MAINBANCHAN, JEON, NAMUL, JANGACHI, BULK_SALE, WHOLE_SALE],
-            productImageList: [HARU_SET_IMAGE, KIMCHI_IMAGE, MITBANCHAN_IMAGE, SOUP_IMAGE, MAINBANCHAN_IMAGE, JEON_IMAGE, NAMUL_IMAGE, JANGACHI_IMAGE, BULK_SALE_IMAGE, WHOLE_SALE_IMAGE],
-
-
-            informationStartIndex: function (productName) {
-                return this.productData[this.index].indexOf(productName);
-            },
-
-            productNameWithWeight: function (productNameStartIndex, matchWord) {
-                return this.productData[this.index].slice(productNameStartIndex, this.productData[this.index].indexOf(matchWord, productNameStartIndex) + 1).trim();
-            },
-
-            setProduct: function (productNameStartIndex, matchWord) {
-                return this.productData[this.index].slice(productNameStartIndex, this.productData[this.index].indexOf(matchWord, productNameStartIndex) + 2).trim();
-            },
-
-            productIntro: function (lengthOfPreTarget, startMatchWord, startIndex, endMatchWord) {
-                return this.productData[this.index].slice(this.productData[this.index].indexOf(startMatchWord, startIndex + lengthOfPreTarget) + 1,
-                    this.productData[this.index].indexOf(endMatchWord, startIndex)).trim();
-            },
-
-            productInformationPush: function (productNameWithWeight, productIntro, productPrice, productImage) {
-                let productInformation = [];
-                productInformation.push(productNameWithWeight);
-                productInformation.push(productIntro);
-                productInformation.push(productPrice);
-                productInformation.push(productImage);
-                return productInformation;
-            },
-
-            dataMatchValidator: function () {
-                for (let i = 0; i < this.productList[this.index].length; i++) {
-                    if (this.productData[this.index].includes(this.productList[this.index][i]) == false) {
-                        let n = i + 1;
-                        alert('꼴뚜기님. 제품정보에 없는 productList가 존재합니다.  ' + n + '번째 녀석을 확인하세요')
-                    };
-                }
-            },
-
-            isSetProduct: function (index, startIndex) {
-                if (index === 0) {
-                    return this.setProduct(startIndex, "t");
-                }
-                return this.productNameWithWeight(startIndex, 'g')
-            },
-
-            createProdutsSet: function (index) {
-                this.index = index;
-                this.dataMatchValidator();
-                let productInformation = [];
-                for (let i = 0; i < this.productList[this.index].length; i++) {
-                    let startIndex = this.informationStartIndex(this.productList[this.index][i]);
-                    let name = this.isSetProduct(this.index, startIndex);
-                    let intro = this.productIntro(name.length, '', startIndex, '소비자가');
-                    let price = this.productIntro(name.length, ':', startIndex, '판매가');
-                    let image = this.productImageList[this.index][i];
-                    productInformation.push(this.productInformationPush(name, intro, price, image));
-                }
-                return productInformation;
-            }
-        }
-
-        /* 태그 생성기 
-        v0.01: 240106 반복 태그 생성을 위한 기능
-        */
-        function cloneTags(tagBlock, cloneCount) {
-
-            let cloneTags = "";
-            for (let i = 0; i < cloneCount; i++) {
-                cloneTags += tagBlock;
-            }
-
-            return cloneTags;
-        }
-
-        function printByClass(className, index, string) {
-
-            document.getElementsByClassName(className)[index].innerHTML = string;
-
-        }
-
-        function printCloneBlock(productInformation, className, index, key, string, munuCount) {
-            printByClass(className, index, string);
-            printProuctInformation(productInformation, key, munuCount);
-        }
-
-        function printByClass(className, index, string) {
-            document.getElementsByClassName(className)[index].innerHTML = string;
-        }
-
-        function createImgWithId(tagName, url, alt, className) {
-
-            return '<' + tagName + ' src="' + url + '" alt="' + alt + '" class="' + className + '"></' + tagName + '>';
-        }
-
-        function createTagWithClass(tagName, className) {
-            return '<' + tagName + ' class="' + className + '"></' + tagName + '>';
-        }
-
-        function createTagWithClassAndId(tagName, className, id) {
-            return '<' + tagName + ' class="' + className + '" id="' + id + '"></' + tagName + '>';
-        }
-
-        function printProuctInformation(productInformation, key, menuCount) {
-            let count = key + menuCount
-            let i = 0;
-            for (key; key < count; key++) {
-                printByClass('productInfo', i, createImgWithId('img', productInformation[key][3], productInformation[key][0], 'productImage') + createTagWithClass('div', "item"));
-                printByClass("item", i, createTagWithClass('p', "productName") + createTagWithClass('p', "productIntro") + createTagWithClass('p', "productPrice"));
-                printByClass("productName", i, productInformation[key][0]);
-                printByClass("productIntro", i, productInformation[key][1]);
-                printByClass("productPrice", i, productInformation[key][2]);
-                i++;
-            }
-        }
-
-
-        /* 출력 메뉴별(3개, 4개)  시그니처 메뉴 뿌리기
-        v0.01: 240118 ~ 240122 검색기능을 활용하여 메뉴 3가지씩 출력
-        */
-        /* 3가지 메뉴 */
-
-        function toggleButton() {
-            return createTagWithClassAndId("button", "leftButton", "btn001") + createTagWithClassAndId("button", "rightButton", "btn002");
-        }
-
-        function printSignSectionManager(productCategory, products, printTarget) {
-
-            let signatureProducts = createCategoryManager(productCategory, products)
-
-
-            printSearchCloneBlock(signatureProducts, printTarget, 0, createTagWithClass("h2", "subPagesTitle") + toggleButton() + cloneTags(createTagWithClass('div', 'productInfo'), signatureProducts[0]));
-            document.getElementsByClassName("subPagesTitle")[0].innerHTML = subTitle(11);
-        }
-
-
-        let toggleKey = 0;
-        function buttonEvent1() {
-
-            if (toggleKey === 0) {
-                printSignSectionManager(InformationExtractor.productList, ["동그랑땡 8개/300g", "새우볶음 75g", "오이소박이 500g"], "middleSection")
-                toggleKey = 1;
-                return toggleKey
-            } else {
-                printSignSectionManager(InformationExtractor.productList, ["순한진미채볶음 75g", "진가네 겉절이김치 500g", "소고기장조림 400g"], "middleSection")
-                toggleKey = 0;
-                return toggleKey
-            }
-        }
-
-        /* 4가지 메뉴
-        v0.01: 240122 3가지 메뉴와 별도로 작성 로직이 너무 복잡해져서 표준화하여 반복 작성
-        */
-        // 토글 버튼 이벤트
-
-        this.onclick = function (e) {
-            if (e.target.id === "btn001" || e.target.id === "btn002") {
-                return buttonEvent1();
-            }
-            if (e.target.id === "btn003" || e.target.id === "btn004") {
-                return buttonEvent2();
-            }
-            if (e.target.id === "btn005" || e.target.id === "btn006") {
-                return buttonEvent3();
-            }
-            if (e.target.id === "btn007" || e.target.id === "btn008") {
-                return buttonEvent4();
-            }
-            if (e.target.id === "btn009" || e.target.id === "btn010") {
-                return buttonEvent5();
-            }
-            if (e.target.id === "btn011" || e.target.id === "btn012") {
-                return buttonEvent6();
-            }
-            if (e.target.id === "btn013" || e.target.id === "btn014") {
-                return buttonEvent7();
-            }
-            if (e.target.id === "btn015" || e.target.id === "btn016") {
-                return buttonEvent8();
-            }
-        }
-        // 메인 페이지 rowsSection01
-
-        function toggleButton2() {
-            return createTagWithClassAndId("button", "leftButton", "btn003") + createTagWithClassAndId("button", "rightButton", "btn004");
-        }
-
-        let toggleKey2 = 0;
-
-        function buttonEvent2() {
-            const FOUR_MENU_PRINT = 4;
-            let productInformation = InformationExtractor.createProdutsSet(1);
-            let signMenu1 = [];
-            let signMenu2 = [];
-
-            if (toggleKey2 == 0) {
-                for (let i = 0; i < 4; i++) {
-                    signMenu1.push(productInformation[i])
-                }
-
-                printRowsSection(signMenu1, "rowsSection", 0, createTagWithClass("h2", "subPagesTitle") + toggleButton2() + cloneTags(createTagWithClass('div', 'rowsInformation'), FOUR_MENU_PRINT));
-                console.log("ff")
-                toggleKey2 = 1;
-            } else {
-                for (let i = 4; i < 8; i++) {
-                    signMenu2.push(productInformation[i])
-                }
-                printRowsSection(signMenu2, "rowsSection", 0, createTagWithClass("h2", "subPagesTitle") + toggleButton2() + cloneTags(createTagWithClass('div', 'rowsInformation'), FOUR_MENU_PRINT));
-                toggleKey2 = 0;
-            }
-            document.getElementsByClassName("subPagesTitle")[1].innerHTML = subTitle(1);
-        }
-
-        function printRowsSectionInformation(productInformation) {
-            for (let i = 0; i < productInformation.length; i++) {
-                printByClass('rowsInformation', i, createImgWithId('img', productInformation[i][3], productInformation[i][0], 'rowsProductImage') + createTagWithClassAndId('div', "rowsItem",))
-                printByClass("rowsItem", i, createTagWithClass('p', "rowsProductName") + createTagWithClass('p', "rowsProductIntro") + createTagWithClass('p', "rowsProductPrice"));
-                printByClass("rowsProductName", i, productInformation[i][0]);
-                printByClass("rowsProductIntro", i, productInformation[i][1]);
-                printByClass("rowsProductPrice", i, productInformation[i][2]);
-            }
-        }
-
-        function printRowsSection(productInformation, className, index, string) {
-            printByClass(className, index, string);
-            printRowsSectionInformation(productInformation);
-        }
-
-        // 메인 페이지 rowsSection02
-
-        function toggleButton3() {
-            return createTagWithClassAndId("button", "leftButton", "btn005") + createTagWithClassAndId("button", "rightButton", "btn006");
-        }
-
-        let toggleKey3 = 0;
-        function buttonEvent3() {
-            const FOUR_MENU_PRINT = 4;
-            let productInformation = InformationExtractor.createProdutsSet(2);
-            let signMenu1 = [];
-            let signMenu2 = [];
-
-            if (toggleKey3 == 0) {
-                for (let i = 0; i < 4; i++) {
-                    signMenu1.push(productInformation[i])
-                }
-                printRowsSection2(signMenu1, "rowsSection", 1, createTagWithClass("h2", "subPagesTitle") + toggleButton3() + cloneTags(createTagWithClass('div', 'rowsInformation2'), FOUR_MENU_PRINT));
-                toggleKey3 = 1;
-            } else {
-                for (let i = 4; i < 8; i++) {
-                    signMenu2.push(productInformation[i])
-                }
-                printRowsSection2(signMenu2, "rowsSection", 1, createTagWithClass("h2", "subPagesTitle") + toggleButton3() + cloneTags(createTagWithClass('div', 'rowsInformation2'), FOUR_MENU_PRINT));
-                toggleKey3 = 0;
-            }
-            document.getElementsByClassName("subPagesTitle")[2].innerHTML = subTitle(2);
-        }
-
-        function printRowsSectionInformation2(productInformation) {
-            for (let i = 0; i < productInformation.length; i++) {
-                printByClass('rowsInformation2', i, createImgWithId('img', productInformation[i][3], productInformation[i][0], 'rowsProductImage2') + createTagWithClassAndId('div', "rowsItem2",))
-                printByClass("rowsItem2", i, createTagWithClass('p', "rowsProductName2") + createTagWithClass('p', "rowsProductIntro2") + createTagWithClass('p', "rowsProductPrice2"));
-                printByClass("rowsProductName2", i, productInformation[i][0]);
-                printByClass("rowsProductIntro2", i, productInformation[i][1]);
-                printByClass("rowsProductPrice2", i, productInformation[i][2]);
-            }
-        }
-
-        function printRowsSection2(productInformation, className, index, string) {
-            printByClass(className, index, string);
-            printRowsSectionInformation2(productInformation);
-        }
-
-        // 메인 페이지 rowsSection03
-
-        function toggleButton4() {
-            return createTagWithClassAndId("button", "leftButton", "btn007") + createTagWithClassAndId("button", "rightButton", "btn008");
-        }
-
-        let toggleKey4 = 0;
-        function buttonEvent4() {
-            const FOUR_MENU_PRINT = 4;
-            let productInformation = InformationExtractor.createProdutsSet(3);
-            let signMenu1 = [];
-            let signMenu2 = [];
-
-            if (toggleKey4 == 0) {
-                for (let i = 0; i < 4; i++) {
-                    signMenu1.push(productInformation[i])
-                }
-                printRowsSection3(signMenu1, "rowsSection", 2, createTagWithClass("h2", "subPagesTitle") + toggleButton4() + cloneTags(createTagWithClass('div', 'rowsInformation3'), FOUR_MENU_PRINT));
-                toggleKey4 = 1;
-            } else {
-                for (let i = 4; i < 8; i++) {
-                    signMenu2.push(productInformation[i])
-                }
-                printRowsSection3(signMenu2, "rowsSection", 2, createTagWithClass("h2", "subPagesTitle") + toggleButton4() + cloneTags(createTagWithClass('div', 'rowsInformation3'), FOUR_MENU_PRINT));
-                toggleKey4 = 0;
-            }
-            document.getElementsByClassName("subPagesTitle")[3].innerHTML = subTitle(3);
-        }
-
-        function printRowsSectionInformation3(productInformation) {
-            for (let i = 0; i < productInformation.length; i++) {
-                printByClass('rowsInformation3', i, createImgWithId('img', productInformation[i][3], productInformation[i][0], 'rowsProductImage3') + createTagWithClassAndId('div', "rowsItem3",))
-                printByClass("rowsItem3", i, createTagWithClass('p', "rowsProductName3") + createTagWithClass('p', "rowsProductIntro3") + createTagWithClass('p', "rowsProductPrice3"));
-                printByClass("rowsProductName3", i, productInformation[i][0]);
-                printByClass("rowsProductIntro3", i, productInformation[i][1]);
-                printByClass("rowsProductPrice3", i, productInformation[i][2]);
-            }
-        }
-
-        function printRowsSection3(productInformation, className, index, string) {
-            printByClass(className, index, string);
-            printRowsSectionInformation3(productInformation);
-        }
-
-        // 메인 페이지 rowsSection04
-
-        function toggleButton5() {
-            return createTagWithClassAndId("button", "leftButton", "btn009") + createTagWithClassAndId("button", "rightButton", "btn010");
-        }
-
-        let toggleKey5 = 0;
-        function buttonEvent5() {
-            const FOUR_MENU_PRINT = 4;
-            let productInformation = InformationExtractor.createProdutsSet(4);
-            let signMenu1 = [];
-            let signMenu2 = [];
-
-            if (toggleKey5 == 0) {
-                for (let i = 0; i < 4; i++) {
-                    signMenu1.push(productInformation[i])
-                }
-                printRowsSection4(signMenu1, "rowsSection", 3, createTagWithClass("h2", "subPagesTitle") + toggleButton5() + cloneTags(createTagWithClass('div', 'rowsInformation4'), FOUR_MENU_PRINT));
-                toggleKey5 = 1;
-            } else {
-                for (let i = 4; i < 8; i++) {
-                    signMenu2.push(productInformation[i])
-                }
-                printRowsSection4(signMenu2, "rowsSection", 3, createTagWithClass("h2", "subPagesTitle") + toggleButton5() + cloneTags(createTagWithClass('div', 'rowsInformation4'), FOUR_MENU_PRINT));
-                toggleKey5 = 0;
-            }
-            document.getElementsByClassName("subPagesTitle")[4].innerHTML = subTitle(4);
-        }
-
-        function printRowsSectionInformation4(productInformation) {
-            for (let i = 0; i < productInformation.length; i++) {
-                printByClass('rowsInformation4', i, createImgWithId('img', productInformation[i][3], productInformation[i][0], 'rowsProductImage4') + createTagWithClassAndId('div', "rowsItem4",))
-                printByClass("rowsItem4", i, createTagWithClass('p', "rowsProductName4") + createTagWithClass('p', "rowsProductIntro4") + createTagWithClass('p', "rowsProductPrice4"));
-                printByClass("rowsProductName4", i, productInformation[i][0]);
-                printByClass("rowsProductIntro4", i, productInformation[i][1]);
-                printByClass("rowsProductPrice4", i, productInformation[i][2]);
-            }
-        }
-
-        function printRowsSection4(productInformation, className, index, string) {
-            printByClass(className, index, string);
-            printRowsSectionInformation4(productInformation);
-        }
-
-        // 메인 페이지 rowsSection05
-
-        function toggleButton6() {
-            return createTagWithClassAndId("button", "leftButton", "btn011") + createTagWithClassAndId("button", "rightButton", "btn012");
-        }
-
-        let toggleKey6 = 0;
-        function buttonEvent6() {
-            const FOUR_MENU_PRINT = 4;
-            let productInformation = InformationExtractor.createProdutsSet(5);
-            let signMenu1 = [];
-            let signMenu2 = [];
-
-            if (toggleKey6 == 0) {
-                for (let i = 0; i < 4; i++) {
-                    signMenu1.push(productInformation[i])
-                }
-                printRowsSection5(signMenu1, "rowsSection", 4, createTagWithClass("h2", "subPagesTitle") + toggleButton6() + cloneTags(createTagWithClass('div', 'rowsInformation5'), FOUR_MENU_PRINT));
-                toggleKey6 = 1;
-            } else {
-                for (let i = 4; i < 8; i++) {
-                    signMenu2.push(productInformation[i])
-                }
-                printRowsSection5(signMenu2, "rowsSection", 4, createTagWithClass("h2", "subPagesTitle") + toggleButton6() + cloneTags(createTagWithClass('div', 'rowsInformation5'), FOUR_MENU_PRINT));
-                toggleKey6 = 0;
-            }
-            document.getElementsByClassName("subPagesTitle")[5].innerHTML = subTitle(5);
-        }
-
-        function printRowsSectionInformation5(productInformation) {
-            for (let i = 0; i < productInformation.length; i++) {
-                printByClass('rowsInformation5', i, createImgWithId('img', productInformation[i][3], productInformation[i][0], 'rowsProductImage5') + createTagWithClassAndId('div', "rowsItem5",))
-                printByClass("rowsItem5", i, createTagWithClass('p', "rowsProductName5") + createTagWithClass('p', "rowsProductIntro5") + createTagWithClass('p', "rowsProductPrice5"));
-                printByClass("rowsProductName5", i, productInformation[i][0]);
-                printByClass("rowsProductIntro5", i, productInformation[i][1]);
-                printByClass("rowsProductPrice5", i, productInformation[i][2]);
-            }
-        }
-
-        function printRowsSection5(productInformation, className, index, string) {
-            printByClass(className, index, string);
-            printRowsSectionInformation5(productInformation);
-        }
-
-        // 메인 페이지 rowsSection06
-
-        function toggleButton7() {
-            return createTagWithClassAndId("button", "leftButton", "btn013") + createTagWithClassAndId("button", "rightButton", "btn014");
-        }
-
-        let toggleKey7 = 0;
-        function buttonEvent7() {
-            const FOUR_MENU_PRINT = 4;
-            let productInformation = InformationExtractor.createProdutsSet(6);
-            let signMenu1 = [];
-            let signMenu2 = [];
-
-            if (toggleKey7 == 0) {
-                for (let i = 0; i < 4; i++) {
-                    signMenu1.push(productInformation[i])
-                }
-                printRowsSection6(signMenu1, "rowsSection", 5, createTagWithClass("h2", "subPagesTitle") + toggleButton7() + cloneTags(createTagWithClass('div', 'rowsInformation6'), FOUR_MENU_PRINT));
-                toggleKey7 = 1;
-            } else {
-                for (let i = 4; i < 8; i++) {
-                    signMenu2.push(productInformation[i])
-                }
-                printRowsSection6(signMenu2, "rowsSection", 5, createTagWithClass("h2", "subPagesTitle") + toggleButton7() + cloneTags(createTagWithClass('div', 'rowsInformation6'), FOUR_MENU_PRINT));
-                toggleKey7 = 0;
-            }
-            document.getElementsByClassName("subPagesTitle")[6].innerHTML = subTitle(6);
-        }
-
-        function printRowsSectionInformation6(productInformation) {
-            for (let i = 0; i < productInformation.length; i++) {
-                printByClass('rowsInformation6', i, createImgWithId('img', productInformation[i][3], productInformation[i][0], 'rowsProductImage6') + createTagWithClassAndId('div', "rowsItem6",))
-                printByClass("rowsItem6", i, createTagWithClass('p', "rowsProductName6") + createTagWithClass('p', "rowsProductIntro6") + createTagWithClass('p', "rowsProductPrice6"));
-                printByClass("rowsProductName6", i, productInformation[i][0]);
-                printByClass("rowsProductIntro6", i, productInformation[i][1]);
-                printByClass("rowsProductPrice6", i, productInformation[i][2]);
-            }
-        }
-
-        function printRowsSection6(productInformation, className, index, string) {
-            printByClass(className, index, string);
-            printRowsSectionInformation6(productInformation);
-        }
-
-        // 메인 페이지 rowsSection07
-
-        function toggleButton8() {
-            return createTagWithClassAndId("button", "leftButton", "btn015") + createTagWithClassAndId("button", "rightButton", "btn016");
-        }
-
-        let toggleKey8 = 0;
-        function buttonEvent8() {
-            const FOUR_MENU_PRINT = 4;
-            let productInformation = InformationExtractor.createProdutsSet(7);
-            let signMenu1 = [];
-            let signMenu2 = [];
-
-            if (toggleKey8 == 0) {
-                for (let i = 0; i < 4; i++) {
-                    signMenu1.push(productInformation[i])
-                }
-                printRowsSection7(signMenu1, "rowsSection", 6, createTagWithClass("h2", "subPagesTitle") + toggleButton8() + cloneTags(createTagWithClass('div', 'rowsInformation7'), FOUR_MENU_PRINT));
-                toggleKey8 = 1;
-            } else {
-                for (let i = 4; i < 8; i++) {
-                    signMenu2.push(productInformation[i])
-                }
-                printRowsSection7(signMenu2, "rowsSection", 6, createTagWithClass("h2", "subPagesTitle") + toggleButton8() + cloneTags(createTagWithClass('div', 'rowsInformation7'), FOUR_MENU_PRINT));
-                toggleKey8 = 0;
-            }
-            document.getElementsByClassName("subPagesTitle")[7].innerHTML = subTitle(7);
-        }
-
-        function printRowsSectionInformation7(productInformation) {
-            for (let i = 0; i < productInformation.length; i++) {
-                printByClass('rowsInformation7', i, createImgWithId('img', productInformation[i][3], productInformation[i][0], 'rowsProductImage7') + createTagWithClassAndId('div', "rowsItem7"))
-                printByClass("rowsItem7", i, createTagWithClass('p', "rowsProductName7") + createTagWithClass('p', "rowsProductIntro7") + createTagWithClass('p', "rowsProductPrice7"));
-                printByClass("rowsProductName7", i, productInformation[i][0]);
-                printByClass("rowsProductIntro7", i, productInformation[i][1]);
-                printByClass("rowsProductPrice7", i, productInformation[i][2]);
-            }
-        }
-
-        function printRowsSection7(productInformation, className, index, string) {
-            printByClass(className, index, string);
-            printRowsSectionInformation7(productInformation);
-        }
-
-        /* sub pages */
-
-        function printSubCloneBlock(productInformation, className, index, string) {
-            printByClass(className, index, string);
-            printSubProuctInformation(productInformation);
-        }
-
-        function printSubProuctInformation(productInformation) {
-            for (let i = 0; i < productInformation.length; i++) {
-                printByClass('productInfo', i, createImgWithId('img', productInformation[i][3], productInformation[i][0], 'productImage') + createTagWithClass('div', "item"))
-                printByClass("item", i, createTagWithClass('p', "productName") + createTagWithClass('p', "productIntro") + createTagWithClass('p', "productPrice"));
-                printByClass("productName", i, productInformation[i][0]);
-                printByClass("productIntro", i, productInformation[i][1]);
-                printByClass("productPrice", i, productInformation[i][2]);
-            }
-        }
-
-        /* 서브 페이지 뿌리기
-        v0.01: 240119 메뉴 클릭하면 서브 페이지 타이틀 메뉴 보이기
-                첫 메인 네비 뿐아니라 메인페이지 중간 전체보기에서도 클릭시 서브페이지를 뿌리도록 설정 시 태그 ID중복 현상을 %기능을
-                사용하여 다른 id값으로 동일 매개변수(카테고리 배열별 인덱스) 값을 받을 수 있게 설정
-        v0.02: 240120 sub pages의 범위를 slider ~ footer전 까지로 변경하여 sub pages 생성시 display를 none으로 처리 했던 부분을 제거
-        v0.03: 240120 v0.02업데이트 이후 브라우저에는 보이지 않지만 크롬 개발자 모드에서 페이드인아웃 슬라이드가 계속 동작하여 오류 발생 확인
-                sliderStop()만 추가 하여 해결하려 했으나 동작 중인 페이드인이나 아웃의 셋인터벌 설정에서 sub pages로 덮어진 image의 opacity
-                옵션값을 찾지 못해 계속 오류를 발생시킴, 슬라이더 영역이 남도록 범위 설정을 남겨두고 보이지않도록 none으로 설정 후  
-                repeat슬라이더 인터벌을 클리어 함
-                !!페이드 인이나 아웃에 cosole.log()로 찍어 서브페이지를 뿌린 후에도 확인 클리어후에도 진행 동작을 하는 것을 확인
-        */
-
-        function createSubPage(number) {
-            document.getElementById("slider").style.display = "none";
-            sliderStop();
-            let pageNumber = parseInt(number) % 10;
-            let productInformation = InformationExtractor.createProdutsSet(pageNumber);
-            printSubCloneBlock(productInformation, "subPages", 0, createTagWithClass("h2", "subPagesTitle") + cloneTags(createTagWithClass('div', 'productInfo'), productInformation.length));
-            document.getElementsByClassName("subPagesTitle")[0].innerHTML = subTitle(pageNumber);
-        }
-
-        function subTitle(index) {
-            let preWord = "<span>진가네 </span>";
-            let subTitles = ["하루반찬세트", "명품김치", "밑반찬", "국·찌개", "메인반찬", "전", "나물반찬", "장아찌", "대용량 할인", "반찬도매", "빠른 검색 결과", "시그니처"]
-            return preWord + subTitles[index];
-        }
-
-        function subView(idNumber) {
-            createSubPage(idNumber);
-        }
-
-        /* 서브 페이지 뿌리기 2 : Search Unit을 활용한, 검색기능으로 서브페이지 만들어 뿌리기
-        v0.01: 240120 시그니처 페이지는 기존에 있는 메뉴중 상징적인 메뉴를 모아놓은 페이지로 기존 데이터에서 필요 목록을 연속으로 검색하여 페이지를 구성하여 출력하는 기능
-                !!2차배열 탐색으로 구성되어 있어 한개 목록 검색시에도 필히 배열로 입력해야 함/ 검색기능하고는 로직이 조금 다름!! (searchTarget, ["ex"])
-        */
-        function createCategoryManager(productCategory, products) {
-            let signatureProducts = [0];
-            for (let i = 0; i < products.length; i++) {
-                let searchResult = new SearchUnit(productCategory, products[i]);
-                let matchingProductIndex = searchResult.searchMatchingWord();
-                for (let j = 0; j < matchingProductIndex.length; j++) {
-                    signatureProducts[j] = getMergeProduct(signatureProducts[j], matchingProductIndex[j], j);
-                }
-            }
-            return signatureProducts;
-        }
-
-        function printCategoryManager(productCategory, products, printTarget) {
-
-            let signatureProducts = createCategoryManager(productCategory, products)
-            document.getElementById("slider").style.display = "none";
-            sliderStop();
-
-            printSearchCloneBlock(signatureProducts, printTarget, 0, createTagWithClass("h2", "subPagesTitle") + cloneTags(createTagWithClass('div', 'productInfo'), signatureProducts[0]));
-            document.getElementsByClassName("subPagesTitle")[0].innerHTML = subTitle(11);
-        }
-
-        function getMergeProduct(originValue, mergeValue, index) {
-            if (index === 0) {
-                return originValue + mergeValue;
-            }
-            if (typeof (originValue) === "undefined") {
-                return mergeValue
-            }
-            if (Array.isArray(originValue)) {
-                return originValue.concat(mergeValue)
-            }
-            return console.log("[ERROR] 꼴뚜기님 createCategoryManager 코드를 확인하세요")
-        }
-        
-
-        // 메인페이지 실행문
-        sliderStart()
-        startBoardInterval();
-        printSignSectionManager(InformationExtractor.productList, ["순한진미채볶음 75g", "진가네 겉절이김치 500g", "소고기장조림 400g"], "middleSection")
-        buttonEvent2();
-        buttonEvent3();
-        buttonEvent4();
-        buttonEvent5();
-        buttonEvent6();
-        buttonEvent7();
-        buttonEvent8();
-        
-        
-        function checkLoginState() {
-            var token = sessionStorage.getItem("token");
-            console.log(token+"ffffffffff")
-            if (token) {
-                console.log("ok")
-                document.getElementById("loginButton").value = "로그아웃";
-                document.getElementById("loginButton").setAttribute("onclick", "logout()");
-                
-            } else {
-                console.log("false")
-                document.getElementById("loginButton").value = "로그인";
-                document.getElementById("loginButton").setAttribute("onclick", "goToLoginForm()");
-            }
-        }
-
-        function goToLoginForm() {
-            window.location.href = "banchan?command=login_form";
-        }
-
-        function goToRegisterForm() {
-            window.location.href = "banchan?command=register_form";
-        }
-
-
-
-        function login() {
-            
-            var userId = document.getElementById("userId").value;
-            var userPassword = document.getElementById("userPassword").value;
-          
-            // AJAX를 사용하여 서버에 로그인 요청을 보냄
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "banchan?command=member_login", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var token = xhr.responseText;
-                    sessionStorage.setItem("token", token);
-                    window.location.href = "banchan?command=index";
-                } else if (xhr.readyState === 4 && xhr.status === 401) {
-                    alert("Invalid username or password.");
-                }
-            };
-            xhr.send("userId=" + userId + "&userPassword=" + userPassword);
-            
-        }
-
-
-
-        function logout() {
-            // sessionStorage에서 토큰을 삭제합니다.
-            sessionStorage.removeItem("token");
-            
-            // 서버에 로그아웃 요청을 보내도록 구현할 수 있습니다.
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "/logout", true);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    // 로그아웃이 성공했을 때 추가적인 작업을 수행할 수 있습니다.
-                    console.log("Logout successful");
-                } else if (xhr.readyState === 4 && xhr.status !== 200) {
-                    // 로그아웃에 실패한 경우에 대한 처리를 수행할 수 있습니다.
-                    console.error("Logout failed");
-                }
-            };
-            xhr.send();
-            
-            // 로그인 상태를 확인하고 화면을 업데이트할 수 있도록 호출합니다.
-            checkLoginState();
-        }
-        
+         
+       
     </script>
 </body>
 

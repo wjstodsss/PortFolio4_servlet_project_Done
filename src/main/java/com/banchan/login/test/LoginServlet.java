@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.Base64;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -21,7 +21,6 @@ public class LoginServlet extends HttpServlet {
         if (username.equals("user") && password.equals("1234")) {
             // 토큰 생성 (여기서는 단순히 무작위 문자열로 토큰을 생성)
             String token = generateToken();
-            System.out.println("ok");
             
             // 클라이언트에게 토큰을 반환
             response.getWriter().write(token);
