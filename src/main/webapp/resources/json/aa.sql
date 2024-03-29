@@ -12,16 +12,18 @@ select * from tbl_member;
 select * from tbl_protbl_memberduct;
 
 CREATE TABLE tbl_admin_member (
-    userName VARCHAR(255) NOT NULL,
-    userId VARCHAR(255) PRIMARY KEY NOT NULL,
-    userPassword VARCHAR(64) NOT NULL,
-    userEmail VARCHAR(255) NOT NULL,
-    userPhone VARCHAR(255) ,
-    admin BOOLEAN
+code int PRIMARY KEY auto_increment not null,
+adminName VARCHAR(255) NOT NULL,
+adminId VARCHAR(255)  NOT NULL,
+adminPassword VARCHAR(64) NOT NULL,
+adminEmail VARCHAR(255) NOT NULL,
+adminPhone VARCHAR(255) ,
+admin BOOLEAN
 );
-INSERT INTO tbl_member (userName, userId, userPassword, userEmail, userPhone, admin) VALUES
+INSERT INTO tbl_admin_member (adminName, adminId, adminPassword, adminEmail, adminPhone, admin) VALUES
 ('finn', 'admin', '123', 'admin@test.com', '123-456-7890', 1);
-
+drop table tbl_admin_member;
+select * from tbl_admin_member;
 drop table tbl_member;
 select * from tbl_member;
 CREATE TABLE tbl_member (

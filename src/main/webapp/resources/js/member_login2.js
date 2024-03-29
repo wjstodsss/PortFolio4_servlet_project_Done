@@ -41,12 +41,21 @@ function goToTestForm() {
 
 function login() {
     
-    var userId = document.getElementById("userId").value;
-    var userPassword = document.getElementById("userPassword").value;
+    
   
     // AJAX를 사용하여 서버에 로그인 요청을 보냄
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "banchan?command=member_login", true);
+    if($('#userId').name === 'userId'){
+		var userId = document.getElementsByName("userId")[0].value;
+    	var userPassword = document.getElementsByName("userPassword")[0].value;
+		xhr.open("POST", "banchan?command=member_login", true);
+	} else {
+		console.log("ddddddd")
+		var adminId = document.getElementsByName("adminId")[0].value;
+    	var adminPassword = document.getElementsByName("adminPassword")[0].value;
+		xhr.open("POST", "banchan?command=admin_login", true);
+	}
+    
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -57,7 +66,14 @@ function login() {
             alert("Invalid username or password.");
         }
     };
-    xhr.send("userId=" + userId + "&userPassword=" + userPassword);
+    
+    if($('#userId').name === 'userId'){
+		xhr.send("userId=" + userId + "&userPassword=" + userPassword);
+	} else {
+		console.log("ddddddd")
+		xhr.send("adminId=" + adminId + "&adminPassword=" + adminPassword);
+	}
+    
     
 }
 
@@ -93,9 +109,15 @@ function setTitle() {
 console.log(command)
     // command 값에 따라 타이틀 변경
     var loginTitle = document.getElementById("loginTitle");
+    var idName = document.getElementById("userId");
+    var passwordName = document.getElementById("userPassword");
     if (command === "login_form") {
-        loginTitle.innerHTML = "사용자";
+        loginTitle.innerHTML = "사용자ff";
+        idName.setAttribute('name', 'userId');
+        passwordName.setAttribute('name','userPassword');
     } else if (command === "admin_login_form") {
-        loginTitle.innerHTML = "관리자";
+        loginTitle.innerHTML = "관리자usafdh";
+        idName.setAttribute('name','adminId');
+        passwordName.setAttribute('name','adminPassword');
     }
 }

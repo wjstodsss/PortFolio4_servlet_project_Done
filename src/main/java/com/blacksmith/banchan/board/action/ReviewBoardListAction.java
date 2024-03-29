@@ -3,7 +3,6 @@ package com.blacksmith.banchan.board.action;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +12,7 @@ import com.blacksmith.banchan.board.dto.ReviewBoardVO;
 import com.blacksmith.banchan.util.Action;
 import com.google.gson.Gson;
 
-public class ReviewBoardAction implements Action {
+public class ReviewBoardListAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,5 +29,3 @@ public class ReviewBoardAction implements Action {
 	}
 
 }
-
-

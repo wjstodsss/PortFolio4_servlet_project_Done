@@ -1,6 +1,7 @@
 package com.blacksmith.banchan.controller;
 
 
+import com.blacksmith.banchan.admin.action.AdminLoginAction;
 import com.blacksmith.banchan.admin.action.AdminPageAction;
 import com.blacksmith.banchan.board.action.BoardPageAction;
 import com.blacksmith.banchan.board.action.FaqBoardAction;
@@ -110,6 +111,8 @@ public class ActionFactory {
 			action = new ReviewDeleteAction();
 		} else if (command.equals("admin_login_form")){
 			action = new LoginFormAction();
+		} else if (command.equals("admin_login")){
+			action = new AdminLoginAction();
 		}
 		return action;
 	}
