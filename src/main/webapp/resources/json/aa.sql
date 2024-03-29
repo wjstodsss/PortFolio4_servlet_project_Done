@@ -9,14 +9,34 @@ create database db_estore;
 use db_estore;
 select * from member;
 select * from tbl_member;
+select * from tbl_protbl_memberduct;
 
+CREATE TABLE tbl_admin_member (
+    userName VARCHAR(255) NOT NULL,
+    userId VARCHAR(255) PRIMARY KEY NOT NULL,
+    userPassword VARCHAR(64) NOT NULL,
+    userEmail VARCHAR(255) NOT NULL,
+    userPhone VARCHAR(255) ,
+    admin BOOLEAN
+);
+INSERT INTO tbl_member (userName, userId, userPassword, userEmail, userPhone, admin) VALUES
+('finn', 'admin', '123', 'admin@test.com', '123-456-7890', 1);
 
-SELECT *
-FROM tbl_product
-WHERE category = 1
-ORDER BY code
-LIMIT 8;
+drop table tbl_member;
+select * from tbl_member;
+CREATE TABLE tbl_member (
+    userName VARCHAR(255) NOT NULL,
+    userId VARCHAR(255) PRIMARY KEY NOT NULL,
+    userPassword VARCHAR(64) NOT NULL,
+    userEmail VARCHAR(255) NOT NULL,
+    userPhone VARCHAR(255) ,
+    admin BOOLEAN
+);
 
+INSERT INTO tbl_member (userName, userId, userPassword, userEmail, userPhone, admin) VALUES
+('John Doe', 'asdf', '123', 'john@example.com', '123-456-7890', 0),
+('Alice Smith', 'qwer', '123', 'alice@example.com', '987-654-3210', 0),
+('Bob Johnson', 'zxcv', '123', 'bob@example.com', '111-222-3333', 0);
 
 
 

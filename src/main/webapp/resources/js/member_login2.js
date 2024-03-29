@@ -14,10 +14,17 @@ function checkLoginState() {
 
 function goToLoginForm() {
     window.location.href = "banchan?command=login_form";
+     loginTitle.innerHTML = "사용자 로그인"
 }
 
 function goToAdminPage() {
+
     window.location.href = "banchan?command=admin_page";
+}
+
+function goToAdminLoginForm() {
+    window.location.href = "banchan?command=admin_login_form";
+    loginTitle.innerHTML = "관리자 로그인"
 }
 
 
@@ -66,7 +73,6 @@ function logout() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             // 로그아웃이 성공했을 때 추가적인 작업을 수행할 수 있습니다.
             console.log("Logout successful");
-        } else if (xhr.readyState === 4 && xhr.status !== 200) {
             // 로그아웃에 실패한 경우에 대한 처리를 수행할 수 있습니다.
             console.error("Logout failed");
         }
@@ -75,4 +81,21 @@ function logout() {
     
     // 로그인 상태를 확인하고 화면을 업데이트할 수 있도록 호출합니다.
     checkLoginState();
+}
+
+function setTitle() {
+    // 현재 URL을 가져옴
+    var currentUrl = window.location.search;
+    
+    // URL에서 command 파라미터 값을 추출
+    var urlParams = new URLSearchParams(currentUrl);
+    var command = urlParams.get('command');
+console.log(command)
+    // command 값에 따라 타이틀 변경
+    var loginTitle = document.getElementById("loginTitle");
+    if (command === "login_form") {
+        loginTitle.innerHTML = "사용자";
+    } else if (command === "admin_login_form") {
+        loginTitle.innerHTML = "관리자";
+    }
 }

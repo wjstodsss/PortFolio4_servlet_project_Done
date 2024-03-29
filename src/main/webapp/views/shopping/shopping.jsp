@@ -20,8 +20,8 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="../resources/js/member_login.js"></script>
-<script src="../resources/js/board_util3.js"></script>
+<script src="../resources/js/member_login2.js"></script>
+<script src="../resources/js/board_util4.js"></script>
 <script src="../resources/js/product1.js"></script>
 <script src="../resources/js/member_join2.js"></script>
 <!-- 부트스트랩 CSS 링크 -->
@@ -84,7 +84,7 @@
 						onclick="showCart()">장바구니</a></li>
 					<li>|</li>
 					<li><input type="button" id="loginButton"
-						onclick="goToAdminPage()" class="header-nav" value='관리자'></li>
+						onclick="goToAdminLoginForm()" class="header-nav" value='관리자'></li>
 				</ul>
 			</nav>
 		</div>
@@ -150,10 +150,10 @@
 				<div class="col-md-3 mb-2">
 					<div class="card">
 						<img src="upload/${product.pictureUrl}" class="card-img-top"
-							alt="Product Image">
+							alt="Product Image" id="image${product.code}">
 						<div class="card-body">
 							<!-- 상품명 -->
-							<h6 class="card-title">${product.productName}</h6>
+							<h6 class="card-title" id="name${product.code}">${product.productName}</h6>
 							<!-- 상품 가격 -->
 							<p class="card-text" id="price">가격: ${product.price}원</p>
 							<input type="number" id="quantity${product.code}" min="0"
@@ -176,36 +176,38 @@
 	</div>
 
 	<!-- 장바구니 모달 -->
-	<div class="modal fade" id="cartModal" tabindex="-1" role="dialog"
-		aria-labelledby="cartModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="cartModalLabel">장바구니</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-12" id="cartList"></div>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">닫기</button>
-					<button type="button" class="btn btn-danger"
-						onclick="deleteSelectedItems()">선택된 상품 삭제</button>
-					<button type="button" class="btn btn-success"
-						onclick="buySelectedItems()">선택된 상품 구매</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
+<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartModalLabel">장바구니</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="cartList"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">닫기</button>
+                            <button type="button" class="btn btn-danger float-right mr-2" onclick="deleteSelectedItems()">선택된 상품 삭제</button>
+                            <button type="button" class="btn btn-success float-right mr-2" onclick="buySelectedItems()">선택된 상품 구매</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

@@ -108,6 +108,8 @@ public class ActionFactory {
 			action = new ReviewUpdateAction();
 		} else if (command.equals("delete_review")){
 			action = new ReviewDeleteAction();
+		} else if (command.equals("admin_login_form")){
+			action = new LoginFormAction();
 		}
 		return action;
 	}

@@ -1,10 +1,10 @@
 function goToBoard() {
-	localStorage.setItem("pagekey", "notice")
+	sessionStorage.setItem("pagekey", "notice")
 	window.location.href = "banchan?command=board";
 }
 
 function goToReview() {
-	localStorage.setItem("pagekey", "review")
+	sessionStorage.setItem("pagekey", "review")
 	window.location.href = "banchan?command=board";
 }
 
@@ -72,9 +72,19 @@ function goToDetailModalForm(element) {
 			document.getElementById('detailContent').value = response.content;
 			document.getElementById('detailImageUrl').src = "upload/" + response.imageUrl;
 			document.getElementById('nonmakeImg').value = response.imageUrl;
-		
+			
+			if (navTitle.value == 'qna') {
+				$('#upload').hide();
+			}
 			
 			$('#detailFormModal').modal('show');
+			
+			
+			if (navTitle.value == 'qna') {
+				$('#detailUpload').hide();
+			} else {
+				$('#detailUpload').show();
+			}
 			console.log('서버 응답:', response);
 		},
 		error: function(xhr, status, error) {
@@ -107,7 +117,7 @@ function checkPassword() {
 
 function doAction(action) {
 	if (checkPassword()) {
-		localStorage.setItem("pagekey", navTitle.value);
+		sessionStorage.setItem("pagekey", navTitle.value);
 		document.forms["updateFrm"].action = "banchan?command=" + action + "_" + navTitle.value;
 		document.forms["updateFrm"].submit();
 	} else {
@@ -161,13 +171,13 @@ function displayCreateBtn(boardType) {
 }
 
 function goToWriteAction() {
-	localStorage.setItem("pagekey", navTitle.value);
+	sessionStorage.setItem("pagekey", navTitle.value);
 	document.forms["frm"].action = "banchan?command=write_" + navTitle.value;
 }
 
 function getByType() {
 	console.log(navTitle.value)
-	let type = localStorage.getItem("pagekey");
+	let type = sessionStorage.getItem("pagekey");
 
 	console.log(type)
 

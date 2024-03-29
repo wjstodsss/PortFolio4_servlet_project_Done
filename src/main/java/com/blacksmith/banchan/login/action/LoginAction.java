@@ -10,16 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.blacksmith.banchan.login.dao.MemberDAO;
+import com.blacksmith.banchan.login.service.PasswordHashing;
 import com.blacksmith.banchan.util.Action;
 
 public class LoginAction implements Action {
+	
+	
+	private PasswordHashing passwordHashing = new PasswordHashing();
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
 		String userId = request.getParameter("userId");
-		String userPassword = request.getParameter("userPassword");
+		String userPassword = passwordHashing.hashPassword(request.getParameter("userPassword"));
 		MemberDAO mDAO = MemberDAO.getMemberDao();
 		int result = mDAO.memberCheck(userId, userPassword);
 

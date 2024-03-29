@@ -20,8 +20,8 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="../resources/js/member_login.js"></script>
-<script src="../resources/js/board_util3.js"></script>
+<script src="../resources/js/member_login2.js"></script>
+<script src="../resources/js/board_util4.js"></script>
 <script src="../resources/js/product1.js"></script>
 <script src="../resources/js/member_join2.js"></script>
 <!-- 부트스트랩 CSS 링크 -->
@@ -84,7 +84,7 @@
 						onclick="showCart()">장바구니</a></li>
 					<li>|</li>
 					<li><input type="button" id="loginButton"
-						onclick="goToAdminPage()" class="header-nav" value='관리자'></li>
+						onclick="goToAdminLoginForm()" class="header-nav" value='관리자'></li>
 				</ul>
 			</nav>
 		</div>
@@ -173,12 +173,10 @@
 									<div class="mr-2">
 										<div class="card" style="width: 14.7rem;">
 											<img src="upload/${product.pictureUrl}" class="card-img-top"
-												alt="Product Image" id="image${product.code}">
-												<c:out value="image${product.code}" />
-
+												alt="Product Image" id="image${product.code}">												
 											<div class="card-body">
 												<h6 class="card-title" id="name${product.code}">${product.productName}</h6>
-												<p class="card-text">가격: ${product.price}원</p>
+												<p class="card-text" id="price${product.code}">가격: ${product.price}원</p>
 												<input type="number" id="quantity${product.code}" min="0"
 													value="1">
 												<div>

@@ -16,8 +16,8 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="../resources/js/member_login.js"></script>
-<script src="../resources/js/board_util3.js"></script>
+<script src="../resources/js/member_login2.js"></script>
+<script src="../resources/js/board_util4.js"></script>
 <script src="../resources/js/product1.js"></script>
 <script src="../resources/js/member_join2.js"></script>
 <style>
@@ -91,7 +91,7 @@
 						onclick="showCart()">장바구니</a></li>
 					<li>|</li>
 					<li><input type="button" id="loginButton"
-						onclick="goToAdminPage()" class="header-nav" value='관리자'></li>
+						onclick="goToAdminLoginForm()" class="header-nav" value='관리자'></li>
 				</ul>
 			</nav>
 		</div>
@@ -288,7 +288,7 @@
 								required>
 						</div>
 
-						<div class="form-group">
+						<div class="form-group" id="detailUpload">
 							<label for="updateImage" id="updateImageLabel">사진</label> <input
 								type="file" class="form-control" id="updateImage"
 								name="detailImageUrl" onchange="previewImage(event)"
