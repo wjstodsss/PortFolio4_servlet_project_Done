@@ -29,7 +29,7 @@ public class QnaWriteAction implements Action {
 		
 		MultipartRequest multi = new MultipartRequest(request, path, sizeLimit, encType, new DefaultFileRenamePolicy());
 		
-		String url = "/views/board/board.jsp";
+		
 		QnaBoardVO bVo = new QnaBoardVO();
 		bVo.setTitle(multi.getParameter("title"));
 		bVo.setAuthor(multi.getParameter("author"));
@@ -38,7 +38,7 @@ public class QnaWriteAction implements Action {
 		QnaBoardDAO bDao = QnaBoardDAO.getInstance();
 		bDao.insertBoard(bVo);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request, response);
+		String url = request.getContextPath() + "banchan?command=board";
+        response.sendRedirect(url);
 	}
 }

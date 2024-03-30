@@ -37,9 +37,9 @@ public class ReviewWriteAction implements Action {
 		System.out.println(bVo);
 		bDao.insertBoard(bVo);
 
-		String url = "/views/board/board.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request, response);
+		String url = request.getContextPath() + "banchan?command=board";
+        response.sendRedirect(url);
+
 	}
 
 }
