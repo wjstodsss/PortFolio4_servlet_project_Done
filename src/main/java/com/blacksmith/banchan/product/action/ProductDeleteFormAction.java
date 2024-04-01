@@ -19,11 +19,7 @@ public class ProductDeleteFormAction implements Action {
 		ProductDAO pDao = ProductDAO.getInstance();
 		ProductVO pVo = pDao.selectProductByCode(code);
 		request.setAttribute("product", pVo);
-<<<<<<< HEAD
 		RequestDispatcher dispatcher = request.getRequestDispatcher("views/admin/product/productDelete.jsp");
-=======
-		RequestDispatcher dispatcher = request.getRequestDispatcher("views/product/productDelete.jsp");
->>>>>>> develop
 		dispatcher.forward(request, response);
 	}
 

@@ -35,8 +35,4 @@ public class QnaDeleteAction implements Action {
 		dispatcher.forward(request, response);
 	}
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> develop

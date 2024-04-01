@@ -26,9 +26,7 @@ public class ReviewBoardDAO {
 	}
 
 	public List<ReviewBoardVO> selectAllBoards() {
-
 		String sql = "select * from tbl_review order by id desc";
-
 		List<ReviewBoardVO> list = new ArrayList<ReviewBoardVO>();
 		Connection conn = null;
 		Statement stmt = null;
@@ -39,7 +37,6 @@ public class ReviewBoardDAO {
 			rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				ReviewBoardVO bVo = new ReviewBoardVO();
-
 				bVo.setId(rs.getInt("id"));
 				bVo.setTitle(rs.getString("title"));
 				bVo.setAuthor(rs.getString("author"));
@@ -48,7 +45,6 @@ public class ReviewBoardDAO {
 				bVo.setImageUrl(rs.getString("imageurl"));
 				bVo.setReadCount(rs.getInt("readCount"));
 				bVo.setDatePosted(rs.getTimestamp("datePosted"));
-
 				list.add(bVo);
 			}
 		} catch (SQLException e) {
@@ -59,7 +55,7 @@ public class ReviewBoardDAO {
 		return list;
 	}
 
-
+	
 	
 	
 	
@@ -96,19 +92,6 @@ public class ReviewBoardDAO {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, id);
-		} finally {
-			DBManager.close(conn, pstmt);
-		}
-	}
-
-	public void updateReadCount(int id) {
-		String sql = "update tbl_review set readcount=readcount+1 where id=?";
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		try {
-			conn = DBManager.getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, id);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -120,8 +103,6 @@ public class ReviewBoardDAO {
 	// 게시판 글 상세 내용 보기 :글번호로 찾아온다. : 실패 null,
 	public ReviewBoardVO selectOneBoardById(int id) {
 		String sql = "select * from tbl_review where id = ?";
-
-
 		ReviewBoardVO bVo = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -129,7 +110,6 @@ public class ReviewBoardDAO {
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
-
 			pstmt.setInt(1, id);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
@@ -142,7 +122,6 @@ public class ReviewBoardDAO {
 				bVo.setImageUrl(rs.getString("imageurl"));
 				bVo.setReadCount(rs.getInt("readCount"));
 				bVo.setDatePosted(rs.getTimestamp("datePosted"));
-
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -153,22 +132,18 @@ public class ReviewBoardDAO {
 	}
 
 	public void updateBoard(ReviewBoardVO bVo) {
-
 		String sql = "update tbl_review set title=?, author=?, password=?, content=?, imageUrl=? where id=?";
-
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
-
 			pstmt.setString(1, bVo.getTitle());
 			pstmt.setString(2, bVo.getAuthor());
 			pstmt.setString(3, bVo.getPassword());
 			pstmt.setString(4, bVo.getContent());
 			pstmt.setString(5, bVo.getImageUrl());
 			pstmt.setInt(6, bVo.getId());
-
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -178,23 +153,18 @@ public class ReviewBoardDAO {
 
 	}
 
-
 	public void deleteBoard(int id) {
 		String sql = "delete from tbl_review where id=?";
-
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
-
 			pstmt.setInt(1, id);
-
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-
 
 }

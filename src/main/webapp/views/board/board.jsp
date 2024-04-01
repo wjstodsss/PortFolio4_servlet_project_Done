@@ -16,11 +16,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<<<<<<< HEAD
 <script src="../resources/js/member_login4.js"></script>
-=======
-<script src="../resources/js/member_login2.js"></script>
->>>>>>> develop
 <script src="../resources/js/board_util4.js"></script>
 <script src="../resources/js/product1.js"></script>
 <script src="../resources/js/member_join2.js"></script>

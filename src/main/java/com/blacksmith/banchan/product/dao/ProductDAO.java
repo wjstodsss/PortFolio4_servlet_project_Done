@@ -36,10 +36,7 @@ public class ProductDAO {
 				pVo.setCode(rs.getInt("code"));
 				pVo.setProductName(rs.getString("productName"));
 				pVo.setPrice(rs.getInt("price"));
-
 				pVo.setCategory(rs.getInt("category"));
-
-
 				pVo.setPictureUrl(rs.getString("pictureUrl"));
 				pVo.setDescription(rs.getString("description"));
 				list.add(pVo);
@@ -101,9 +98,7 @@ public class ProductDAO {
 						pVo.setCode(rs.getInt("code"));
 						pVo.setProductName(rs.getString("productname"));
 						pVo.setPrice(rs.getInt("price"));
-
 						pVo.setCategory(rs.getInt("category"));
-
 						pVo.setPictureUrl(rs.getString("pictureUrl"));
 						pVo.setDescription(rs.getString("description"));
 
@@ -122,7 +117,8 @@ public class ProductDAO {
 		//update 
 		public void updateProduct(ProductVO pVo) {
 			String sql = "UPDATE tbl_product SET productname=?, price=?, category=?,pictureurl=?, description=? WHERE code=?";
-
+			
+			System.out.println("dddjjjfffjjjfjjsjfj");
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			try {
@@ -192,7 +188,6 @@ public class ProductDAO {
 			return list;
 		}
 
-
 		public List<ProductVO> selectProductsByCategoryCountNineLess(int category) {
 			String sql = "select * from tbl_product WHERE category=? order by code limit 8";
 			
@@ -223,6 +218,8 @@ public class ProductDAO {
 		    }
 		    return list;
 		}
+
+
 
 
 }
