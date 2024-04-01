@@ -8,5 +8,9 @@
 </head>
 <body>
 <a href="banchan?command=product_list" class="header-nav">제품등록</a>
+<<<<<<< HEAD
+<a href="banchan?command=product_list" class="header-nav">공지사항</a>
+=======
+>>>>>>> develop
 </body>
 </html>

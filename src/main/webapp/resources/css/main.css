@@ -249,6 +249,9 @@ header>#bottomHeader>p>span>a {
 
 }
 
+<<<<<<< HEAD
+
+=======
 /* sub pages */
 
 .subPages {
@@ -862,6 +865,7 @@ header>#bottomHeader>p>span>a {
     font-size: 25px;
     color: rgb(255, 0, 0);
 }
+>>>>>>> develop
 
 /*footer*/
 footer {
@@ -990,7 +994,11 @@ footer>#footerBottom>img {
     float: left;
     width: 433px;
     height: 53px;
+<<<<<<< HEAD
+    margin: 110px -535px
+=======
     margin: 100px -535px
+>>>>>>> develop
 }
 
 footer>#footerBottom>#right {

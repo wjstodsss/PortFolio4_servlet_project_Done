@@ -17,6 +17,12 @@
 <body>
 <div id="wrap" class="container">
     <h1 class="text-center">상품 리스트 - 관리자 페이지</h1>
+<<<<<<< HEAD
+     <div class="text-right">
+        <a class="btn btn-success" href="banchan?command=product_write_form">상품 등록</a>
+    </div>
+=======
+>>>>>>> develop
     <table class="table">
         <thead class="thead-dark">
         <tr>
@@ -39,12 +45,20 @@
         </c:forEach>
         </tbody>
     </table>
+<<<<<<< HEAD
+   
+=======
     <div class="text-right">
         <a class="btn btn-success" href="banchan?command=product_write_form">상품 등록</a>
     </div>
+>>>>>>> develop
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+<<<<<<< HEAD
+
+=======
+>>>>>>> develop
 </html>

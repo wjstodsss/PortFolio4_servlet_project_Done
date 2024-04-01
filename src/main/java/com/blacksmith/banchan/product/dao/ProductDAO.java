@@ -36,6 +36,10 @@ public class ProductDAO {
 				pVo.setCode(rs.getInt("code"));
 				pVo.setProductName(rs.getString("productName"));
 				pVo.setPrice(rs.getInt("price"));
+<<<<<<< HEAD
+				pVo.setCategory(rs.getInt("category"));
+=======
+>>>>>>> develop
 				pVo.setPictureUrl(rs.getString("pictureUrl"));
 				pVo.setDescription(rs.getString("description"));
 				list.add(pVo);
@@ -97,6 +101,10 @@ public class ProductDAO {
 						pVo.setCode(rs.getInt("code"));
 						pVo.setProductName(rs.getString("productname"));
 						pVo.setPrice(rs.getInt("price"));
+<<<<<<< HEAD
+						pVo.setCategory(rs.getInt("category"));
+=======
+>>>>>>> develop
 						pVo.setPictureUrl(rs.getString("pictureUrl"));
 						pVo.setDescription(rs.getString("description"));
 
@@ -115,6 +123,11 @@ public class ProductDAO {
 		//update 
 		public void updateProduct(ProductVO pVo) {
 			String sql = "UPDATE tbl_product SET productname=?, price=?, category=?,pictureurl=?, description=? WHERE code=?";
+<<<<<<< HEAD
+			
+			System.out.println("dddjjjfffjjjfjjsjfj");
+=======
+>>>>>>> develop
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			try {
@@ -184,6 +197,41 @@ public class ProductDAO {
 			return list;
 		}
 
+<<<<<<< HEAD
+		public List<ProductVO> selectProductsByCategoryCountNineLess(int category) {
+			String sql = "select * from tbl_product WHERE category=? order by code limit 8";
+			
+
+		    List<ProductVO> list = new ArrayList<ProductVO>();
+		    Connection conn = null;
+		    PreparedStatement pstmt = null;
+		    ResultSet rs = null;
+		    try {
+		        conn = DBManager.getConnection();
+		        pstmt = conn.prepareStatement(sql);
+		        pstmt.setInt(1, category);
+		        rs = pstmt.executeQuery();
+		        while (rs.next()) {
+		            ProductVO pVo = new ProductVO();
+		            pVo.setCode(rs.getInt("code"));
+		            pVo.setProductName(rs.getString("productName"));
+		            pVo.setPrice(rs.getInt("price"));
+		            pVo.setCategory(rs.getInt("category"));
+		            pVo.setPictureUrl(rs.getString("pictureUrl"));
+		            pVo.setDescription(rs.getString("description"));
+		            list.add(pVo);
+		        }
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    } finally {
+		        DBManager.close(conn, pstmt, rs);
+		    }
+		    return list;
+		}
+
+
+=======
+>>>>>>> develop
 
 
 }
