@@ -1,5 +1,4 @@
-function goTOIndex() {
-	console.log("ffffffffffffffffffffffffffff")
+
 	window.location.href = "banchan?command=index";
 }
 

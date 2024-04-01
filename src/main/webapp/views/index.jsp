@@ -12,7 +12,7 @@
 
 <title>꼴뚜기의 첫번째 프로젝트</title>
 <link href="/resources/css/reset.css" rel="stylesheet">
-<link href="/resources/css/main3.css" rel="stylesheet">
+
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -24,6 +24,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../resources/js/member_login.js"></script>
+
 
 </head>
 
@@ -40,20 +41,12 @@
 		<div id="topHeader">
 			<div id="appDown">
 				<button>진가네 앱 다운로드 ▼</button>
-			</div>
-			<nav>
-				<ul>
-					<li><input type="button" value="로그인" id="loginButton" onclick="goTOLoginForm()" class="header-nav"></li>
-					<li>|</li>
-					<li><input type="button" class="header-nav" onclick="goTORegisterForm()" value='회원가입'></li>
-					<li>|</li>
-					<li><a href="#" class="header-nav">고객센터</a></li>
+
 					<li>|</li>
 					<li><a href="#" class="header-nav">주문조회</a></li>
 					<li>|</li>
 					<li><a href="#" id="cartBold" class="header-nav">장바구니</a></li>
-				</ul>
-			</nav>
+
 		</div>
 
 		<div id="middleHeader">

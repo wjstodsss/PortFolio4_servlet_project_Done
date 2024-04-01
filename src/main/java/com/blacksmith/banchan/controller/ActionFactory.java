@@ -7,7 +7,7 @@ import com.blacksmith.banchan.login.action.LoginAction;
 import com.blacksmith.banchan.login.action.LoginFormAction;
 import com.blacksmith.banchan.login.action.RegisterAction;
 import com.blacksmith.banchan.login.action.RegisterFormAction;
-import com.blacksmith.banchan.util.Action;
+
 
 
 public class ActionFactory {
@@ -35,9 +35,7 @@ public class ActionFactory {
 		} else if (command.equals("register")){
 			action = new RegisterAction();
 		} else if (command.equals("idCheck")){
-			System.out.println("ffffffffffffffffffffffff");
-			action = new IdCheck();
-		} 
+
 		
 		return action;
 	}
