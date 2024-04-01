@@ -13,11 +13,9 @@ public class BoardPageAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-<<<<<<< HEAD
+
 		String url = "/views/board/board.jsp";
-=======
-		String url = "/views/board.jsp";
->>>>>>> develop
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}

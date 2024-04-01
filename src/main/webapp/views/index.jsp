@@ -15,9 +15,12 @@
 <link href="/resources/css/main.css" rel="stylesheet">
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 	rel="stylesheet">
+>>>>>>> develop
 >>>>>>> develop
 <link href="../resources/css/member_login.css" rel="stylesheet">
 <script
@@ -27,7 +30,11 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <<<<<<< HEAD
+<script src="../resources/js/member_login4.js"></script>
+=======
+<<<<<<< HEAD
 <script src="../resources/js/member_login2.js"></script>
+>>>>>>> develop
 <script src="../resources/js/board_util4.js"></script>
 <script src="../resources/js/product1.js"></script>
 <script src="../resources/js/member_join2.js"></script>
@@ -57,10 +64,13 @@
 	white-space: nowrap;
 }
 </style>
+<<<<<<< HEAD
+=======
 =======
 <script src="../resources/js/member_login.js"></script>
 <script src="../resources/js/board_util.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+>>>>>>> develop
 >>>>>>> develop
 
 </head>
@@ -79,6 +89,9 @@
 			<div id="appDown">
 				<button>진가네 앱 다운로드 ▼</button>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> develop
 			</div>
 			<nav>
 				<ul>
@@ -100,6 +113,8 @@
 						onclick="goToAdminLoginForm()" class="header-nav" value='관리자'></li>
 				</ul>
 			</nav>
+<<<<<<< HEAD
+=======
 =======
 				
 			</div>
@@ -122,6 +137,7 @@
 			</nav>
 			
 >>>>>>> develop
+>>>>>>> develop
 		</div>
 
 		<div id="middleHeader">
@@ -132,7 +148,11 @@
 <<<<<<< HEAD
 					<li><a href="#" onclick="goToReview()">반찬후기</a></li>
 =======
+<<<<<<< HEAD
+					<li><a href="#" onclick="goToReview()">반찬후기</a></li>
+=======
 					<li><a href="#">반찬후기</a></li>
+>>>>>>> develop
 >>>>>>> develop
 					<li>|</li>
 					<li><a href="#">배송안내</a></li>
@@ -142,7 +162,11 @@
 <<<<<<< HEAD
 			<div onclick="goToIndex()" id="logo">
 =======
+<<<<<<< HEAD
+			<div onclick="goToIndex()" id="logo">
+=======
 			<div onclick="mainPageReload()" id="logo">
+>>>>>>> develop
 >>>>>>> develop
 				<a href="#"> <img src="/resources/img/header_middle/logo.png"
 					alt="진가네로고">
@@ -158,7 +182,11 @@
 <<<<<<< HEAD
 			<button onclick="handleClick(this)" id="0">하루반찬세트</button>
 =======
+<<<<<<< HEAD
+			<button onclick="handleClick(this)" id="0">하루반찬세트</button>
+=======
 			<button onclick="createSubPage(this.id)" id="0">하루반찬세트</button>
+>>>>>>> develop
 >>>>>>> develop
 			<nav>
 				<ul>
@@ -166,6 +194,9 @@
 						onclick="printCategoryManager (InformationExtractor.productList, SIGNBANCHAN, 'subPages')">진가네
 							시그니처</a></li>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> develop
 					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
 						id="1">진가네 명품김치</a></li>
 					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
@@ -182,6 +213,8 @@
 						id="7">장아찌</a></li>
 					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
 						id="8">대용량</a></li>
+<<<<<<< HEAD
+=======
 =======
 					<li><a href="#" class="jingaTitle"
 						onclick="createSubPage(this.id)" id="1">진가네 명품김치</a></li>
@@ -200,6 +233,7 @@
 					<li><a href="#" class="jingaTitle"
 						onclick="createSubPage(this.id)" id="8">대용량</a></li>
 >>>>>>> develop
+>>>>>>> develop
 				</ul>
 			</nav>
 			<p>
@@ -211,7 +245,10 @@
 
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 
+>>>>>>> develop
 >>>>>>> develop
 	<!-- /* slider */ -->
 	<div id="slider">
@@ -229,6 +266,9 @@
 	</div>
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> develop
 	<!-- 상품 목록 -->
 	<div class="container mt-3">
 		<div class="row">
@@ -310,6 +350,8 @@
 
 
 
+<<<<<<< HEAD
+=======
 =======
 	<!-- /* signSection */ -->
 	<!-- /* sub pages & search results page */ -->
@@ -341,6 +383,7 @@
 			장아찌 전체보기 ></div>
 
 	</section>
+>>>>>>> develop
 >>>>>>> develop
 	<footer id="footer">
 		<div id="info01">
@@ -388,6 +431,10 @@
 	</footer>
 
 	<script>
+<<<<<<< HEAD
+	
+	
+=======
 <<<<<<< HEAD
 	
 	
@@ -551,6 +598,7 @@
         }
 
 >>>>>>> develop
+>>>>>>> develop
         /* slider */
         /* 메인 슬라이더 페이드 인 페이드 아웃 기능 
         v0.01 : 240107 setTime()메서드에 시간을 입력하며 하드 코딩함
@@ -561,6 +609,10 @@
 <<<<<<< HEAD
         
 =======
+<<<<<<< HEAD
+        
+=======
+>>>>>>> develop
 >>>>>>> develop
         function fadeInManager() {
 
@@ -649,12 +701,16 @@
 <<<<<<< HEAD
         sliderStart();
 =======
+<<<<<<< HEAD
+        sliderStart();
+=======
         document.addEventListener("visibilitychange", function () {
             if (document.visibilityState === "hidden") {
                 return sliderStop();
             }
             return sliderStart();
         });
+>>>>>>> develop
 >>>>>>> develop
 
         /* 공지사항 
@@ -677,6 +733,10 @@
         function stopBoardInterval() {
             clearInterval(boardSetInterval, 2000);
         }
+<<<<<<< HEAD
+         
+       
+=======
 <<<<<<< HEAD
          
        
@@ -1332,6 +1392,7 @@
         buttonEvent8();
         
         
+>>>>>>> develop
 >>>>>>> develop
     </script>
 </body>

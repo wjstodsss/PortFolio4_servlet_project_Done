@@ -14,7 +14,11 @@ public class LogoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 세션을 가져옵니다.
         HttpSession session = request.getSession(false);
+<<<<<<< HEAD
+        System.out.println("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+=======
         
+>>>>>>> develop
         if (session != null) {
             // 세션에서 토큰을 삭제합니다.
             session.removeAttribute("token");

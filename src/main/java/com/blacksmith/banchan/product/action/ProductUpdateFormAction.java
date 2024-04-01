@@ -22,7 +22,7 @@ public class ProductUpdateFormAction implements Action {
 		ProductVO pVo = pDao.selectProductByCode(code);
 
 		request.setAttribute("product", pVo);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("views/product/productUpdate.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("views/admin/product/productUpdate.jsp");
 		dispatcher.forward(request, response);
 	}
 

@@ -11,7 +11,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <<<<<<< HEAD
+<script src="../resources/js/member_login4.js"></script>
+=======
+<<<<<<< HEAD
 <script src="../resources/js/member_login2.js"></script>
+>>>>>>> develop
 <script src="../resources/js/member_join2.js"></script>
 </head>
 
@@ -23,6 +27,8 @@
     <form>
         <div class="form-group">
             <label for="userID">UserId:</label>
+<<<<<<< HEAD
+=======
 =======
 <script src="../resources/js/member_login.js"></script>
 </head>
@@ -34,6 +40,7 @@
         <div class="form-group">
             <label for="userID">Username:</label>
 >>>>>>> develop
+>>>>>>> develop
             <input type="text" class="form-control" id="userId" name="userId" required>
         </div>
         <div class="form-group">
@@ -44,6 +51,10 @@
 <<<<<<< HEAD
         <input type="button" onclick="goToIndex()" class="btn btn-primary mb-2" value="메인으로 가기">
 =======
+<<<<<<< HEAD
+        <input type="button" onclick="goToIndex()" class="btn btn-primary mb-2" value="메인으로 가기">
+=======
+>>>>>>> develop
 >>>>>>> develop
     </form>
 </div>

@@ -13,7 +13,7 @@ public class ProductWriteFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("views/product/productWrite.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("views/admin/product/productWrite.jsp");
 		dispatcher.forward(request, response);
 	}
 

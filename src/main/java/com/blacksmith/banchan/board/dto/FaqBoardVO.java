@@ -5,6 +5,9 @@ import java.sql.Timestamp;
 
 public class FaqBoardVO {
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> develop
 	private Integer id;
     private String title;
     private String author;
@@ -67,6 +70,8 @@ public class FaqBoardVO {
 		return "FaqBoardVO [id=" + id + ", title=" + title + ", author=" + author + ", password=" + password
 				+ ", content=" + content + ", imageUrl=" + imageUrl + ", readCount=" + readCount + ", datePosted="
 				+ datePosted + "]";
+<<<<<<< HEAD
+=======
 =======
 	private int num;
 	private String username;
@@ -145,6 +150,7 @@ public class FaqBoardVO {
 
 	public void setWritedate(Timestamp writedate) {
 		this.writedate = writedate;
+>>>>>>> develop
 >>>>>>> develop
 	}
 

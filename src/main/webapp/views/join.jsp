@@ -11,7 +11,11 @@
 <<<<<<< HEAD
     <script type="text/javascript" src="../resources/js/member_join2.js"></script>
 =======
+<<<<<<< HEAD
+    <script type="text/javascript" src="../resources/js/member_join2.js"></script>
+=======
     <script type="text/javascript" src="../resources/js/member_join.js"></script>
+>>>>>>> develop
 >>>>>>> develop
     <style>
         /* 추가한 CSS */
@@ -71,6 +75,11 @@
                         <label class="form-check-label" for="normal">일반회원</label>
                     </div>
 =======
+<<<<<<< HEAD
+                        <input type="radio" name="admin" value="0" id="normal" checked>
+                        <label class="form-check-label" for="normal">일반회원</label>
+                    </div>
+=======
                         <input class="form-check-input" type="radio" name="admin" value="0" id="normal" checked>
                         <label class="form-check-label" for="normal">일반회원</label>
                     </div>
@@ -78,6 +87,7 @@
                         <input class="form-check-input" type="radio" name="admin" value="1" id="admin">
                         <label class="form-check-label" for="admin">관리자</label>
                     </div>
+>>>>>>> develop
 >>>>>>> develop
                 </td>
             </tr>

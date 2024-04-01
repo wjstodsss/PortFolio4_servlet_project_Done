@@ -5,6 +5,9 @@ import java.sql.Timestamp;
 
 public class NoticeBoardVO {
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> develop
 	private Integer id;
     private String title;
     private String author;
@@ -64,6 +67,12 @@ public class NoticeBoardVO {
 	}
 	@Override
 	public String toString() {
+<<<<<<< HEAD
+		return "noticeBoardVO [id=" + id + ", title=" + title + ", author=" + author + ", password=" + password
+				+ ", content=" + content + ", imageUrl=" + imageUrl + ", readCount=" + readCount + ", datePosted="
+				+ datePosted + "]";
+	}
+=======
 		return "FaqBoardVO [id=" + id + ", title=" + title + ", author=" + author + ", password=" + password
 				+ ", content=" + content + ", imageUrl=" + imageUrl + ", readCount=" + readCount + ", datePosted="
 				+ datePosted + "]";
@@ -148,5 +157,6 @@ public class NoticeBoardVO {
 		this.writedate = writedate;
 	}
 
+>>>>>>> develop
 >>>>>>> develop
 }

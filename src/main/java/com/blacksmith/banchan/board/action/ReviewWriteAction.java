@@ -17,17 +17,15 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 public class ReviewWriteAction implements Action {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		ServletContext context = request.getServletContext();
 		String path = context.getRealPath("upload");
 		String encType = "UTF-8";
 		int sizeLimit = 20 * 1024 * 1024;
-	
+
 		MultipartRequest multi = new MultipartRequest(request, path, sizeLimit, encType, new DefaultFileRenamePolicy());
-		
-	
+
 		ReviewBoardVO bVo = new ReviewBoardVO();
 		bVo.setTitle(multi.getParameter("title"));
 		bVo.setAuthor(multi.getParameter("author"));
@@ -38,11 +36,10 @@ public class ReviewWriteAction implements Action {
 		System.out.println("ff");
 		System.out.println(bVo);
 		bDao.insertBoard(bVo);
-		
-		
-		String url = "/views/board/board.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request, response);
+
+		String url = request.getContextPath() + "banchan?command=board";
+        response.sendRedirect(url);
+
 	}
 
 }

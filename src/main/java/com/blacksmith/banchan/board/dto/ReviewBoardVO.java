@@ -5,6 +5,9 @@ import java.sql.Timestamp;
 
 public class ReviewBoardVO {
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> develop
 	private Integer id;
     private String title;
     private String author;
@@ -69,6 +72,8 @@ public class ReviewBoardVO {
 				+ datePosted + "]";
 	}
 	
+<<<<<<< HEAD
+=======
 =======
 	private int num;
 	private String username;
@@ -149,5 +154,6 @@ public class ReviewBoardVO {
 		this.writedate = writedate;
 	}
 
+>>>>>>> develop
 >>>>>>> develop
 }

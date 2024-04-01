@@ -5,6 +5,9 @@ import java.sql.Timestamp;
 
 public class QnaBoardVO {
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> develop
 	private Integer id;
     private String title;
     private String author;
@@ -68,6 +71,8 @@ public class QnaBoardVO {
 				+ ", content=" + content + ", imageUrl=" + imageUrl + ", readCount=" + readCount + ", datePosted="
 				+ datePosted + "]";
 	}
+<<<<<<< HEAD
+=======
 =======
 	private int num;
 	private String username;
@@ -148,5 +153,6 @@ public class QnaBoardVO {
 		this.writedate = writedate;
 	}
 
+>>>>>>> develop
 >>>>>>> develop
 }

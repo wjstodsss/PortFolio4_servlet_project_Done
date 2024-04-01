@@ -3,6 +3,10 @@ package com.blacksmith.banchan.board.action;
 import java.io.IOException;
 import java.util.List;
 
+<<<<<<< HEAD
+import javax.servlet.RequestDispatcher;
+=======
+>>>>>>> develop
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,3 +33,5 @@ public class ReviewBoardAction implements Action {
 	}
 
 }
+
+
