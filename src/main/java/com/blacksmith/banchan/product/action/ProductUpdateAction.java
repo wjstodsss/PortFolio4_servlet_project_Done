@@ -29,7 +29,10 @@ public class ProductUpdateAction implements Action {
 		String code = multi.getParameter("code");
 		String productname = multi.getParameter("productname");
 		int price = Integer.parseInt(multi.getParameter("price"));
+<<<<<<< HEAD
 		int category = Integer.parseInt(multi.getParameter("category"));
+=======
+>>>>>>> develop
 		String description = multi.getParameter("description");
 		String pictureUrl = multi.getFilesystemName("pictureUrl");
 
@@ -41,12 +44,18 @@ public class ProductUpdateAction implements Action {
 		pVo.setCode(Integer.parseInt(code));
 		pVo.setProductName(productname);
 		pVo.setPrice(price);
+<<<<<<< HEAD
 		pVo.setCategory(category);
+=======
+>>>>>>> develop
 		pVo.setDescription(description);
 		pVo.setPictureUrl(pictureUrl);
 
 		ProductDAO pDao = ProductDAO.getInstance();
+<<<<<<< HEAD
 		System.out.println(pDao);
+=======
+>>>>>>> develop
 		pDao.updateProduct(pVo);
 
 		response.sendRedirect("banchan?command=product_list");

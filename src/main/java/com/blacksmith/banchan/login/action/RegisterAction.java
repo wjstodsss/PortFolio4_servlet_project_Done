@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.blacksmith.banchan.login.dao.MemberDAO;
 import com.blacksmith.banchan.login.dto.MemberVO;
+<<<<<<< HEAD
 import com.blacksmith.banchan.login.service.PasswordHashing;
 import com.blacksmith.banchan.util.Action;
 
@@ -18,18 +19,32 @@ public class RegisterAction implements Action {
 	
 	private PasswordHashing passwordHashing = new PasswordHashing();
 	
+=======
+import com.blacksmith.banchan.util.Action;
+
+public class RegisterAction implements Action {
+
+>>>>>>> develop
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
 		String userName = request.getParameter("userName");
 		String userId = request.getParameter("userId");
+<<<<<<< HEAD
 		String userPassword = passwordHashing.hashPassword(request.getParameter("userPassword"));
+=======
+		String userPassword = request.getParameter("userPassword");
+>>>>>>> develop
 		String userEmail = request.getParameter("userEmail");
 		String userPhone = request.getParameter("userPhone");
 		String admin = request.getParameter("admin");
 
 		MemberVO mVo = new MemberVO();
+<<<<<<< HEAD
+=======
+		System.out.println("ffffffff");
+>>>>>>> develop
 		mVo.setUserName(userName);
 		mVo.setUserId(userId);
 		mVo.setUserPassword(userPassword);

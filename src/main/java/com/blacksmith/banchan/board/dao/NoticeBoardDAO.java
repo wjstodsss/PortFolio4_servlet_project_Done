@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.blacksmith.banchan.board.dto.NoticeBoardVO;
-import com.blacksmith.banchan.board.dto.NoticeBoardVO;
 import com.blacksmith.banchan.util.DBManager;
 
 

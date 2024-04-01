@@ -23,6 +23,10 @@ public class ProductListAction implements Action {
 		System.out.println(request.getAttribute("productList"));
 		RequestDispatcher dispatcher = request.getRequestDispatcher("views/product/productList.jsp");
 		dispatcher.forward(request, response);
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
 	}
 
 }
