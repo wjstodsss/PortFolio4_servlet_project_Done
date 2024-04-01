@@ -249,7 +249,627 @@ header>#bottomHeader>p>span>a {
 
 }
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+/* sub pages */
+
+.subPages {
+    margin: 0 auto;
+    width: 980px;
+    display: flex;
+    /* flex-direction: column; */
+    /* border: 1px solid #ccc; */
+    flex-wrap: wrap;
+}
+
+.subPages>.subPagesTitle {
+    float: left;
+    width: 980px;
+    height: 80px;
+    text-align: center;
+    line-height: 100px;
+}
+
+
+.subPages>.subPagesTitle>span {
+    margin-left: 60px;
+    font-weight: 150;
+}
+
+.subPages>.productInfo {
+    float: left;
+    width: 300px;
+    height: 430px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    box-sizing: content-box;
+}
+
+.subPages>.productInfo:hover {
+    border: 1px solid #000000;
+}
+
+.subPages>.productInfo>.productImage {
+    float: left;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+}
+
+.subPages>.productInfo>.item {
+    width: 300px;
+    height: 128px;
+    margin-top: 300px;
+    padding: 20px;
+
+}
+
+.subPages>.productInfo>.item>.productName {
+    width: 100%;
+    height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.subPages>.productInfo>.item>.productIntro {
+    width: 100%;
+    height: 20px;
+    margin-top: 3px;
+    font-size: 13px;
+}
+
+.subPages>.productInfo>.item>.productPrice {
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    font-size: 25px;
+    color: rgb(255, 0, 0);
+}
+
+/* sub end */
+
+/* section signature*/
+
+.middleSection {
+    width: 980px;
+    height: 560px;
+
+}
+
+.middleSection>h2 {
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.middleSection>h2>span {
+    font-weight: 150;
+}
+
+.middleSection>.leftButton {
+    float: left;
+    width: 38px;
+    height: 39px;
+    background-image: url(../img/etc/icon_arrow_left.png);
+    background-size: covor;
+    margin-left: 904px;
+}
+
+.middleSection>.rightButton {
+    float: left;
+    width: 38px;
+    height: 39px;
+    background-image: url(../img/etc/icon_arrow_right.png);
+    background-size: covor;
+    margin-top: -39px;
+    margin-left: 942px;
+}
+
+.middleSection>.productInfo {
+    float: left;
+    width: 300px;
+    height: 430px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    box-sizing: content-box;
+}
+
+.middleSection>.productInfo:hover {
+    border: 1px solid #000000;
+}
+
+.middleSection>.productInfo>.productImage {
+    float: left;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+}
+
+.middleSection>.productInfo>.item {
+    width: 300px;
+    height: 128px;
+    margin-top: 300px;
+    padding: 20px;
+}
+
+
+
+.middleSection>.productInfo>.item>.productName {
+    width: 100%;
+    height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.middleSection>.productInfo>.item>.productIntro {
+    width: 100%;
+    height: 20px;
+    margin-top: 3px;
+    font-size: 13px;
+}
+
+.middleSection>.productInfo>.item>.productPrice {
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    font-size: 25px;
+    color: rgb(255, 0, 0);
+}
+
+/* rows section 01 */
+.rowsSection {
+    width: 980px;
+    height: 500px;
+}
+
+.rowsSection>h2 {
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.rowsSection>h2>span {
+    font-weight: 150;
+}
+
+.rowsSection>.leftButton {
+    float: left;
+    width: 38px;
+    height: 39px;
+    background-image: url(../img/etc/icon_arrow_left.png);
+    background-size: covor;
+    margin-left: 904px;
+}
+
+.rowsSection>.rightButton {
+    float: left;
+    width: 38px;
+    height: 39px;
+    background-image: url(../img/etc/icon_arrow_right.png);
+    background-size: covor;
+    margin-top: -39px;
+    margin-left: 942px;
+}
+
+.rowsSection>.rowsInformation {
+    float: left;
+    width: 228px;
+    height: 360px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    margin-left: 9px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    box-sizing: content-box;
+}
+
+.rowsSection>.rowsInformation:nth-of-type(1) {
+    margin-left: 21px;
+}
+
+.rowsSection>.rowsInformation:hover {
+    border: 1px solid #000000;
+}
+
+.rowsSection>.rowsInformation>.rowsProductImage {
+    float: left;
+    width: 228px;
+    height: 228px;
+    position: absolute;
+}
+
+.rowsSection>.rowsInformation>.rowsItem {
+    width: 228px;
+    height: 128px;
+    margin-top: 230px;
+    padding: 20px;
+}
+
+.rowsSection>.rowsInformation>.rowsItem>.rowsProductName {
+    width: 100%;
+    height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.rowsSection>.rowsInformation>.rowsItem>.rowsProductIntro {
+    width: 100%;
+    height: 20px;
+    margin-top: 3px;
+    font-size: 13px;
+}
+
+.rowsSection>.rowsInformation>.rowsItem>.rowsProductPrice {
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    font-size: 25px;
+    color: rgb(255, 0, 0);
+}
+
+.bottomSection {
+    float: left;
+    width: 980px;
+    height: 55px;
+    text-align: center;
+    line-height: 55px;
+    font-size: bold;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    cursor: pointer;
+}
+
+/* rows section 02 */
+.rowsSection>.rowsInformation2 {
+    float: left;
+    width: 228px;
+    height: 360px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    margin-left: 9px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    box-sizing: content-box;
+}
+
+.rowsSection>.rowsInformation2:nth-of-type(1) {
+    margin-left: 21px;
+}
+
+.rowsSection>.rowsInformation2:hover {
+    border: 1px solid #000000;
+}
+
+.rowsSection>.rowsInformation2>.rowsProductImage2 {
+    float: left;
+    width: 228px;
+    height: 228px;
+    position: absolute;
+}
+
+.rowsSection>.rowsInformation2>.rowsItem2 {
+    width: 228px;
+    height: 128px;
+    margin-top: 230px;
+    padding: 20px;
+}
+
+.rowsSection>.rowsInformation2>.rowsItem2>.rowsProductName2 {
+    width: 100%;
+    height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.rowsSection>.rowsInformation2>.rowsItem2>.rowsProductIntro2 {
+    width: 100%;
+    height: 20px;
+    margin-top: 3px;
+    font-size: 13px;
+}
+
+.rowsSection>.rowsInformation2>.rowsItem2>.rowsProductPrice2 {
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    font-size: 25px;
+    color: rgb(255, 0, 0);
+}
+
+/* rows section 03 */
+.rowsSection>.rowsInformation3 {
+    float: left;
+    width: 228px;
+    height: 360px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    margin-left: 9px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    box-sizing: content-box;
+}
+
+.rowsSection>.rowsInformation3:nth-of-type(1) {
+    margin-left: 21px;
+}
+
+.rowsSection>.rowsInformation3:hover {
+    border: 1px solid #000000;
+}
+
+.rowsSection>.rowsInformation3>.rowsProductImage3 {
+    float: left;
+    width: 228px;
+    height: 228px;
+    position: absolute;
+}
+
+.rowsSection>.rowsInformation3>.rowsItem3 {
+    width: 228px;
+    height: 128px;
+    margin-top: 230px;
+    padding: 20px;
+}
+
+.rowsSection>.rowsInformation3>.rowsItem3>.rowsProductName3 {
+    width: 100%;
+    height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.rowsSection>.rowsInformation3>.rowsItem3>.rowsProductIntro3 {
+    width: 100%;
+    height: 20px;
+    margin-top: 3px;
+    font-size: 13px;
+}
+
+.rowsSection>.rowsInformation3>.rowsItem3>.rowsProductPrice3 {
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    font-size: 25px;
+    color: rgb(255, 0, 0);
+}
+
+/* rows section 04 */
+.rowsSection>.rowsInformation4 {
+    float: left;
+    width: 228px;
+    height: 360px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    margin-left: 9px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    box-sizing: content-box;
+}
+
+.rowsSection>.rowsInformation4:nth-of-type(1) {
+    margin-left: 21px;
+}
+
+.rowsSection>.rowsInformation4:hover {
+    border: 1px solid #000000;
+}
+
+.rowsSection>.rowsInformation4>.rowsProductImage4 {
+    float: left;
+    width: 228px;
+    height: 228px;
+    position: absolute;
+}
+
+.rowsSection>.rowsInformation4>.rowsItem4 {
+    width: 228px;
+    height: 128px;
+    margin-top: 230px;
+    padding: 20px;
+}
+
+.rowsSection>.rowsInformation4>.rowsItem4>.rowsProductName4 {
+    width: 100%;
+    height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.rowsSection>.rowsInformation4>.rowsItem4>.rowsProductIntro4 {
+    width: 100%;
+    height: 20px;
+    margin-top: 3px;
+    font-size: 13px;
+}
+
+.rowsSection>.rowsInformation4>.rowsItem4>.rowsProductPrice4 {
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    font-size: 25px;
+    color: rgb(255, 0, 0);
+}
+
+/* rows section 05 */
+.rowsSection>.rowsInformation5 {
+    float: left;
+    width: 228px;
+    height: 360px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    margin-left: 9px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    box-sizing: content-box;
+}
+
+.rowsSection>.rowsInformation5:nth-of-type(1) {
+    margin-left: 21px;
+}
+
+.rowsSection>.rowsInformation5:hover {
+    border: 1px solid #000000;
+}
+
+.rowsSection>.rowsInformation5>.rowsProductImage5 {
+    float: left;
+    width: 228px;
+    height: 228px;
+    position: absolute;
+}
+
+.rowsSection>.rowsInformation5>.rowsItem5 {
+    width: 228px;
+    height: 128px;
+    margin-top: 230px;
+    padding: 20px;
+}
+
+.rowsSection>.rowsInformation5>.rowsItem5>.rowsProductName5 {
+    width: 100%;
+    height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.rowsSection>.rowsInformation5>.rowsItem5>.rowsProductIntro5 {
+    width: 100%;
+    height: 20px;
+    margin-top: 3px;
+    font-size: 13px;
+}
+
+.rowsSection>.rowsInformation5>.rowsItem5>.rowsProductPrice5 {
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    font-size: 25px;
+    color: rgb(255, 0, 0);
+}
+
+/* rows section 06 */
+.rowsSection>.rowsInformation6 {
+    float: left;
+    width: 228px;
+    height: 360px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    margin-left: 9px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    box-sizing: content-box;
+}
+
+.rowsSection>.rowsInformation6:nth-of-type(1) {
+    margin-left: 21px;
+}
+
+.rowsSection>.rowsInformation6:hover {
+    border: 1px solid #000000;
+}
+
+.rowsSection>.rowsInformation6>.rowsProductImage6 {
+    float: left;
+    width: 228px;
+    height: 228px;
+    position: absolute;
+}
+
+.rowsSection>.rowsInformation6>.rowsItem6 {
+    width: 228px;
+    height: 128px;
+    margin-top: 230px;
+    padding: 20px;
+}
+
+.rowsSection>.rowsInformation6>.rowsItem6>.rowsProductName6 {
+    width: 100%;
+    height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.rowsSection>.rowsInformation6>.rowsItem6>.rowsProductIntro6 {
+    width: 100%;
+    height: 20px;
+    margin-top: 3px;
+    font-size: 13px;
+}
+
+.rowsSection>.rowsInformation6>.rowsItem6>.rowsProductPrice6 {
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    font-size: 25px;
+    color: rgb(255, 0, 0);
+}
+
+/* rows section 07 */
+.rowsSection>.rowsInformation7 {
+    float: left;
+    width: 228px;
+    height: 360px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    margin-left: 9px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    box-sizing: content-box;
+}
+
+.rowsSection>.rowsInformation7:nth-of-type(1) {
+    margin-left: 21px;
+}
+
+.rowsSection>.rowsInformation7:hover {
+    border: 1px solid #000000;
+}
+
+.rowsSection>.rowsInformation7>.rowsProductImage7 {
+    float: left;
+    width: 228px;
+    height: 228px;
+    position: absolute;
+}
+
+.rowsSection>.rowsInformation7>.rowsItem7 {
+    width: 228px;
+    height: 128px;
+    margin-top: 230px;
+    padding: 20px;
+}
+
+.rowsSection>.rowsInformation7>.rowsItem7>.rowsProductName7 {
+    width: 100%;
+    height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.rowsSection>.rowsInformation7>.rowsItem7>.rowsProductIntro7 {
+    width: 100%;
+    height: 20px;
+    margin-top: 3px;
+    font-size: 13px;
+}
+
+.rowsSection>.rowsInformation7>.rowsItem7>.rowsProductPrice7 {
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    font-size: 25px;
+    color: rgb(255, 0, 0);
+}
+>>>>>>> develop
+>>>>>>> develop
 
 /*footer*/
 footer {
@@ -378,7 +998,15 @@ footer>#footerBottom>img {
     float: left;
     width: 433px;
     height: 53px;
+<<<<<<< HEAD
     margin: 110px -535px
+=======
+<<<<<<< HEAD
+    margin: 110px -535px
+=======
+    margin: 100px -535px
+>>>>>>> develop
+>>>>>>> develop
 }
 
 footer>#footerBottom>#right {

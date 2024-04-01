@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -37,3 +38,21 @@
     </script>
 </body>
 </html>
+=======
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<a href="banchan?command=product_list" class="header-nav">제품등록</a>
+<<<<<<< HEAD
+<a href="banchan?command=product_list" class="header-nav">공지사항</a>
+=======
+>>>>>>> develop
+</body>
+</html>
+>>>>>>> develop

@@ -10,6 +10,7 @@ import com.blacksmith.banchan.board.action.BoardPageAction;
 import com.blacksmith.banchan.board.action.FaqBoardAction;
 import com.blacksmith.banchan.board.action.NoticeBoardAction;
 import com.blacksmith.banchan.board.action.QnaBoardAction;
+
 import com.blacksmith.banchan.board.action.QnaDeleteAction;
 import com.blacksmith.banchan.board.action.QnaDetailAction;
 import com.blacksmith.banchan.board.action.QnaUpdateAction;
@@ -23,6 +24,7 @@ import com.blacksmith.banchan.login.action.IdCheck;
 import com.blacksmith.banchan.login.action.LoginAction;
 import com.blacksmith.banchan.login.action.LoginFormAction;
 import com.blacksmith.banchan.login.action.LogoutAction;
+
 import com.blacksmith.banchan.login.action.RegisterAction;
 import com.blacksmith.banchan.login.action.RegisterFormAction;
 import com.blacksmith.banchan.product.action.ProductDeleteAction;
@@ -32,11 +34,16 @@ import com.blacksmith.banchan.product.action.ProductUpdateAction;
 import com.blacksmith.banchan.product.action.ProductUpdateFormAction;
 import com.blacksmith.banchan.product.action.ProductWriteAction;
 import com.blacksmith.banchan.product.action.ProductWriteFormAction;
+
 import com.blacksmith.banchan.shopping.action.ProductPageAction;
 import com.blacksmith.banchan.shopping.action.ProductSetAction;
 import com.blacksmith.banchan.util.Action;
 import com.blacksmith.banchan.util.MultiUploadTestAction;
 import com.blacksmith.banchan.util.UploadTestAction;
+
+
+
+
 
 public class ActionFactory {
 	private static ActionFactory instance = new ActionFactory();
@@ -54,10 +61,15 @@ public class ActionFactory {
 		System.out.println("ActionFactory :" + command);
 		if (command.equals("login_form")) {
 			action = new LoginFormAction();
+
 		} else if (command.equals("logout")){
 			action = new LogoutAction();
 		} else if (command.equals("index")){
 			action = new ProductPageAction();
+
+		} else if (command.equals("index")){
+			action = new ProductPageAction();
+
 		} else if (command.equals("member_login")){
 			action = new LoginAction();
 		} else if (command.equals("register_form")){
@@ -96,6 +108,7 @@ public class ActionFactory {
 			action = new ProductDeleteFormAction();
 		} else if (command.equals("product_delete")){
 			action = new ProductDeleteAction();
+
 		} else if (command.equals("product_set")){
 			action = new ProductSetAction();
 		} else if (command.equals("write_qna")){
@@ -127,6 +140,7 @@ public class ActionFactory {
 		} else if (command.equals("review_list")){
 			action = new AdminReviewBoardAction();
 		}
+
 		return action;
 	}
 }

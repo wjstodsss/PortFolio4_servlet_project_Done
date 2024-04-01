@@ -10,6 +10,10 @@
 <link href="/resources/css/test.css" rel="stylesheet" />
 <link href="/resources/css/main.css" rel="stylesheet" />
 <link href="/resources/css/reset.css" rel="stylesheet" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> develop
 
 <!-- 부트스트랩 CSS 링크 -->
 <link
@@ -28,6 +32,11 @@
         margin-bottom: 15px;
     }
 </style>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> develop
+>>>>>>> develop
 </head>
 <body>
 
@@ -82,12 +91,24 @@
 			</div>
 		</div>
 		<div id="bottomHeader">
+<<<<<<< HEAD
 			<button onclick="handleClick(this)" id="0">하루반찬세트</button>
+=======
+<<<<<<< HEAD
+			<button onclick="handleClick(this)" id="0">하루반찬세트</button>
+=======
+			<button onclick="createSubPage(this.id)" id="0">하루반찬세트</button>
+>>>>>>> develop
+>>>>>>> develop
 			<nav>
 				<ul>
 					<li><a href="#" class="jingaTitle"
 						onclick="printCategoryManager (InformationExtractor.productList, SIGNBANCHAN, 'subPages')">진가네
 							시그니처</a></li>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> develop
 					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
 						id="1">진가네 명품김치</a></li>
 					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
@@ -104,6 +125,27 @@
 						id="7">장아찌</a></li>
 					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
 						id="8">대용량</a></li>
+<<<<<<< HEAD
+=======
+=======
+					<li><a href="#" class="jingaTitle"
+						onclick="handleClick(this)" id="1">진가네 명품김치</a></li>
+					<li><a href="#" class="jingaTitle"
+						onclick="handleClick(this)" id="2">밑반찬</a></li>
+					<li><a href="#" class="jingaTitle"
+						onclick="handleClick(this)" id="3">국·찌개 </a></li>
+					<li><a href="#" class="jingaTitle"
+						onclick="handleClick(this)" id="4">메인반찬</a></li>
+					<li><a href="#" class="jingaTitle"
+						onclick="handleClick(this)" id="5">전</a></li>
+					<li><a href="#" class="jingaTitle"
+						onclick="handleClick(this)" id="6">나물반찬</a></li>
+					<li><a href="#" class="jingaTitle"
+						onclick="handleClick(this)" id="7">장아찌</a></li>
+					<li><a href="#" class="jingaTitle"
+						onclick="handleClick(this)" id="8">대용량</a></li>
+>>>>>>> develop
+>>>>>>> develop
 				</ul>
 			</nav>
 			<p>
@@ -112,6 +154,10 @@
 			</p>
 		</div>
 	</header>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> develop
 	<!-- 상품 목록 -->
 	<div class="container mt-3">
 		<div class="row">
@@ -146,6 +192,32 @@
 
 	<script>
 
+<<<<<<< HEAD
+=======
+=======
+	<section class="section-content">
+		<div class="container">
+		
+				
+					
+			<c:forEach var="product" items="${productList}">
+				<div class="item-container">
+					
+					
+					<div>${product.code}</div>
+					<div>${product.productName}</div>
+					<div>${product.price}</div>
+					<div>${product.category}</div>
+					<img src="upload/${product.pictureUrl}">
+					<div>${product.description}</div>
+				</div>
+			</c:forEach>
+		</div>
+	</section>
+</body>
+<script>
+>>>>>>> develop
+>>>>>>> develop
 	function handleClick(element) {
 		console.log("ll");
 		let valueToSend = element.id;
@@ -160,6 +232,10 @@
 		document.body.appendChild(formDTO);
 		formDTO.submit();
 	}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> develop
     // 장바구니에 상품을 추가하는 함수
     function addToCart(productId) {
         // 여기에 해당 상품을 장바구니에 추가하는 로직을 구현
@@ -174,3 +250,11 @@
 </script>
 </body>
 </html>
+<<<<<<< HEAD
+=======
+=======
+</script>
+
+</html>
+>>>>>>> develop
+>>>>>>> develop

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.blacksmith.banchan.login.dao.MemberDAO;
+
 import com.blacksmith.banchan.login.service.PasswordHashing;
 import com.blacksmith.banchan.util.Action;
 
@@ -23,26 +24,42 @@ public class LoginAction implements Action {
 		
 		
 		String userId = request.getParameter("userId");
+
 		String userPassword = passwordHashing.hashPassword(request.getParameter("userPassword"));
+
+		String userPassword = passwordHashing.hashPassword(request.getParameter("userPassword"));
+
 		MemberDAO mDAO = MemberDAO.getMemberDao();
 		int result = mDAO.memberCheck(userId, userPassword);
 
 		// 실제 로그인 처리 로직을 여기에 구현
 		if (result > 0) {
 			// 토큰 생성 (여기서는 단순히 무작위 문자열로 토큰을 생성)
+
 			String memberToken = generateBase64Token();
 			
 			// 클라이언트에게 토큰을 반환
 			response.getWriter().write(memberToken);
 			response.setStatus(HttpServletResponse.SC_OK);
 			
+
+			String token = generateToken();
+			
+			// 클라이언트에게 토큰을 반환
+			response.getWriter().write(token);
+			response.setStatus(HttpServletResponse.SC_OK);
+			System.out.println(token);
+
 			String url = "/views/index.jsp";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 			dispatcher.forward(request, response);
 			
 		} else {
 			// 인증 실패 상태코드 반환
+
 			
+
+
 			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 		}
 	}

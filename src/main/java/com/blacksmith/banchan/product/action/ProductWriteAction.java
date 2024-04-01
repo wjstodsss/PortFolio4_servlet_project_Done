@@ -29,13 +29,17 @@ public class ProductWriteAction implements Action {
 
 		String productname = multi.getParameter("productname");
 		int price = Integer.parseInt(multi.getParameter("price"));
+
 		int category = Integer.parseInt(multi.getParameter("category"));
+
 		String descripation = multi.getParameter("description");
 		String pictureUrl = multi.getFilesystemName("pictureUrl");
 		ProductVO pVo = new ProductVO();
 		pVo.setProductName(productname);
 		pVo.setPrice(price);
+
 		pVo.setCategory(category);
+
 		pVo.setDescription(descripation);
 		pVo.setPictureUrl(pictureUrl);
 

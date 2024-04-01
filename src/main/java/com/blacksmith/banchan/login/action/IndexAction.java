@@ -1,4 +1,4 @@
-package com.blacksmith.banchan.board.action;
+package com.blacksmith.banchan.login.action;
 
 import java.io.IOException;
 
@@ -9,15 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.blacksmith.banchan.util.Action;
 
-public class BoardPageAction implements Action {
-
+public class IndexAction implements Action {
+	
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String url = "/views/board/board.jsp";
-
+		String url = "/views/index.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}
-
 }
