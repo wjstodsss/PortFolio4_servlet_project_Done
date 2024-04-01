@@ -1,8 +1,11 @@
 package com.blacksmith.banchan.controller;
 
-
 import com.blacksmith.banchan.admin.action.AdminLoginAction;
 import com.blacksmith.banchan.admin.action.AdminPageAction;
+import com.blacksmith.banchan.admin.action.board.faq.AdminFaqBoardAction;
+import com.blacksmith.banchan.admin.action.board.notice.AdminNoticeBoardAction;
+import com.blacksmith.banchan.admin.action.board.qna.AdminQnaBoardAction;
+import com.blacksmith.banchan.admin.action.board.review.AdminReviewBoardAction;
 import com.blacksmith.banchan.board.action.BoardPageAction;
 import com.blacksmith.banchan.board.action.FaqBoardAction;
 import com.blacksmith.banchan.board.action.NoticeBoardAction;
@@ -19,6 +22,7 @@ import com.blacksmith.banchan.board.action.ReviewWriteAction;
 import com.blacksmith.banchan.login.action.IdCheck;
 import com.blacksmith.banchan.login.action.LoginAction;
 import com.blacksmith.banchan.login.action.LoginFormAction;
+import com.blacksmith.banchan.login.action.LogoutAction;
 import com.blacksmith.banchan.login.action.RegisterAction;
 import com.blacksmith.banchan.login.action.RegisterFormAction;
 import com.blacksmith.banchan.product.action.ProductDeleteAction;
@@ -33,7 +37,6 @@ import com.blacksmith.banchan.shopping.action.ProductSetAction;
 import com.blacksmith.banchan.util.Action;
 import com.blacksmith.banchan.util.MultiUploadTestAction;
 import com.blacksmith.banchan.util.UploadTestAction;
-
 
 public class ActionFactory {
 	private static ActionFactory instance = new ActionFactory();
@@ -51,6 +54,8 @@ public class ActionFactory {
 		System.out.println("ActionFactory :" + command);
 		if (command.equals("login_form")) {
 			action = new LoginFormAction();
+		} else if (command.equals("logout")){
+			action = new LogoutAction();
 		} else if (command.equals("index")){
 			action = new ProductPageAction();
 		} else if (command.equals("member_login")){
@@ -113,6 +118,14 @@ public class ActionFactory {
 			action = new LoginFormAction();
 		} else if (command.equals("admin_login")){
 			action = new AdminLoginAction();
+		} else if (command.equals("notice_list")){
+			action = new AdminNoticeBoardAction();
+		} else if (command.equals("qna_list")){
+			action = new AdminQnaBoardAction();
+		} else if (command.equals("faq_list")){
+			action = new AdminFaqBoardAction();
+		} else if (command.equals("review_list")){
+			action = new AdminReviewBoardAction();
 		}
 		return action;
 	}

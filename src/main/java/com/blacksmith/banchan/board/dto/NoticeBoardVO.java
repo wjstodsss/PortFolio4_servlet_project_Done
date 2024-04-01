@@ -63,7 +63,7 @@ public class NoticeBoardVO {
 	}
 	@Override
 	public String toString() {
-		return "FaqBoardVO [id=" + id + ", title=" + title + ", author=" + author + ", password=" + password
+		return "noticeBoardVO [id=" + id + ", title=" + title + ", author=" + author + ", password=" + password
 				+ ", content=" + content + ", imageUrl=" + imageUrl + ", readCount=" + readCount + ", datePosted="
 				+ datePosted + "]";
 	}

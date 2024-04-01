@@ -21,7 +21,7 @@ public class ProductListAction implements Action {
 		request.setAttribute("productList", productList);
 		
 		System.out.println(request.getAttribute("productList"));
-		RequestDispatcher dispatcher = request.getRequestDispatcher("views/product/productList.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("views/admin/product/productList.jsp");
 		dispatcher.forward(request, response);
 	}
 
