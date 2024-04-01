@@ -12,7 +12,7 @@
 
 <title>꼴뚜기의 첫번째 프로젝트</title>
 <link href="/resources/css/reset.css" rel="stylesheet">
-<link href="/resources/css/main.css" rel="stylesheet">
+
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -24,8 +24,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../resources/js/member_login.js"></script>
-<script src="../resources/js/board_util.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
 </head>
 
@@ -42,26 +41,12 @@
 		<div id="topHeader">
 			<div id="appDown">
 				<button>진가네 앱 다운로드 ▼</button>
-				
-			</div>
-			
-			<nav>
-				<ul>
-					<li><input type="button"  id="loginButton"  onclick="goToLoginForm()" class="header-nav" value='로그인'></li>
-					<li>|</li>
-					<li><input type="button" class="header-nav" onclick="goToRegisterForm()" value='회원가입'></li>
-					<li>|</li>
-					<li><input type="button" class="header-nav" onclick="goToBoard()" value='고객센터'></li>
+
 					<li>|</li>
 					<li><a href="#" class="header-nav">주문조회</a></li>
 					<li>|</li>
 					<li><a href="#" id="cartBold" class="header-nav">장바구니</a></li>
-					<li>|</li>
-					<li><input type="button"  id="loginButton"  onclick="goToAdminPage()" class="header-nav" value='관리자'></li>
-					<li><input type="button"  id="testButton"  onclick="goToTestForm()" class="header-nav" value='테스트'></li>
-				</ul>
-			</nav>
-			
+
 		</div>
 
 		<div id="middleHeader">
