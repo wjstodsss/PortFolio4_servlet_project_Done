@@ -21,7 +21,10 @@ public class LoginServlet extends HttpServlet {
         if (username.equals("user") && password.equals("1234")) {
             // 토큰 생성 (여기서는 단순히 무작위 문자열로 토큰을 생성)
             String token = generateToken();
-
+<<<<<<< HEAD
+=======
+            System.out.println("ok");
+>>>>>>> develop
             
             // 클라이언트에게 토큰을 반환
             response.getWriter().write(token);

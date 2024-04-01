@@ -6,6 +6,7 @@ import com.blacksmith.banchan.board.action.BoardPageAction;
 import com.blacksmith.banchan.board.action.FaqBoardAction;
 import com.blacksmith.banchan.board.action.NoticeBoardAction;
 import com.blacksmith.banchan.board.action.QnaBoardAction;
+<<<<<<< HEAD
 import com.blacksmith.banchan.board.action.QnaDeleteAction;
 import com.blacksmith.banchan.board.action.QnaDetailAction;
 import com.blacksmith.banchan.board.action.QnaUpdateAction;
@@ -16,6 +17,11 @@ import com.blacksmith.banchan.board.action.ReviewDetailAction;
 import com.blacksmith.banchan.board.action.ReviewUpdateAction;
 import com.blacksmith.banchan.board.action.ReviewWriteAction;
 import com.blacksmith.banchan.login.action.IdCheck;
+=======
+import com.blacksmith.banchan.board.action.ReviewBoardAction;
+import com.blacksmith.banchan.login.action.IdCheck;
+import com.blacksmith.banchan.login.action.IndexAction;
+>>>>>>> develop
 import com.blacksmith.banchan.login.action.LoginAction;
 import com.blacksmith.banchan.login.action.LoginFormAction;
 import com.blacksmith.banchan.login.action.RegisterAction;
@@ -27,10 +33,17 @@ import com.blacksmith.banchan.product.action.ProductUpdateAction;
 import com.blacksmith.banchan.product.action.ProductUpdateFormAction;
 import com.blacksmith.banchan.product.action.ProductWriteAction;
 import com.blacksmith.banchan.product.action.ProductWriteFormAction;
+<<<<<<< HEAD
 import com.blacksmith.banchan.shopping.action.ProductPageAction;
 import com.blacksmith.banchan.shopping.action.ProductSetAction;
 import com.blacksmith.banchan.util.Action;
 import com.blacksmith.banchan.util.MultiUploadTestAction;
+=======
+import com.blacksmith.banchan.util.Action;
+import com.blacksmith.banchan.util.MultiUploadTestAction;
+import com.blacksmith.banchan.util.ProductPageTest;
+import com.blacksmith.banchan.util.ProductSetTest;
+>>>>>>> develop
 import com.blacksmith.banchan.util.UploadTestAction;
 
 
@@ -51,7 +64,11 @@ public class ActionFactory {
 		if (command.equals("login_form")) {
 			action = new LoginFormAction();
 		} else if (command.equals("index")){
+<<<<<<< HEAD
 			action = new ProductPageAction();
+=======
+			action = new IndexAction();
+>>>>>>> develop
 		} else if (command.equals("member_login")){
 			action = new LoginAction();
 		} else if (command.equals("register_form")){
@@ -90,6 +107,7 @@ public class ActionFactory {
 			action = new ProductDeleteFormAction();
 		} else if (command.equals("product_delete")){
 			action = new ProductDeleteAction();
+<<<<<<< HEAD
 		} else if (command.equals("product_set")){
 			action = new ProductSetAction();
 		} else if (command.equals("write_qna")){
@@ -111,6 +129,14 @@ public class ActionFactory {
 		} else if (command.equals("admin_login_form")){
 			action = new LoginFormAction();
 		}
+=======
+		} else if (command.equals("test")){
+			action = new ProductSetTest();
+		} else if (command.equals("test_page")){
+			action = new ProductPageTest();
+		}
+		
+>>>>>>> develop
 		return action;
 	}
 }
