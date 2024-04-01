@@ -1,4 +1,4 @@
-
+function goToIndex() {
 	window.location.href = "banchan?command=index";
 }
 
