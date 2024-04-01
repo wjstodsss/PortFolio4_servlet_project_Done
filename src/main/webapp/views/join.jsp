@@ -75,7 +75,7 @@
                 <td colspan="2" align="center">
                     <input type="submit" value="확인" class="btn btn-success">
                     <input type="reset" value="취소" class="btn btn-secondary">
-
+                    <input type="button" onclick="goToIndex()" class="btn btn-primary" value="메인으로 가기">
                     
                 </td>
             </tr>
