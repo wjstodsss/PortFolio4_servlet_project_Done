@@ -19,8 +19,8 @@
     <h1 class="text-center">상품 리스트 - 관리자 페이지</h1>
      <div class="text-right">
         <a class="btn btn-success" href="banchan?command=product_write_form">상품 등록</a>
-        <a class="btn btn-primary" href="banchan?command=admin_logout">관리자 페이지</a>
-        <a class="btn btn-danger" href="banchan?command=admin_logout">로그아웃</a>
+        <a class="btn btn-primary" href="banchan?command=admin_page">관리자 페이지</a>
+        <button class="btn btn-danger" onclick="logout()">로그아웃</button>
     </div>
     <table class="table">
         <thead class="thead-dark">

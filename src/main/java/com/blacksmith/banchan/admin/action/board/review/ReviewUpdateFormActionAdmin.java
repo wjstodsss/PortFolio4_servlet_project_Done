@@ -1,7 +1,6 @@
 package com.blacksmith.banchan.admin.action.board.review;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,23 +11,20 @@ import com.blacksmith.banchan.board.dao.ReviewBoardDAO;
 import com.blacksmith.banchan.board.dto.ReviewBoardVO;
 import com.blacksmith.banchan.util.Action;
 
-public class AdminReviewBoardAction implements Action {
+public class ReviewUpdateFormActionAdmin implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		ReviewBoardDAO bDao = ReviewBoardDAO.getInstance();
-	    List<ReviewBoardVO> boardList = bDao.selectAllBoards();
-	    request.setAttribute("boardList", boardList);
-	    System.out.println(boardList);
-	  
-		String url = "/views/admin/board/review/admin-review.jsp";
-	    System.out.println(url);
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+		int id = Integer.parseInt(request.getParameter("id"));
+
+
+		ReviewBoardDAO pDao = ReviewBoardDAO.getInstance();
+		ReviewBoardVO pVo = pDao.selectOneBoardById(id);
+		System.out.println(pVo);
+		request.setAttribute("board", pVo);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("views/admin/board/review/admin-review-update.jsp");
 		dispatcher.forward(request, response);
-		
-	    
 	}
 
 

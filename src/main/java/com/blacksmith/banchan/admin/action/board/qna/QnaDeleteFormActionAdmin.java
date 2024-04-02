@@ -1,7 +1,6 @@
 package com.blacksmith.banchan.admin.action.board.qna;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,24 +11,18 @@ import com.blacksmith.banchan.board.dao.QnaBoardDAO;
 import com.blacksmith.banchan.board.dto.QnaBoardVO;
 import com.blacksmith.banchan.util.Action;
 
-public class AdminQnaBoardAction implements Action {
+public class QnaDeleteFormActionAdmin implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		QnaBoardDAO bDao = QnaBoardDAO.getInstance();
-	    List<QnaBoardVO> boardList = bDao.selectAllBoards();
-	    request.setAttribute("boardList", boardList);
-	    System.out.println(boardList);
-	    
-		String url = "/views/admin/board/qna/admin-qna.jsp";
-	    System.out.println(url);
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request, response);
-		
-	    
-	}
+		int id = Integer.parseInt(request.getParameter("id"));
 
+		QnaBoardDAO pDao = QnaBoardDAO.getInstance();
+		QnaBoardVO pVo = pDao.selectOneBoardById(id);
+		request.setAttribute("board", pVo);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("views/admin/board/qna/admin-qna-delete.jsp");
+		dispatcher.forward(request, response);
+	}
 
 }

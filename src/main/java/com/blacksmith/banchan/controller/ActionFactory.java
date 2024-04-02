@@ -3,11 +3,35 @@ package com.blacksmith.banchan.controller;
 import com.blacksmith.banchan.admin.action.AdminLoginAction;
 import com.blacksmith.banchan.admin.action.AdminPageAction;
 import com.blacksmith.banchan.admin.action.board.faq.AdminFaqBoardAction;
+import com.blacksmith.banchan.admin.action.board.faq.FaqDeleteAction;
+import com.blacksmith.banchan.admin.action.board.faq.FaqDeleteFormAction;
+import com.blacksmith.banchan.admin.action.board.faq.FaqUpdateAction;
+import com.blacksmith.banchan.admin.action.board.faq.FaqUpdateFormAction;
+import com.blacksmith.banchan.admin.action.board.faq.FaqWriteAction;
 import com.blacksmith.banchan.admin.action.board.notice.AdminNoticeBoardAction;
+import com.blacksmith.banchan.admin.action.board.notice.NoticeDeleteAction;
+import com.blacksmith.banchan.admin.action.board.notice.NoticeDeleteFormAction;
+import com.blacksmith.banchan.admin.action.board.notice.NoticeUpdateAction;
+import com.blacksmith.banchan.admin.action.board.notice.NoticeUpdateFormAction;
+import com.blacksmith.banchan.admin.action.board.notice.NoticeWriteAction;
+import com.blacksmith.banchan.admin.action.board.notice.NoticeWriteFormAction;
 import com.blacksmith.banchan.admin.action.board.qna.AdminQnaBoardAction;
+import com.blacksmith.banchan.admin.action.board.qna.QnaDeleteActionAdmin;
+import com.blacksmith.banchan.admin.action.board.qna.QnaDeleteFormActionAdmin;
+import com.blacksmith.banchan.admin.action.board.qna.QnaUpdateActionAdmin;
+import com.blacksmith.banchan.admin.action.board.qna.QnaUpdateFormActionAdmin;
+import com.blacksmith.banchan.admin.action.board.qna.QnaWriteActionAdmin;
+import com.blacksmith.banchan.admin.action.board.qna.QnaWriteFormActionAdmin;
 import com.blacksmith.banchan.admin.action.board.review.AdminReviewBoardAction;
+import com.blacksmith.banchan.admin.action.board.review.ReviewDeleteActionAdmin;
+import com.blacksmith.banchan.admin.action.board.review.ReviewDeleteFormActionAdmin;
+import com.blacksmith.banchan.admin.action.board.review.ReviewUpdateActionAdmin;
+import com.blacksmith.banchan.admin.action.board.review.ReviewUpdateFormActionAdmin;
+import com.blacksmith.banchan.admin.action.board.review.ReviewWriteActionAdmin;
+import com.blacksmith.banchan.admin.action.board.review.ReviewWriteFormActionAdmin;
 import com.blacksmith.banchan.board.action.BoardPageAction;
 import com.blacksmith.banchan.board.action.FaqBoardAction;
+import com.blacksmith.banchan.board.action.FaqWriteFormAction;
 import com.blacksmith.banchan.board.action.NoticeBoardAction;
 import com.blacksmith.banchan.board.action.QnaBoardAction;
 import com.blacksmith.banchan.board.action.QnaDeleteAction;
@@ -126,7 +150,56 @@ public class ActionFactory {
 			action = new AdminFaqBoardAction();
 		} else if (command.equals("review_list")){
 			action = new AdminReviewBoardAction();
-		}
+		} else if (command.equals("notice_write_form")){
+			action = new NoticeWriteFormAction();
+		} else if (command.equals("notice_write")){
+			action = new NoticeWriteAction();
+		} else if (command.equals("notice_update_form")){
+			action = new NoticeUpdateFormAction();
+		} else if (command.equals("notice_update")){
+			action = new NoticeUpdateAction();
+		} else if (command.equals("notice_delete_form")){
+			action = new NoticeDeleteFormAction();
+		} else if (command.equals("notice_delete")){
+			action = new NoticeDeleteAction();
+		} else if (command.equals("qna_write_form")){
+			action = new QnaWriteFormActionAdmin();
+		} else if (command.equals("qna_write")){
+			action = new QnaWriteActionAdmin();
+		} else if (command.equals("qna_update_form")){
+			action = new QnaUpdateFormActionAdmin();
+		} else if (command.equals("qna_update")){
+			action = new QnaUpdateActionAdmin();
+		} else if (command.equals("qna_delete_form")){
+			action = new QnaDeleteFormActionAdmin();
+		} else if (command.equals("qna_delete")){
+			action = new QnaDeleteActionAdmin();
+		} else if (command.equals("faq_write_form")){
+			action = new FaqWriteFormAction();
+		} else if (command.equals("faq_write")){
+			action = new FaqWriteAction();
+		} else if (command.equals("faq_update_form")){
+			action = new FaqUpdateFormAction();
+		} else if (command.equals("faq_update")){
+			action = new FaqUpdateAction();
+		} else if (command.equals("faq_delete_form")){
+			action = new FaqDeleteFormAction();
+		} else if (command.equals("faq_delete")){
+			action = new FaqDeleteAction();	
+		} else if (command.equals("review_write_form")){
+			action = new ReviewWriteFormActionAdmin();
+		} else if (command.equals("review_write")){
+			action = new ReviewWriteActionAdmin();
+		} else if (command.equals("review_update_form")){
+			action = new ReviewUpdateFormActionAdmin();
+		} else if (command.equals("review_update")){
+			action = new ReviewUpdateActionAdmin();
+		} else if (command.equals("review_delete_form")){
+			action = new ReviewDeleteFormActionAdmin();
+		} else if (command.equals("review_delete")){
+			action = new ReviewDeleteActionAdmin();
+		} 
+		
 		return action;
 	}
 }

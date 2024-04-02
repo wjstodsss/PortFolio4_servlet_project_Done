@@ -2,7 +2,7 @@ create database bbs;
 use bbs;
 use db_banchan;
 select*from product;
-
+select*from test;
 use db_estore;
 
 create database db_estore;
@@ -17,7 +17,7 @@ adminName VARCHAR(255) NOT NULL,
 adminId VARCHAR(255)  NOT NULL,
 adminPassword VARCHAR(64) NOT NULL,
 adminEmail VARCHAR(255) NOT NULL,
-adminPhone VARCHAR(255) ,
+adminPhone VARCHAR(255) ,tbl_admin_member
 admin BOOLEAN
 );
 INSERT INTO tbl_admin_member (adminName, adminId, adminPassword, adminEmail, adminPhone, admin) VALUES
@@ -139,7 +139,7 @@ INSERT INTO tbl_product (productname, price, pictureurl, description)
 VALUES ('Dynamic Programming book 시리즈 -오라클 11g+PL/SQL', 25000, 'oracle.jpg', 'Dynamic 실무 코칭 프로그래밍의 Book의 첫번째 책으로 11g의 새로운...');
 commit; -- 영구 저장
 
-
+select * from tbl_admtbl_reviewtbl_faqin_member;
 select * from tbl_faq_board;
 select * from tbl_review_board;
 select * from tbl_qna_board;

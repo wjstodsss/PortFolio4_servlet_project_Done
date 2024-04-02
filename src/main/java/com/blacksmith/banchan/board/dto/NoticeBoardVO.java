@@ -67,4 +67,6 @@ public class NoticeBoardVO {
 				+ ", content=" + content + ", imageUrl=" + imageUrl + ", readCount=" + readCount + ", datePosted="
 				+ datePosted + "]";
 	}
+	
+	
 }

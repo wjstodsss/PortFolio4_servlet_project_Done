@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>상품 리스트 - 관리자 페이지</title>
+    <title>관리자 페이지</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../resources/css/shopping.css">
     <style>
@@ -17,12 +17,11 @@
 </head>
 <body>
 <div id="wrap" class="container">
-    <h1 class="text-center">구매후기 - 관리자 페이지</h1>
+    <h1 class="text-center">구매 후기</h1>
      <div class="text-right">
-        <button class="btn btn-success" href="banchan?command=product_write_form">공지 등록</button>
+        <a class="btn btn-success" href="banchan?command=review_write_form">새 글 등록</a>
         <a class="btn btn-primary" href="banchan?command=admin_page">관리자 페이지</a>
         <button class="btn btn-danger" onclick="logout()">로그아웃</button>
-    </div>
     <table class="table">
         <thead class="thead-dark">
         <tr>
@@ -48,8 +47,8 @@
                 <td>${board.imageUrl}</td>
                 <td>${board.datePosted}</td>
                 
-                <td><a class="btn btn-primary" href="banchan?command=product_update_form&code=${board.id}">게시글 수정</a></td>
-                <td><a class="btn btn-danger" href="banchan?command=product_delete_form&code=${board.id}">게시글 삭제</a></td>
+                <td><a class="btn btn-primary" href="banchan?command=review_update_form&id=${board.id}">게시글 수정</a></td>
+                <td><a class="btn btn-danger" href="banchan?command=review_delete_form&id=${board.id}">게시글 삭제</a></td>
             </tr>
         </c:forEach>
         </tbody>

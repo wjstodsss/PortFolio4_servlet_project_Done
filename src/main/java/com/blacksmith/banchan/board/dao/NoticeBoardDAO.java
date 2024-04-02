@@ -148,10 +148,10 @@ public class NoticeBoardDAO {
 		} finally {
 			DBManager.close(conn, pstmt);
 		}
-
 	}
 
 	public void deleteBoard(int id) {
+		System.out.println("ppppppppppppppppppp");
 		String sql = "delete from tbl_notice where id=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;

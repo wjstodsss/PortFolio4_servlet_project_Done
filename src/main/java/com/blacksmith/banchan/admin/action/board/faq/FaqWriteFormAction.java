@@ -1,4 +1,4 @@
-package com.blacksmith.banchan.board.action;
+package com.blacksmith.banchan.admin.action.board.faq;
 
 import java.io.IOException;
 
@@ -12,10 +12,8 @@ import com.blacksmith.banchan.util.Action;
 public class FaqWriteFormAction implements Action {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String url = "/views/admin/board/faq/admin-faq-write.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("views/admin/board/faq/admin-faq-write.jsp");
 		dispatcher.forward(request, response);
 	}
 
