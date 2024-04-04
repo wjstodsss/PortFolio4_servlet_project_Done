@@ -13,8 +13,6 @@ import com.blacksmith.banchan.util.DBManager;
 
 
 
-
-
 public class FaqBoardDAO {
 	private FaqBoardDAO() {
 	}
@@ -55,10 +53,6 @@ public class FaqBoardDAO {
 		return list;
 	}
 
-	
-	
-	
-	
 	
 	public void insertBoard(FaqBoardVO bVo) {
 		String sql = "insert into tbl_faq(title, author, password, content, imageurl) values(?, ?, ?, ?, ?)";

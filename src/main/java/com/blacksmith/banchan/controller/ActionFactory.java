@@ -2,6 +2,13 @@ package com.blacksmith.banchan.controller;
 
 import com.blacksmith.banchan.admin.action.AdminLoginAction;
 import com.blacksmith.banchan.admin.action.AdminPageAction;
+import com.blacksmith.banchan.admin.action.AdminUpdate;
+import com.blacksmith.banchan.admin.action.AdminUpdateForm;
+import com.blacksmith.banchan.admin.action.AdminDelete;
+import com.blacksmith.banchan.admin.action.AdminDeleteForm;
+import com.blacksmith.banchan.admin.action.AdminList;
+import com.blacksmith.banchan.admin.action.AdminListRegister;
+import com.blacksmith.banchan.admin.action.AdminListRegisterForm;
 import com.blacksmith.banchan.admin.action.board.faq.AdminFaqBoardAction;
 import com.blacksmith.banchan.admin.action.board.faq.FaqDeleteAction;
 import com.blacksmith.banchan.admin.action.board.faq.FaqDeleteFormAction;
@@ -198,7 +205,21 @@ public class ActionFactory {
 			action = new ReviewDeleteFormActionAdmin();
 		} else if (command.equals("review_delete")){
 			action = new ReviewDeleteActionAdmin();
-		} 
+		} else if (command.equals("admin_list")){
+			action = new AdminList();
+		} else if (command.equals("admin_register_form")){
+			action = new AdminListRegisterForm();
+		} else if (command.equals("admin_register")){
+			action = new AdminListRegister();
+		} else if (command.equals("admin_update_form")){
+			action = new AdminUpdateForm();
+		} else if (command.equals("admin_update")){
+			action = new AdminUpdate();
+		} else if (command.equals("admin_delete_form")){
+			action = new AdminDeleteForm();
+		} else if (command.equals("admin_delete")){
+			action = new AdminDelete();
+		}
 		
 		return action;
 	}

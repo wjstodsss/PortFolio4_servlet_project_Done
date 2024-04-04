@@ -28,7 +28,7 @@ body {
 <body>
 	<div id="wrap">
 		<h1 class="text-center">구매후기 삭제</h1>
-		<form method="post" action="banchan?command=notice_delete"
+		<form method="post" action="banchan?command=review_delete"
 			enctype="multipart/form-data" name="frm">
 			<input type="hidden" name="id" id="kk" value="${board.id}">
 			<input type="hidden" name="nonmakeImg" value="${board.imageUrl}">

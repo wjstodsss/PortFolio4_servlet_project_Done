@@ -164,7 +164,7 @@ public class MemberDAO {
     //해당 아이디가 있으면 1, 없으면 -1
     public int insertMember(MemberVO mVo) {
 		int result = -1;
-		String sql = "insert into tbl_member values(?,?,?,?,?,?)";
+		String sql = "insert into tbl_member(userName, userId, userPassword, userEmail, userPhone, admin) values(?,?,?,?,?,?)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {

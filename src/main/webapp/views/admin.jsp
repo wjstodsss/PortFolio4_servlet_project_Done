@@ -15,6 +15,8 @@
 <body class="d-flex flex-column justify-content-center align-items-center vh-100">
     <h1 class="text-center">관리자 페이지</h1>
     <div class="text-center">
+    
+    	<a href="banchan?command=admin_register_form" class="btn btn-primary header-nav">관리자 등록</a>
         <a href="banchan?command=product_list" class="btn btn-primary header-nav">제품등록</a>
         <a href="banchan?command=notice_list" class="btn btn-primary header-nav">공지사항</a>
         <a href="banchan?command=qna_list" class="btn btn-primary header-nav">질의응답</a>

@@ -28,7 +28,7 @@ body {
 <body>
 	<div id="wrap">
 		<h1 class="text-center">자주하는 질문 수정</h1>
-		<form method="post" action="banchan?command=notice_update"
+		<form method="post" action="banchan?command=faq_update"
 			enctype="multipart/form-data" name="frm">
 			<input type="hidden" name="id" value="${board.id}">
 			<input type="hidden" name="nonmakeImg" value="${board.imageUrl}">

@@ -12,13 +12,13 @@ select * from tbl_member;
 select * from tbl_protbl_memberduct;
 
 CREATE TABLE tbl_admin_member (
-code int PRIMARY KEY auto_increment not null,
+code int PRIMARY KEY auto_increment,
 adminName VARCHAR(255) NOT NULL,
 adminId VARCHAR(255)  NOT NULL,
 adminPassword VARCHAR(64) NOT NULL,
 adminEmail VARCHAR(255) NOT NULL,
-adminPhone VARCHAR(255) ,tbl_admin_member
-admin BOOLEAN
+adminPhone VARCHAR(255) ,
+admin boolean
 );
 INSERT INTO tbl_admin_member (adminName, adminId, adminPassword, adminEmail, adminPhone, admin) VALUES
 ('finn', 'admin', '123', 'admin@test.com', '123-456-7890', 1);
@@ -26,14 +26,18 @@ drop table tbl_admin_member;
 select * from tbl_admin_member;
 drop table tbl_member;
 select * from tbl_member;
+desc tbl_member;
 CREATE TABLE tbl_member (
+	code int PRIMARY KEY auto_increment,
     userName VARCHAR(255) NOT NULL,
-    userId VARCHAR(255) PRIMARY KEY NOT NULL,
+    userId VARCHAR(255) NOT NULL,
     userPassword VARCHAR(64) NOT NULL,
     userEmail VARCHAR(255) NOT NULL,
     userPhone VARCHAR(255) ,
     admin BOOLEAN
 );
+
+commit;
 
 INSERT INTO tbl_member (userName, userId, userPassword, userEmail, userPhone, admin) VALUES
 ('John Doe', 'asdf', '123', 'john@example.com', '123-456-7890', 0),
@@ -140,7 +144,7 @@ VALUES ('Dynamic Programming book 시리즈 -오라클 11g+PL/SQL', 25000, 'orac
 commit; -- 영구 저장
 
 select * from tbl_admtbl_reviewtbl_faqin_member;
-select * from tbl_faq_board;
+select * from tbl_faq;
 select * from tbl_review_board;
 select * from tbl_qna_board;
 select * from tbl_notice_board;
@@ -187,7 +191,7 @@ SELECT * FROM test WHERE id = 19;
 
 -- 검색
 SELECT * FROM test WHERE title = '첫 번째 글';
-member
+
 -- 삭제
 DELETE FROM test WHERE id= 1;
 

@@ -85,7 +85,6 @@ function login() {
 }
 
 
-
 function logout() {
     // sessionStorage에서 토큰을 삭제합니다.
     sessionStorage.clear();

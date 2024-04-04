@@ -30,6 +30,7 @@
         </div>
         <input type="button" class="btn btn-danger mb-2" value="Login" id="loginButton" onclick="login()">
         <input type="button" onclick="goToIndex()" class="btn btn-primary mb-2" value="메인으로 가기">
+        <a href="https://kauth.kakao.com/oauth/authorize?client_id=ec9c8d7b291bb7ea6d12f8945029f0cc&redirect_uri=http://localhost:8080/banchan?command=index&response_type=code" ><img src="/resources/img/klogin/kakao_login_medium_narrow.png"></a>
     </form>
 </div>
 

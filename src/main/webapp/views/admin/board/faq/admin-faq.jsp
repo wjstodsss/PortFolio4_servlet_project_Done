@@ -45,7 +45,7 @@
                 <td>${board.author}</td>
                 <td>${board.content}</td>
                 <td>${board.password}</td>
-                <td>${board.imageUrl}</td>
+                <td><img src="upload/${board.imageUrl}"></td>
                 <td>${board.datePosted}</td>
                 
                 <td><a class="btn btn-primary" href="banchan?command=faq_update_form&id=${board.id}">게시글 수정</a></td>

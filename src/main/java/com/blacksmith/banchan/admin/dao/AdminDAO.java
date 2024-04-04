@@ -3,12 +3,18 @@ package com.blacksmith.banchan.admin.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.blacksmith.banchan.admin.dto.AdminVO;
+import com.blacksmith.banchan.board.dto.NoticeBoardVO;
+import com.blacksmith.banchan.util.DBManager;
 
 
 
@@ -84,7 +90,7 @@ public class AdminDAO {
 
 	// 아이디로 회원 정보를 가져오는 메소드
 	// admin 테이블에서 아이디로 해당 회원을 찾아 회원 정보를 가져온다.
-	public AdminVO getAdmin(String adminId) {
+	public AdminVO getAdmin(int adminId) {
 		AdminVO pVO = null;
 		String sql = "select * from tbl_admin_member where adminId=?";
 		Connection conn = null;
@@ -93,11 +99,11 @@ public class AdminDAO {
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, adminId);
+			pstmt.setInt(1, adminId);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				pVO = new AdminVO();
-				pVO.setAdminName(rs.getString("adminname"));
+				pVO.setAdminName(rs.getString("adminName"));
 				pVO.setAdminId(rs.getString("adminId"));
 				pVO.setAdminPassword(rs.getString("adminPassword"));
 				pVO.setAdminEmail(rs.getString("adminEmail"));
@@ -163,7 +169,7 @@ public class AdminDAO {
     //해당 아이디가 있으면 1, 없으면 -1
     public int insertAdmin(AdminVO pVO) {
 		int result = -1;
-		String sql = "insert into tbl_admin_member values(?,?,?,?,?,?)";
+		String sql = "insert into tbl_admin_member (adminName, adminId, adminPassword, adminEmail, adminPhone, admin) values(?,?,?,?,?,?)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -221,6 +227,59 @@ public class AdminDAO {
 		}
 		return result;
 	}
-
+   
+   
+   public List<AdminVO> getAllAdmin() {
+		
+		List<AdminVO> list = new ArrayList<AdminVO>();
+		String sql = "select * from tbl_admin_member";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				AdminVO pVO = new AdminVO();
+				pVO.setCode(rs.getInt("code"));
+				pVO.setAdminName(rs.getString("adminName"));
+				pVO.setAdminId(rs.getString("adminId"));
+				pVO.setAdminPassword(rs.getString("adminPassword"));
+				pVO.setAdminEmail(rs.getString("adminEmail"));
+				pVO.setAdminPhone(rs.getString("adminPhone"));
+				pVO.setAdmin(rs.getInt("admin"));
+				list.add(pVO);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+   
+   public void deleteAdmin(int id) {
+		String sql = "delete from tbl_admin_member where id=?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

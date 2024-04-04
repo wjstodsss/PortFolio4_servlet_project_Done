@@ -18,8 +18,11 @@
 <div id="wrap" class="container">
     <h1 class="text-center">관리자 리스트 - 관리자 페이지</h1>
      <div class="text-right">
-        <a class="btn btn-success" href="banchan?command=product_write_form">관리자 등록</a>
+        <a class="btn btn-success" href="banchan?command=admin_register_form">관리자 등록</a>
     </div>
+    
+    
+   
     <table class="table">
         <thead class="thead-dark">
         <tr>
@@ -29,7 +32,9 @@
             <th scope="col">비밀번호</th>
             <th scope="col">이메일</th>
             <th scope="col">전화번호</th>
-            <th scope="col">관리자</th>
+            <th scope="col">권한</th>
+            <th scope="col">수정</th>
+            <th scope="col">삭제</th>
         </tr>
         </thead>
         <tbody>
@@ -42,8 +47,8 @@
                 <td>${admin.adminEmail}</td>
                 <td>${admin.adminPhone}</td>
                 <td>${admin.admin}</td>
-                <td><a class="btn btn-primary" href="banchan?command=product_update_form&code=${admin.code}">관리자 수정</a></td>
-                <td><a class="btn btn-danger" href="banchan?command=product_delete_form&code=${admin.code}">관리자 삭제</a></td>
+                <td><a class="btn btn-primary" href="banchan?command=admin_update_form&code=${admin.code}">관리자 수정</a></td>
+                <td><a class="btn btn-danger" href="banchan?command=admin_delete_form&code=${admin.code}">관리자 삭제</a></td>
             </tr>
         </c:forEach>
         </tbody>
