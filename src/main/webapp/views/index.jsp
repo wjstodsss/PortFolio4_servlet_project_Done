@@ -22,7 +22,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../resources/js/member_login4.js"></script>
 <script src="../resources/js/board_util4.js"></script>
-<script src="../resources/js/product1.js"></script>
+<script src="../resources/js/product2.js"></script>
 <script src="../resources/js/member_join2.js"></script>
 <!-- 부트스트랩 CSS 링크 -->
 <link
@@ -285,7 +285,9 @@
 	</footer>
 
 	<script>
-	
+	document.getElementById("inputWord").addEventListener("keypress", handleEnterKey);
+	document.getElementById("searchButton").addEventListener("click", handleClickKey);
+
 	
         /* slider */
         /* 메인 슬라이더 페이드 인 페이드 아웃 기능 

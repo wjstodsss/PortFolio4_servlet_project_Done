@@ -16,7 +16,7 @@
     <h1 class="text-center">관리자 페이지</h1>
     <div class="text-center">
     
-    	<a href="banchan?command=admin_register_form" class="btn btn-primary header-nav">관리자 등록</a>
+    	<a href="banchan?command=admin_list" class="btn btn-primary header-nav">관리자 등록</a>
         <a href="banchan?command=product_list" class="btn btn-primary header-nav">제품등록</a>
         <a href="banchan?command=notice_list" class="btn btn-primary header-nav">공지사항</a>
         <a href="banchan?command=qna_list" class="btn btn-primary header-nav">질의응답</a>
@@ -33,9 +33,6 @@
         if (!adminToken) {
             window.location.href = "banchan?command=admin_login_form";
         }
-        
-        // 토큰이 있으면 페이지에 접속
-        // 이 부분에 추가적인 클라이언트 로직을 작성할 수 있음
     </script>
 </body>
 </html>

@@ -9,7 +9,7 @@ create database db_estore;
 use db_estore;
 select * from member;
 select * from tbl_member;
-select * from tbl_protbl_memberduct;
+select * from tbl_member;
 
 CREATE TABLE tbl_admin_member (
 code int PRIMARY KEY auto_increment,

@@ -26,6 +26,7 @@
     <div id="wrap">
         <h1 class="text-center">관리자 수정</h1>
         <form method="post" action="banchan?command=admin_register" name="frm">
+        <input type="hidden" id="code" name="code" value="${admin.code}">
             <div class="form-group row">
                 <label for="adminName" class="col-sm-2 col-form-label">이름</label>
                 <div class="col-sm-10">
@@ -43,7 +44,7 @@
             <div class="form-group row">
                 <label for="password" class="col-sm-2 col-form-label">비밀번호</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="adminPassword" name="adminPassword" value=${admin.adminPassword} required>
+                    <input type="password" class="form-control" id="password" name="adminPassword" required>
                 </div>
             </div>
             
@@ -61,12 +62,6 @@
                 </div>
             </div>
             
-            <div class="form-group row">
-                <label for="admin" class="col-sm-2 col-form-label">권한</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="admin" name="admin" value=${admin.admin} readonly>
-                </div>
-            </div>     
             
             <div class="form-group row">
                 <div class="col-sm-10 offset-sm-2">

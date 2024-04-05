@@ -28,3 +28,14 @@ function checkPassword() {
 	}
 	return true;
 }
+
+
+function checkNewPassword() {
+	if(password.value.length != 0 && passwordRef.value.length != 0) {
+		if(password.value !== passwordRef.value) {
+			alert ("비밀번호 입력이 일치하지 않습니다.");
+			return false;
+		}
+	}
+	return true;
+}

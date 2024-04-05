@@ -18,7 +18,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../resources/js/member_login4.js"></script>
 <script src="../resources/js/board_util4.js"></script>
-<script src="../resources/js/product1.js"></script>
+<script src="../resources/js/product2.js"></script>
 <script src="../resources/js/member_join2.js"></script>
 <style>
 /* 네비게이션 바 스타일 */
@@ -403,6 +403,9 @@
 	</footer>
 </body>
 <script>
+
+document.getElementById("inputWord").addEventListener("keypress", handleEnterKey);
+document.getElementById("searchButton").addEventListener("click", handleClickKey);
 	/* 공지사항 
 	 v0.01: 240110 setInterval함수를 활용하여 추가한 기능, 정해진 공지사항이 시간 마다 변경 
 	 */

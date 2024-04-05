@@ -16,17 +16,25 @@ public class AdminUpdate implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PasswordHashing passwordHashing = new PasswordHashing(); 
-		
+		String adminName = request.getParameter("adminName");
 		request.setCharacterEncoding("UTF-8");
 		
-		String adminName = request.getParameter("adminName");
+		int code = Integer.parseInt(request.getParameter("code"));
+		
 		String adminId = request.getParameter("adminId");
-		String adminPassword = passwordHashing.hashPassword(request.getParameter("adminPassword"));
+		
+		String adminPassword = request.getParameter("adminPassword");
+		
+		if(request.getParameter("newPassword") != null) {
+			adminPassword = passwordHashing.hashPassword(request.getParameter("newPassword"));
+		} 
+		
 		String adminEmail = request.getParameter("adminEmail");
 		String adminPhone = request.getParameter("adminPhone");
 		String admin = request.getParameter("admin");
 
 		AdminVO mVo = new AdminVO();
+		mVo.setCode(code);
 		mVo.setAdminName(adminName);
 		mVo.setAdminId(adminId);
 		mVo.setAdminPassword(adminPassword);
@@ -35,8 +43,9 @@ public class AdminUpdate implements Action {
 		mVo.setAdmin(Integer.parseInt(admin));
 
 		AdminDAO mDao = AdminDAO.getAdminDao();
-		int result = mDao.updateAdmin(mVo);
 		
+		int result = mDao.updateAdmin(mVo);
+		System.out.println(result);
 		response.sendRedirect("banchan?command=admin_list");
 
 	}

@@ -64,6 +64,7 @@ import com.blacksmith.banchan.product.action.ProductUpdateFormAction;
 import com.blacksmith.banchan.product.action.ProductWriteAction;
 import com.blacksmith.banchan.product.action.ProductWriteFormAction;
 import com.blacksmith.banchan.shopping.action.ProductPageAction;
+import com.blacksmith.banchan.shopping.action.ProductSearch;
 import com.blacksmith.banchan.shopping.action.ProductSetAction;
 import com.blacksmith.banchan.util.Action;
 import com.blacksmith.banchan.util.MultiUploadTestAction;
@@ -219,6 +220,8 @@ public class ActionFactory {
 			action = new AdminDeleteForm();
 		} else if (command.equals("admin_delete")){
 			action = new AdminDelete();
+		} else if (command.equals("search")){
+			action = new ProductSearch();
 		}
 		
 		return action;

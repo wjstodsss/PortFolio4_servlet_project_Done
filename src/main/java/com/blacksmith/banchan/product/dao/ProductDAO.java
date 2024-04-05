@@ -187,6 +187,35 @@ public class ProductDAO {
 			}
 			return list;
 		}
+		
+		public List<ProductVO> selectProductsBySearchWord(String searchWord) {
+			String sql = "select * from tbl_product WHERE productName LIKE ?";
+			List<ProductVO> list = new ArrayList<ProductVO>();
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				conn = DBManager.getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, "%" + searchWord + "%");
+				rs = pstmt.executeQuery();
+				while (rs.next()) { // 이동은 행(로우) 단위로
+					ProductVO pVo = new ProductVO();
+					pVo.setCode(rs.getInt("code"));
+					pVo.setProductName(rs.getString("productName"));
+					pVo.setPrice(rs.getInt("price"));
+					pVo.setCategory(rs.getInt("category"));
+					pVo.setPictureUrl(rs.getString("pictureUrl"));
+					pVo.setDescription(rs.getString("description"));
+					list.add(pVo);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt, rs);
+			}
+			return list;
+		}
 
 		public List<ProductVO> selectProductsByCategoryCountNineLess(int category) {
 			String sql = "select * from tbl_product WHERE category=? order by code limit 8";

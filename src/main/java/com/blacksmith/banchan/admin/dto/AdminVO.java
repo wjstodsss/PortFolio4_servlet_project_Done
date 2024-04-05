@@ -9,6 +9,7 @@ public class AdminVO {
 	private String adminEmail;
 	private String adminPhone;
 	private Integer admin;
+	
 	public Integer getCode() {
 		return code;
 	}

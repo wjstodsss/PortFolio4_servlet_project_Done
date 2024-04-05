@@ -22,7 +22,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../resources/js/member_login4.js"></script>
 <script src="../resources/js/board_util4.js"></script>
-<script src="../resources/js/product1.js"></script>
+<script src="../resources/js/product2.js"></script>
 <script src="../resources/js/member_join2.js"></script>
 <!-- 부트스트랩 CSS 링크 -->
 <link
@@ -144,36 +144,44 @@
 	</header>
 	<!-- 상품 목록 -->
 	<div class="container mt-3">
-		<div class="row">
-			<!-- 상품 카드를 반복하여 표시 -->
-			<c:forEach var="product" items="${productList}">
-				<div class="col-md-3 mb-2">
-					<div class="card">
-						<img src="upload/${product.pictureUrl}" class="card-img-top"
-							alt="Product Image" id="image${product.code}">
-						<div class="card-body">
-							<!-- 상품명 -->
-							<h6 class="card-title" id="name${product.code}">${product.productName}</h6>
-							<!-- 상품 가격 -->
-							<p class="card-text" id="price">가격: ${product.price}원</p>
-							<input type="number" id="quantity${product.code}" min="0"
-								value="1">
-							<div>
-								<button class="btn btn-primary"
-									onclick="addToCart(${product.code})">장바구니</button>
-								<button class="btn btn-success"
-									onclick="purchase(${product.code})">구매</button>
-							</div>
-						</div>
-						<!-- 상품 요약 -->
-						<div class="card-footer">
-							<p class="text-muted">상품 요약: ${product.description}</p>
-						</div>
-					</div>
-				</div>
-			</c:forEach>
-		</div>
-	</div>
+    <div class="row">
+        <!-- productList가 비어있는 경우 -->
+        <c:if test="${empty productList}">
+            <div class="col-md-12">
+                <h3>검색된 상품이 없습니다.</h3>
+                <img src="/resources/img/etc/sorry.png" alt="">
+            </div>
+        </c:if>
+        <!-- productList가 비어있지 않은 경우 -->
+        <c:forEach var="product" items="${productList}">
+            <div class="col-md-3 mb-2">
+                <div class="card">
+                    <img src="upload/${product.pictureUrl}" class="card-img-top"
+                        alt="Product Image" id="image${product.code}">
+                    <div class="card-body">
+                        <!-- 상품명 -->
+                        <h6 class="card-title" id="name${product.code}">${product.productName}</h6>
+                        <!-- 상품 가격 -->
+                        <p class="card-text" id="price">가격: ${product.price}원</p>
+                        <input type="number" id="quantity${product.code}" min="0"
+                            value="1">
+                        <div>
+                            <button class="btn btn-primary"
+                                onclick="addToCart(${product.code})">장바구니</button>
+                            <button class="btn btn-success"
+                                onclick="purchase(${product.code})">구매</button>
+                        </div>
+                    </div>
+                    <!-- 상품 요약 -->
+                    <div class="card-footer">
+                        <p class="text-muted">상품 요약: ${product.description}</p>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+</div>
+
 
 	<!-- 장바구니 모달 -->
 <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
@@ -257,6 +265,8 @@
 	</footer>
 
 	<script>
+	document.getElementById("inputWord").addEventListener("keypress", handleEnterKey);
+	document.getElementById("searchButton").addEventListener("click", handleClickKey);
  
         /* 공지사항 
         v0.01: 240110 setInterval함수를 활용하여 추가한 기능, 정해진 공지사항이 시간 마다 변경 

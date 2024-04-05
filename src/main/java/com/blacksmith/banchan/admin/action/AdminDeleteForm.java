@@ -16,11 +16,11 @@ public class AdminDeleteForm implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int id = Integer.parseInt(request.getParameter("adminId"));
+		int code = Integer.parseInt(request.getParameter("code"));
 
 		
 		AdminDAO pDao = AdminDAO.getAdminDao();
-		AdminVO pVo = pDao.getAdmin(id);
+		AdminVO pVo = pDao.getAdmin(code);
 		
 		request.setAttribute("admin", pVo);
 		

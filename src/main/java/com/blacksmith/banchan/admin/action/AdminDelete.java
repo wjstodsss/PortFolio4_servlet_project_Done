@@ -15,13 +15,13 @@ public class AdminDelete implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int id = Integer.parseInt(request.getParameter("adminId"));
+		int code = Integer.parseInt(request.getParameter("code"));
 
 		
 		AdminDAO pDao = AdminDAO.getAdminDao();
-		pDao.deleteAdmin(id);
+		pDao.deleteAdmin(code);
 		
-		response.sendRedirect("views/admin/admin-list.jsp");
+		response.sendRedirect("banchan?command=admin_list");
 		
 
 	}

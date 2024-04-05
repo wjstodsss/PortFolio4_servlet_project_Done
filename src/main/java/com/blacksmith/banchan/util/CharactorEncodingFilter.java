@@ -7,9 +7,7 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 
-@WebFilter("/*")
 public class CharactorEncodingFilter implements Filter {
 
 	@Override
@@ -18,15 +16,9 @@ public class CharactorEncodingFilter implements Filter {
 			, FilterChain chain)
 			throws IOException, ServletException {
 		
-		System.out.println("before hello");
-		
+		request.setCharacterEncoding("UTF-8");
 		chain.doFilter(request, response);
 		
-		System.out.println("after hello");
-		
 	}
-	
-	
-	
 
 }

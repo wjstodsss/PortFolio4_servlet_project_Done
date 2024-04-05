@@ -19,6 +19,8 @@
     <h1 class="text-center">관리자 리스트 - 관리자 페이지</h1>
      <div class="text-right">
         <a class="btn btn-success" href="banchan?command=admin_register_form">관리자 등록</a>
+          <a class="btn btn-primary" href="banchan?command=admin_page">관리자 페이지</a>
+        <button class="btn btn-danger" onclick="logout()">로그아웃</button>
     </div>
     
     
@@ -40,7 +42,7 @@
         <tbody>
         <c:forEach var="admin" items="${adminList}">
             <tr>
-            	<td>${admin.code}</td>
+            	<td name="code">${admin.code}</td>
             	<td>${admin.adminName}</td>
                 <td>${admin.adminId}</td>
                 <td>${admin.adminPassword}</td>
@@ -48,7 +50,7 @@
                 <td>${admin.adminPhone}</td>
                 <td>${admin.admin}</td>
                 <td><a class="btn btn-primary" href="banchan?command=admin_update_form&code=${admin.code}">관리자 수정</a></td>
-                <td><a class="btn btn-danger" href="banchan?command=admin_delete_form&code=${admin.code}">관리자 삭제</a></td>
+                <td><a class="btn btn-danger" href="banchan?command=admin_delete&code=${admin.code}">관리자 삭제</a></td>
             </tr>
         </c:forEach>
         </tbody>

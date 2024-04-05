@@ -21,6 +21,7 @@ public class AdminLoginAction implements Action {
 
         // passwordHashing.hashPassword(request.getParameter("adminPassword"));
         String adminId = request.getParameter("adminId");
+//        String adminPassword = passwordHashing.hashPassword(request.getParameter("adminPassword"));
         String adminPassword = request.getParameter("adminPassword");
         int result = adminDAO.adminCheck(adminId, adminPassword);
 

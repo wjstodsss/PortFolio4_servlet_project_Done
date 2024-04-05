@@ -16,6 +16,7 @@ public class AdminListRegister implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		PasswordHashing passwordHashing = new PasswordHashing(); 
 		
 		
@@ -33,6 +34,8 @@ public class AdminListRegister implements Action {
 		mVo.setAdminEmail(adminEmail);
 		mVo.setAdminPhone(adminPhone);
 		mVo.setAdmin(Integer.parseInt(admin));
+		
+		System.out.println(mVo);
 
 		AdminDAO mDao = AdminDAO.getAdminDao();
 		int result = mDao.insertAdmin(mVo);

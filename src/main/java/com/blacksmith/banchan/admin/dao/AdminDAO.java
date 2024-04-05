@@ -90,19 +90,20 @@ public class AdminDAO {
 
 	// 아이디로 회원 정보를 가져오는 메소드
 	// admin 테이블에서 아이디로 해당 회원을 찾아 회원 정보를 가져온다.
-	public AdminVO getAdmin(int adminId) {
+	public AdminVO getAdmin(int code) {
 		AdminVO pVO = null;
-		String sql = "select * from tbl_admin_member where adminId=?";
+		String sql = "select * from tbl_admin_member where code=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, adminId);
+			pstmt.setInt(1, code);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				pVO = new AdminVO();
+				pVO.setCode(rs.getInt("code"));
 				pVO.setAdminName(rs.getString("adminName"));
 				pVO.setAdminId(rs.getString("adminId"));
 				pVO.setAdminPassword(rs.getString("adminPassword"));
@@ -200,18 +201,21 @@ public class AdminDAO {
     //매개변수로 받은 VO 객체 내의 아이디로 admin 테이블에서 검색해서 
     //VO객체에 저장된 정보로 회원 정보를 수정한다.
    public int updateAdmin(AdminVO pVO) {
-		int result = -1;
-		String sql = "update tbl_admin_member set adminPassword=?, adminEmail=?," + "adminPhone=?, admin=? where adminId=?";
+	   System.out.println(pVO.getCode());
+	   int result = -1;
+		String sql = "update tbl_admin_member set adminName=?, adminId=?, adminEmail=?, adminPassword=?," + "adminPhone=? where code=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, pVO.getAdminPassword());
-			pstmt.setString(2, pVO.getAdminEmail());
-			pstmt.setString(3, pVO.getAdminPhone());
-			pstmt.setInt(4, pVO.getAdmin());
-			pstmt.setString(5, pVO.getAdminId());
+			pstmt.setString(1, pVO.getAdminName());
+			pstmt.setString(2, pVO.getAdminId());
+			pstmt.setString(3, pVO.getAdminEmail());
+			pstmt.setString(4, pVO.getAdminPassword());
+			pstmt.setString(5, pVO.getAdminPhone());
+			pstmt.setInt(6, pVO.getCode());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -268,14 +272,14 @@ public class AdminDAO {
 		return list;
 	}
    
-   public void deleteAdmin(int id) {
-		String sql = "delete from tbl_admin_member where id=?";
+   public void deleteAdmin(int code) {
+		String sql = "delete from tbl_admin_member where code=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, id);
+			pstmt.setInt(1, code);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
