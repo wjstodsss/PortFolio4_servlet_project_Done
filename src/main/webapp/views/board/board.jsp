@@ -99,11 +99,11 @@
 		<div id="middleHeader">
 			<nav>
 				<ul>
-					<li><a href="#">시그니처</a></li>
+					<li><a href="#" onclick="handleCustomClick()">시그니처</a></li>
 					<li>|</li>
 					<li><a href="#" onclick="goToReview()">반찬후기</a></li>
 					<li>|</li>
-					<li><a href="#">배송안내</a></li>
+					<li><a href="banchan?command=info">배송안내</a></li>
 				</ul>
 			</nav>
 
@@ -122,7 +122,9 @@
 			<button onclick="handleClick(this)" id="0">하루반찬세트</button>
 			<nav>
 				<ul>
-					<li><a href="#" class="jingaTitle">진가네 시그니처</a></li>
+					<li><a href="#" class="jingaTitle" id="9"
+						onclick="handleClick(this)">진가네
+							시그니처</a></li>
 					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
 						id="1">진가네 명품김치</a></li>
 					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
@@ -141,10 +143,7 @@
 						id="8">대용량</a></li>
 				</ul>
 			</nav>
-			<p>
-				|<span><a href="#" class="jingaTitle"
-					onclick="createSubPage(this.id)" id="9">반찬도매</a></span>
-			</p>
+			
 		</div>
 	</header>
 	<div class="board-back">
@@ -369,16 +368,16 @@
 		<div id="info03">
 			<p>가이드</p>
 			<div>
-				<img src="/resources/img/footer/footer002.png" alt="배송" class="icon">
+				<img src="/resources/img/footer/footer002.png" alt="배송" class="icon" onclick="goToDelivery()">
 				<p>배송안내</p>
 			</div>
 			<div>
-				<img src="/resources/img/footer/footer003.png" alt="혜택" class="icon">
+				<img src="/resources/img/footer/footer003.png" alt="혜택" class="icon" onclick="goToBuyInfo()">
 				<p>첫구매혜택</p>
 			</div>
 			<div>
 				<img src="/resources/img/footer/footer004.png" alt="고객센터"
-					class="icon">
+					class="icon" onclick="goToBoard()">
 				<p>고객센터</p>
 			</div>
 		</div>
@@ -406,6 +405,8 @@
 
 document.getElementById("inputWord").addEventListener("keypress", handleEnterKey);
 document.getElementById("searchButton").addEventListener("click", handleClickKey);
+document.getElementById("topClose").addEventListener("click", topBannerDisplayNone);
+
 	/* 공지사항 
 	 v0.01: 240110 setInterval함수를 활용하여 추가한 기능, 정해진 공지사항이 시간 마다 변경 
 	 */

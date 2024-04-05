@@ -4,6 +4,8 @@ import com.blacksmith.banchan.admin.action.AdminLoginAction;
 import com.blacksmith.banchan.admin.action.AdminPageAction;
 import com.blacksmith.banchan.admin.action.AdminUpdate;
 import com.blacksmith.banchan.admin.action.AdminUpdateForm;
+import com.blacksmith.banchan.admin.action.BuyInfo;
+import com.blacksmith.banchan.admin.action.DeliveryInfo;
 import com.blacksmith.banchan.admin.action.AdminDelete;
 import com.blacksmith.banchan.admin.action.AdminDeleteForm;
 import com.blacksmith.banchan.admin.action.AdminList;
@@ -222,6 +224,10 @@ public class ActionFactory {
 			action = new AdminDelete();
 		} else if (command.equals("search")){
 			action = new ProductSearch();
+		} else if (command.equals("info")){
+			action = new DeliveryInfo();
+		} else if (command.equals("buy-info")){
+			action = new BuyInfo();
 		}
 		
 		return action;

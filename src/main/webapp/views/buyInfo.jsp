@@ -49,6 +49,17 @@
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
+
+.centered-images {
+	display: flex;
+	justify-content: center;
+	overflow-x: hidden; /* 가로 스크롤 막기 */
+}
+
+.centered-images img {
+	max-width: 100%; /* 이미지가 부모 요소의 너비를 초과하지 않도록 */
+	height: auto; /* 이미지의 세로 비율 유지 */
+}
 </style>
 
 </head>
@@ -138,86 +149,14 @@
 
 		</div>
 	</header>
-	<!-- 상품 목록 -->
+
 	<div class="container mt-3">
-		<div class="row">
-			<!-- productList가 비어있는 경우 -->
-			<c:if test="${empty productList}">
-				<div class="col-md-12">
-					<h3>검색된 상품이 없습니다.</h3>
-					<img src="/resources/img/etc/sorry.png" alt="">
-				</div>
-			</c:if>
-			<!-- productList가 비어있지 않은 경우 -->
-			<c:forEach var="product" items="${productList}">
-				<div class="mr-2">
-					<div class="card" style="width: 14.7rem;">
-						<img src="upload/${product.pictureUrl}" class="card-img-top"
-							alt="Product Image" id="image${product.code}">
-						<div class="card-body">
-							<h6 class="card-title" id="name${product.code}">${product.productName}</h6>
-							<p class="card-text" id="price${product.code}">가격:
-								${product.price}원</p>
-							<input type="number" id="quantity${product.code}" min="0"
-								value="1">
-							<div>
-								<button class="btn btn-primary"
-									onclick="addToCart(${product.code})">장바구니</button>
-								<button class="btn btn-success"
-									onclick="purchase(${product.code})">구매</button>
-							</div>
-						</div>
-						<div class="card-footer">
-							<p class="text-muted">상품 요약: ${product.description}</p>
-						</div>
-					</div>
-				</div>
-			</c:forEach>
+		<div class="centered-images">
+			<img src="/resources/img/etc/gumae1.jpg" alt=""> <img
+				src="/resources/img/etc/gumae2.jpg" alt=""> <img
+				src="/resources/img/etc/gumae.jpg" alt="">
 		</div>
 	</div>
-
-
-	<!-- 장바구니 모달 -->
-	<div class="modal fade" id="cartModal" tabindex="-1" role="dialog"
-		aria-labelledby="cartModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered modal-lg"
-			role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="cartModalLabel">장바구니</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-12">
-								<div id="cartList"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-12">
-								<button type="button" class="btn btn-secondary float-right"
-									data-dismiss="modal">닫기</button>
-								<button type="button" class="btn btn-danger float-right mr-2"
-									onclick="deleteSelectedItems()">선택된 상품 삭제</button>
-								<button type="button" class="btn btn-success float-right mr-2"
-									onclick="buySelectedItems()">선택된 상품 구매</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
 
 	<footer id="footer">
 		<div id="info01">

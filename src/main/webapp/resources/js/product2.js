@@ -82,12 +82,9 @@ function showCart() {
     updateCart();
 }
 
+// 장바구니 업데이트 함수
 function updateCart() {
-	    
-    
-   	
-	
-
+	console.log("언제 바뀌는지 지켜보겠")
     var cartList = $("#cartList");
     cartList.empty(); // 기존 목록 초기화
 
@@ -105,6 +102,11 @@ function updateCart() {
     }).change(function() {
         var checkboxes = $("#cartList input[type='checkbox']");
         checkboxes.prop("checked", $(this).prop("checked"));
+
+        console.log("언제 바뀌는지 지켜보겠")
+         console.log(totalAmount)
+        let oo = updateTotalAmount(totalAmount);
+        console.log(oo + "kkk")
     });
     selectAllHeader.append(selectAllCheckbox);
     headerRow.append(selectAllHeader);
@@ -125,10 +127,10 @@ function updateCart() {
     var priceHeader = $("<th>").text("가격");
     headerRow.append(priceHeader);
 
-    var totalAmount = 0; // 총 구매 예정 금액을 저장할 변수
-    
     // 테이블 헤더 추가
     table.append(headerRow);
+
+    var totalAmount = 0; // 총 구매 예정 금액을 저장할 변수
 
     // 장바구니 목록 갱신
     $.each(cartItems, function(item, details) {
@@ -136,10 +138,10 @@ function updateCart() {
 
         // 체크박스 열
         var checkboxCell = $("<td>");
-        var checkbox = $("<input>");
-        checkbox.attr("type", "checkbox");
-        checkbox.val(item);
-        checkbox.change(function() {
+        var checkbox = $("<input>").attr({
+            type: "checkbox",
+            value: item
+        }).change(function() {
             var isChecked = $(this).prop("checked");
             var itemPrice = parseInt($(this).closest("tr").find("input[name='amount']").val());
             if (isChecked) {
@@ -149,7 +151,6 @@ function updateCart() {
             }
             $("#totalAmount").text(totalAmount); // 총 구매 예정 금액 업데이트
         });
-        
         checkboxCell.append(checkbox);
         row.append(checkboxCell);
 
@@ -179,21 +180,24 @@ function updateCart() {
         quantityCell.append(quantityInput);
         row.append(quantityCell);
 
-
         // 가격 입력 열
         var priceCell = $("<td>");
         var priceInput = $("<input>").attr({
-            name: "amount"})
-        var price = cartItems[item]["quantity"] * cartItems[item]["price"];
-        priceInput.val(price);
-        priceInput.prop("disabled", true);
-        priceInput.css({ maxWidth: "150px", maxHeight: "60px" });
+            name: "amount",
+            type: "number",
+            min: 0,
+            value: details.price * details.quantity,
+            disabled: true
+        }).css({
+            maxWidth: "150px",
+            maxHeight: "60px"
+        });
         priceCell.append(priceInput);
         row.append(priceCell);
 
         // 초기 체크박스 상태에 따라 총 구매 예정 금액 계산
         if (checkbox.prop("checked")) {
-            totalAmount += price;
+            totalAmount += details.price * details.quantity;
         }
 
         table.append(row);
@@ -212,6 +216,25 @@ function updateCart() {
     // 장바구니 모달 열기
     $("#cartModal").modal("show");
 }
+
+// 총 구매 예정 금액 업데이트 함수
+// 계속 NaN의 등장으로 고생하였어요 제목줄도 가져와서....
+// 테이블 계산시 제목줄 주의
+function updateTotalAmount(totalAmount) {
+    var totalAmount = 0;
+   var isFirstCheckbox = true;
+$("#cartList input[type='checkbox']:checked").each(function() {
+    if (!isFirstCheckbox) {
+        var itemPrice = parseInt($(this).closest("tr").find("input[name='amount']").val());
+        console.log(itemPrice);
+        totalAmount += itemPrice;
+    } else {
+        isFirstCheckbox = false;
+    }
+});
+    $("#totalAmount").text(totalAmount);
+}
+
 
 // 상품 수량 변경 함수
 function changeQuantity(product, quantity) {
@@ -241,6 +264,19 @@ function deleteSelectedItems() {
     // 장바구니 업데이트
     updateCart();
 }
+
+/* top banner *//* topBanner 상단 배너 
+    v0.01 : 240110 addEventListen활용 button을 click하면 topBanner영역 display: none  
+    */
+    
+    function topBannerDisplayNone() {
+        document.getElementById("topBanner").style.display = "none";
+    }	
+    
+    function handleCustomClick() {
+	    var linkToClick = document.getElementById("9"); // 클릭하고자 하는 링크를 가져옵니다.
+	    linkToClick.click(); // 링크를 클릭합니다.
+	}
 
 // 선택된 상품 구매 함수 (삭제와 동일한 로직으로 작성)
 function buySelectedItems() {
@@ -279,5 +315,12 @@ function buySelectedItems() {
 	    formDTO.submit();
 	}
 	
+	function goToDelivery() {
+		window.location.href = "banchan?command=info";	
+	}
+	
+	function goToBuyInfo() {
+		window.location.href = "banchan?command=buy-info";	
+	}
 	
     
