@@ -177,7 +177,7 @@
 													value="1">
 												<div>
 													<button class="btn btn-primary"
-														onclick="addToCart(${product.code})">장바구니</button>
+														onclick="addToCart(${product.code}, updateCart)">장바구니</button>
 													<button class="btn btn-success"
 														onclick="purchase(${product.code})">구매</button>
 												</div>
@@ -222,6 +222,7 @@
                             <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">닫기</button>
                             <button type="button" class="btn btn-danger float-right mr-2" onclick="deleteSelectedItems()">선택된 상품 삭제</button>
                             <button type="button" class="btn btn-success float-right mr-2" onclick="buySelectedItems()">선택된 상품 구매</button>
+                            <a href="NewFile.html">테스트</a>
                         </div>
                     </div>
                 </div>

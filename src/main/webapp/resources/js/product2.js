@@ -44,7 +44,7 @@ function sliderHiddenAndStop() {
 
 var cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || {};
 
-function addToCart(product) {
+function addToCart(product, callbackMethod) {
     var quantity = parseInt(document.getElementById("quantity" + product).value);
     var productImageUrl = document.getElementById("image" + product).getAttribute("src");
     var productName = document.getElementById("name" + product).innerText;
@@ -75,7 +75,7 @@ function addToCart(product) {
 
     sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
     // 장바구니 업데이트
-    updateCart();
+    callbackMethod();
 }
 
 function showCart() {
@@ -140,6 +140,8 @@ function updateCart() {
         var checkboxCell = $("<td>");
         var checkbox = $("<input>").attr({
             type: "checkbox",
+            id: "selectId",
+            name: "selectId",
             value: item
         }).change(function() {
             var isChecked = $(this).prop("checked");
@@ -171,6 +173,8 @@ function updateCart() {
             type: "number",
             min: 0,
             value: details.quantity,
+            id: "selectQuantity",
+            name: "selectQuantity",
             style: "max-width: 60px; max-height: 60px;"
         }).change(function() {
             var newQuantity = parseInt($(this).val());
@@ -217,9 +221,43 @@ function updateCart() {
     $("#cartModal").modal("show");
 }
 
-// 총 구매 예정 금액 업데이트 함수
-// 계속 NaN의 등장으로 고생하였어요 제목줄도 가져와서....
-// 테이블 계산시 제목줄 주의
+
+function buySelectedItems() {
+    // 체크된 체크박스 요소들을 선택
+    var checkedCheckboxes = $("#cartList input[type='checkbox']:checked");
+    
+    var selectedItems = [];
+    // 각 체크된 체크박스에 대해 처리
+    checkedCheckboxes.each(function() {
+        // 체크된 체크박스의 부모 행을 선택하여 해당 상품의 정보를 가져옴
+        var row = $(this).closest("tr");
+        var itemId = row.find("input[name='selectId']").val(); // 상품 ID
+        var itemQuantity = row.find("input[name='selectQuantity']").val(); // 상품 수량
+        
+		if (itemId !== null && itemQuantity !== null) {
+        	selectedItems.push({ id: itemId, quantity: quantity });
+    	}
+        // 서버로 상품 ID와 수량을 전송 (AJAX를 사용하여 서버로 전송)
+        $.ajax({
+            type: "POST",
+            url: "banchan?command=test", // 서버 엔드포인트 URL 설정
+            data: {
+                itemId: itemId,
+                itemQuantity: itemQuantity
+            },
+            success: function(response) {
+                // 성공적으로 서버로부터 응답을 받았을 때 수행할 작업
+                console.log("Data sent successfully:", response);
+            },
+            error: function(xhr, status, error) {
+                // 서버 요청이 실패했을 때 수행할 작업
+                console.error("Error sending data:", error);
+            }
+        });
+    });
+}
+
+
 function updateTotalAmount(totalAmount) {
     var totalAmount = 0;
    var isFirstCheckbox = true;
@@ -278,10 +316,7 @@ function deleteSelectedItems() {
 	    linkToClick.click(); // 링크를 클릭합니다.
 	}
 
-// 선택된 상품 구매 함수 (삭제와 동일한 로직으로 작성)
-function buySelectedItems() {
-    deleteSelectedItems();
-}
+
 
  /* 이벤트 */
    function handleEnterKey(event) {

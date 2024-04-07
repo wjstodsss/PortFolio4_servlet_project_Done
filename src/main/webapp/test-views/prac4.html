@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Grid Example</title>
+  <!-- 부트스트랩 CSS 파일 로드 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .custom-bg-lg {
+      background-color: lightblue;
+      color: white;
+    }
+    .custom-bg-md {
+      background-color: lightcoral;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <!-- lg 클래스 예제 -->
+      <div class="col-lg-6 custom-bg-lg border-top">
+        <h2>lg 클래스 (Large Desktop)</h2>
+        <p>This column will take up half of the width on large desktop screens.</p>
+      </div>
+      <div class="col-lg-6 custom-bg-lg border-top">
+        <h2>lg 클래스 (Large Desktop)</h2>
+        <p>This column will also take up half of the width on large desktop screens.</p>
+      </div>
+    </div>
+    <div class="row">
+      <!-- md 클래스 예제 -->
+      <div class="col-md-6 custom-bg-md border-top border-width">
+        <h2>md 클래스 (Desktop/Tablet)</h2>
+        <p>This column will take up half of the width on desktop and tablet screens.</p>
+      </div>
+      <div class="col-md-6 custom-bg-md border">
+        <h2>md 클래스 (Desktop/Tablet)</h2>
+        <p>This column will also take up half of the width on desktop and tablet screens.</p>
+      </div>
+    </div>
+  </div>
+  <!-- 부트스트랩 JavaScript 파일 로드 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

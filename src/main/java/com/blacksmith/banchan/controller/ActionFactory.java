@@ -228,6 +228,8 @@ public class ActionFactory {
 			action = new DeliveryInfo();
 		} else if (command.equals("buy-info")){
 			action = new BuyInfo();
+		} else if (command.equals("test")){
+			action = new TestAction();
 		}
 		
 		return action;
