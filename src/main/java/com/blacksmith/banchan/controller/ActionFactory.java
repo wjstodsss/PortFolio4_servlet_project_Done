@@ -1,16 +1,16 @@
 package com.blacksmith.banchan.controller;
 
+import com.blacksmith.banchan.admin.action.AdminDelete;
+import com.blacksmith.banchan.admin.action.AdminDeleteForm;
+import com.blacksmith.banchan.admin.action.AdminList;
+import com.blacksmith.banchan.admin.action.AdminListRegister;
+import com.blacksmith.banchan.admin.action.AdminListRegisterForm;
 import com.blacksmith.banchan.admin.action.AdminLoginAction;
 import com.blacksmith.banchan.admin.action.AdminPageAction;
 import com.blacksmith.banchan.admin.action.AdminUpdate;
 import com.blacksmith.banchan.admin.action.AdminUpdateForm;
 import com.blacksmith.banchan.admin.action.BuyInfo;
 import com.blacksmith.banchan.admin.action.DeliveryInfo;
-import com.blacksmith.banchan.admin.action.AdminDelete;
-import com.blacksmith.banchan.admin.action.AdminDeleteForm;
-import com.blacksmith.banchan.admin.action.AdminList;
-import com.blacksmith.banchan.admin.action.AdminListRegister;
-import com.blacksmith.banchan.admin.action.AdminListRegisterForm;
 import com.blacksmith.banchan.admin.action.board.faq.AdminFaqBoardAction;
 import com.blacksmith.banchan.admin.action.board.faq.FaqDeleteAction;
 import com.blacksmith.banchan.admin.action.board.faq.FaqDeleteFormAction;
@@ -65,6 +65,8 @@ import com.blacksmith.banchan.product.action.ProductUpdateAction;
 import com.blacksmith.banchan.product.action.ProductUpdateFormAction;
 import com.blacksmith.banchan.product.action.ProductWriteAction;
 import com.blacksmith.banchan.product.action.ProductWriteFormAction;
+import com.blacksmith.banchan.shopping.action.PaymentFormAction;
+import com.blacksmith.banchan.shopping.action.PrePaymentAction;
 import com.blacksmith.banchan.shopping.action.ProductPageAction;
 import com.blacksmith.banchan.shopping.action.ProductSearch;
 import com.blacksmith.banchan.shopping.action.ProductSetAction;
@@ -228,6 +230,10 @@ public class ActionFactory {
 			action = new DeliveryInfo();
 		} else if (command.equals("buy-info")){
 			action = new BuyInfo();
+		} else if (command.equals("pre-payment")){
+			action = new PrePaymentAction();
+		} else if (command.equals("payment-form")){
+			action = new PaymentFormAction();
 		} else if (command.equals("test")){
 			action = new TestAction();
 		}

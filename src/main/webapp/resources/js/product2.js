@@ -103,8 +103,8 @@ function updateCart() {
 	}).change(function() {
 		var checkboxes = $("#cartList input[type='checkbox']");
 		checkboxes.prop("checked", $(this).prop("checked"));
-		
-		
+
+
 		updateTotalAmount();
 	});
 	selectAllHeader.append(selectAllCheckbox);
@@ -129,7 +129,7 @@ function updateCart() {
 	// 테이블 헤더 추가
 	table.append(headerRow);
 
-	 // 총 구매 예정 금액을 저장할 변수
+	// 총 구매 예정 금액을 저장할 변수
 
 	// 장바구니 목록 갱신
 	$.each(cartItems, function(item, details) {
@@ -164,6 +164,7 @@ function updateCart() {
 		// 이미지 열
 		var imageCell = $("<td>").append($("<img>").attr({
 			src: details.imageUrl,
+			name: "selectImageUrl",
 			style: "max-width: 60px; max-height: 60px;"
 		}));
 		row.append(imageCell);
@@ -234,52 +235,47 @@ function buySelectedItems() {
 		var row = $(this).closest("tr");
 		var itemId = row.find("input[name='selectId']").val(); // 상품 ID
 		var itemQuantity = row.find("input[name='selectQuantity']").val(); // 상품 수량
-	
-		if (itemId != null && itemQuantity != null) {
-			selectedItems.push({ id: itemId, quantity: itemQuantity });
-				alert(itemQuantity)
-		}
+		var itemAmount = row.find("input[name='amount']").val();
+		var itemImageUrl = row.find("img[name='selectImageUrl']").attr('src');
 
+		if (itemId != null && itemQuantity != null) {
+			selectedItems.push({ id: itemId, quantity: itemQuantity, price: itemAmount, imageUrl: itemImageUrl });
+			alert(itemQuantity)
+		}
 	});
 
-
 	if (selectedItems.length > 0) {
-		$.ajax({
-			type: "POST",
-			url: "banchan?command=test",
-			contentType: "application/json",
-			data: JSON.stringify(selectedItems),
-			success: function(response) {
-				console.log("Data sent successfully:", response);
-			},
-			error: function(xhr, status, error) {
-				console.error("Error sending data:", error);
-			}
-		});
+		// 선택된 상품 정보를 세션 스토리지에 저장
+		sessionStorage.setItem("selectedItems", JSON.stringify(selectedItems));
+
+		// 결제 페이지로 이동
+		window.location.href = "views/shopping/payment.jsp";
 	} else {
 		console.log("No selected items to send to the server");
 	}
 }
 
 
+
+
 function updateTotalAmount() {
 	var isSelectAllChecked = $("#selectAllCheckbox").prop("checked");
 	var isFirstCheckbox = true;
-	if(isSelectAllChecked){
+	if (isSelectAllChecked) {
 		$("#cartList input[type='checkbox']:checked").each(function() {
-		if (!isFirstCheckbox) {
-			var itemPrice = parseInt($(this).closest("tr").find("input[name='amount']").val());
-			console.log(itemPrice);
-			totalAmount += itemPrice;
-		} else {
-			isFirstCheckbox = false;
-		}
-	});
+			if (!isFirstCheckbox) {
+				var itemPrice = parseInt($(this).closest("tr").find("input[name='amount']").val());
+				console.log(itemPrice);
+				totalAmount += itemPrice;
+			} else {
+				isFirstCheckbox = false;
+			}
+		});
 	} else {
 		totalAmount = 0;
 	}
-	
-		
+
+
 	$("#totalAmount").text(totalAmount);
 }
 
