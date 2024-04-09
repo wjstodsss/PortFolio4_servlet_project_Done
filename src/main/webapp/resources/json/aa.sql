@@ -1,15 +1,31 @@
 create database bbs;
 use bbs;
 use db_banchan;
-select*from product;
+select*from tbl_product;
 select*from test;
 use db_estore;
-
+show tables;
+select * from tbl_payment_gateway;
 create database db_estore;
 use db_estore;
 select * from member;
 select * from tbl_member;
-select * from tbl_member;
+select * from tbl_admin_member;
+drop table tbl_admin_member;
+drop table tbl_payment_gateway;
+
+INSERT INTO tbl_payment_gateway (cardNumber, expirationMM, expirationYY, cvc, cardHolderName) VALUES
+('1234', 12, 24, '1234', 'finn');
+
+
+CREATE TABLE tbl_payment_gateway (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cardNumber VARCHAR(16) NOT NULL,
+    expirationMM TINYINT NOT NULL,
+    expirationYY SMALLINT NOT NULL,
+    cvc VARCHAR(4),
+    cardHolderName VARCHAR(255)
+);
 
 CREATE TABLE tbl_admin_member (
 code int PRIMARY KEY auto_increment,
@@ -38,7 +54,7 @@ CREATE TABLE tbl_member (
 );
 
 commit;
-
+select * from tbl_admin_member;
 INSERT INTO tbl_member (userName, userId, userPassword, userEmail, userPhone, admin) VALUES
 ('John Doe', 'asdf', '123', 'john@example.com', '123-456-7890', 0),
 ('Alice Smith', 'qwer', '123', 'alice@example.com', '987-654-3210', 0),

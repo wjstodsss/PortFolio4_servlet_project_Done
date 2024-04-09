@@ -85,6 +85,7 @@ function showCart() {
 var totalAmount = 0;
 // 장바구니 업데이트 함수
 function updateCart() {
+	let i = 0;
 	console.log("언제 바뀌는지 지켜보겠")
 	var cartList = $("#cartList");
 	cartList.empty(); // 기존 목록 초기화
@@ -139,7 +140,7 @@ function updateCart() {
 		var checkboxCell = $("<td>");
 		var checkbox = $("<input>").attr({
 			type: "checkbox",
-			id: "selectId",
+			id: "selectId" + i++,
 			name: "selectId",
 			value: item
 		}).change(function() {
@@ -224,6 +225,23 @@ function updateCart() {
 }
 
 
+function deleteSelectedItems() {
+	var checkboxes = document.querySelectorAll("#cartList input[type='checkbox']");
+	checkboxes.forEach(function(checkbox) {
+		if (checkbox.checked) {
+			delete cartItems[product];
+		}
+	});
+
+	// 세션 스토리지에 장바구니 정보 저장
+	sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+	// 장바구니 업데이트
+	updateCart();
+	// 총 구매 예정 금액 업데이트
+	$("#totalAmount").text(totalAmount);
+}
+
+
 function buySelectedItems() {
 	// 체크된 체크박스 요소들을 선택
 	var checkedCheckboxes = $("#cartList input[type='checkbox']:checked");
@@ -249,13 +267,18 @@ function buySelectedItems() {
 		sessionStorage.setItem("selectedItems", JSON.stringify(selectedItems));
 
 		// 결제 페이지로 이동
-		window.location.href = "views/shopping/payment.jsp";
+		window.location.href = "banchan?command=payment-form";
 	} else {
 		console.log("No selected items to send to the server");
 	}
 }
 
 
+
+function clearCart() {
+	// 세션 스토리지의 데이터 지우기
+	sessionStorage.clear();
+}
 
 
 function updateTotalAmount() {
@@ -304,9 +327,9 @@ function deleteSelectedItems() {
 
 	// 세션 스토리지에 장바구니 정보 저장
 	sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
-
 	// 장바구니 업데이트
 	updateCart();
+	updateTotalAmount();
 }
 
 /* top banner *//* topBanner 상단 배너 
@@ -362,6 +385,19 @@ function goToDelivery() {
 
 function goToBuyInfo() {
 	window.location.href = "banchan?command=buy-info";
+}
+
+function deletePayedItem() {
+	var tdElements = document.querySelectorAll("td[name='id']");
+	tdElements.forEach(function(td) {
+		var id = td.innerText; // 혹은 td.innerHTML;
+		alert(cartItems[id])
+		delete cartItems[id]
+		
+		alert(cartItems[id])
+	});
+	
+	sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
 }
 
 

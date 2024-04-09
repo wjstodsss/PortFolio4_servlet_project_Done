@@ -11,6 +11,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 	rel="stylesheet">
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="../resources/js/product2.js"></script>
 <style>
 .image-column img {
 	max-width: 60px;
@@ -61,50 +62,57 @@ th, td {
 	<div class="container offset-md-4">
 		<h1 class="mt-5 mb-3">구매 정보 확인</h1>
 		<div class="col-md-6">
-			<form>
+			<form action="banchan?command=test" method="post" id='paymentForm'>
 
 				<h2>상품 정보</h2>
 				<div id="tableContainer"></div>
 				<!-- 구매 정보 -->
 				<h2 class="mt-5 mb-3">결제 정보</h2>
 				<div class="mb-3">
+					<label for="show_pay" class="form-label">보여주기 카드 정보</label> <input
+						type="text" class="form-control bg-info"
+						name="show_pay" 
+						value="카드번호: 1234 mm:12 yy:24 cvc:123 이름:finn" readonly>
+				</div>
+				<div class="mb-3">
 					<label for="cardNumber" class="form-label">카드 번호</label> <input
-						type="text" class="form-control" id="cardNumber" name="cardNumber"
+						type="text" class="form-control" id="cardNumber" name="cardNumber" value="1234"
 						placeholder="카드 번호를 입력하세요" required>
 				</div>
 				<div class="mb-3">
 					<label for="expirationMMInput" class="form-label">유효 기간</label>
 					<p>MM:</p>
 					<input type="text" class="form-control" id="expirationMMInput"
-						name="expirationMMInput" placeholder="유효 월을 입력해주세요" maxlength="5"
+						name="expirationMMInput" placeholder="유효 월을 입력해주세요" maxlength="5" value="12"
 						required>
 					<p>YY:</p>
 					<input type="text" class="form-control" id="expirationYYInput"
-						name="expirationYYInput" placeholder="유효 년도를 입력해주세요" maxlength="5"
+						name="expirationYYInput" placeholder="유효 년도를 입력해주세요" maxlength="5" value="24"
 						required>
 				</div>
 				<div class="mb-3">
 					<label for="cvv" class="form-label">CVC</label> <input type="text"
-						class="form-control" id="cvc" name="cvc" placeholder="CVC를 입력하세요">
+						class="form-control" id="cvc" name="cvc" value="123"  placeholder="CVC를 입력하세요">
 				</div>
 				<div class="mb-3">
 					<label for="cardHolderName" class="form-label">카드 소유자 이름</label> <input
-						type="text" class="form-control" id="cardHolderName"
+						type="text" class="form-control" id="cardHolderName" value="finn"
 						name="cardHolderName" placeholder="카드 소유자 이름을 입력하세요">
 				</div>
+				
 
 				<!-- 배송지 정보 입력 -->
 				<h2 class="mt-5 mb-3">배송지 정보</h2>
 				<div class="mb-3">
 					<label for="recipientName" class="form-label">수령인 이름</label> <input
 						type="text" class="form-control" id="recipientName"
-						name="recipientName" placeholder="수령인 이름을 입력하세요">
+						name="recipientName" value="꼴뚜기" placeholder="수령인 이름을 입력하세요">
 				</div>
 				<div class="mb-3">
 					<label for="zipcode" class="form-label">우편번호</label>
 					<div class="input-group">
 						<input type="text" class="form-control" id="zipcode"
-							name="zipcode" placeholder="우편번호" size="5">
+							name="zipcode" placeholder="우편번호" size="5" value="16619">
 						<button class="btn btn-outline-secondary" type="button"
 							onclick="execDaumPostcode()">우편번호검색</button>
 					</div>
@@ -112,27 +120,27 @@ th, td {
 				<div class="mb-3">
 					<label for="roadAddress" class="form-label">도로명 주소</label> <input
 						type="text" class="form-control" id="roadAddress"
-						name="roadAddress" placeholder="도로명 주소">
+						name="roadAddress" value="경기 수원시 권선구 권선로357번길 30 (서둔동)" placeholder="도로명 주소">
 				</div>
 				<div class="mb-3">
 					<label for="jibunAddress" class="form-label">지번 주소</label> <input
 						type="text" class="form-control" id="jibunAddress"
-						name="jibunAddress" placeholder="지번 주소">
+						name="jibunAddress" value="경기 수원시 권선구 서둔동 425" placeholder="지번 주소">
 				</div>
 				<div class="mb-3">
-					<label for="namujiAddress" class="form-label">나머지 주소</label> <input
-						type="text" class="form-control" id="namujiAddress"
-						name="namujiAddress" placeholder="나머지 주소">
+					<label for="detailAddress" class="form-label">나머지 주소</label> <input
+						type="text" class="form-control" id="detailAddress"
+						name="detailAddress" value="수원역" placeholder="나머지 주소">
 				</div>
 				<div class="mb-3">
 					<label for="phoneNumber" class="form-label">연락처</label> <input
 						type="text" class="form-control" id="phoneNumber"
-						name="phoneNumber" placeholder="연락처를 입력하세요">
+						name="phoneNumber" value="01012341234" placeholder="연락처를 입력하세요">
 				</div>
 
 
 				<!-- 결제 버튼 -->
-				<button type="submit" class="btn btn-primary">결제하기</button>
+				<button type="submit" class="btn btn-primary" >결제하기</button>
 			</form>
 		</div>
 	</div>
@@ -142,6 +150,11 @@ th, td {
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 	<script>
+	
+	document.getElementById('paymentForm').addEventListener('submit', function(event) {
+		deletePayedItem();
+        alert(sessionStorage.cartItems)
+    });
 		function execDaumPostcode() {
 			new daum.Postcode(
 					{
@@ -205,7 +218,7 @@ th, td {
 			tableHtml += "<tr>";
 			tableHtml += "<td class='col-1' name='id'>" + id + "</td>";
 			tableHtml += "<td class='col-2 image-column'><img src='"
-					+ getImageUrl(imageUrl) + "' alt='상품 이미지'></td>";
+					+ imageUrl + "' alt='상품 이미지'></td>";
 			tableHtml += "<td class='col-1' name='quantity'>" + quantity + "</td>";
 			tableHtml += "<td class='col-2'>"
 					+ parseInt(price).toLocaleString('ko-KR') + "</td>";
@@ -226,12 +239,7 @@ th, td {
 		// 생성한 HTML 코드를 삽입할 요소를 찾아서 삽입
 		document.getElementById("tableContainer").innerHTML = tableHtml;
 
-		function getImageUrl(url) {
-			// 현재 페이지의 URL을 가져옴
-			var currentPageUrl = window.location.href;
-			// 이미지 경로를 생성하여 반환
-			return currentPageUrl.replace("views/shopping", url);
-		}
+		
 
 		function getImageUrl(url) {
 			// 현재 페이지의 URL을 가져옴
