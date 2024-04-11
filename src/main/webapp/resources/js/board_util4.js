@@ -11,13 +11,13 @@ function goToReview() {
 
 
 
-function fetchBoardList(boardType) {
-	
+function fetchBoardList(boardType, page) {
+
 	document.getElementById('boardTitle').innerText = boardType.toUpperCase();
 
 	var xhr = new XMLHttpRequest();
 
-	xhr.open("GET", "banchan?command=" + boardType, true);
+	xhr.open("GET", "banchan?command=" + boardType + "&page=" + page, true);
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4) {
 			if (xhr.status === 200) {
@@ -25,7 +25,8 @@ function fetchBoardList(boardType) {
 				document.getElementById('navTitle').value = boardType;
 				displayCreateBtn(boardType)
 				var response = JSON.parse(xhr.responseText);
-				fetchPosts(response);
+				fetchPosts(response.boardList);
+				displayPagination(response.pageHandler, boardType);
 			} else {
 				// 오류가 발생했을 때 처리할 내용
 				console.error("AJAX 요청 오류:", xhr.status, xhr.statusText);
@@ -35,6 +36,54 @@ function fetchBoardList(boardType) {
 	};
 	xhr.send();
 }
+
+function displayPagination(pageHandler, boardType) {
+	// 페이징 UI를 담을 요소 선택
+	var paginationContainer = document.getElementById('pagination');
+	paginationContainer.innerHTML = '';
+
+	// 이전 버튼 생성
+	var prevButton = document.createElement('button');
+	prevButton.innerText = 'Prev';
+	prevButton.classList.add('pagination-button'); // 버튼에 클래스 추가
+	prevButton.addEventListener('click', function() {
+		if (pageHandler.page > 1) {
+			fetchBoardList(boardType, pageHandler.page - 1);
+		}
+	});
+	paginationContainer.appendChild(prevButton);
+
+	// 페이지 번호 버튼 생성
+	for (var i = pageHandler.beginPage; i <= pageHandler.endPage; i++) {
+		var pageButton = document.createElement('button');
+		
+		pageButton.innerText = i;
+		
+		if (pageHandler.page === i) {
+			pageButton.style.fontSize = "20px";
+		}
+		
+		pageButton.classList.add('pagination-button'); // 버튼에 클래스 추가
+		pageButton.addEventListener('click', function() {
+			fetchBoardList(boardType, this.innerText);
+		});
+		paginationContainer.appendChild(pageButton);
+	}
+
+	// 다음 버튼 생성
+	var nextButton = document.createElement('button');
+	nextButton.innerText = 'Next';
+	nextButton.classList.add('pagination-button'); // 버튼에 클래스 추가
+	nextButton.addEventListener('click', function() {
+		if (pageHandler.page < pageHandler.totalPage) {
+			console.log(pageHandler.page + 1)
+			fetchBoardList(boardType, pageHandler.page + 1);
+		}
+	});
+	paginationContainer.appendChild(nextButton);
+
+}
+
 
 function fetchPosts(posts) {
 
@@ -72,14 +121,14 @@ function goToDetailModalForm(element) {
 			document.getElementById('detailContent').value = response.content;
 			document.getElementById('detailImageUrl').src = "upload/" + response.imageUrl;
 			document.getElementById('nonmakeImg').value = response.imageUrl;
-			
+
 			if (navTitle.value == 'qna') {
 				$('#upload').hide();
 			}
-			
+
 			$('#detailFormModal').modal('show');
-			
-			
+
+
 			if (navTitle.value == 'qna') {
 				$('#detailUpload').hide();
 			} else {
@@ -124,10 +173,6 @@ function doAction(action) {
 		alert("비밀번호를 입력하세요");
 	}
 }
-
-
-
-
 
 
 

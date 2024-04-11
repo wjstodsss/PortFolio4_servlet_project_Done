@@ -7,7 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import com.blacksmith.banchan.board.dto.ReviewBoardVO;
 import com.blacksmith.banchan.board.dto.ReviewBoardVO;
 import com.blacksmith.banchan.util.DBManager;
 
@@ -165,6 +167,65 @@ public class ReviewBoardDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	public List<ReviewBoardVO> selectPage(Map<String, Integer> map) {
+		String sql = "select * from tbl_review order by id desc limit ?, ?";
+		List<ReviewBoardVO> list = new ArrayList<ReviewBoardVO>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, map.get("offset"));
+			pstmt.setInt(2, map.get("pageSize"));
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				ReviewBoardVO bVo = new ReviewBoardVO();
+				bVo.setId(rs.getInt("id"));
+				bVo.setTitle(rs.getString("title"));
+				bVo.setAuthor(rs.getString("author"));
+				bVo.setPassword(rs.getString("password"));
+				bVo.setContent(rs.getString("content"));
+				bVo.setImageUrl(rs.getString("imageurl"));
+				bVo.setReadCount(rs.getInt("readCount"));
+				bVo.setDatePosted(rs.getTimestamp("datePosted"));
+				list.add(bVo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return list;
+	}
+
+	public int getCount() {
+	    String sql = "SELECT COUNT(*) AS count FROM tbl_review";
+	    int count = 0;
+	    
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    
+	    try {
+	        conn = DBManager.getConnection();
+	        pstmt = conn.prepareStatement(sql);
+	        rs = pstmt.executeQuery();
+	        
+	        if (rs.next()) {
+	            count = rs.getInt("count");
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        // 예외 처리 코드 작성
+	    } finally {
+	        DBManager.close(conn, pstmt, rs);
+	    }
+	    
+	    return count;
 	}
 
 }

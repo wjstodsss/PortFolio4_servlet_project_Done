@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-import com.blacksmith.banchan.board.dto.NoticeBoardVO;
 import com.blacksmith.banchan.board.dto.NoticeBoardVO;
 import com.blacksmith.banchan.util.DBManager;
 
@@ -55,7 +55,65 @@ public class NoticeBoardDAO {
 		}
 		return list;
 	}
+	
+	
+	public List<NoticeBoardVO> selectPage(Map<String, Integer> map) {
+		String sql = "select * from tbl_notice order by id desc limit ?, ?";
+		List<NoticeBoardVO> list = new ArrayList<NoticeBoardVO>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, map.get("offset"));
+			pstmt.setInt(2, map.get("pageSize"));
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				NoticeBoardVO bVo = new NoticeBoardVO();
+				bVo.setId(rs.getInt("id"));
+				bVo.setTitle(rs.getString("title"));
+				bVo.setAuthor(rs.getString("author"));
+				bVo.setPassword(rs.getString("password"));
+				bVo.setContent(rs.getString("content"));
+				bVo.setImageUrl(rs.getString("imageurl"));
+				bVo.setReadCount(rs.getInt("readCount"));
+				bVo.setDatePosted(rs.getTimestamp("datePosted"));
+				list.add(bVo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return list;
+	}
 
+	public int getCount() {
+	    String sql = "SELECT COUNT(*) AS count FROM tbl_notice";
+	    int count = 0;
+	    
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    
+	    try {
+	        conn = DBManager.getConnection();
+	        pstmt = conn.prepareStatement(sql);
+	        rs = pstmt.executeQuery();
+	        
+	        if (rs.next()) {
+	            count = rs.getInt("count");
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        // 예외 처리 코드 작성
+	    } finally {
+	        DBManager.close(conn, pstmt, rs);
+	    }
+	    
+	    return count;
+	}
 	
 	
 	

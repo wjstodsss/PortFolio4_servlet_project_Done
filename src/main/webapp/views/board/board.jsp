@@ -63,6 +63,16 @@
 	max-width: 480px;
 	overflow: hidden;
 }
+
+.pagination-button {
+	margin: 1px 4px;
+	background: none;
+}
+
+.pageContainer {
+	text-align: center;
+	
+}
 </style>
 </head>
 <body
@@ -123,8 +133,7 @@
 			<nav>
 				<ul>
 					<li><a href="#" class="jingaTitle" id="9"
-						onclick="handleClick(this)">진가네
-							시그니처</a></li>
+						onclick="handleClick(this)">진가네 시그니처</a></li>
 					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
 						id="1">진가네 명품김치</a></li>
 					<li><a href="#" class="jingaTitle" onclick="handleClick(this)"
@@ -143,7 +152,7 @@
 						id="8">대용량</a></li>
 				</ul>
 			</nav>
-			
+
 		</div>
 	</header>
 	<div class="board-back">
@@ -190,6 +199,7 @@
 										<!-- 여기에 서버에서 받아온 게시물이 동적으로 추가됩니다 -->
 									</tbody>
 								</table>
+								<div class="pageContainer" id="pagination"></div>
 							</div>
 						</div>
 					</div>
@@ -368,11 +378,13 @@
 		<div id="info03">
 			<p>가이드</p>
 			<div>
-				<img src="/resources/img/footer/footer002.png" alt="배송" class="icon" onclick="goToDelivery()">
+				<img src="/resources/img/footer/footer002.png" alt="배송" class="icon"
+					onclick="goToDelivery()">
 				<p>배송안내</p>
 			</div>
 			<div>
-				<img src="/resources/img/footer/footer003.png" alt="혜택" class="icon" onclick="goToBuyInfo()">
+				<img src="/resources/img/footer/footer003.png" alt="혜택" class="icon"
+					onclick="goToBuyInfo()">
 				<p>첫구매혜택</p>
 			</div>
 			<div>
@@ -405,7 +417,6 @@
 
 document.getElementById("inputWord").addEventListener("keypress", handleEnterKey);
 document.getElementById("searchButton").addEventListener("click", handleClickKey);
-document.getElementById("topClose").addEventListener("click", topBannerDisplayNone);
 
 	/* 공지사항 
 	 v0.01: 240110 setInterval함수를 활용하여 추가한 기능, 정해진 공지사항이 시간 마다 변경 
