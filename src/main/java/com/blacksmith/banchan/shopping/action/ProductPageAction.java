@@ -8,6 +8,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -93,6 +94,9 @@ public class ProductPageAction implements Action {
 
                 // 이메일 정보를 세션에 저장하거나 데이터베이스에 유지
                 request.getSession().setAttribute("userEmail", email);
+                HttpSession session = request.getSession();
+//                String userEmail = (String) session.getAttribute("userEmail");
+//                System.out.println(userEmail + "요기");
                 
             } catch (IOException e) {
                 e.printStackTrace();

@@ -2,6 +2,7 @@ create database bbs;
 use bbs;
 use db_banchan;
 select*from tbl_product;
+select*from tbl_delivery;
 select*from test;
 use db_estore;
 show tables;
@@ -13,9 +14,50 @@ select * from tbl_member;
 select * from tbl_admin_member;
 drop table tbl_admin_member;
 drop table tbl_payment_gateway;
+drop table tbl_delivery;
+drop table tbl_order;
+drop table tbl_order_detail;
+drop table tbl_payment;
+
+
+CREATE TABLE tbl_order (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    member_id INT NOT NULL,
+    order_date DATETIME NOT NULL,
+    total_price DECIMAL(10, 0) NOT NULL,
+    payment_method VARCHAR(100) NOT NULL,
+    FOREIGN KEY (member_id) REFERENCES tbl_member(code)
+);
+
+CREATE TABLE tbl_delivery (
+    delivery_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    delivery_date DATETIME NOT NULL,
+    recipient_name VARCHAR(255) NOT NULL,
+    road_address VARCHAR(255),
+    jibun_address VARCHAR(255),
+    detail_address VARCHAR(255),
+    zipcode VARCHAR(10) NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES tbl_order(order_id)
+);
+
+CREATE TABLE tbl_order_detail (
+    detail_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    delivery_id INT NOT NULL,
+    quantity INT NOT NULL,
+    price DECIMAL(10, 0) NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES tbl_order(order_id),
+    FOREIGN KEY (product_id) REFERENCES tbl_product(code),
+    FOREIGN KEY (delivery_id) REFERENCES tbl_delivery(delivery_id)
+);
+
+
 
 INSERT INTO tbl_payment_gateway (cardNumber, expirationMM, expirationYY, cvc, cardHolderName) VALUES
-('1234', 12, 24, '1234', 'finn');
+('1234', 12, 24, '123', 'finn');
 
 
 CREATE TABLE tbl_payment_gateway (

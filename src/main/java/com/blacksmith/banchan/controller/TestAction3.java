@@ -12,7 +12,7 @@ import com.blacksmith.banchan.util.Action;
 
 
 
-public class TestAction implements Action {
+public class TestAction3 implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

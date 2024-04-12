@@ -68,38 +68,39 @@ th, td {
 				<div id="tableContainer"></div>
 				<!-- 구매 정보 -->
 				<h2 class="mt-5 mb-3">결제 정보</h2>
+				<input type="hidden" name="currentDate" id="currentDate">
 				<div class="mb-3">
 					<label for="show_pay" class="form-label">보여주기 카드 정보</label> <input
-						type="text" class="form-control bg-info"
-						name="show_pay" 
+						type="text" class="form-control bg-info" name="show_pay"
 						value="카드번호: 1234 mm:12 yy:24 cvc:123 이름:finn" readonly>
 				</div>
 				<div class="mb-3">
 					<label for="cardNumber" class="form-label">카드 번호</label> <input
-						type="text" class="form-control" id="cardNumber" name="cardNumber" value="1234"
-						placeholder="카드 번호를 입력하세요" required>
+						type="text" class="form-control" id="cardNumber" name="cardNumber"
+						value="1234" placeholder="카드 번호를 입력하세요" required>
 				</div>
 				<div class="mb-3">
 					<label for="expirationMMInput" class="form-label">유효 기간</label>
 					<p>MM:</p>
 					<input type="text" class="form-control" id="expirationMMInput"
-						name="expirationMMInput" placeholder="유효 월을 입력해주세요" maxlength="5" value="12"
-						required>
+						name="expirationMMInput" placeholder="유효 월을 입력해주세요" maxlength="5"
+						value="12" required>
 					<p>YY:</p>
 					<input type="text" class="form-control" id="expirationYYInput"
-						name="expirationYYInput" placeholder="유효 년도를 입력해주세요" maxlength="5" value="24"
-						required>
+						name="expirationYYInput" placeholder="유효 년도를 입력해주세요" maxlength="5"
+						value="24" required>
 				</div>
 				<div class="mb-3">
 					<label for="cvv" class="form-label">CVC</label> <input type="text"
-						class="form-control" id="cvc" name="cvc" value="123"  placeholder="CVC를 입력하세요">
+						class="form-control" id="cvc" name="cvc" value="123"
+						placeholder="CVC를 입력하세요">
 				</div>
 				<div class="mb-3">
 					<label for="cardHolderName" class="form-label">카드 소유자 이름</label> <input
 						type="text" class="form-control" id="cardHolderName" value="finn"
 						name="cardHolderName" placeholder="카드 소유자 이름을 입력하세요">
 				</div>
-				
+
 
 				<!-- 배송지 정보 입력 -->
 				<h2 class="mt-5 mb-3">배송지 정보</h2>
@@ -120,7 +121,8 @@ th, td {
 				<div class="mb-3">
 					<label for="roadAddress" class="form-label">도로명 주소</label> <input
 						type="text" class="form-control" id="roadAddress"
-						name="roadAddress" value="경기 수원시 권선구 권선로357번길 30 (서둔동)" placeholder="도로명 주소">
+						name="roadAddress" value="경기 수원시 권선구 권선로357번길 30 (서둔동)"
+						placeholder="도로명 주소">
 				</div>
 				<div class="mb-3">
 					<label for="jibunAddress" class="form-label">지번 주소</label> <input
@@ -140,7 +142,7 @@ th, td {
 
 
 				<!-- 결제 버튼 -->
-				<button type="submit" class="btn btn-primary" >결제하기</button>
+				<button type="submit" class="btn btn-primary">결제하기</button>
 			</form>
 		</div>
 	</div>
@@ -150,11 +152,30 @@ th, td {
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 	<script>
-	
-	document.getElementById('paymentForm').addEventListener('submit', function(event) {
-		deletePayedItem();
-        alert(sessionStorage.cartItems)
-    });
+		document.getElementById("currentDate").value = getCurrentDate();
+		document.getElementById('paymentForm').addEventListener('submit',
+				function(event) {
+					deletePayedItem();
+					alert(sessionStorage.cartItems)
+				});
+
+		// 현재 날짜를 가져오는 함수
+		function getCurrentDate() {
+			// 현재 날짜 객체 생성
+			var currentDate = new Date();
+
+			// 년, 월, 일을 가져와서 문자열로 변환
+			var year = currentDate.getFullYear();
+			var month = currentDate.getMonth() + 1; // 월은 0부터 시작하므로 1을 더함
+			var day = currentDate.getDate();
+
+			// 날짜를 YYYY-MM-DD 형식으로 조합
+			var formattedDate = year + '-' + (month < 10 ? '0' + month : month)
+					+ '-' + (day < 10 ? '0' + day : day);
+
+			return formattedDate;
+		}
+
 		function execDaumPostcode() {
 			new daum.Postcode(
 					{
@@ -208,27 +229,30 @@ th, td {
 		tableHtml += "<tr><th>ID</th><th>상품</th><th>수량</th><th>가격</th></tr>";
 
 		// 각 객체의 속성에 접근하여 테이블 행을 추가
-		selectedItems.forEach(function(item) {
-			var id = item.id; // 상품 ID
-			var quantity = item.quantity; // 상품 수량
-			var imageUrl = item.imageUrl; // 상품 이미지 URL
-			var price = item.price; // 상품 가격
+		selectedItems
+				.forEach(function(item) {
+					var id = item.id; // 상품 ID
+					var quantity = item.quantity; // 상품 수량
+					var imageUrl = item.imageUrl; // 상품 이미지 URL
+					var price = item.price; // 상품 가격
 
-			// 테이블에 행 추가
-			tableHtml += "<tr>";
-			tableHtml += "<td class='col-1' name='id'>" + id + "</td>";
-			tableHtml += "<td class='col-2 image-column'><img src='"
+					// 테이블에 행 추가
+					tableHtml += "<tr>";
+					tableHtml += "<td class='col-1' name='id'>" + id + "</td>";
+					tableHtml += "<td class='col-2 image-column'><img src='"
 					+ imageUrl + "' alt='상품 이미지'></td>";
-			tableHtml += "<td class='col-1' name='quantity'>" + quantity + "</td>";
-			tableHtml += "<td class='col-2'>"
-					+ parseInt(price).toLocaleString('ko-KR') + "</td>";
-			tableHtml += "</tr>";
+					tableHtml += "<td class='col-1' name='quantity'>"
+							+ quantity + "</td>";
+					tableHtml += "<td class='col-2'>"
+							+ parseInt(price).toLocaleString('ko-KR') + "</td>";
+					tableHtml += "</tr>";
 
-			totalPrice += parseInt(price); // 가격은 문자열이므로 숫자로 변환하여 합산
-		});
-		tableHtml += "<input type='hidden' name='totalPrice' value=totalPrice>";
+					totalPrice += parseInt(price); // 가격은 문자열이므로 숫자로 변환하여 합산
+				});
+
 		tableHtml += "<tr>";
 		tableHtml += "<td colspan='3' class='text-end'>Total Price:</td>"; // 총 가격 레이블
+		tableHtml += "<input type='hidden' name='totalPrice' value=" + totalPrice + ">";
 		tableHtml += "<td class='col-2'>" + totalPrice.toLocaleString('ko-KR')
 				+ "</td>"; // 총 가격 합산값
 		tableHtml += "</tr>";
@@ -238,8 +262,6 @@ th, td {
 
 		// 생성한 HTML 코드를 삽입할 요소를 찾아서 삽입
 		document.getElementById("tableContainer").innerHTML = tableHtml;
-
-		
 
 		function getImageUrl(url) {
 			// 현재 페이지의 URL을 가져옴

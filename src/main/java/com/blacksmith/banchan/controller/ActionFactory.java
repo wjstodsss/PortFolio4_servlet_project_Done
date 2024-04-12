@@ -58,6 +58,7 @@ import com.blacksmith.banchan.login.action.LoginFormAction;
 import com.blacksmith.banchan.login.action.LogoutAction;
 import com.blacksmith.banchan.login.action.RegisterAction;
 import com.blacksmith.banchan.login.action.RegisterFormAction;
+import com.blacksmith.banchan.payment.action.TestAction;
 import com.blacksmith.banchan.product.action.ProductDeleteAction;
 import com.blacksmith.banchan.product.action.ProductDeleteFormAction;
 import com.blacksmith.banchan.product.action.ProductListAction;
@@ -70,6 +71,7 @@ import com.blacksmith.banchan.shopping.action.PrePaymentAction;
 import com.blacksmith.banchan.shopping.action.ProductPageAction;
 import com.blacksmith.banchan.shopping.action.ProductSearch;
 import com.blacksmith.banchan.shopping.action.ProductSetAction;
+import com.blacksmith.banchan.shopping.action.ProductViewAction;
 import com.blacksmith.banchan.util.Action;
 import com.blacksmith.banchan.util.MultiUploadTestAction;
 import com.blacksmith.banchan.util.UploadTestAction;
@@ -234,6 +236,8 @@ public class ActionFactory {
 			action = new PrePaymentAction();
 		} else if (command.equals("payment-form")){
 			action = new PaymentFormAction();
+		} else if (command.equals("product-view")){
+			action = new ProductViewAction();
 		} else if (command.equals("test")){
 			action = new TestAction();
 		}

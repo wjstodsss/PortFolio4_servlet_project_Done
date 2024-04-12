@@ -9,7 +9,7 @@ CREATE TABLE Orders (
 
 CREATE TABLE OrderItems (
     order_item_id INT AUTO_INCREMENT PRIMARY KEY,
-    order_id INT,
+    order_id INT,tbl_product
     product_id INT,
     quantity INT,
     FOREIGN KEY (order_id) REFERENCES Orders(order_id),

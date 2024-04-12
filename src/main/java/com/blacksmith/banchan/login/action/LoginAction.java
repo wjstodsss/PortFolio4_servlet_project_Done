@@ -32,13 +32,10 @@ public class LoginAction implements Action {
 			// 토큰 생성 (여기서는 단순히 무작위 문자열로 토큰을 생성)
 			String memberToken = generateBase64Token();
 			
+//			System.out.println(memberToken);
 			// 클라이언트에게 토큰을 반환
 			response.getWriter().write(memberToken);
 			response.setStatus(HttpServletResponse.SC_OK);
-			
-			String url = "/views/index.jsp";
-			RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-			dispatcher.forward(request, response);
 			
 		} else {
 			// 인증 실패 상태코드 반환
