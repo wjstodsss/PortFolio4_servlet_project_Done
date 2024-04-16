@@ -2,6 +2,7 @@ create database bbs;
 use bbs;
 use db_banchan;
 select*from tbl_product;
+select*from tbl_member;
 select*from tbl_delivery;
 select*from test;
 use db_estore;
@@ -26,6 +27,7 @@ CREATE TABLE tbl_order (
     order_date DATETIME NOT NULL,
     total_price DECIMAL(10, 0) NOT NULL,
     payment_method VARCHAR(100) NOT NULL,
+    member boolean,
     FOREIGN KEY (member_id) REFERENCES tbl_member(code)
 );
 
@@ -83,7 +85,7 @@ INSERT INTO tbl_admin_member (adminName, adminId, adminPassword, adminEmail, adm
 drop table tbl_admin_member;
 select * from tbl_admin_member;
 drop table tbl_member;
-select * from tbl_member;
+select * from tbl_admin_member;
 desc tbl_member;
 CREATE TABLE tbl_member (
 	code int PRIMARY KEY auto_increment,
@@ -94,7 +96,7 @@ CREATE TABLE tbl_member (
     userPhone VARCHAR(255) ,
     admin BOOLEAN
 );
-
+use db_estore;
 commit;
 select * from tbl_admin_member;
 INSERT INTO tbl_member (userName, userId, userPassword, userEmail, userPhone, admin) VALUES
@@ -235,6 +237,44 @@ CREATE TABLE member (
   admin TINYINT DEFAULT 0, -- 0: 사용자, 1: 관리자
   PRIMARY KEY (userid)
 );
+
+CREATE TABLE tbl_inventory (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  productName int,
+  stockQuantity int,
+  salesQuantity int,
+  orderedQuantity int,
+  remarks VARCHAR(255)
+);
+select * from tbl_inventory;
+INSERT INTO tbl_inventory (productName, stockQuantity, salesQuantity, orderedQuantity, remarks)
+VALUES 
+(1, 50, 20, 0, 'New product'),
+(2, 100, 30, 10, 'Limited stock'),
+(3, 75, 25, 5, 'Bestseller'),
+(4, 200, 50, 20, 'Back in stock soon'),
+(5, 150, 40, 15, 'Discounted item'),
+(6, 80, 15, 5, 'Low stock'),
+(7, 120, 35, 8, 'Popular item'),
+(8, 90, 20, 0, 'Replenishment needed'),
+(9, 110, 45, 10, 'High demand'),
+(10, 70, 10, 2, 'Last few units'),
+(11, 180, 60, 25, 'Seasonal product'),
+(12, 220, 70, 30, 'Fast-moving item'),
+(13, 130, 25, 5, 'Frequently ordered'),
+(14, 160, 30, 8, 'Best value'),
+(15, 190, 55, 12, 'Special offer'),
+(16, 105, 40, 10, 'Limited edition'),
+(17, 240, 75, 35, 'Pre-order available'),
+(18, 85, 20, 3, 'New arrival'),
+(19, 125, 35, 8, 'Recommended product'),
+(20, 95, 25, 5, 'Clearance sale');
+
+
+
+
+
+
 
 -- 데이터 삽입
 INSERT INTO test (title, content) VALUES ('첫 번째 글', '이것은 첫 번째 글의 내용입니다.');

@@ -69,6 +69,14 @@ th, td {
 				<!-- 구매 정보 -->
 				<h2 class="mt-5 mb-3">결제 정보</h2>
 				<input type="hidden" name="currentDate" id="currentDate">
+
+				<h6>결제 방법</h6>
+
+				<div class="mb-3">
+					<input type="radio" name="payMethod" value="card" id="normal"
+						checked> <label class="form-check-label" for="normal">카드</label>
+				</div>
+
 				<div class="mb-3">
 					<label for="show_pay" class="form-label">보여주기 카드 정보</label> <input
 						type="text" class="form-control bg-info" name="show_pay"
@@ -161,21 +169,9 @@ th, td {
 
 		// 현재 날짜를 가져오는 함수
 		function getCurrentDate() {
-			// 현재 날짜 객체 생성
-			var currentDate = new Date();
-
-			// 년, 월, 일을 가져와서 문자열로 변환
-			var year = currentDate.getFullYear();
-			var month = currentDate.getMonth() + 1; // 월은 0부터 시작하므로 1을 더함
-			var day = currentDate.getDate();
-
-			// 날짜를 YYYY-MM-DD 형식으로 조합
-			var formattedDate = year + '-' + (month < 10 ? '0' + month : month)
-					+ '-' + (day < 10 ? '0' + day : day);
-
-			return formattedDate;
-		}
-
+    var currentDate = new Date();
+    return currentDate.toLocaleString();
+}
 		function execDaumPostcode() {
 			new daum.Postcode(
 					{
@@ -238,13 +234,16 @@ th, td {
 
 					// 테이블에 행 추가
 					tableHtml += "<tr>";
-					tableHtml += "<td class='col-1' name='id'>" + id + "</td>";
+					tableHtml += "<td class='col-1' name='PayedItemId'>" + id + "</td>";
 					tableHtml += "<td class='col-2 image-column'><img src='"
 					+ imageUrl + "' alt='상품 이미지'></td>";
 					tableHtml += "<td class='col-1' name='quantity'>"
 							+ quantity + "</td>";
 					tableHtml += "<td class='col-2'>"
 							+ parseInt(price).toLocaleString('ko-KR') + "</td>";
+					tableHtml += "<input type='hidden' name='id' value=" + id + ">";
+					tableHtml += "<input type='hidden' name='price' value=" + price + ">";
+					tableHtml += "<input type='hidden' name='quantity' value=" + quantity + ">";
 					tableHtml += "</tr>";
 
 					totalPrice += parseInt(price); // 가격은 문자열이므로 숫자로 변환하여 합산
@@ -253,6 +252,8 @@ th, td {
 		tableHtml += "<tr>";
 		tableHtml += "<td colspan='3' class='text-end'>Total Price:</td>"; // 총 가격 레이블
 		tableHtml += "<input type='hidden' name='totalPrice' value=" + totalPrice + ">";
+		tableHtml += "<input type='hidden' name='memberId' value='1'>";
+		tableHtml += "<input type='hidden' name='paymentMethod' value='card'>";
 		tableHtml += "<td class='col-2'>" + totalPrice.toLocaleString('ko-KR')
 				+ "</td>"; // 총 가격 합산값
 		tableHtml += "</tr>";

@@ -64,7 +64,6 @@ public class ReviewBoardDAO {
 	
 	public void insertBoard(ReviewBoardVO bVo) {
 		String sql = "insert into tbl_review(title, author, password, content, imageurl) values(?, ?, ?, ?, ?)";
-		System.out.println("pppppppppppp");
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {

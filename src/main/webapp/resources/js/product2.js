@@ -388,7 +388,7 @@ function goToBuyInfo() {
 }
 
 function deletePayedItem() {
-	var tdElements = document.querySelectorAll("td[name='id']");
+	var tdElements = document.querySelectorAll("td[name='PayedItemId']");
 	tdElements.forEach(function(td) {
 		var id = td.innerText; // 혹은 td.innerHTML;
 		alert(cartItems[id])

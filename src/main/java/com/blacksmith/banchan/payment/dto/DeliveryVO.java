@@ -27,7 +27,7 @@ public class DeliveryVO {
         this.phoneNumber = phoneNumber;
     }
 
-    // Getters and setters
+
     public int getDeliveryId() {
         return deliveryId;
     }

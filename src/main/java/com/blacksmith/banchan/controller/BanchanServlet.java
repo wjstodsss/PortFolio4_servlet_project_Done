@@ -14,7 +14,7 @@ import com.blacksmith.banchan.util.Action;
 
 
 @WebServlet("/banchan")
-public class banchanServlet extends HttpServlet {
+public class BanchanServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -27,7 +27,7 @@ public class banchanServlet extends HttpServlet {
 		Action action = af.getAction(command);
 
 		if(action != null){
-		  action.execute(request, response);   //execute메소드 아직 구현안했음
+		  action.execute(request, response);
 		}
 
 	}
