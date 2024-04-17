@@ -23,6 +23,31 @@ function productCheck() {
 	return true;
 }
 
+function purchase(product) {
+
+	var quantity = parseInt(document.getElementById("quantity" + product).value);
+	var productImageUrl = document.getElementById("image" + product).getAttribute("src");
+	// HTML 코드에서 가격 텍스트를 가져오기
+	var priceText = document.getElementById("price" + product).innerText;
+	// 숫자 부분만 추출하여 가격으로 사용
+	var price = parseInt(priceText.match(/\d+/)[0]);
+	
+
+	var selectedItems = [];
+	var item = {};
+	item = {
+			id: product,  // 상품의 고유 ID
+			imageUrl: productImageUrl,	
+			quantity: quantity,  // 새로운 상품의 수량 설정
+			price: price  // 새로운 상품의 수량 설정
+		};
+	selectedItems.push(item);
+	console.log(selectedItems);
+	sessionStorage.setItem("selectedItems", JSON.stringify(selectedItems));
+	window.location.href = "banchan?command=payment-form";
+}
+
+
 function handleClick(element) {
 	let valueToSend = element.id;
 	let formDTO = document.createElement("form");
