@@ -30,7 +30,8 @@ function purchase(product) {
 	// HTML 코드에서 가격 텍스트를 가져오기
 	var priceText = document.getElementById("price" + product).innerText;
 	// 숫자 부분만 추출하여 가격으로 사용
-	var price = parseInt(priceText.match(/\d+/)[0]);
+	var price = parseInt(priceText.match(/\d+/)[0]) * quantity;
+	
 	
 
 	var selectedItems = [];
@@ -39,7 +40,8 @@ function purchase(product) {
 			id: product,  // 상품의 고유 ID
 			imageUrl: productImageUrl,	
 			quantity: quantity,  // 새로운 상품의 수량 설정
-			price: price  // 새로운 상품의 수량 설정
+			price: price,  // 새로운 상품의 수량 설정
+			
 		};
 	selectedItems.push(item);
 	console.log(selectedItems);

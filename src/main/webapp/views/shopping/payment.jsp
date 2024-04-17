@@ -247,6 +247,7 @@ th, td {
 					tableHtml += "</tr>";
 
 					totalPrice += parseInt(price); // 가격은 문자열이므로 숫자로 변환하여 합산
+					console.log(totalPrice);
 				});
 
 		tableHtml += "<tr>";
