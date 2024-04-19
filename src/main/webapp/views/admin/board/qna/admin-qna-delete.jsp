@@ -13,7 +13,9 @@
 	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../resources/js/validator.js"></script>
+<script type="text/javascript" src="../resources/js/validator.js"></script>
+<script src="../resources/js/member_login4.js"></script>
+    <script src="../resources/js/authorization.js"></script>
 <style>
 body {
 	padding-top: 50px;
@@ -28,7 +30,7 @@ body {
 <body>
 	<div id="wrap">
 		<h1 class="text-center">질의응답 삭제</h1>
-		<form method="post" action="banchan?command=qna_delete"
+		<form method="post" action="admin?command=qna_delete"
 			enctype="multipart/form-data" name="frm">
 			<input type="hidden" name="id" id="kk" value="${board.id}">
 			<input type="hidden" name="nonmakeImg" value="${board.imageUrl}">
@@ -85,7 +87,7 @@ body {
 					<button type="submit" class="btn btn-primary"
 						onclick="return checkPassword()">삭제</button>
 					<button type="button" class="btn btn-info"
-						onclick="location.href='banchan?command=qna_list'">목록</button>
+						onclick="location.href='admin?command=qna_list'">목록</button>
 				</div>
 			</div>
 		</form>

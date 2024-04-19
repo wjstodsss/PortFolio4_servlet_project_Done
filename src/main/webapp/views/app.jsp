@@ -8,7 +8,7 @@
 </head>
 <body>
 <%
-response.sendRedirect("http://localhost:8080/banchan?command=index");
+response.sendRedirect("/banchan?command=index");
 %>
 </body>
 </html>

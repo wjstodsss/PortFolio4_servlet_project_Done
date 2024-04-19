@@ -8,8 +8,6 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>꼴뚜기의 첫번째 프로젝트</title>
 <link href="/resources/css/reset.css" rel="stylesheet">
 <link href="/resources/css/main.css" rel="stylesheet">
@@ -60,6 +58,7 @@
 	max-width: 100%; /* 이미지가 부모 요소의 너비를 초과하지 않도록 */
 	height: auto; /* 이미지의 세로 비율 유지 */
 }
+
 </style>
 
 </head>

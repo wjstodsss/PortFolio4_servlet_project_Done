@@ -7,6 +7,7 @@
 			<div id="appDown">
 				<button>진가네 앱 다운로드 ▼</button>
 			</div>
+			<a href="/log">뭘까?</a>
 			<nav>
 				<ul>
 					<li><input type="button" id="loginButton"

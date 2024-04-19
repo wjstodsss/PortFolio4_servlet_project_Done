@@ -10,7 +10,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../resources/js/validator.js"></script>
+    <script type="text/javascript" src="../resources/js/validator.js"></script>
+    <script src="../resources/js/member_login4.js"></script>
+    <script src="../resources/js/authorization.js"></script>
     <style>
         body {
             padding-top: 50px;
@@ -25,7 +27,7 @@
 <body>
     <div id="wrap">
         <h1 class="text-center">관리자 수정</h1>
-        <form method="post" action="banchan?command=admin_register" name="frm">
+        <form method="post" action="admin?command=admin_register" name="frm">
         <input type="hidden" id="code" name="code" value="${admin.code}">
             <div class="form-group row">
                 <label for="adminName" class="col-sm-2 col-form-label">이름</label>
@@ -68,7 +70,7 @@
                     <button type="submit" class="btn btn-primary"
 						onclick="return checkPassword()">수정</button>
                     <button type="reset" class="btn btn-secondary">다시작성</button>
-                    <button type="button" class="btn btn-info" onclick="location.href='banchan?command=admin_list'">목록</button>
+                    <button type="button" class="btn btn-info" onclick="location.href='admin?command=admin_list'">목록</button>
                 </div>
             </div>
         </form>

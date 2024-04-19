@@ -13,7 +13,7 @@ import com.blacksmith.banchan.util.Action;
 
 
 
-@WebServlet("/banchan")
+@WebServlet({"/banchan", "/admin"})
 public class BanchanServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
  

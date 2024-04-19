@@ -71,7 +71,7 @@ function login() {
                 window.location.href = "banchan?command=index";	
             } else {
 				sessionStorage.setItem("adminToken", response);
-                window.location.href = "banchan?command=admin_page";
+                window.location.href = "admin?command=admin_page";
             }
         },
         error: function (xhr, status, error) {
@@ -88,23 +88,22 @@ function login() {
 function logout() {
     // sessionStorage에서 토큰을 삭제합니다.
     sessionStorage.clear();
-    window.location.href = "banchan?command=index";	
+   
     
-    // 서버에 로그아웃 요청을 보내도록 구현할 수 있습니다.
-    /**
-	 * var xhr = new XMLHttpRequest();
+     var xhr = new XMLHttpRequest();
     xhr.open("POST", "/banchan?command=logout", true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             // 로그아웃이 성공했을 때 추가적인 작업을 수행할 수 있습니다.
-            console.log("Logout successful");
+            alert("Logout successful");
+             window.location.href = "banchan?command=index";	
         } else {
 			 // 로그아웃에 실패한 경우에 대한 처리를 수행할 수 있습니다.
             console.error("Logout failed");
 		}
     };
     xhr.send();
-	 */
+	
     
 }
 

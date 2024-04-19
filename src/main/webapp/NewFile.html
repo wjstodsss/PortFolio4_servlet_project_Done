@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="resources/js/authorization.js"></script>
     <title>Send Cart Items</title>
 </head>
 <body>
-    <button onclick="buySelectedItems()">Send Cart Items</button>
+    <button onclick="buySelectedItems()">한글 안 깨지나?</button>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
     function buySelectedItems() {
@@ -29,4 +30,15 @@
     }
     </script>
 </body>
+	<script>
+	
+    // 세션 스토리지에서 토큰을 가져옴
+    var adminToken = sessionStorage.getItem("adminToken");
+    
+    // 토큰이 없으면 로그인 페이지로 리다이렉트
+    if (!adminToken) {
+        window.location.href = "banchan?command=admin_login_form";
+   
+}
+	</script>
 </html>

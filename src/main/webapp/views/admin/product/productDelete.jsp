@@ -11,7 +11,7 @@
       <body>
         <div id="wrap" align="center">
           <h1>상품 삭제 - 관리자 페이지</h1>
-          <form action="banchan?command=product_delete" method="post">
+          <form action="admin?command=product_delete" method="post">
             <table>
               <tr>
                 <td>
@@ -45,7 +45,7 @@
             <br> 
             <input type="hidden" name="code" value="${product.code}">
             <input type="submit" value="삭제"> 
-            <input type="button" value="목록" onclick="location.href='banchan?command=product_list'">
+            <input type="button" value="목록" onclick="location.href='admin?command=product_list'">
           </form>
         </div>
       </body>

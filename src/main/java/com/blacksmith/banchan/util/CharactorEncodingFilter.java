@@ -16,6 +16,8 @@ public class CharactorEncodingFilter implements Filter {
 			, FilterChain chain)
 			throws IOException, ServletException {
 		
+		
+		System.out.println("hfjshfgsajfsajkfhsfjadddddddddddddddddddddddddddd");
 		request.setCharacterEncoding("UTF-8");
 		chain.doFilter(request, response);
 		

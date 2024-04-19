@@ -18,8 +18,8 @@
 <div id="wrap" class="container">
     <h1 class="text-center">상품 리스트 - 관리자 페이지</h1>
      <div class="text-right">
-        <a class="btn btn-success" href="banchan?command=product_write_form">상품 등록</a>
-        <a class="btn btn-primary" href="banchan?command=admin_page">관리자 페이지</a>
+        <a class="btn btn-success" href="admin?command=product_write_form">상품 등록</a>
+        <a class="btn btn-primary" href="admin?command=admin_page">관리자 페이지</a>
         <button class="btn btn-danger" onclick="logout()">로그아웃</button>
     </div>
     <table class="table">
@@ -38,8 +38,8 @@
                 <td>${product.code}</td>
                 <td>${product.productName}</td>
                 <td>${product.price} 원</td>
-                <td><a class="btn btn-primary" href="banchan?command=product_update_form&code=${product.code}">상품 수정</a></td>
-                <td><a class="btn btn-danger" href="banchan?command=product_delete_form&code=${product.code}">상품 삭제</a></td>
+                <td><a class="btn btn-primary" href="admin?command=product_update_form&code=${product.code}">상품 수정</a></td>
+                <td><a class="btn btn-danger" href="admin?command=product_delete_form&code=${product.code}">상품 삭제</a></td>
             </tr>
         </c:forEach>
         </tbody>

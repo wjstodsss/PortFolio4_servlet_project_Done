@@ -14,7 +14,7 @@
 <body>
 	<div class="container">
 		<h1 class="text-center">상품 수정 - 관리자 페이지</h1>
-		<form method="post" action="banchan?command=product_update"
+		<form method="post" action="admin?command=product_update"
 			enctype="multipart/form-data" name="frm">
 			<input type="hidden" name="code" value="${product.code}"> <input
 				type="hidden" name="nonmakeImg" value="${product.pictureUrl}">
@@ -70,7 +70,7 @@
 							onclick="return productCheck()">수정</button>
 						<button type="reset" class="btn btn-secondary">다시 수정</button>
 						<button type="button" class="btn btn-info"
-							onclick="location.href='banchan?command=product_list'">목록</button>
+							onclick="location.href='admin?command=product_list'">목록</button>
 					</div>
 				</div>
 			</div>

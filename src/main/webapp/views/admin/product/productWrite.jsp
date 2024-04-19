@@ -26,7 +26,7 @@
 <body>
     <div id="wrap">
         <h1 class="text-center">상품 등록 - 관리자 페이지</h1>
-        <form method="post" action="banchan?command=product_write" enctype="multipart/form-data" name="frm">
+        <form method="post" action="admin?command=product_write" enctype="multipart/form-data" name="frm">
             <div class="form-group row">
                 <label for="productName" class="col-sm-2 col-form-label">상품명</label>
                 <div class="col-sm-10">
@@ -62,7 +62,7 @@
                 <div class="col-sm-10 offset-sm-2">
                     <button type="submit" class="btn btn-primary" onclick="return productCheck()">등록</button>
                     <button type="reset" class="btn btn-secondary">다시작성</button>
-                    <button type="button" class="btn btn-info" onclick="location.href='banchan?command=product_list'">목록</button>
+                    <button type="button" class="btn btn-info" onclick="location.href='admin?command=product_list'">목록</button>
                 </div>
             </div>
         </form>

@@ -14,12 +14,16 @@ public class LogoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 세션을 가져옵니다.
         HttpSession session = request.getSession(false);
+        String jwtToken = request.getHeader("Authorization");
         System.out.println("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
         if (session != null) {
             // 세션에서 토큰을 삭제합니다.
-            session.removeAttribute("token");
+        	System.out.println(jwtToken);
+            session.removeAttribute("Authorization");
+            System.out.println(jwtToken);
             session.invalidate(); // 옵션: 세션 자체를 무효화합니다.
-            
+            System.out.println(jwtToken);
+        
             // 클라이언트에게 로그아웃 성공 메시지를 응답합니다.
             response.getWriter().write("Logout successful");
             response.setStatus(HttpServletResponse.SC_OK);

@@ -7,7 +7,9 @@
     <meta charset="UTF-8">
     <title>상품 리스트 - 관리자 페이지</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/shopping.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/shopping.css">
+    <script src="../resources/js/member_login4.js"></script>
+    <script src="../resources/js/authorization.js"></script>
     <style>
     	.btn {
     		font-size: 0.8rem;
@@ -18,8 +20,8 @@
 <div id="wrap" class="container">
     <h1 class="text-center">관리자 리스트 - 관리자 페이지</h1>
      <div class="text-right">
-        <a class="btn btn-success" href="banchan?command=admin_register_form">관리자 등록</a>
-          <a class="btn btn-primary" href="banchan?command=admin_page">관리자 페이지</a>
+        <a class="btn btn-success" href="admin?command=admin_register_form">관리자 등록</a>
+          <a class="btn btn-primary" href="admin?command=admin_page">관리자 페이지</a>
         <button class="btn btn-danger" onclick="logout()">로그아웃</button>
     </div>
     
@@ -49,8 +51,8 @@
                 <td>${admin.adminEmail}</td>
                 <td>${admin.adminPhone}</td>
                 <td>${admin.admin}</td>
-                <td><a class="btn btn-primary" href="banchan?command=admin_update_form&code=${admin.code}">관리자 수정</a></td>
-                <td><a class="btn btn-danger" href="banchan?command=admin_delete&code=${admin.code}">관리자 삭제</a></td>
+                <td><a class="btn btn-primary" href="admin?command=admin_update_form&code=${admin.code}">관리자 수정</a></td>
+                <td><a class="btn btn-danger" href="admin?command=admin_delete&code=${admin.code}">관리자 삭제</a></td>
             </tr>
         </c:forEach>
         </tbody>
