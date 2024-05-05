@@ -3,10 +3,6 @@
 ---
 
 
-<details>
-접기/펼치기 버튼
-
-</details>
 
 
 # 프로젝트 목적
@@ -71,8 +67,8 @@
 4. **회원 가입 및 로그인 기능 구현:**
     - 회원 가입 페이지를 구현하고, 회원 정보 데이터베이스에 저장 시 비밀번호를 암호화여 저장합니다.
         - 비밀번호 암호화
-            - 구현 코드
-                
+            <details>
+            <summary>구현 코드</summary>
                 ```java
                 public String hashPassword(String password) {
                 // 입력된 비밀번호를 해싱하여 반환하는 메서드
@@ -111,6 +107,10 @@
                     }
                 }
                 ```
+            </details>
+
+                
+                
             ![image](https://github.com/wjstodsss/servlet_project/assets/68169507/45ed06d2-2940-481d-880f-2322850f46ce)
 
     - 관리자 로그인을  구현하고, 입력된 정보와 데이터베이스의 정보를 확인하여 JWT 토큰을 발행합니다.
