@@ -104,10 +104,8 @@
                     }
                 }
                 ```
-                
-            
-            ![Untitled](%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%20%E1%84%80%E1%85%B5%E1%84%92%E1%85%AC%E1%86%A8%20c2e32eff084e419d9b2a22489b9a0402/Untitled.png)
-            
+            ![image](https://github.com/wjstodsss/servlet_project/assets/68169507/45ed06d2-2940-481d-880f-2322850f46ce)
+
     - 관리자 로그인을  구현하고, 입력된 정보와 데이터베이스의 정보를 확인하여 JWT 토큰을 발행합니다.
         - JWT 토큰 발행
             - 구현 코드
