@@ -10,9 +10,8 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 public class TokenGenerator {
 
-    public static String generateJwtToken() {
+    public static String generateJwtToken(String userId) {
         // 토큰에 포함할 클레임 생성
-    	String userId = "kk";
         Claims claims = Jwts.claims();
         claims.put("userId", userId);
         

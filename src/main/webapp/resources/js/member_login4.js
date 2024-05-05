@@ -115,17 +115,16 @@ function setTitle() {
     // URL에서 command 파라미터 값을 추출
     var urlParams = new URLSearchParams(currentUrl);
     var command = urlParams.get('command');
-console.log(command)
     // command 값에 따라 타이틀 변경
     var loginTitle = document.getElementById("loginTitle");
     var idName = document.getElementById("userId");
     var passwordName = document.getElementById("userPassword");
     if (command === "login_form") {
-        loginTitle.innerHTML = "사용자f234f";
+        loginTitle.innerHTML = "사용자";
         idName.setAttribute('name', 'userId');
         passwordName.setAttribute('name','userPassword');
     } else if (command === "admin_login_form") {
-        loginTitle.innerHTML = "관리자usafdh";
+        loginTitle.innerHTML = "관리자";
         idName.setAttribute('name','adminId');
         passwordName.setAttribute('name','adminPassword');
     }

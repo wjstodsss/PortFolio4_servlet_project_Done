@@ -1,5 +1,6 @@
 package com.blacksmith.banchan.util;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -31,6 +32,11 @@ public class UploadTestAction implements Action {
 	    String uploadFilePath = context.getRealPath(savePath);
 	    System.out.println("서버상의 실제 디렉토리 :");
 	    System.out.println(uploadFilePath);
+	    
+	    File uploadDir = new File(uploadFilePath);
+        if (!uploadDir.exists()) {
+            uploadDir.mkdirs();
+        }
 
 	    try {
 	        MultipartRequest multi = new MultipartRequest(

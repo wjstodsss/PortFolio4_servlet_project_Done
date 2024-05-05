@@ -25,7 +25,7 @@ public class AdminAuthorizationFilter implements Filter {
         String jwtToken = (String)session.getAttribute("adminToken");
         System.out.println(request.getHeader("adminToken"));
         System.out.println(jwtToken);
-        System.out.println("jsfaldkj");
+        System.out.println("filter3");
 
         // JWT 토큰 유효성 검사 및 관리자 권한 확인
         if (jwtToken != null && isValidJwtToken(jwtToken) && isAdmin(jwtToken)) {

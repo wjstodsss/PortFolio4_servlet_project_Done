@@ -12,23 +12,30 @@ import com.blacksmith.banchan.util.Action;
 import com.blacksmith.banchan.util.TokenGenerator;
 
 public class AdminLoginAction implements Action {
-	private PasswordHashing passwordHashing = new PasswordHashing();
-    private final AdminDAO adminDAO = new AdminDAO();
-    private final TokenGenerator tokenGenerator = new TokenGenerator();
+    private final AdminDAO adminDAO;
+    private final TokenGenerator tokenGenerator;
+    private final PasswordHashing passwordHashing;
+
+    // 생성자를 통한 의존성 주입
+    public AdminLoginAction(AdminDAO adminDAO, TokenGenerator tokenGenerator, PasswordHashing passwordHashing) {
+        this.adminDAO = adminDAO;
+        this.tokenGenerator = tokenGenerator;
+        this.passwordHashing = passwordHashing;
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // passwordHashing.hashPassword(request.getParameter("adminPassword"));
+        
         String adminId = request.getParameter("adminId");
-//        String adminPassword = passwordHashing.hashPassword(request.getParameter("adminPassword"));
-        String adminPassword = request.getParameter("adminPassword");
+        String adminPassword = passwordHashing.hashPassword(request.getParameter("adminPassword"));
+        
         int result = adminDAO.adminCheck(adminId, adminPassword);
 
         // 실제 로그인 처리 로직을 여기에 구현
         if (result > 0) {
             
-            String adminToken = tokenGenerator.generateJwtToken();
+            String adminToken = tokenGenerator.generateJwtToken(adminId);
 
             request.getSession().setAttribute("adminToken", adminToken);
             System.out.println(adminToken + "PPPPPPPPPPPPP");
