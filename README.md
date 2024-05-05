@@ -68,45 +68,47 @@
     - 회원 가입 페이지를 구현하고, 회원 정보 데이터베이스에 저장 시 비밀번호를 암호화여 저장합니다.
         - 비밀번호 암호화
             <details>
-            <summary>구현 코드</summary>
-                ```
-                    public String hashPassword(String password) {
-                    // 입력된 비밀번호를 해싱하여 반환하는 메서드
+                <summary>구현 코드</summary>
+                    ```
                     
-                        try {
-                            MessageDigest md = MessageDigest.getInstance("SHA-256");
-                            // SHA-256 해시 알고리즘을 사용하는 MessageDigest 객체 생성
-                            // 256비트 16진수 64자리
-                            
-                            byte[] hash = md.digest(password.getBytes());
-                            // 입력된 비밀번호를 바이트 배열로 변환하여 해시 알고리즘으로 처리
-                            
-                            StringBuilder hexString = new StringBuilder();
-                            // 해싱된 비밀번호를 16진수 문자열로 변환하여 담기 위해
-                            // 문자열을 동적으로 추가하는 StringBuilder객체를 생성
-                            
-                           
-                            for (byte b : hash) {
-                                String hex = Integer.toHexString(0xff & b);
-                    	          // 해시된 바이트 배열을 16진수 문자열로 변환
+                        public String hashPassword(String password) {
+                        // 입력된 비밀번호를 해싱하여 반환하는 메서드
+                        
+                            try {
+                                MessageDigest md = MessageDigest.getInstance("SHA-256");
+                                // SHA-256 해시 알고리즘을 사용하는 MessageDigest 객체 생성
+                                // 256비트 16진수 64자리
                                 
-                                if (hex.length() == 1) {
-                                    hexString.append('0');
-                                }
-                                // 한 자리 16진수인 경우 가독성을 위해 0을 추가 
+                                byte[] hash = md.digest(password.getBytes());
+                                // 입력된 비밀번호를 바이트 배열로 변환하여 해시 알고리즘으로 처리
                                 
-                                hexString.append(hex);
-                                // 16진수 문자열을 하나의 문자열로 생성
+                                StringBuilder hexString = new StringBuilder();
+                                // 해싱된 비밀번호를 16진수 문자열로 변환하여 담기 위해
+                                // 문자열을 동적으로 추가하는 StringBuilder객체를 생성
                                 
-                            return hexString.toString();
-                            // 해시된 비밀번호를 16진수 문자열로 반환
-                            
-                        } catch (NoSuchAlgorithmException e) {
-                            // NoSuchAlgorithmException 예외 발생 시 null 반환
-                            return null;
+                               
+                                for (byte b : hash) {
+                                    String hex = Integer.toHexString(0xff & b);
+                        	          // 해시된 바이트 배열을 16진수 문자열로 변환
+                                    
+                                    if (hex.length() == 1) {
+                                        hexString.append('0');
+                                    }
+                                    // 한 자리 16진수인 경우 가독성을 위해 0을 추가 
+                                    
+                                    hexString.append(hex);
+                                    // 16진수 문자열을 하나의 문자열로 생성
+                                    
+                                return hexString.toString();
+                                // 해시된 비밀번호를 16진수 문자열로 반환
+                                
+                            } catch (NoSuchAlgorithmException e) {
+                                // NoSuchAlgorithmException 예외 발생 시 null 반환
+                                return null;
+                            }
                         }
-                    }
-              ```
+              
+                  ```
             </details>
 
                 
