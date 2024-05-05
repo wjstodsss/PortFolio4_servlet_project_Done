@@ -70,7 +70,7 @@
             <details>
             <summary>구현 코드</summary>
                 
-                `java
+                <pre><code>
                 public String hashPassword(String password) {
                 // 입력된 비밀번호를 해싱하여 반환하는 메서드
                 
@@ -107,7 +107,7 @@
                         return null;
                     }
                 }
-                `
+                </code></pre>
           
             </details>
 
