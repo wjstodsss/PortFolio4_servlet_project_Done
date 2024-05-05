@@ -69,7 +69,7 @@
         - 비밀번호 암호화
             <details>
             <summary>구현 코드</summary>
-            ```
+                ```
                 public String hashPassword(String password) {
                 // 입력된 비밀번호를 해싱하여 반환하는 메서드
                 
@@ -106,7 +106,7 @@
                         return null;
                     }
                 }
-          ```
+              ```
             </details>
 
                 
