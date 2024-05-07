@@ -14,7 +14,7 @@
 			<!-- productList가 비어있지 않은 경우 -->
 			<c:forEach var="product" items="${productList}">
 				<div class="mr-2">
-					<div class="card" style="width: 14.7rem;">
+					<div class="card" style="width: 14.7rem; margin-bottom: 10px;">
 						<img src="upload/${product.pictureUrl}" class="card-img-top"
 							alt="Product Image" id="image${product.code}">
 						<div class="card-body">

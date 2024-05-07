@@ -16,7 +16,9 @@ public class AdminAuthorizationFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        System.out.println("5555555555555555555555555555555");
+    	
+    	HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         
         HttpSession session = request.getSession(false); // 세션이 없으면 null 반환
@@ -25,15 +27,15 @@ public class AdminAuthorizationFilter implements Filter {
         String jwtToken = (String)session.getAttribute("adminToken");
         System.out.println(request.getHeader("adminToken"));
         System.out.println(jwtToken);
-        System.out.println("filter3");
+        System.out.println("jsfaldkj");
 
         // JWT 토큰 유효성 검사 및 관리자 권한 확인
         if (jwtToken != null && isValidJwtToken(jwtToken) && isAdmin(jwtToken)) {
-            // 권한이 확인되면 다음 필터 또는 요청 핸들러로 요청을 전달
+        
             filterChain.doFilter(request, response);
         } else {
-            // 권한이 없는 경우 401 Unauthorized 에러 반환
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        	HttpServletResponse httpResponse = (HttpServletResponse) response;
+            httpResponse.sendRedirect("banchan?command=admin_login_form"); // 로그인 페이지 URL로 리디렉션
         }
     }
 

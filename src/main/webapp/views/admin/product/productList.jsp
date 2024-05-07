@@ -8,6 +8,9 @@
     <title>상품 리스트 - 관리자 페이지</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../resources/css/shopping.css">
+    <script src="../resources/js/member_login4.js"></script>
+    <script src="../resources/js/authorization.js"></script>
+    
     <style>
     	.btn {
     		font-size: 0.8rem;

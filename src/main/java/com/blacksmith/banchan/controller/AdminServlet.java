@@ -22,7 +22,7 @@ public class AdminServlet extends HttpServlet {
 		
 		String command = request.getParameter("command");
 		System.out.println("adminServlet에서 요청을 받음을 확인 : " + command);
-		AdminActionFactory af=AdminActionFactory.getInstance();
+		AdminActionFactory af = AdminActionFactory.getInstance();
 				
 		Action action = af.getAction(command);
 

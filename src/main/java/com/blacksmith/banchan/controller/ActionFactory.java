@@ -17,7 +17,7 @@ import com.blacksmith.banchan.login.action.RegisterAction;
 import com.blacksmith.banchan.login.action.RegisterFormAction;
 import com.blacksmith.banchan.login.service.PasswordHashing;
 import com.blacksmith.banchan.payment.action.OrderCompleteAction;
-import com.blacksmith.banchan.payment.action.TestAction;
+import com.blacksmith.banchan.payment.action.PaymentAction;
 import com.blacksmith.banchan.shopping.action.PaymentFormAction;
 import com.blacksmith.banchan.shopping.action.PrePaymentAction;
 import com.blacksmith.banchan.shopping.action.ProductPageAction;
@@ -90,8 +90,8 @@ public class ActionFactory {
 			action = new OrderCompleteAction();
 		} else if (command.equals("product_set")){
 			action = new ProductSetAction();
-		} else if (command.equals("test")){
-			action = new TestAction();
+		} else if (command.equals("payment")){
+			action = new PaymentAction();
 		}
 		
 		return action;

@@ -10,7 +10,7 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 	rel="stylesheet">
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="../resources/js/product2.js"></script>
 <style>
 .image-column img {
@@ -62,7 +62,7 @@ th, td {
 	<div class="container offset-md-4">
 		<h1 class="mt-5 mb-3">구매 정보 확인</h1>
 		<div class="col-md-6">
-			<form action="banchan?command=test" method="post" id='paymentForm'>
+			<form action="banchan?command=payment" method="post" id='paymentForm'>
 
 				<h2>상품 정보</h2>
 				<div id="tableContainer"></div>
