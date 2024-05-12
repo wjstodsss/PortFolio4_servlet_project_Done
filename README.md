@@ -222,6 +222,86 @@
 7. **4 in 1 게시판 기능 구현:** 
     - 이 프로젝트에서는 JSON과 AJAX 그리고 JavaScript를 사용하여 전체 페이지를 다시 로드하지 않고 게시판의 일부 데이터를 동적으로 변경하는 방식의 게시판을 구현합니다.
     - 실제 구현 방식
+      <details>
+            <summary>구현</summary>
+  
+                  ```
+                    function fetchBoardList(boardType, page) {
+
+                        	document.getElementById('boardTitle').innerText = boardType.toUpperCase();
+                        
+                        	var xhr = new XMLHttpRequest();
+                        
+                        	xhr.open("GET", "banchan?command=" + boardType + "&page=" + page, true);
+                        	xhr.onreadystatechange = function() {
+                        		if (xhr.readyState === 4) {
+                        			if (xhr.status === 200) {
+                        				// 성공적으로 응답을 받았을 때 처리할 내용
+                        				document.getElementById('navTitle').value = boardType;
+                        				displayCreateBtn(boardType)
+                        				var response = JSON.parse(xhr.responseText);
+                        				fetchPosts(response.boardList);
+                        				displayPagination(response.pageHandler, boardType);
+                        			} else {
+                        				// 오류가 발생했을 때 처리할 내용
+                        				console.error("AJAX 요청 오류:", xhr.status, xhr.statusText);
+                        				// 오류 발생 시 사용자에게 메시지 표시 또는 다른 처리를 추가할 수 있습니다.
+                        			}
+                        		}
+                        	};
+                        	xhr.send();
+                        }
+  
+
+
+
+                        public class NoticeBoardAction implements Action {
+                        
+                        	@Override
+                        	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+                        	    Map<String, Integer> map = new HashMap<String, Integer>();
+                        	    
+                        	    Integer page = getParameterOrDefault(request.getParameter("page"), 1);
+                        	    Integer pageSize = getParameterOrDefault(request.getParameter("pageSize"), 5);
+                        	    
+                        	    map.put("offset", (page-1)*pageSize);
+                        	    map.put("pageSize", pageSize);
+                        	    NoticeBoardDAO bDao = NoticeBoardDAO.getInstance();
+                        	    List<NoticeBoardVO> boardList = bDao.selectPage(map);
+                        	    
+                        	    int totalCnt = bDao.getCount();
+                        	    PageHandler pageHandler = new PageHandler(totalCnt, page, pageSize);
+                        	    
+                        	    // 응답 데이터를 JSON 형식으로 변환
+                        	    Gson gson = new Gson();
+                        	    JsonObject jsonResponse = new JsonObject();
+                        	    jsonResponse.add("boardList", gson.toJsonTree(boardList)); // 게시글 목록
+                        	    jsonResponse.add("pageHandler", gson.toJsonTree(pageHandler)); // 페이지 핸들러 정보
+                        	    
+                        	    // 클라이언트에게 JSON 응답을 반환
+                        	    response.setContentType("application/json");
+                        	    response.setCharacterEncoding("UTF-8");
+                        	    response.getWriter().write(jsonResponse.toString());
+                        	}
+                        
+                        	private Integer getParameterOrDefault(String paramValue, Integer defaultValue) {
+                        	    if (paramValue == null || paramValue.isEmpty()) {
+                        	        return defaultValue;
+                        	    }
+                        	    for (char c : paramValue.toCharArray()) {
+                        	        if (!Character.isDigit(c)) {
+                        	            return defaultValue;
+                        	        }
+                        	    }
+                        	    return Integer.parseInt(paramValue);
+                        	}
+                        
+                        
+                        }
+
+                  ```
+          
+      </details>
 8. **질문 및 리뷰 기능 구현:**
     - 사용자가 제품 리뷰를 작성할 수 있는 구매 후기 게시판 기능을 구현합니다.
     - 사용자가 질문할 수 있는 질의 응답 게시판을 구현합니다.
