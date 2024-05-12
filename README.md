@@ -171,7 +171,7 @@
     - 카카오 api를 활용하여 로그인 기능을 구현합니다.
         - 
     - 관리자 로그인을 구현하고 관리지 페이지에 접근을 인증*인가하는 필터를 구현한다.
-        - 비밀번호 암호화
+        - 접근 제한 필터
           <details>
             <summary>구현</summary>
   
@@ -195,6 +195,21 @@
                                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                               }
                           }
+  
+
+
+                            <filter>
+                                <filter-name>AdminAuthorizationFilter</filter-name>
+                                <filter-class>com.blacksmith.banchan.util.AdminAuthorizationFilter</filter-class>
+                        	</filter>
+                        
+                        	<filter-mapping>
+                        		<filter-name>AdminAuthorizationFilter</filter-name>
+                        		<url-pattern>/admin/*</url-pattern>
+                        	</filter-mapping>
+                        	
+
+    
                   ```
           
           </details>
