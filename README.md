@@ -153,8 +153,21 @@
                 
     - 회원 로그인을 구현하고, 입력된 정보와 데이터베이스의 정보를 확인하여 랜덤 바이너리 문자열을 Base64 인코딩하여 토큰으로 발행합니다.
         - Base64 토큰 발행
-            - 구현 코드
-            - 
+          <details>
+            <summary>구현</summary>
+
+                ```
+                  public static String generateBase64Token() {
+                    // 무작위 바이트 배열 생성
+                    byte[] randomBytes = new byte[32];
+                    new SecureRandom().nextBytes(randomBytes);
+            
+                    // 바이트 배열을 Base64 인코딩하여 문자열로 변환하여 반환
+                    return Base64.getEncoder().encodeToString(randomBytes);
+                }
+              ```
+
+          </details>
     - 카카오 api를 활용하여 로그인 기능을 구현합니다.
         - 
     - 관리자 로그인을 구현하고 관리지 페이지에 접근을 인증*인가하는 필터를 구현한다.
