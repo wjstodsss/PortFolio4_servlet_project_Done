@@ -68,7 +68,7 @@
     - 회원 가입 페이지를 구현하고, 회원 정보 데이터베이스에 저장 시 비밀번호를 암호화여 저장합니다.
         - 비밀번호 암호화
             <details>
-            <summary>구현 코드</summary>
+            <summary>구현</summary>
                 
                 public String hashPassword(String password) {
                 // 입력된 비밀번호를 해싱하여 반환하는 메서드
@@ -112,7 +112,8 @@
 
     - 관리자 로그인을  구현하고, 입력된 정보와 데이터베이스의 정보를 확인하여 JWT 토큰을 발행합니다.
         - JWT 토큰 발행
-            - 구현 코드
+            <details>
+            <summary>구현</summary>
                 
                 ```java
                 public class TokenGenerator {
@@ -148,6 +149,7 @@
                 	}
                 }
                 ```
+          </details>
                 
     - 회원 로그인을 구현하고, 입력된 정보와 데이터베이스의 정보를 확인하여 랜덤 바이너리 문자열을 Base64 인코딩하여 토큰으로 발행합니다.
         - Base64 토큰 발행
