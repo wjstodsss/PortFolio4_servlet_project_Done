@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상품 결제</title>
+  <!-- 부트스트랩 CSS 파일 로드 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* 가운데 정렬을 위한 스타일 */
+    .center-align {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    /* 첫 번째 영역의 배경색 */
+    .background-primary {
+      background-color: #ffc107; /* 주황색 */
+    }
+    /* 두 번째 영역의 배경색 */
+    .background-secondary {
+      background-color: #007bff; /* 파란색 */
+    }
+  </style>
+</head>
+<body>
+  <div class="container center-align">
+    <div class="row">
+      <div class="col-lg-6 background-primary">
+        <img src="product_image.jpg" class="img-fluid" alt="상품 이미지">
+      </div>
+      <div class="col-lg-6 background-secondary">
+        <h2>상품명</h2>
+        <p>상품에 대한 간단한 설명이 여기에 들어갑니다. 이 영역은 상품에 대한 상세한 정보를 제공할 수 있습니다.</p>
+        <p>가격: $99.99</p>
+        <p>색상: <span class="badge bg-primary">파란색</span></p>
+        <p>크기: <span class="badge bg-secondary">중형</span></p>
+        <!-- 결제 버튼 -->
+        <button type="button" class="btn btn-primary">결제하기</button>
+      </div>
+    </div>
+  </div>
+  <!-- 부트스트랩 JavaScript 파일 로드 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

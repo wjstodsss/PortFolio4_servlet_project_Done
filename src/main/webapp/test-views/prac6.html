@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>장바구니</title>
+  <!-- 부트스트랩 CSS 파일 로드 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* 장바구니 아이템 스타일 */
+    .cart-item {
+      border: 1px solid #dee2e6;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-5 mb-3">장바구니</h1>
+    <div id="cartList">
+      <!-- 장바구니 아이템들이 여기에 추가됩니다 -->
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary mt-3" onclick="checkout()">결제하기</button>
+    </div>
+  </div>
+  <!-- 부트스트랩 JavaScript 파일 로드 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <script>
+    // 장바구니 아이템 데이터 (예시)
+    var cartItems = [
+      { id: 1, name: "상품 1", price: 10000, quantity: 2 },
+      { id: 2, name: "상품 2", price: 20000, quantity: 1 },
+      { id: 3, name: "상품 3", price: 15000, quantity: 3 }
+    ];
+
+    // 장바구니 아이템들을 보여주는 함수
+    function showCart() {
+      var cartList = document.getElementById("cartList");
+      cartList.innerHTML = ""; // 기존 목록 초기화
+
+      // 장바구니 아이템들을 반복하여 표시
+      cartItems.forEach(function(item) {
+        var cartItemHtml = `
+          <div class="cart-item">
+            <h4>${item.name}</h4>
+            <p>가격: ${item.price}원</p>
+            <p>수량: ${item.quantity}</p>
+          </div>
+        `;
+        cartList.innerHTML += cartItemHtml;
+      });
+    }
+
+    // 페이지 로드 시 장바구니 아이템들 표시
+    window.onload = function() {
+      showCart();
+    };
+
+    // 결제하기 버튼 클릭 시 실행되는 함수 (예시)
+    function checkout() {
+      // 여기에 결제 처리 로직 추가
+      alert("결제를 진행합니다.");
+    }
+  </script>
+</body>
+</html>
