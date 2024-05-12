@@ -19,6 +19,7 @@ public class PasswordHashing {
             }
             return hexString.toString();
         } catch (NoSuchAlgorithmException e) {
+            // Handle exception
             return null;
         }
     }

@@ -14,10 +14,6 @@
     	.btn {
     		font-size: 0.8rem;
     	}
-    	
-    	#wrap {
-		    width: 1400px;
-		}
     </style>
 </head>
 <body>
@@ -55,8 +51,8 @@
                 <td>${admin.adminEmail}</td>
                 <td>${admin.adminPhone}</td>
                 <td>${admin.admin}</td>
-                <td><a class="btn btn-primary" href="admin?command=admin_update_form&code=${admin.code}">수정</a></td>
-                <td><a class="btn btn-danger" href="admin?command=admin_delete&code=${admin.code}">삭제</a></td>
+                <td><a class="btn btn-primary" href="admin?command=admin_update_form&code=${admin.code}">관리자 수정</a></td>
+                <td><a class="btn btn-danger" href="admin?command=admin_delete&code=${admin.code}">관리자 삭제</a></td>
             </tr>
         </c:forEach>
         </tbody>

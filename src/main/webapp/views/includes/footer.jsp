@@ -46,12 +46,16 @@
 			</p>
 		</div>
 	</footer>
-
+</body>
 	<script>
 	document.getElementById("inputWord").addEventListener("keypress", handleEnterKey);
 	document.getElementById("searchButton").addEventListener("click", handleClickKey);
 	document.getElementById("topClose").addEventListener("click", topBannerDisplayNone);
 
+     function topBannerDisplayNone() {
+         document.getElementById("topBanner").style.display = "none";
+     }
+     
         /* 공지사항 
         v0.01: 240110 setInterval함수를 활용하여 추가한 기능, 정해진 공지사항이 시간 마다 변경 
         */
@@ -74,6 +78,6 @@
         }
          
     </script>
-</body>
+
 
 </html>
