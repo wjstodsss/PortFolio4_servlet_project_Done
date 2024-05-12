@@ -171,6 +171,33 @@
     - 카카오 api를 활용하여 로그인 기능을 구현합니다.
         - 
     - 관리자 로그인을 구현하고 관리지 페이지에 접근을 인증*인가하는 필터를 구현한다.
+        - 비밀번호 암호화
+          <details>
+            <summary>구현</summary>
+  
+                  ```
+                          @Override
+                          public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+                          HttpServletRequest request = (HttpServletRequest) servletRequest;
+                          HttpServletResponse response = (HttpServletResponse) servletResponse;
+                        
+                          HttpSession session = request.getSession(false); // 세션이 없으면 null 반환
+                
+                          // JWT 토큰 가져오기
+                          String jwtToken = (String)session.getAttribute("adminToken");
+                
+                          // JWT 토큰 유효성 검사 및 관리자 권한 확인
+                          if (jwtToken != null && isValidJwtToken(jwtToken) && isAdmin(jwtToken)) {
+                                // 권한이 확인되면 다음 필터 또는 요청 핸들러로 요청을 전달
+                                filterChain.doFilter(request, response);
+                              } else {
+                                // 권한이 없는 경우 401 Unauthorized 에러 반환
+                                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                              }
+                          }
+                  ```
+          
+          </details>
 5. **제품 관리 기능 구현:**
     - 관리자 제품 관리 페이지에서 제품을 조회, 등록, 수정, 삭제할 수 있는 기능을 구현합니다.
 6. **장바구니 및 주문 기능 구현:**
