@@ -45,8 +45,8 @@ public class AdminUpdate implements Action {
 		AdminDAO mDao = AdminDAO.getAdminDao();
 		
 		int result = mDao.updateAdmin(mVo);
-		System.out.println(result);
-		response.sendRedirect("banchan?command=admin_list");
+		
+		response.sendRedirect("admin?command=admin_list");
 
 	}
 

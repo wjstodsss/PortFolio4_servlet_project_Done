@@ -35,11 +35,10 @@ public class AdminListRegister implements Action {
 		mVo.setAdminPhone(adminPhone);
 		mVo.setAdmin(Integer.parseInt(admin));
 		
-		System.out.println(mVo);
 
 		AdminDAO mDao = AdminDAO.getAdminDao();
 		int result = mDao.insertAdmin(mVo);
 		
-		response.sendRedirect("banchan?command=admin_list");
+		response.sendRedirect("admin?command=admin_list");
 	}
 }

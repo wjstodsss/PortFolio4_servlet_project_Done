@@ -21,10 +21,10 @@ public class AdminFaqBoardAction implements Action {
 		FaqBoardDAO bDao = FaqBoardDAO.getInstance();
 	    List<FaqBoardVO> boardList = bDao.selectAllBoards();
 	    request.setAttribute("boardList", boardList);
-	    System.out.println(boardList);
+	 
 	    
 		String url = "/views/admin/board/faq/admin-faq.jsp";
-	    System.out.println(url);
+	  
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 		

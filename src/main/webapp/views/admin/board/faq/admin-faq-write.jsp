@@ -27,7 +27,7 @@
 <body>
     <div id="wrap">
         <h1 class="text-center">자주 찾는 질문 등록</h1>
-        <form method="post" action="banchan?command=faq_write" enctype="multipart/form-data" name="frm">
+        <form method="post" action="admin?command=faq_write" enctype="multipart/form-data" name="frm">
             <div class="form-group row">
                 <label for="productName" class="col-sm-2 col-form-label">제목</label>
                 <div class="col-sm-10">

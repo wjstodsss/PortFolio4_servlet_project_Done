@@ -20,7 +20,7 @@ public class NoticeUpdateFormAction implements Action {
 		
 		NoticeBoardDAO pDao = NoticeBoardDAO.getInstance();
 		NoticeBoardVO pVo = pDao.selectOneBoardById(id);
-		System.out.println(pVo);
+	
 		request.setAttribute("board", pVo);
 	
 		RequestDispatcher dispatcher = request.getRequestDispatcher("views/admin/board/notice/admin-notice-update.jsp");

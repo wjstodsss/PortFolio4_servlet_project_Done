@@ -14,7 +14,7 @@ public class NoticeWriteFormAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = "/views/board/write-form/noticeBoard.jsp";
+		String url = "/views/admin/board/notice/admin-notice-write.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}

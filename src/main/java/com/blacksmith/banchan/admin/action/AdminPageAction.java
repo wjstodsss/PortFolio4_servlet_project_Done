@@ -13,7 +13,7 @@ public class AdminPageAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("jkhfkashfkjhsakjfhksajfhkjhfdjkh");
+		
 		String url = "/views/admin/admin.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

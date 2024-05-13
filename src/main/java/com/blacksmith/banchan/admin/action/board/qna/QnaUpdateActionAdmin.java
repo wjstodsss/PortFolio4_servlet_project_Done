@@ -48,7 +48,7 @@ public class QnaUpdateActionAdmin implements Action {
 		QnaBoardDAO pDao = QnaBoardDAO.getInstance();
 		pDao.updateBoard(pVo);
 
-		response.sendRedirect("banchan?command=qna_list");
+		response.sendRedirect("admin?command=qna_list");
 
 	}
 

@@ -34,7 +34,7 @@ public class ReviewDeleteActionAdmin implements Action {
 
 		pDao.deleteBoard(id);
 
-		response.sendRedirect("banchan?command=review_list");
+		response.sendRedirect("admin?command=review_list");
 	}
 
 }

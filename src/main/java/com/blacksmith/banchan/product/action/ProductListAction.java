@@ -20,7 +20,6 @@ public class ProductListAction implements Action {
 		List<ProductVO> productList = pDao.selectAllProducts();
 		request.setAttribute("productList", productList);
 		
-		System.out.println(request.getAttribute("productList"));
 		RequestDispatcher dispatcher = request.getRequestDispatcher("views/admin/product/productList.jsp");
 		dispatcher.forward(request, response);
 	}

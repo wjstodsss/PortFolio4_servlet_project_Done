@@ -29,6 +29,7 @@ public class QnaBoardDAO {
 	}
 
 	public List<QnaBoardVO> selectAllBoards() {
+		
 		String sql = "select * from tbl_qna order by id desc";
 		List<QnaBoardVO> list = new ArrayList<QnaBoardVO>();
 		Connection conn = null;
@@ -49,6 +50,7 @@ public class QnaBoardDAO {
 				bVo.setReadCount(rs.getInt("readCount"));
 				bVo.setDatePosted(rs.getTimestamp("datePosted"));
 				list.add(bVo);
+							
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

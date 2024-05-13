@@ -16,15 +16,13 @@ public class AdminQnaBoardAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
+	
 		QnaBoardDAO bDao = QnaBoardDAO.getInstance();
 	    List<QnaBoardVO> boardList = bDao.selectAllBoards();
 	    request.setAttribute("boardList", boardList);
-	    System.out.println(boardList);
 	    
 		String url = "/views/admin/board/qna/admin-qna.jsp";
-	    System.out.println(url);
+	  
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 		

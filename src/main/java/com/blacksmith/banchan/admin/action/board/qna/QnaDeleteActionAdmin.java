@@ -34,7 +34,7 @@ public class QnaDeleteActionAdmin implements Action {
 
 		pDao.deleteBoard(id);
 
-		response.sendRedirect("banchan?command=qna_list");
+		response.sendRedirect("admin?command=qna_list");
 	}
 
 }

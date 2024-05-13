@@ -20,8 +20,8 @@ public class ReviewUpdateFormActionAdmin implements Action {
 
 		ReviewBoardDAO pDao = ReviewBoardDAO.getInstance();
 		ReviewBoardVO pVo = pDao.selectOneBoardById(id);
-		System.out.println(pVo);
 		request.setAttribute("board", pVo);
+		
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("views/admin/board/review/admin-review-update.jsp");
 		dispatcher.forward(request, response);

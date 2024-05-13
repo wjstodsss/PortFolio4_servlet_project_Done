@@ -48,7 +48,7 @@ public class ReviewUpdateActionAdmin implements Action {
 		ReviewBoardDAO pDao = ReviewBoardDAO.getInstance();
 		pDao.updateBoard(pVo);
 
-		response.sendRedirect("banchan?command=review_list");
+		response.sendRedirect("admin?command=review_list");
 
 	}
 

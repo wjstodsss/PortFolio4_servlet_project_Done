@@ -43,7 +43,7 @@ public class QnaWriteActionAdmin implements Action {
 		QnaBoardDAO pDao = QnaBoardDAO.getInstance();
 		pDao.insertBoard(pVo);
 
-		response.sendRedirect("banchan?command=qna_list");
+		response.sendRedirect("admin?command=qna_list");
 
 	}
 

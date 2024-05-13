@@ -46,10 +46,9 @@ public class ProductUpdateAction implements Action {
 		pVo.setPictureUrl(pictureUrl);
 
 		ProductDAO pDao = ProductDAO.getInstance();
-		System.out.println(pDao);
 		pDao.updateProduct(pVo);
 
-		response.sendRedirect("banchan?command=product_list");
+		response.sendRedirect("admin?command=product_list");
 
 	}
 

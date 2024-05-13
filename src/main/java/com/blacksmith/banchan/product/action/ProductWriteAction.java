@@ -21,7 +21,9 @@ public class ProductWriteAction implements Action {
 
 		ServletContext context = request.getServletContext();
 
+		System.out.println(context);
 		String path = context.getRealPath("upload");
+		System.out.println(path);
 		String encType = "UTF-8";
 		int sizeLimit = 20 * 1024 * 1024;
 
@@ -42,7 +44,7 @@ public class ProductWriteAction implements Action {
 		ProductDAO pDao = ProductDAO.getInstance();
 		pDao.insertProduct(pVo);
 
-		response.sendRedirect("banchan?command=product_list");
+		response.sendRedirect("admin?command=product_list");
 
 	}
 

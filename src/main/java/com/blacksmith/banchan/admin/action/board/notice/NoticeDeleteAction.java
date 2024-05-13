@@ -34,7 +34,7 @@ public class NoticeDeleteAction implements Action {
 
 		pDao.deleteBoard(id);
 
-		response.sendRedirect("banchan?command=notice_list");
+		response.sendRedirect("admin?command=notice_list");
 	}
 
 }

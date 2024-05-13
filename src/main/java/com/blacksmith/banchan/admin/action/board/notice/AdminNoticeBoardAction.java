@@ -20,16 +20,12 @@ public class AdminNoticeBoardAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
 		NoticeBoardDAO bDao = NoticeBoardDAO.getInstance();
 	    List<NoticeBoardVO> boardList = bDao.selectAllBoards();
 	    request.setAttribute("boardList", boardList);
-	    
-	   
-	
-		
+	  
 		String url = "/views/admin/board/notice/admin-notice.jsp";
-	    System.out.println(url);
+	
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 		

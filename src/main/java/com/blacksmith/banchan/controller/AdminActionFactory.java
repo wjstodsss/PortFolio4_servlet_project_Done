@@ -113,23 +113,7 @@ public class AdminActionFactory {
 			action = new ProductDeleteFormAction();
 		} else if (command.equals("product_delete")){
 			action = new ProductDeleteAction();
-		} else if (command.equals("write_qna")){
-			action = new QnaWriteAction();
-		} else if (command.equals("detail_qna")){
-			action = new QnaDetailAction();
-		} else if (command.equals("update_qna")){
-			action = new QnaUpdateAction();
-		} else if (command.equals("delete_qna")){
-			action = new QnaDeleteAction();
-		} else if (command.equals("write_review")){
-			action = new ReviewWriteAction();
-		} else if (command.equals("detail_review")){
-			action = new ReviewDetailAction();
-		} else if (command.equals("update_review")){
-			action = new ReviewUpdateAction();
-		} else if (command.equals("delete_review")){
-			action = new ReviewDeleteAction();
-		}  else if (command.equals("notice_write_form")){
+		} else if (command.equals("notice_write_form")){
 			action = new NoticeWriteFormAction();
 		} else if (command.equals("notice_write")){
 			action = new NoticeWriteAction();

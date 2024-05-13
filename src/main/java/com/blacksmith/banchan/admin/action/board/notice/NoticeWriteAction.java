@@ -43,7 +43,7 @@ public class NoticeWriteAction implements Action {
 		NoticeBoardDAO pDao = NoticeBoardDAO.getInstance();
 		pDao.insertBoard(pVo);
 
-		response.sendRedirect("banchan?command=notice_list");
+		response.sendRedirect("admin?command=notice_list");
 
 	}
 

@@ -17,7 +17,6 @@ public class ProductUpdateFormAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String code = request.getParameter("code");
 
-		System.out.println(code);
 		ProductDAO pDao = ProductDAO.getInstance();
 		ProductVO pVo = pDao.selectProductByCode(code);
 

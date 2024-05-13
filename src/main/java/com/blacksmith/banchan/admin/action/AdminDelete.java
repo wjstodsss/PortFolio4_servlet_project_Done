@@ -21,7 +21,7 @@ public class AdminDelete implements Action {
 		AdminDAO pDao = AdminDAO.getAdminDao();
 		pDao.deleteAdmin(code);
 		
-		response.sendRedirect("banchan?command=admin_list");
+		response.sendRedirect("admin?command=admin_list");
 		
 
 	}

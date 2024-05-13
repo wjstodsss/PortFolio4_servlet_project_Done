@@ -63,7 +63,7 @@ public class QnaBoardVO {
 	}
 	@Override
 	public String toString() {
-		return "FaqBoardVO [id=" + id + ", title=" + title + ", author=" + author + ", password=" + password
+		return "QnaBoardVO [id=" + id + ", title=" + title + ", author=" + author + ", password=" + password
 				+ ", content=" + content + ", imageUrl=" + imageUrl + ", readCount=" + readCount + ", datePosted="
 				+ datePosted + "]";
 	}

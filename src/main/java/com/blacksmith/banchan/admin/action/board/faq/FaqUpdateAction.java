@@ -48,7 +48,7 @@ public class FaqUpdateAction implements Action {
 		FaqBoardDAO pDao = FaqBoardDAO.getInstance();
 		pDao.updateBoard(pVo);
 
-		response.sendRedirect("banchan?command=faq_list");
+		response.sendRedirect("admin?command=faq_list");
 
 	}
 

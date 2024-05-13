@@ -34,7 +34,7 @@ public class FaqDeleteAction implements Action {
 
 		pDao.deleteBoard(id);
 
-		response.sendRedirect("banchan?command=faq_list");
+		response.sendRedirect("admin?command=faq_list");
 	}
 
 }

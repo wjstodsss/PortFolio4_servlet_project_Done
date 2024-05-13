@@ -43,7 +43,7 @@ public class FaqWriteAction implements Action {
 		FaqBoardDAO pDao = FaqBoardDAO.getInstance();
 		pDao.insertBoard(pVo);
 
-		response.sendRedirect("banchan?command=faq_list");
+		response.sendRedirect("admin?command=faq_list");
 
 	}
 

@@ -16,7 +16,7 @@ public class ProductDeleteAction implements Action {
 		String code = request.getParameter("code");
 		ProductDAO pDao = ProductDAO.getInstance();
 		pDao.deleteProduct(code);
-		response.sendRedirect("banchan?command=product_list");
+		response.sendRedirect("admin?command=product_list");
 	}
 
 }

@@ -21,10 +21,10 @@ public class AdminReviewBoardAction implements Action {
 		ReviewBoardDAO bDao = ReviewBoardDAO.getInstance();
 	    List<ReviewBoardVO> boardList = bDao.selectAllBoards();
 	    request.setAttribute("boardList", boardList);
-	    System.out.println(boardList);
+
 	  
 		String url = "/views/admin/board/review/admin-review.jsp";
-	    System.out.println(url);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 		

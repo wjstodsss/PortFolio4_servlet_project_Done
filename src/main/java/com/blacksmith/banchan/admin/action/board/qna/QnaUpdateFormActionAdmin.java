@@ -20,7 +20,6 @@ public class QnaUpdateFormActionAdmin implements Action {
 
 		QnaBoardDAO pDao = QnaBoardDAO.getInstance();
 		QnaBoardVO pVo = pDao.selectOneBoardById(id);
-		System.out.println(pVo);
 		request.setAttribute("board", pVo);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("views/admin/board/qna/admin-qna-update.jsp");

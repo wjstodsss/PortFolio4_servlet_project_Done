@@ -48,7 +48,7 @@ public class NoticeUpdateAction implements Action {
 		NoticeBoardDAO pDao = NoticeBoardDAO.getInstance();
 		pDao.updateBoard(pVo);
 
-		response.sendRedirect("banchan?command=notice_list");
+		response.sendRedirect("admin?command=notice_list");
 
 	}
 
